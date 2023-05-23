@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:moyen_xpress_app/route_management/route_management.dart';
 import 'package:moyen_xpress_app/utils/color_utils.dart';
 import 'package:moyen_xpress_app/utils/route_utils.dart';
+import 'package:moyen_xpress_app/utils/size_utils.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,6 +14,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     //CustomSize.getInstance().init(context);
+    //CustomSize().init(context);
     return ScreenUtilInit(
         designSize: const Size(360, 690),
         builder: (context, child) {
@@ -24,7 +27,7 @@ class MyApp extends StatelessWidget {
               primarySwatch: primaryColorSwatch,
               fontFamily:'Nexa',
             ),
-            initialRoute: kWelcomeScreen,
+            initialRoute: kHomeScreen,
             getPages: RouteManagement.getPages(),
 
             // initialBinding: ControllerBinding(),
