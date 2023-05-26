@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
 
 class ImageUtils{
+
+  /// Icons
+  static const String shoppingIcon = 'assets/images/shoppingIcon.png';
+  static const String shippingIcon1 = 'assets/icons/shippingIcon1.png';
+  static const String shippingIcon2 = 'assets/icons/shippingIcon2.png';
+  static const String shippingIcon3 = 'assets/icons/shippingIcon3.png';
+  static const String backIcon = 'assets/icons/backIcon.png';
+  static const String termsIcon = 'assets/icons/termsIcon.png';
+
+  /// Images
   static const String logo = 'assets/images/logo.png';
   static const String homeBanner = 'assets/images/homeBanner.png';
   static const String dealItem = 'assets/images/dealItem.png';
@@ -14,6 +24,9 @@ class ImageUtils{
   static const String categoryImage2 = 'assets/images/categoryImage2.png';
   static const String categoryImage3 = 'assets/images/categoryImage3.png';
   static const String categoryImage4 = 'assets/images/categoryImage4.png';
-
-
+  static const String shopNow1 = 'assets/images/shopNow1.png';
+  static const String shopNow2 = 'assets/images/shopNow2.png';
+  static const String shopNow3 = 'assets/images/shopNow3.png';
+  static const String shopNow4 = 'assets/images/shopNow4.png';
+  static const String shippingImage = 'assets/images/shippingImage.png';
 }

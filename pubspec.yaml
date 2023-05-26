@@ -110,6 +110,23 @@ flutter:
       fonts:
         - asset: assets/fonts/Montserrat-Bold.ttf
 
+
+    - family: PoppinsRegular
+      fonts:
+       - asset: assets/fonts/Poppins-Regular.ttf
+
+    - family: PoppinsMedium
+      fonts:
+        - asset: assets/fonts/Poppins-Medium.ttf
+
+    - family: PoppinsSemiBold
+      fonts:
+        - asset: assets/fonts/Poppins-SemiBold.ttf
+
+    - family: PoppinsBold
+      fonts:
+        - asset: assets/fonts/Poppins-Bold.ttf
+
     - family: ArabicBlack
       fonts:
         - asset: assets/fonts/NotoSansArabic-Black.ttf

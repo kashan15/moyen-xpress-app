@@ -3,3 +3,8 @@ const String montserratMedium = "MontserratMedium";
 const String montserratRegular = "MontserratRegular";
 const String montserratSemiBold = "MontserratSemiBold";
 const String montserratBold = "MontserratBold";
+
+const String poppinsRegular = "PoppinsRegular";
+const String poppinsMedium = "PoppinsMedium";
+const String poppinsSemiBold = "PoppinsSemiBold";
+const String poppinsBold = "PoppinsBold";
