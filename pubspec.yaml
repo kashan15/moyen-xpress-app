@@ -43,6 +43,8 @@ dependencies:
   flutter_picker: ^2.1.0
   collection: ^1.16.0
   get_storage: ^2.1.1
+  smooth_page_indicator: ^1.1.0
+  flutter_rating_bar:
 
 dev_dependencies:
   flutter_test:
@@ -87,6 +89,64 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+
+
+  fonts:
+    - family: MontserratMedium
+      fonts:
+        - asset: assets/fonts/Montserrat-Medium.ttf
+
+    - family: MontserratRegular
+      fonts:
+        - asset: assets/fonts/Montserrat-Regular.ttf
+
+
+    - family: MontserratSemiBold
+      fonts:
+        - asset: assets/fonts/Montserrat-SemiBold.ttf
+
+
+    - family: MontserratBold
+      fonts:
+        - asset: assets/fonts/Montserrat-Bold.ttf
+
+    - family: ArabicBlack
+      fonts:
+        - asset: assets/fonts/NotoSansArabic-Black.ttf
+
+    - family: ArabicBold
+      fonts:
+        - asset: assets/fonts/NotoSansArabic-Bold.ttf
+
+    - family: ArabicExtraBold
+      fonts:
+        - asset: assets/fonts/NotoSansArabic-ExtraBold.ttf
+
+    - family: ArabicLight
+      fonts:
+        - asset: assets/fonts/NotoSansArabic-Light.ttf
+
+    - family: ArabicMedium
+      fonts:
+        - asset: assets/fonts/NotoSansArabic-Medium.ttf
+
+    - family: ArabicRegular
+      fonts:
+        - asset: assets/fonts/NotoSansArabic-Regular.ttf
+
+    - family: ArabicSemiBold
+      fonts:
+        - asset: assets/fonts/NotoSansArabic-SemiBold.ttf
+
+    - family: CamaroSans
+      fonts:
+        - asset: assets/fonts/Camaro Sans.otf
+
+    - family: DarkerGrotesque
+      fonts:
+        - asset: assets/fonts/DarkerGrotesque-SemiBold.ttf
+
+
   # fonts:
   #   - family: Schyler
   #     fonts:

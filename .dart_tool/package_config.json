@@ -92,6 +92,12 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "flutter_rating_bar",
+      "rootUri": "file:///C:/Users/Flutter/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_rating_bar-4.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
       "name": "flutter_screenutil",
       "rootUri": "file:///C:/Users/Flutter/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_screenutil-5.7.0",
       "packageUri": "lib/",
@@ -266,6 +272,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "smooth_page_indicator",
+      "rootUri": "file:///C:/Users/Flutter/AppData/Local/Pub/Cache/hosted/pub.dev/smooth_page_indicator-1.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "source_span",
       "rootUri": "file:///C:/Users/Flutter/AppData/Local/Pub/Cache/hosted/pub.dev/source_span-1.9.1",
       "packageUri": "lib/",
@@ -332,7 +344,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-05-23T15:38:11.933813Z",
+  "generated": "2023-05-25T16:01:27.492617Z",
   "generator": "pub",
   "generatorVersion": "2.19.4"
 }

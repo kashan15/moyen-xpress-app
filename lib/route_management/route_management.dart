@@ -9,7 +9,7 @@ class RouteManagement {
     return [
       GetPage(
         name: kHomeScreen,
-        page: () => const HomeScreen(),
+        page: () =>  HomeScreen(),
         binding: ControllerBinding(),
       ),
 ];
