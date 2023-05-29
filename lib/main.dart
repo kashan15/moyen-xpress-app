@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
               primarySwatch: primaryColorSwatch,
               fontFamily:'Nexa',
             ),
-            initialRoute: kHomeScreen,
+            initialRoute: kNavBar1,
             getPages: RouteManagement.getPages(),
 
             // initialBinding: ControllerBinding(),

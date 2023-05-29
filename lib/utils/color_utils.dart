@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 // const MaterialColor primaryColor = MaterialColor();
 
+
+
 const MaterialColor primaryColorSwatch =
 MaterialColor(primaryColorValue, <int, Color>{
   50: Color(0xFFE8E0EE),
@@ -27,6 +29,8 @@ MaterialColor(accentColorValue, <int, Color>{
 const int accentColorValue = 0xFFFB2576;
 // const  accentColor = Color(0xFFFB2576);
 
+
+
 final textColorPurple = primaryColorSwatch.shade200; //Color(0Xff9f7fb7);
 const fieldColor = Colors.white;
 const Color textGreyColor = Colors.grey; // Colors.grey.shade900;
@@ -38,4 +42,6 @@ const Color textBlackColor = Colors.black;
 const Color greenColor = Color(0xff5DF0BC);
 const Color locationColor = Color(0xff124394);
 const Color homeBoxColor = Color(0xffDA6E26);
+const Color customWhiteColor = Colors.white;
+
 const Color gridColor = Color(0xffF3F3F3);
