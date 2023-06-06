@@ -3,7 +3,10 @@ import 'package:moyen_xpress_app/utils/image_utils.dart';
 import 'package:moyen_xpress_app/utils/size_utils.dart';
 
 class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppbar({Key? key}) : super(key: key);
+  final Function()? onMenuClicked;
+   CustomAppbar({Key? key,
+   required this.onMenuClicked
+   }) : super(key: key);
 
 
   @override
@@ -14,26 +17,38 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
     double _height = MediaQuery.of(context).size.height;
     double _width = MediaQuery.of(context).size.width;
     return AppBar(
-      backgroundColor: Colors.white,
-      elevation: 1,
-      shadowColor: Colors.black,
-      title: Image.asset(
-        ImageUtils.logo,
-        height: _height * 0.05
-      ),
-      actions: [
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20),
-          child: Row(
-            children: [
-              //const SizedBox(width: 20),
-              Icon(Icons.search, size: _height * 0.025, color: Colors.black,),
-              const SizedBox(width: 10),
-              Icon(Icons.menu, size: _height * 0.025, color: Colors.black)
-            ],
-          ),
-        )
-      ],
-    );
+        backgroundColor: Colors.white,
+        elevation: 1,
+        shadowColor: Colors.black,
+        title: Image.asset(
+          ImageUtils.logo,
+          height: _height * 0.05
+        ),
+        actions: [
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              children: [
+                //const SizedBox(width: 20),
+                Icon(
+                  Icons.search,
+                  size: _height * 0.025,
+                  color: Colors.black,
+                ),
+                const SizedBox(width: 10),
+                GestureDetector(
+                  onTap: onMenuClicked,
+                  child: Icon(
+                      Icons.menu,
+                      size: _height * 0.025,
+                      color: Colors.black
+                  ),
+                )
+              ],
+            ),
+          )
+        ],
+      );
+
   }
 }

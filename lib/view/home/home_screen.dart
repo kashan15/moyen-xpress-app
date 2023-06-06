@@ -11,6 +11,7 @@ import 'package:moyen_xpress_app/utils/font_utils.dart';
 import 'package:moyen_xpress_app/utils/image_utils.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../components/custom_drawer.dart';
 import '../../components/custom_navbar.dart';
 import '../../controller/home_controller.dart';
 
@@ -169,6 +170,7 @@ class HomeScreen extends GetView<HomeController> {
 
    ];
 
+
   @override
   Widget build(BuildContext context) {
     controller.globalContext = context;
@@ -195,10 +197,14 @@ class HomeScreen extends GetView<HomeController> {
                 )),
           ),
         ));
-
     return
               Scaffold(
-                appBar: const CustomAppbar(),
+                // key: controller.scaffoldKey,
+                // //extendBodyBehindAppBar: true,
+                // appBar: CustomAppbar(
+                //   onMenuClicked: ()=> controller.scaffoldKey.currentState!.openEndDrawer(),
+                // ),
+                // endDrawer: const CustomDrawer(),
                 body: SingleChildScrollView(
                   child: Container(
                     color: Colors.white,
