@@ -10,11 +10,63 @@ import '../../utils/font_utils.dart';
 import '../../utils/image_utils.dart';
 
 class CategoriesScreen extends GetView<CategoriesController> {
-  const CategoriesScreen({Key? key}) : super(key: key);
+   CategoriesScreen({Key? key}) : super(key: key);
+
+  List categoriesItems = [
+    {
+      'image': ImageUtils.categoriesPic1,
+      'name': 'Sports & Outdoor'
+    },{
+      'image': ImageUtils.categoriesPic2,
+      'name': 'Home, Garden & Tools',
+    },{
+      'image': ImageUtils.categoriesPic3,
+      'name': 'Pet Supplies'
+    },{
+      'image': ImageUtils.categoriesPic4,
+      'name': 'Food & Grocery'
+    },{
+      'image': ImageUtils.categoriesPic5,
+      'name': 'Beauty & Health'
+    },{
+      'image': ImageUtils.categoriesPic6,
+      'name': 'Toys, Kids & Baby'
+    },{
+      'image': ImageUtils.categoriesPic7,
+      'name': 'Handmade'
+    },{
+      'image': ImageUtils.categoriesPic8,
+      'name': 'Automobile & Industry'
+    },{
+      'image': ImageUtils.categoriesPic9,
+      'name': 'Industrial & Scientific'
+    },{
+      'image': ImageUtils.categoriesPic10,
+      'name': 'Automobile & Motorcycle'
+    },{
+      'image': ImageUtils.categoriesPic11,
+      'name': 'Clothing, Shoes, Jewelry & watches'
+    },{
+      'image': ImageUtils.categoriesPic12,
+      'name': 'Books'
+    },{
+      'image': ImageUtils.categoriesPic13,
+      'name': 'Movies, Music & Games'
+    },{
+      'image': ImageUtils.categoriesPic14,
+      'name': 'Electronics'
+    },{
+      'image': ImageUtils.categoriesPic15,
+      'name': 'Computers'
+    },{
+      'image': ImageUtils.categoriesPic16,
+      'name': 'Smart Home'
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
-    controller.globalContext!;
+    controller.globalContext = context;
     double _height = MediaQuery.of(context).size.height;
     double _width = MediaQuery.of(context).size.width;
     int columnsCount = MediaQuery.of(context).size.width < 600 ? 2 : 1;
@@ -22,161 +74,117 @@ class CategoriesScreen extends GetView<CategoriesController> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            SizedBox(height: _height * 0.02,),
+            Row(
+                children:[
+                  SizedBox(width: _width * 0.06,),
+                  TextWidget(
+                    textTitle: 'Categories',
+                    fontWeight: FontWeight.w500,
+                    fontSize: _height * 0.02,
+                    color: Colors.black,
+                  ),
+                ]),
             GridView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               padding: EdgeInsets.symmetric(
-                  horizontal: _width * 0.06,
-                  vertical: _height * 0.02
+                  horizontal: _width * 0.04,
+                  vertical: _height * 0.01
               ),
-              itemCount: 4, // Number of containers
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: columnsCount,
-                childAspectRatio: 0.68,
-                crossAxisSpacing: 25.0,
-                mainAxisSpacing: 25.0,
+              itemCount: categoriesItems.length, // Number of containers
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 4,
+                childAspectRatio: 0.60,
+                crossAxisSpacing: 15.0,
+                mainAxisSpacing: 20.0,
               ),
               itemBuilder: (BuildContext context, int index) {
                 // Build each container
                 return  Container(
-                    padding: EdgeInsets.symmetric(horizontal: _width * 0.0225, vertical: _height * 0.0125),
-                    decoration: BoxDecoration(
-                      color: gridColor,
-                      borderRadius: BorderRadius.circular(_width * 0.025),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          blurRadius: 3,
-                          //spreadRadius: 5,
-                          offset: Offset(0, 5), // Shadow position
-                        ),],
+                  // height: _height * 0.15,
+                  // width: _width * 0.1,
+                  padding: EdgeInsets.symmetric(
+                      horizontal: _width * 0.008,
+                      vertical: _height * 0.008
+                  ),
+                  color: Colors.white54,
+                  child:
+                  Column(
+                    // crossAxisAlignment: CrossAxisAlignment.center,
+                    // mainAxisAlignment: MainAxisAlignment.center,
+                    children:[
+
+                      /// Circle Container
+                      Container(
+                      // padding: EdgeInsets.symmetric(
+                      // horizontal: _width * 0.0225,
+                      // vertical: _height * 0.0125
+                      // ),
+                      height: _height * 0.09,
+                      decoration: BoxDecoration(
+                    color: categoriesColor,
+                    shape: BoxShape.circle,
+
+                    // borderRadius: BorderRadius.circular(_width * 0.025),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        blurRadius: 3,
+                        //spreadRadius: 5,
+                        offset: Offset(0, 5), // Shadow position
+                      ),],
+                    image: DecorationImage(image: AssetImage(
+                        categoriesItems[index]['image']
                     ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Container(
-                          margin: EdgeInsets.only(right: _width * 0.285),
-                          padding: EdgeInsets.symmetric(horizontal: _width * 0.005, vertical: _height * 0.004),
-                          decoration: BoxDecoration(
-                              color: homeBoxColor,
-                              borderRadius: BorderRadius.circular(_width * 0.0105),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.5),
-                                  blurRadius: 3,
-                                  //spreadRadius: 5,
-                                  offset: Offset(0, 3), // Shadow position
-                                ),]
-                          ),
-                          child: Center(
-                            child: TextWidget(
-                              textTitle: '25%',
-                              fontFamily: montserratSemiBold,
-                              fontSize: 12.0,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: _height * 0.02,),
-                        Container(
-                          height: _height * 0.115,
-                          width: double.infinity,
-                          margin: EdgeInsets.symmetric(horizontal: _width * 0.018),
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                              color: gridColor,
-                              image: DecorationImage(image: AssetImage(
-                                ImageUtils.dealItem,
-                              ),
-                                fit: BoxFit.cover,
-                              )
-                          ),
-                        ),
-                        SizedBox(height: _height * 0.01,),
-                        TextWidget(
-                          textTitle: 'Microwave Oven',
-                          fontFamily: montserratSemiBold,
-                          fontSize: 11.0,
-                          color: Colors.black,
-                        ),
-                        SizedBox(height: _height * 0.005,),
-                        TextWidget(
-                          textTitle: '\$75.00',
-                          fontFamily: montserratSemiBold,
-                          fontSize: 11.0,
-                          color: homeBoxColor,
-                        ),
-                        SizedBox(height: _height * 0.005,),
-                        RatingWidget(
-                          initialRating: 4.5,
-                        ),
-                        SizedBox(height: _height * 0.008,),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            CustomGridButton(
-                              onTap: (){},
-                              title: 'Add to cart',
-                            ),
-                            Container(
-                              padding: EdgeInsets.symmetric(horizontal: _width * 0.025, vertical: _height * 0.005),
-                              decoration: BoxDecoration(
-                                  color: homeBoxColor,
-                                  borderRadius: BorderRadius.circular(_width * 0.01)
-                              ),
-                              child: Center(
-                                  child: Icon(
-                                    Icons.favorite_border_outlined, size: _height * 0.015,
-                                    color: Colors.white,
-                                  )
-                              ),
-                            )
-                          ],
-                        ),
-
-                        Row(
-                          children: [
-
-                          ],
-                        )
-                      ],
+                      fit: BoxFit.contain
                     )
+                      ),
 
+                    // Column(
+                    //   children:[
+                    //     Row(
+                    //     crossAxisAlignment: CrossAxisAlignment.start,
+                    //     children: [
+                    //       SizedBox(width: _width * 0.02,),
+                    //       TextWidget(
+                    //         textTitle: 'Learning Lessons',
+                    //         color: ColorUtils.white,
+                    //         fontFamily: FontUtils.montserratSemiBold,
+                    //         fontSize: 1.5.t,
+                    //       ),
+                    //     ],
+                    //   ),
+                    //     SizedBox(height: _height * 0.018,),
+                    //     Row(
+                    //       //crossAxisAlignment: CrossAxisAlignment.end,
+                    //       mainAxisAlignment: MainAxisAlignment.end,
+                    //       children: [
+                    //         CircleAvatar(
+                    //           backgroundColor: Colors.white,
+                    //           radius: _height * 0.0275,
+                    //           // backgroundImage: AssetImage(
+                    //           //     ImageUtils.homeIcon1,
+                    //           // ),
+                    //           child: Image.asset(ImageUtils.homeIcon2, height: _height * 0.035,),
+                    //         ),
+                    //         SizedBox(width: _width * 0.020,),
+                    //       ],
+                    //     ),
+                    //
+                    // ]),
 
-                  // Column(
-                  //   children:[
-                  //     Row(
-                  //     crossAxisAlignment: CrossAxisAlignment.start,
-                  //     children: [
-                  //       SizedBox(width: _width * 0.02,),
-                  //       TextWidget(
-                  //         textTitle: 'Learning Lessons',
-                  //         color: ColorUtils.white,
-                  //         fontFamily: FontUtils.montserratSemiBold,
-                  //         fontSize: 1.5.t,
-                  //       ),
-                  //     ],
-                  //   ),
-                  //     SizedBox(height: _height * 0.018,),
-                  //     Row(
-                  //       //crossAxisAlignment: CrossAxisAlignment.end,
-                  //       mainAxisAlignment: MainAxisAlignment.end,
-                  //       children: [
-                  //         CircleAvatar(
-                  //           backgroundColor: Colors.white,
-                  //           radius: _height * 0.0275,
-                  //           // backgroundImage: AssetImage(
-                  //           //     ImageUtils.homeIcon1,
-                  //           // ),
-                  //           child: Image.asset(ImageUtils.homeIcon2, height: _height * 0.035,),
-                  //         ),
-                  //         SizedBox(width: _width * 0.020,),
-                  //       ],
-                  //     ),
-                  //
-                  // ]),
-
+                      ),
+                      SizedBox(height: _height * 0.01,),
+                      TextWidget(
+                      textTitle: categoriesItems[index]['name'],
+                      fontSize: _height * 0.015,
+                      color: Colors.black,
+                      textAlign: TextAlign.center,
+                      maxLines: 2,
+                      overFlow: TextOverflow.ellipsis,
+                        )
+                  ]),
                 );
               },
             ),

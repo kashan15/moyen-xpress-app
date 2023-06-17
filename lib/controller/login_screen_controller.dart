@@ -71,7 +71,7 @@ class LoginScreenController extends GetxController{
       showError.value = '';
       setUser();
       print("resulr: ${data['data']}");
-      Get.toNamed(kHomeScreen);
+      Get.toNamed(kNavBar1);
       // Get.offAllNamed(kWebViewScreen,arguments: 'https://moyenxpress.com/loginForWeb?email=${email.text}&password=${password.text}&device_token=${deviceToken}');
 
       //  Get.offAllNamed(kWebViewScreen,arguments: 'https://activemoyen.globalapplicationbrands.com/loginForWeb?email=${email.text}&password=${password.text}');

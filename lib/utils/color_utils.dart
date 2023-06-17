@@ -42,6 +42,7 @@ const Color textBlackColor = Colors.black;
 const Color greenColor = Color(0xff5DF0BC);
 const Color locationColor = Color(0xff124394);
 const Color homeBoxColor = Color(0xffDA6E26);
+const Color categoriesColor = Color(0xffEB751F);
 const Color customWhiteColor = Colors.white;
 
 const Color gridColor = Color(0xffF3F3F3);

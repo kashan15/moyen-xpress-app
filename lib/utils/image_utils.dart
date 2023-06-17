@@ -40,4 +40,24 @@ class ImageUtils{
   static const String shopNow4 = 'assets/images/shopNow4.png';
   static const String shippingImage = 'assets/images/shippingImage.png';
   static const String drawerImage = 'assets/images/drawerImage.png';
+  static const String categoriesPic1 = 'assets/images/categoriesPic1.png';
+  static const String categoriesPic2 = 'assets/images/categoriesPic2.png';
+  static const String categoriesPic3 = 'assets/images/categoriesPic3.png';
+  static const String categoriesPic4 = 'assets/images/categoriesPic4.png';
+  static const String categoriesPic5 = 'assets/images/categoriesPic5.png';
+  static const String categoriesPic6 = 'assets/images/categoriesPic6.png';
+  static const String categoriesPic7 = 'assets/images/categoriesPic7.png';
+  static const String categoriesPic8 = 'assets/images/categoriesPic8.png';
+  static const String categoriesPic9 = 'assets/images/categoriesPic9.png';
+  static const String categoriesPic10 = 'assets/images/categoriesPic10.png';
+  static const String categoriesPic11 = 'assets/images/categoriesPic11.png';
+  static const String categoriesPic12 = 'assets/images/categoriesPic12.png';
+  static const String categoriesPic13 = 'assets/images/categoriesPic13.png';
+  static const String categoriesPic14 = 'assets/images/categoriesPic14.png';
+  static const String categoriesPic15 = 'assets/images/categoriesPic15.png';
+  static const String categoriesPic16 = 'assets/images/categoriesPic16.png';
+
+
+
+
 }

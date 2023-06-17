@@ -21,7 +21,7 @@ class HomeScreen extends GetView<HomeController> {
    dynamic pages = [];
    dynamic pagesVertical = [];
 
-  List categoriesList = [
+    List categoriesList = [
     {
       "name": "New Arrivals",
       "image": ImageUtils.categoryImage1
@@ -258,7 +258,10 @@ class HomeScreen extends GetView<HomeController> {
                                         color: Colors.white,
                                         width: _width * 0.25,
                                         margin: EdgeInsets.zero,
-                                        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 8,
+                                            vertical: 8
+                                        ),
                                         child: Column(
                                           children: [
                                             GestureDetector(
@@ -280,7 +283,10 @@ class HomeScreen extends GetView<HomeController> {
                                                   radius: _height * 0.045,
                                                   backgroundColor: homeBoxColor,
                                                   child: Container(
-                                                    margin: EdgeInsets.symmetric(horizontal: _width * 0.02, vertical: _height * 0.0075),
+                                                    margin: EdgeInsets.symmetric(
+                                                        horizontal: _width * 0.02,
+                                                        vertical: _height * 0.0075
+                                                    ),
                                                     //padding: EdgeInsets.symmetric(horizontal: _width * 0.02, vertical: _height * 0.01),
                                                     decoration: BoxDecoration(
                                                       shape: BoxShape.circle,

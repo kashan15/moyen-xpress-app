@@ -24,6 +24,7 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
           ImageUtils.logo,
           height: _height * 0.05
         ),
+      automaticallyImplyLeading: false,
         actions: [
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20),
