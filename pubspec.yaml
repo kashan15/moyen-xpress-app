@@ -46,7 +46,11 @@ dependencies:
   smooth_page_indicator: ^1.1.0
   flutter_rating_bar:
   persistent_bottom_nav_bar: ^5.0.2
-
+  shared_preferences:
+  http: ^0.13.5
+  firebase_messaging: ^14.0.3
+  firebase_core: ^2.1.1
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter

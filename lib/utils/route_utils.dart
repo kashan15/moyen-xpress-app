@@ -1,4 +1,6 @@
 const String kHomeScreen = "/HOME_SCREEN";
+const String kSplashScreen = "/SPLASH_SCREEN";
+const String kSignupScreen = "/SIGNUP_SCREEN";
 const String kNavBar = "/NAV_BAR";
 const String kNavBar1 = "/NAV_BAR1";
 const String kDashboardScreen = "/DASHBOARD_SCREEN";

@@ -45,3 +45,6 @@ const Color homeBoxColor = Color(0xffDA6E26);
 const Color customWhiteColor = Colors.white;
 
 const Color gridColor = Color(0xffF3F3F3);
+
+int kPrimaryColor = 0xffeb751f;
+int kSecondaryColor = 0xffeb8f4df0;
