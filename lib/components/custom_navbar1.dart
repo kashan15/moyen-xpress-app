@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:moyen_xpress_app/components/custom_drawer.dart';
 import 'package:moyen_xpress_app/controller/navbar_controller.dart';
 import 'package:moyen_xpress_app/utils/color_utils.dart';
+import 'package:moyen_xpress_app/view/categories/categories_screen.dart';
 import 'package:moyen_xpress_app/view/home/home_screen.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
@@ -34,7 +35,7 @@ class BottomNavBar extends GetView<NavBarController> {
     List<Widget> _buildScreens() {
       return [
         HomeScreen(),
-        HomeScreen(),
+        CategoriesScreen(),
         HomeScreen(),
         HomeScreen(),
         HomeScreen(),
