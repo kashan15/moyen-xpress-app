@@ -169,7 +169,7 @@ class HomeScreen extends GetView<HomeController> {
      },
 
    ];
-   bool shouldPop = false;
+   // bool shouldPop = true;
 
 
   @override
@@ -201,7 +201,7 @@ class HomeScreen extends GetView<HomeController> {
     return
               WillPopScope(
                 onWillPop: ()async{
-                  return shouldPop;
+                  return false;
                 },
                 child: Scaffold(
                   // key: controller.scaffoldKey,
@@ -309,6 +309,7 @@ class HomeScreen extends GetView<HomeController> {
                                                 fontSize: 12.0,
                                                 fontWeight: FontWeight.w600,
                                                 color: Colors.black,
+                                                maxLines: 2,
                                                 overFlow: TextOverflow.ellipsis,
                                               ),
                                             ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:moyen_xpress_app/controller/categories_controller.dart';
+import 'package:moyen_xpress_app/utils/route_utils.dart';
+import 'package:moyen_xpress_app/view/categories/categories_details.dart';
 
 import '../../components/custom_grid_button.dart';
 import '../../components/rating_widget.dart';
@@ -71,6 +73,7 @@ class CategoriesScreen extends GetView<CategoriesController> {
     double _width = MediaQuery.of(context).size.width;
     int columnsCount = MediaQuery.of(context).size.width < 600 ? 2 : 1;
     return Scaffold(
+      backgroundColor: backgroundColor,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -101,90 +104,95 @@ class CategoriesScreen extends GetView<CategoriesController> {
               ),
               itemBuilder: (BuildContext context, int index) {
                 // Build each container
-                return  Container(
-                  // height: _height * 0.15,
-                  // width: _width * 0.1,
-                  padding: EdgeInsets.symmetric(
-                      horizontal: _width * 0.008,
-                      vertical: _height * 0.008
-                  ),
-                  color: Colors.white54,
-                  child:
-                  Column(
-                    // crossAxisAlignment: CrossAxisAlignment.center,
-                    // mainAxisAlignment: MainAxisAlignment.center,
-                    children:[
-
-                      /// Circle Container
-                      Container(
-                      // padding: EdgeInsets.symmetric(
-                      // horizontal: _width * 0.0225,
-                      // vertical: _height * 0.0125
-                      // ),
-                      height: _height * 0.09,
-                      decoration: BoxDecoration(
-                    color: categoriesColor,
-                    shape: BoxShape.circle,
-
-                    // borderRadius: BorderRadius.circular(_width * 0.025),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        blurRadius: 3,
-                        //spreadRadius: 5,
-                        offset: Offset(0, 5), // Shadow position
-                      ),],
-                    image: DecorationImage(image: AssetImage(
-                        categoriesItems[index]['image']
+                return  GestureDetector(
+                  onTap: (){
+                    Get.toNamed(kCategoryDetails);
+                  },
+                  child: Container(
+                    // height: _height * 0.15,
+                    // width: _width * 0.1,
+                    padding: EdgeInsets.symmetric(
+                        horizontal: _width * 0.008,
+                        vertical: _height * 0.008
                     ),
-                      fit: BoxFit.contain
-                    )
-                      ),
+                    color: backgroundColor,
+                    child:
+                    Column(
+                      // crossAxisAlignment: CrossAxisAlignment.center,
+                      // mainAxisAlignment: MainAxisAlignment.center,
+                      children:[
 
-                    // Column(
-                    //   children:[
-                    //     Row(
-                    //     crossAxisAlignment: CrossAxisAlignment.start,
-                    //     children: [
-                    //       SizedBox(width: _width * 0.02,),
-                    //       TextWidget(
-                    //         textTitle: 'Learning Lessons',
-                    //         color: ColorUtils.white,
-                    //         fontFamily: FontUtils.montserratSemiBold,
-                    //         fontSize: 1.5.t,
-                    //       ),
-                    //     ],
-                    //   ),
-                    //     SizedBox(height: _height * 0.018,),
-                    //     Row(
-                    //       //crossAxisAlignment: CrossAxisAlignment.end,
-                    //       mainAxisAlignment: MainAxisAlignment.end,
-                    //       children: [
-                    //         CircleAvatar(
-                    //           backgroundColor: Colors.white,
-                    //           radius: _height * 0.0275,
-                    //           // backgroundImage: AssetImage(
-                    //           //     ImageUtils.homeIcon1,
-                    //           // ),
-                    //           child: Image.asset(ImageUtils.homeIcon2, height: _height * 0.035,),
-                    //         ),
-                    //         SizedBox(width: _width * 0.020,),
-                    //       ],
-                    //     ),
-                    //
-                    // ]),
+                        /// Circle Container
+                        Container(
+                        // padding: EdgeInsets.symmetric(
+                        // horizontal: _width * 0.0225,
+                        // vertical: _height * 0.0125
+                        // ),
+                        height: _height * 0.09,
+                        decoration: BoxDecoration(
+                      color: categoriesColor,
+                      shape: BoxShape.circle,
 
+                      // borderRadius: BorderRadius.circular(_width * 0.025),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          blurRadius: 3,
+                          //spreadRadius: 5,
+                          offset: Offset(0, 5), // Shadow position
+                        ),],
+                      image: DecorationImage(image: AssetImage(
+                          categoriesItems[index]['image']
                       ),
-                      SizedBox(height: _height * 0.01,),
-                      TextWidget(
-                      textTitle: categoriesItems[index]['name'],
-                      fontSize: _height * 0.015,
-                      color: Colors.black,
-                      textAlign: TextAlign.center,
-                      maxLines: 2,
-                      overFlow: TextOverflow.ellipsis,
-                        )
-                  ]),
+                        fit: BoxFit.contain
+                      )
+                        ),
+
+                      // Column(
+                      //   children:[
+                      //     Row(
+                      //     crossAxisAlignment: CrossAxisAlignment.start,
+                      //     children: [
+                      //       SizedBox(width: _width * 0.02,),
+                      //       TextWidget(
+                      //         textTitle: 'Learning Lessons',
+                      //         color: ColorUtils.white,
+                      //         fontFamily: FontUtils.montserratSemiBold,
+                      //         fontSize: 1.5.t,
+                      //       ),
+                      //     ],
+                      //   ),
+                      //     SizedBox(height: _height * 0.018,),
+                      //     Row(
+                      //       //crossAxisAlignment: CrossAxisAlignment.end,
+                      //       mainAxisAlignment: MainAxisAlignment.end,
+                      //       children: [
+                      //         CircleAvatar(
+                      //           backgroundColor: Colors.white,
+                      //           radius: _height * 0.0275,
+                      //           // backgroundImage: AssetImage(
+                      //           //     ImageUtils.homeIcon1,
+                      //           // ),
+                      //           child: Image.asset(ImageUtils.homeIcon2, height: _height * 0.035,),
+                      //         ),
+                      //         SizedBox(width: _width * 0.020,),
+                      //       ],
+                      //     ),
+                      //
+                      // ]),
+
+                        ),
+                        SizedBox(height: _height * 0.01,),
+                        TextWidget(
+                        textTitle: categoriesItems[index]['name'],
+                        fontSize: _height * 0.015,
+                        color: Colors.black,
+                        textAlign: TextAlign.center,
+                        maxLines: 2,
+                        overFlow: TextOverflow.ellipsis,
+                          )
+                    ]),
+                  ),
                 );
               },
             ),

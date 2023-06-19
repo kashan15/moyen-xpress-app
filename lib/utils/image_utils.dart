@@ -19,6 +19,7 @@ class ImageUtils{
   static const  storeIcon = "assets/icons/store.png";
   static const  technicianIcon = "assets/icons/technician.png";
   static const  wholesaleIcon = "assets/icons/wholesale.png";
+  static const  notificationIcon = "assets/icons/notificatioIcon.png";
 
   /// Images
   static const String logo = 'assets/images/logo.png';
@@ -56,8 +57,14 @@ class ImageUtils{
   static const String categoriesPic14 = 'assets/images/categoriesPic14.png';
   static const String categoriesPic15 = 'assets/images/categoriesPic15.png';
   static const String categoriesPic16 = 'assets/images/categoriesPic16.png';
-
-
-
+  static const String categoryDetailBanner = 'assets/images/categoryDetailBanner.png';
+  static const String sports1 = 'assets/images/sports1.png';
+  static const String sports2 = 'assets/images/sports2.png';
+  static const String sports3 = 'assets/images/sports3.png';
+  static const String sports4 = 'assets/images/sports4.png';
+  static const String products1 = 'assets/images/products1.png';
+  static const String products2 = 'assets/images/products2.png';
+  static const String products3 = 'assets/images/products3.png';
+  static const String products4 = 'assets/images/products4.png';
 
 }

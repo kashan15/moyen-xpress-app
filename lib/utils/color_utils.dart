@@ -43,7 +43,10 @@ const Color greenColor = Color(0xff5DF0BC);
 const Color locationColor = Color(0xff124394);
 const Color homeBoxColor = Color(0xffDA6E26);
 const Color categoriesColor = Color(0xffEB751F);
+const Color backgroundColor = Color(0xffF2F3F8);
+const Color topSeller = Color(0xff434343);
 const Color customWhiteColor = Colors.white;
+
 
 const Color gridColor = Color(0xffF3F3F3);
 

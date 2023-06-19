@@ -2,6 +2,9 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:moyen_xpress_app/components/custom_navbar.dart';
 import 'package:moyen_xpress_app/view/authentication/login_screen.dart';
 import 'package:moyen_xpress_app/view/authentication/signup_screen.dart';
+import 'package:moyen_xpress_app/view/categories/categories_details.dart';
+import 'package:moyen_xpress_app/view/categories/categories_screen.dart';
+import 'package:moyen_xpress_app/view/notification/notification_screen.dart';
 import 'package:moyen_xpress_app/view/splash/splash_screen.dart';
 import '../components/custom_navbar1.dart';
 import '../utils/route_utils.dart';
@@ -33,17 +36,31 @@ class RouteManagement {
         page: () =>  const SignupScreen(),
         binding: ControllerBinding(),
       ),
-
+      GetPage(
+        name:   kCategoryScreen,
+        page: () => CategoriesScreen(),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
+        name:   kCategoryDetails,
+        page: () => CategoryDetailsScreen(),
+        binding: ControllerBinding(),
+      ),
 
       GetPage(
         name: kDashboardScreen,
         page: () =>  const DashboardTab(),
         binding: ControllerBinding(),
       ),
+      GetPage(
+        name: kNotificationScreen,
+        page: () => NotificationScreen(),
+        binding: ControllerBinding(),
+      ),
 
       GetPage(
         name: kNavBar,
-        page: () =>  CustomBottomTabBar(
+        page: () => const CustomBottomTabBar(
             blockHeight: 16,
             blockWidth: 60
         ),
@@ -52,7 +69,7 @@ class RouteManagement {
 
       GetPage(
         name: kNavBar1,
-        page: () =>  BottomNavBar(),
+        page: () => const BottomNavBar(),
         binding: ControllerBinding(),
       ),
 ];

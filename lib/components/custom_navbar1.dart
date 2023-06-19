@@ -5,6 +5,7 @@ import 'package:moyen_xpress_app/controller/navbar_controller.dart';
 import 'package:moyen_xpress_app/utils/color_utils.dart';
 import 'package:moyen_xpress_app/view/categories/categories_screen.dart';
 import 'package:moyen_xpress_app/view/home/home_screen.dart';
+import 'package:moyen_xpress_app/view/notification/notification_screen.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 import 'custom_appbar.dart';
@@ -37,7 +38,7 @@ class BottomNavBar extends GetView<NavBarController> {
         HomeScreen(),
         CategoriesScreen(),
         HomeScreen(),
-        HomeScreen(),
+        NotificationScreen(),
         HomeScreen(),
       ];
     }
