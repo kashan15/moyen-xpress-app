@@ -45,6 +45,7 @@ const Color homeBoxColor = Color(0xffDA6E26);
 const Color categoriesColor = Color(0xffEB751F);
 const Color backgroundColor = Color(0xffF2F3F8);
 const Color topSeller = Color(0xff434343);
+const Color productContainer = Color(0xffF7F7F7);
 const Color customWhiteColor = Colors.white;
 
 

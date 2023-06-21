@@ -566,7 +566,7 @@ class HomeScreen extends GetView<HomeController> {
                                         width: double.infinity,
                                         margin: EdgeInsets.symmetric(horizontal: _width * 0.018),
                                         alignment: Alignment.center,
-                                        decoration: BoxDecoration(
+                                        decoration: const BoxDecoration(
                                           color: gridColor,
                                           image: DecorationImage(image: AssetImage(
                                             ImageUtils.dealItem,
@@ -624,7 +624,6 @@ class HomeScreen extends GetView<HomeController> {
                                       )
                                     ],
                                   )
-
 
                                   // Column(
                                   //   children:[
@@ -748,7 +747,7 @@ class HomeScreen extends GetView<HomeController> {
                                         width: double.infinity,
                                         margin: EdgeInsets.symmetric(horizontal: _width * 0.018),
                                         alignment: Alignment.center,
-                                        decoration: BoxDecoration(
+                                        decoration: const BoxDecoration(
                                             color: gridColor,
                                             image: DecorationImage(image: AssetImage(
                                               ImageUtils.dealItem,
@@ -806,7 +805,6 @@ class HomeScreen extends GetView<HomeController> {
                                       )
                                     ],
                                   )
-
 
                                 // Column(
                                 //   children:[
@@ -977,7 +975,7 @@ class HomeScreen extends GetView<HomeController> {
                                         width: double.infinity,
                                         margin: EdgeInsets.symmetric(horizontal: _width * 0.018),
                                         alignment: Alignment.center,
-                                        decoration: BoxDecoration(
+                                        decoration: const BoxDecoration(
                                             color: gridColor,
                                             image: DecorationImage(image: AssetImage(
                                               ImageUtils.newArrival,
