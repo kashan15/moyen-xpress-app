@@ -12,4 +12,7 @@ class ProductDetailsController extends GetxController
 
   TextEditingController searchController = TextEditingController();
 
+   TabController? tabController;
+
+
 }

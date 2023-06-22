@@ -24,6 +24,10 @@ class ImageUtils{
   static const  searchIcon = "assets/icons/searchIcon.png";
   static const  likeIcon = "assets/icons/likeIcon.png";
   static const  favIcon = "assets/icons/favIcon.png";
+  static const  deliveryIcon = "assets/icons/deliveryIcon.png";
+  static const  starIcon = "assets/icons/starIcon.png";
+  static const  chatIcon = "assets/icons/chatIcon.png";
+
 
   /// Images
   static const String logo = 'assets/images/logo.png';
@@ -71,5 +75,7 @@ class ImageUtils{
   static const String products3 = 'assets/images/products3.png';
   static const String products4 = 'assets/images/products4.png';
   static const String bag = 'assets/images/bag.png';
+  static const String person = 'assets/images/person.png';
+  static const String person1 = 'assets/images/person1.png';
 
 }

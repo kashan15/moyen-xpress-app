@@ -47,6 +47,12 @@ const Color backgroundColor = Color(0xffF2F3F8);
 const Color topSeller = Color(0xff434343);
 const Color productContainer = Color(0xffF7F7F7);
 const Color customWhiteColor = Colors.white;
+const Color reviewColor = Color(0xffD7D7D7);
+const Color gradient1 = Color(0xffE66B12);
+const Color gradient2 = Color(0xffF3921F);
+const Color cartBox = Color(0xffFFAC4D);
+const Color buyNow = Color(0xffE76D13);
+
 
 
 const Color gridColor = Color(0xffF3F3F3);

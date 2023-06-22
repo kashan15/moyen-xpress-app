@@ -11,8 +11,8 @@ class CustomRichText extends StatelessWidget {
   double? letterSpacing1;
   double? height1;
   double? maxLines1;
-  String? overFlow1;
-  double? fontWeight1;
+  TextOverflow? overFlow1;
+  dynamic fontWeight1;
   dynamic decoration1;
   Color? color2;
   double? fontSize2;
@@ -21,8 +21,8 @@ class CustomRichText extends StatelessWidget {
   double? letterSpacing2;
   double? height2;
   double? maxLines2;
-  String? overFlow2;
-  double? fontWeight2;
+  TextOverflow? overFlow2;
+  dynamic fontWeight2;
   dynamic decoration2;
   Color? color3;
   double? fontSize3;
@@ -31,8 +31,8 @@ class CustomRichText extends StatelessWidget {
   double? letterSpacing3;
   double? height3;
   double? maxLines3;
-  String? overFlow3;
-  double? fontWeight3;
+  TextOverflow? overFlow3;
+  dynamic fontWeight3;
   dynamic decoration3;
   CustomRichText({
     this.textSpan1,
@@ -77,7 +77,10 @@ class CustomRichText extends StatelessWidget {
         text: textSpan1,
         style: TextStyle(
           color: color1,
-            fontWeight: FontWeight.normal
+            fontWeight: fontWeight1,
+          fontSize: fontSize1,
+          fontFamily: fontFamily1,
+          overflow: overFlow1,
         ),
         children: <TextSpan>[
           TextSpan(
@@ -85,7 +88,10 @@ class CustomRichText extends StatelessWidget {
               style:
               TextStyle(
                 color: color2,
-                  fontWeight: FontWeight.bold
+                  fontWeight: fontWeight1,
+                  fontSize: fontSize2,
+                  fontFamily: fontFamily2,
+                overflow: overFlow2
               )
           ),
           TextSpan(
@@ -93,7 +99,10 @@ class CustomRichText extends StatelessWidget {
               style:
               TextStyle(
                   color: color3,
-                  fontWeight: FontWeight.normal
+                  fontWeight: fontWeight1,
+                  fontSize: fontSize3,
+                  fontFamily: fontFamily3,
+                overflow: overFlow3
               )
           ),
         ],
