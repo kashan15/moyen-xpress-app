@@ -39,3 +39,81 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
+// import 'package:flutter/material.dart';
+//
+// class MyScreen extends StatefulWidget {
+//   @override
+//   _MyScreenState createState() => _MyScreenState();
+// }
+//
+// class _MyScreenState extends State<MyScreen> with SingleTickerProviderStateMixin {
+//   TabController? _tabController;
+//
+//   @override
+//   void initState() {
+//     super.initState();
+//     _tabController = TabController(length: 2, vsync: this);
+//   }
+//
+//   @override
+//   void dispose() {
+//     _tabController!.dispose();
+//     super.dispose();
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('My Screen'),
+//       ),
+//       body: SingleChildScrollView(
+//         child: Column(
+//           children: [
+//             ListView.builder(
+//               shrinkWrap: true,
+//               physics: NeverScrollableScrollPhysics(),
+//               itemCount: 20, // Replace with the actual item count
+//               itemBuilder: (context, index) {
+//                 return ListTile(
+//                   title: Text('Item $index'),
+//                 );
+//               },
+//             ),
+//             TabBar(
+//               controller: _tabController,
+//               tabs: [
+//                 Tab(text: 'Tab 1'),
+//                 Tab(text: 'Tab 2'),
+//               ],
+//             ),
+//             SizedBox(
+//               height: MediaQuery.of(context).size.height * 0.4,
+//               child: TabBarView(
+//                 controller: _tabController,
+//                 children: [
+//                   Container(
+//                     color: Colors.red,
+//                     child: Center(child: Text('Tab 1 Content')),
+//                   ),
+//                   Container(
+//                     color: Colors.blue,
+//                     child: Center(child: Text('Tab 2 Content')),
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+//
+// void main() {
+//   runApp(MaterialApp(
+//     home: MyScreen(),
+//   ));
+// }
