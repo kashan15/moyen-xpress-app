@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
               primarySwatch: primaryColorSwatch,
               fontFamily:'Nexa',
             ),
-            initialRoute: kProductDetailsScreen,
+            initialRoute: kLoginScreen,
             getPages: RouteManagement.getPages(),
 
             // initialBinding: ControllerBinding(),

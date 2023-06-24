@@ -13,6 +13,10 @@ class ProductDetailsController extends GetxController
   TextEditingController searchController = TextEditingController();
 
    TabController? tabController;
+   bool tap1 = false;
+  bool tap2 = false;
+  bool tap3 = false;
+  bool tap4 = false;
 
 
 }
