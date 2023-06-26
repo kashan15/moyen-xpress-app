@@ -40,6 +40,52 @@ class CustomGridButton extends StatelessWidget {
   }
 }
 
+class CustomButton extends StatelessWidget {
+  dynamic title;
+  dynamic margin;
+  dynamic padding;
+  Color? color;
+  double? borderRadius;
+  double? height;
+  double? width;
+  void Function()? onTap;
+  CustomButton({
+    this.title,
+    this.onTap,
+    this.margin,
+    this.padding,
+    this.color,
+    this.borderRadius,
+    this.height,
+    this.width
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        margin: margin,
+        padding: padding,
+        height: height,
+        width: width,
+        decoration: BoxDecoration(
+            color: color,
+            borderRadius: BorderRadius.circular(borderRadius!)
+        ),
+        child: Center(
+          child: TextWidget(
+            textTitle: title,
+            fontFamily: montserratBold,
+            fontSize: 10.0,
+            color: Colors.white,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class ShowMoreButton extends StatelessWidget {
   dynamic title;
   void Function()? onTap;

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:moyen_xpress_app/components/custom_grid_button.dart';
 import 'package:moyen_xpress_app/components/custom_richtext.dart';
 import 'package:moyen_xpress_app/components/custom_textfield.dart';
 import 'package:moyen_xpress_app/components/text_widget.dart';
@@ -685,6 +686,19 @@ class ProductDetails extends GetView<ProductDetailsController> {
                   ),
                     SizedBox(width: _width * 0.025,),
                     GestureDetector(
+                      onTap: (){
+                        showModalBottomSheet(
+                            context: context,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.vertical(
+                                top: Radius.circular(_width * 0.06)
+                              )
+                            ),
+                            builder: (BuildContext context){
+                              return customModalSheet(context);
+                            }
+                        );
+                      },
                       child: Container(
                         margin: EdgeInsets.only(
                           left: _width * 0.02,
@@ -739,6 +753,118 @@ class ProductDetails extends GetView<ProductDetailsController> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  /// Custom Modal BottomSheet
+  Widget customModalSheet(BuildContext context){
+    controller.globalContext = context;
+    double _height = MediaQuery.of(context).size.height;
+    double _width = MediaQuery.of(context).size.width;
+    return SizedBox(
+      height: _height * 0.55,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          SizedBox(height: _height * 0.02,),
+          Image.asset(
+            ImageUtils.cartCheckIcon,
+            height: _height * 0.045,
+          ),
+          SizedBox(height: _height * 0.005,),
+          TextWidget(
+            textTitle: 'Item added to your cart!',
+            color: Colors.black,
+            fontSize: _height * 0.02,
+            fontFamily: poppinsSemiBold,
+          ),
+          SizedBox(height: _height * 0.02,),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: _width * 0.2),
+            padding: EdgeInsets.symmetric(horizontal: _width * 0.05, vertical: _height * 0.02),
+            height: _height * 0.2,
+            decoration: const BoxDecoration(
+              color: Colors.red,
+              image:  DecorationImage(image: AssetImage(
+                ImageUtils.bag
+              ),
+              fit: BoxFit.contain
+              )
+            ),
+          ),
+          SizedBox(height: _height * 0.005,),
+          TextWidget(
+            textTitle: 'Women Shoulder Handbag',
+            color: Colors.black,
+            fontSize: _height * 0.02,
+            fontFamily: poppinsSemiBold,
+          ),
+      SizedBox(height: _height * 0.01,),
+          CustomRichText(
+            textSpan1: '\$37.39',
+            color1: homeBoxColor,
+            fontWeight1: FontWeight.bold,
+            fontSize1: _height * 0.025,
+            fontFamily1: poppinsSemiBold,
+            textSpan2: ' /Pieces',
+            color2: Colors.black,
+            fontWeight2: FontWeight.normal,
+            fontSize2: _height * 0.012,
+            fontFamily2: poppinsRegular,
+          ),
+          Spacer(),
+          Padding(padding: EdgeInsets.symmetric(horizontal: _width * 0.02),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                padding: EdgeInsets.symmetric(
+                    horizontal: _width * 0.1,
+                    vertical: _height * 0.02
+                ),
+                color: homeBoxColor,
+                child: Center(
+                  child: TextWidget(
+                    textTitle: 'Back To Shopping',
+                    fontSize: _height * 0.015,
+                  ),
+                ),
+              ),
+              Container(
+                // height: _height * 0.05,
+                // width: _width * 0.25,
+                padding: EdgeInsets.symmetric(
+                  horizontal: _width * 0.1,
+                  vertical: _height * 0.02
+                ),
+                // width: double.infinity,
+                color: homeBoxColor,
+                child: Center(
+                  child: TextWidget(
+                    textTitle: 'Back To Shopping',
+                    fontSize: _height * 0.01,
+                  ),
+                ),
+              ),
+              CustomButton(
+                title: 'Back To Shopping',
+              )
+
+              // CustomButton(
+              //   padding: EdgeInsets.symmetric(horizontal: _width * 0.02,vertical: _height * 0.01),
+              //   title: 'My Cart',
+              //   color: homeBoxColor,
+              // ),
+
+            ],
+          ),
+          ),
+          SizedBox(height: _height * 0.01,),
+
+        ],
       ),
     );
   }

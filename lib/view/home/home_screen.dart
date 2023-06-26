@@ -172,7 +172,6 @@ class HomeScreen extends GetView<HomeController> {
    ];
    // bool shouldPop = true;
 
-
   @override
   Widget build(BuildContext context) {
     controller.globalContext = context;
@@ -243,82 +242,202 @@ class HomeScreen extends GetView<HomeController> {
                          ]),
                       const SizedBox(height: 10,),
 
+                          /// Previous Categories
                           SizedBox(
                             height: _height * 0.140,
                             child: ListView.builder(
-                                physics: BouncingScrollPhysics(),
-                                scrollDirection: Axis.horizontal,
-                                padding: EdgeInsets.zero,
-                                shrinkWrap: true,
-                                itemCount: categoriesList.length,
-                                itemBuilder: (context, index) {
-                                  return Container(
-                                    color: Colors.yellow,
-                                    // padding: EdgeInsets.all(1.w),
-                                      child: Container(
-                                        color: Colors.white,
-                                        width: _width * 0.25,
-                                        margin: EdgeInsets.zero,
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 8,
-                                            vertical: 8
-                                        ),
-                                        child: Column(
-                                          children: [
-                                            GestureDetector(
-                                              onTap:(){},
-                                              child: Container(
-                                                padding: EdgeInsets.zero,
-                                                decoration:  BoxDecoration(
-                                                  shape: BoxShape.circle,
-                                                  boxShadow: [
-                                                    BoxShadow(
-                                                      color: Colors.grey.withOpacity(0.5),
-                                                      blurRadius: 1,
-                                                      spreadRadius: 1,
-                                                      offset: Offset(0, 3)
-                                                    )
-                                                  ]
-                                                ),
-                                                child: CircleAvatar(
-                                                  radius: _height * 0.045,
-                                                  backgroundColor: homeBoxColor,
-                                                  child: Container(
-                                                    margin: EdgeInsets.symmetric(
-                                                        horizontal: _width * 0.02,
-                                                        vertical: _height * 0.0075
-                                                    ),
-                                                    //padding: EdgeInsets.symmetric(horizontal: _width * 0.02, vertical: _height * 0.01),
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                      image: DecorationImage(image: AssetImage(
-                                                        categoriesList[index]["image"]
-                                                      ),
-                                                      fit: BoxFit.contain
-                                                      )
-                                                    ),
-                                                  ),
-                                                ),
-                                              )
+                            physics: BouncingScrollPhysics(),
+                            scrollDirection: Axis.horizontal,
+                            padding: EdgeInsets.zero,
+                            shrinkWrap: true,
+                            itemCount: categoriesList.length,
+                            itemBuilder: (context, index) {
+                              return Container(
+                                color: Colors.yellow,
+                                // padding: EdgeInsets.all(1.w),
+                                  child: Container(
+                                    color: Colors.white,
+                                    width: _width * 0.25,
+                                    margin: EdgeInsets.zero,
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 8,
+                                        vertical: 8
+                                    ),
+                                    child: Column(
+                                      children: [
+                                        GestureDetector(
+                                          onTap:(){},
+                                          child: Container(
+                                            padding: EdgeInsets.zero,
+                                            decoration:  BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  color: Colors.grey.withOpacity(0.5),
+                                                  blurRadius: 1,
+                                                  spreadRadius: 1,
+                                                  offset: Offset(0, 3)
+                                                )
+                                              ]
                                             ),
-                                            SizedBox(height: 10,),
-                                            Padding(
-                                              padding: EdgeInsets.only(left: 5),
-                                              child: TextWidget(
-                                                textTitle: categoriesList[index]["name"],
-                                                fontFamily: montserratRegular,
-                                                fontSize: 12.0,
-                                                fontWeight: FontWeight.w600,
-                                                color: Colors.black,
-                                                maxLines: 2,
-                                                overFlow: TextOverflow.ellipsis,
+                                            child: CircleAvatar(
+                                              radius: _height * 0.045,
+                                              backgroundColor: homeBoxColor,
+                                              child: Container(
+                                                margin: EdgeInsets.symmetric(
+                                                    horizontal: _width * 0.02,
+                                                    vertical: _height * 0.0075
+                                                ),
+                                                //padding: EdgeInsets.symmetric(horizontal: _width * 0.02, vertical: _height * 0.01),
+                                                decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  image: DecorationImage(image: AssetImage(
+                                                    categoriesList[index]["image"]
+                                                  ),
+                                                  fit: BoxFit.contain
+                                                  )
+                                                ),
                                               ),
                                             ),
-                                          ],
+                                          )
                                         ),
-                                      ));
-                                }),
+                                        SizedBox(height: 10,),
+                                        Padding(
+                                          padding: EdgeInsets.only(left: 5),
+                                          child: TextWidget(
+                                            textTitle: categoriesList[index]["name"],
+                                            fontFamily: montserratRegular,
+                                            fontSize: 12.0,
+                                            fontWeight: FontWeight.w600,
+                                            color: Colors.black,
+                                            maxLines: 2,
+                                            overFlow: TextOverflow.ellipsis,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ));
+                            }),
                           ),
+                             const SizedBox(height: 20,),
+                          buildPageIndicator(),
+
+                      //     Column(
+                      //       mainAxisSize: MainAxisSize.min,
+                      //       children: [
+                      //         SizedBox(
+                      //           height: _height * 0.140,
+                      //           child: PageView.builder(
+                      //             controller: controller.pageController,
+                      //             scrollDirection: Axis.horizontal,
+                      //             physics: NeverScrollableScrollPhysics(),
+                      //             // itemCount: pages.length,
+                      //             onPageChanged: (index) {
+                      //               controller.currentPage.value = index;
+                      //             },
+                      //             itemBuilder: (_, index) {
+                      //               return Obx(
+                      //                   ()=> ListView.builder(
+                      //                   // physics: BouncingScrollPhysics(),
+                      //                     scrollDirection: Axis.horizontal,
+                      //                     // padding: EdgeInsets.zero,
+                      //                     //shrinkWrap: true,
+                      //                     itemCount: 8,
+                      //                     itemBuilder: (context, index) {
+                      //                       return Container(
+                      //                           color: Colors.yellow,
+                      //                           // padding: EdgeInsets.all(1.w),
+                      //                           child: Container(
+                      //                             color: Colors.white,
+                      //                             width: _width * 0.25,
+                      //                             margin: EdgeInsets.zero,
+                      //                             padding: const EdgeInsets.symmetric(
+                      //                                 horizontal: 8,
+                      //                                 vertical: 8
+                      //                             ),
+                      //                             child: Column(
+                      //                               children: [
+                      //                                 GestureDetector(
+                      //                                     onTap:(){},
+                      //                                     child: Container(
+                      //                                       padding: EdgeInsets.zero,
+                      //                                       decoration:  BoxDecoration(
+                      //                                           shape: BoxShape.circle,
+                      //                                           boxShadow: [
+                      //                                             BoxShadow(
+                      //                                                 color: Colors.grey.withOpacity(0.5),
+                      //                                                 blurRadius: 1,
+                      //                                                 spreadRadius: 1,
+                      //                                                 offset: Offset(0, 3)
+                      //                                             )
+                      //                                           ]
+                      //                                       ),
+                      //                                       child: CircleAvatar(
+                      //                                         radius: _height * 0.045,
+                      //                                         backgroundColor: homeBoxColor,
+                      //                                         child: Container(
+                      //                                           margin: EdgeInsets.symmetric(
+                      //                                               horizontal: _width * 0.02,
+                      //                                               vertical: _height * 0.0075
+                      //                                           ),
+                      //                                           //padding: EdgeInsets.symmetric(horizontal: _width * 0.02, vertical: _height * 0.01),
+                      //                                           decoration: BoxDecoration(
+                      //                                               shape: BoxShape.circle,
+                      //                                               image: DecorationImage(image: AssetImage(
+                      //                                                   categoriesList[index]["image"]
+                      //                                               ),
+                      //                                                   fit: BoxFit.contain
+                      //                                               )
+                      //                                           ),
+                      //                                         ),
+                      //                                       ),
+                      //                                     )
+                      //                                 ),
+                      //                                 SizedBox(height: 10,),
+                      //                                 Padding(
+                      //                                   padding: EdgeInsets.only(left: 5),
+                      //                                   child: TextWidget(
+                      //                                     textTitle: categoriesList[index]["name"],
+                      //                                     fontFamily: montserratRegular,
+                      //                                     fontSize: 12.0,
+                      //                                     fontWeight: FontWeight.w600,
+                      //                                     color: Colors.black,
+                      //                                     maxLines: 2,
+                      //                                     overFlow: TextOverflow.ellipsis,
+                      //                                   ),
+                      //                                 ),
+                      //                               ],
+                      //                             ),
+                      //                           ));
+                      //                     }
+                      //                 ),
+                      //               );
+                      //             },
+                      //             itemCount: 6,
+                      //           ),
+                      //
+                      //         ),
+                      //         SizedBox(height: 16.0),
+                      //         // buildPageIndicator(),
+                      //
+                      // SmoothPageIndicator(
+                      //     controller: controller.pageController,
+                      //     // PageController
+                      //     axisDirection: Axis.horizontal,
+                      //     count: 4,
+                      //     effect:
+                      //     ScrollingDotsEffect(
+                      //         dotColor: Colors.black,
+                      //         activeDotColor: homeBoxColor,
+                      //         dotWidth: 4.w,
+                      //         dotHeight: 4.h
+                      //     ),
+                      //     // your preferred effect
+                      //     onDotClicked: (index) {
+                      //       print(index);
+                      //     })
+                      //       ],
+                      //     ),
 
                           SizedBox(height: _height * 0.02,),
                           Stack(
@@ -1813,69 +1932,222 @@ class HomeScreen extends GetView<HomeController> {
                   ),
                 ),
               );
-    
+
 
   }
 
-  Widget? CustomListView(BuildContext context){
-    double _height = MediaQuery.of(context).size.height;
-    double _width = MediaQuery.of(context).size.width;
-    return SizedBox(
-      height: _height * 0.140,
-      child: ListView.builder(
-          physics: BouncingScrollPhysics(),
+
+   Widget buildPageIndicator() {
+     return SmoothPageIndicator(
+             controller: controller.pageController,
+             // PageController
+             axisDirection: Axis.horizontal,
+             count: 4,
+             effect:
+             ScrollingDotsEffect(
+                 dotColor: Colors.black,
+                 activeDotColor: homeBoxColor,
+                 dotWidth: 4.w,
+                 dotHeight: 4.h
+             ),
+             // your preferred effect
+             onDotClicked: (index) {
+               print(index);
+             });
+   }
+   Widget buildPage(BuildContext context) {
+     controller.globalContext = context;
+     double _height = MediaQuery.of(context).size.height;
+     double _width = MediaQuery.of(context).size.width;
+     return ListView.builder(
+         // physics: BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,
-          padding: EdgeInsets.zero,
-          shrinkWrap: true,
-          itemCount: categoriesList.length,
-          itemBuilder: (context, index) {
-            return Container(
-                color: Colors.yellow,
-                // padding: EdgeInsets.all(1.w),
-                child: Container(
-                  color: Colors.white,
-                  width: _width * 0.25,
-                  margin: EdgeInsets.zero,
-                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-                  child: Column(
-                    children: [
-                      GestureDetector(
-                          onTap:(){},
-                          child: Container(
-                            padding: EdgeInsets.zero,
-                            decoration:  BoxDecoration(
-                                shape: BoxShape.circle,
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: Colors.grey.withOpacity(0.5),
-                                      blurRadius: 1,
-                                      spreadRadius: 1,
-                                      offset: Offset(0, 3)
-                                  )
-                                ]
-                            ),
-                            child: CircleAvatar(
-                              radius: _height * 0.045,
-                              backgroundColor: homeBoxColor,
-                            ),
-                          )
-                      ),
-                      SizedBox(height: 10,),
-                      Padding(
-                        padding: EdgeInsets.only(left: 5),
-                        child: TextWidget(
-                          textTitle: categoriesList[index]["name"],
-                          fontFamily: montserratRegular,
-                          fontSize: 12.0,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.black,
-                          overFlow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                    ],
-                  ),
-                ));
-          }),
-    );
-  }
+         // padding: EdgeInsets.zero,
+           //shrinkWrap: true,
+         itemCount: 8,
+         itemBuilder: (context, index) {
+           return Container(
+               color: Colors.yellow,
+               // padding: EdgeInsets.all(1.w),
+               child: Container(
+                 color: Colors.white,
+                 width: _width * 0.25,
+                 margin: EdgeInsets.zero,
+                 padding: const EdgeInsets.symmetric(
+                     horizontal: 8,
+                     vertical: 8
+                 ),
+                 child: Column(
+                   children: [
+                     GestureDetector(
+                         onTap:(){},
+                         child: Container(
+                           padding: EdgeInsets.zero,
+                           decoration:  BoxDecoration(
+                               shape: BoxShape.circle,
+                               boxShadow: [
+                                 BoxShadow(
+                                     color: Colors.grey.withOpacity(0.5),
+                                     blurRadius: 1,
+                                     spreadRadius: 1,
+                                     offset: Offset(0, 3)
+                                 )
+                               ]
+                           ),
+                           child: CircleAvatar(
+                             radius: _height * 0.045,
+                             backgroundColor: homeBoxColor,
+                             child: Container(
+                               margin: EdgeInsets.symmetric(
+                                   horizontal: _width * 0.02,
+                                   vertical: _height * 0.0075
+                               ),
+                               //padding: EdgeInsets.symmetric(horizontal: _width * 0.02, vertical: _height * 0.01),
+                               decoration: BoxDecoration(
+                                   shape: BoxShape.circle,
+                                   image: DecorationImage(image: AssetImage(
+                                       categoriesList[index]["image"]
+                                   ),
+                                       fit: BoxFit.contain
+                                   )
+                               ),
+                             ),
+                           ),
+                         )
+                     ),
+                     SizedBox(height: 10,),
+                     Padding(
+                       padding: EdgeInsets.only(left: 5),
+                       child: TextWidget(
+                         textTitle: categoriesList[index]["name"],
+                         fontFamily: montserratRegular,
+                         fontSize: 12.0,
+                         fontWeight: FontWeight.w600,
+                         color: Colors.black,
+                         maxLines: 2,
+                         overFlow: TextOverflow.ellipsis,
+                       ),
+                     ),
+                   ],
+                 ),
+               ));
+         }
+         );
+   }
+
+
 }
+
+
+
+// class HomeScreen extends StatelessWidget {
+//   final controller = PageController();
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Smooth Page Indicator'),
+//       ),
+//       body: Column(
+//         children: [
+//           Expanded(
+//             child: PageView(
+//               controller: controller,
+//               children: [
+//                 Container(color: Colors.red),
+//                 Container(color: Colors.green),
+//                 Container(color: Colors.blue),
+//               ],
+//             ),
+//           ),
+//           SizedBox(height: 16.0),
+//           buildPageIndicator(),
+//         ],
+//       ),
+//     );
+//   }
+//
+//   Widget buildPageIndicator() {
+//     return SmoothPageIndicator(
+//         controller: controller,
+//         // PageController
+//         axisDirection: Axis.horizontal,
+//         count: 3,
+//         effect:
+//         ScrollingDotsEffect(
+//             dotColor: Colors.black,
+//             activeDotColor: homeBoxColor,
+//             dotWidth: 4.w,
+//             dotHeight: 4.h
+//         ),
+//         // your preferred effect
+//         onDotClicked: (index) {
+//           print(index);
+//         });
+//   }
+// }
+//
+//
+//   Widget? CustomListView(BuildContext context){
+//     double _height = MediaQuery.of(context).size.height;
+//     double _width = MediaQuery.of(context).size.width;
+//     return SizedBox(
+//       height: _height * 0.140,
+//       child: ListView.builder(
+//           physics: BouncingScrollPhysics(),
+//           scrollDirection: Axis.horizontal,
+//           padding: EdgeInsets.zero,
+//           shrinkWrap: true,
+//           itemCount: categoriesList.length,
+//           itemBuilder: (context, index) {
+//             return Container(
+//                 color: Colors.yellow,
+//                 // padding: EdgeInsets.all(1.w),
+//                 child: Container(
+//                   color: Colors.white,
+//                   width: _width * 0.25,
+//                   margin: EdgeInsets.zero,
+//                   padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+//                   child: Column(
+//                     children: [
+//                       GestureDetector(
+//                           onTap:(){},
+//                           child: Container(
+//                             padding: EdgeInsets.zero,
+//                             decoration:  BoxDecoration(
+//                                 shape: BoxShape.circle,
+//                                 boxShadow: [
+//                                   BoxShadow(
+//                                       color: Colors.grey.withOpacity(0.5),
+//                                       blurRadius: 1,
+//                                       spreadRadius: 1,
+//                                       offset: Offset(0, 3)
+//                                   )
+//                                 ]
+//                             ),
+//                             child: CircleAvatar(
+//                               radius: _height * 0.045,
+//                               backgroundColor: homeBoxColor,
+//                             ),
+//                           )
+//                       ),
+//                       SizedBox(height: 10,),
+//                       Padding(
+//                         padding: EdgeInsets.only(left: 5),
+//                         child: TextWidget(
+//                           textTitle: categoriesList[index]["name"],
+//                           fontFamily: montserratRegular,
+//                           fontSize: 12.0,
+//                           fontWeight: FontWeight.w600,
+//                           color: Colors.black,
+//                           overFlow: TextOverflow.ellipsis,
+//                         ),
+//                       ),
+//                     ],
+//                   ),
+//                 ));
+//           }),
+//     );
+//   }
+//}

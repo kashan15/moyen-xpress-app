@@ -27,6 +27,7 @@ class ImageUtils{
   static const  deliveryIcon = "assets/icons/deliveryIcon.png";
   static const  starIcon = "assets/icons/starIcon.png";
   static const  chatIcon = "assets/icons/chatIcon.png";
+  static const  cartCheckIcon = "assets/icons/cartCheck.png";
 
 
   /// Images

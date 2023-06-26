@@ -37,6 +37,9 @@ class HomeController extends GetxController
     'Qwe',
   ];
 
+  final pageController = PageController();
+  RxInt currentPage = 0.obs;
+
   @override
   void onInit() {
     super.onInit();
@@ -49,8 +52,18 @@ class HomeController extends GetxController
     tabController.index = 1;
     tabController.addListener(() {
       _handleTabSelection();
-    });
+    }
+    );
+    // pageController.addListener(() {
+    //   currentPage.value = pageController.page!.round();
+    // });
   }
+
+  // @override
+  // void onClose() {
+  //   pageController.dispose();
+  //   super.onClose();
+  // }
 
   void _handleTabSelection() {
     tabTitleText.value = tabTitle[tabController.index];
@@ -60,5 +73,8 @@ class HomeController extends GetxController
   PageController(initialPage: 0, viewportFraction: 1.1, keepPage: false);
   final verticalControllerElectronics =
   PageController( viewportFraction: 0.8, keepPage: true);
+
+  final scrollController = PageController();
+
 
 }
