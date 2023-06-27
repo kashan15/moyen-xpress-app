@@ -76,6 +76,7 @@ class ImageUtils{
   static const String products3 = 'assets/images/products3.png';
   static const String products4 = 'assets/images/products4.png';
   static const String bag = 'assets/images/bag.png';
+  static const String smallBag = 'assets/images/smallBag.png';
   static const String person = 'assets/images/person.png';
   static const String person1 = 'assets/images/person1.png';
 

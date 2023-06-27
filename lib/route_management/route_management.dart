@@ -9,6 +9,7 @@ import 'package:moyen_xpress_app/view/products/product_details.dart';
 import 'package:moyen_xpress_app/view/splash/splash_screen.dart';
 import '../components/custom_navbar1.dart';
 import '../utils/route_utils.dart';
+import '../view/cart/my_cart.dart';
 import '../view/dashboard_tab_screen.dart';
 import '../view/home/home_screen.dart';
 import 'controller_binding.dart';
@@ -45,6 +46,11 @@ class RouteManagement {
       GetPage(
         name:   kProductDetailsScreen,
         page: () => ProductDetails(),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
+        name:   kMyCartScreen,
+        page: () => MyCart(),
         binding: ControllerBinding(),
       ),
       GetPage(

@@ -52,6 +52,8 @@ const Color gradient1 = Color(0xffE66B12);
 const Color gradient2 = Color(0xffF3921F);
 const Color cartBox = Color(0xffFFAC4D);
 const Color buyNow = Color(0xffE76D13);
+const Color backToShopping = Color(0xffF29551);
+const Color cartBoxColor = Color(0xffE0E0E0);
 
 
 

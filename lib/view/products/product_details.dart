@@ -11,6 +11,7 @@ import 'package:moyen_xpress_app/utils/image_utils.dart';
 import 'package:readmore/readmore.dart';
 
 import '../../components/custom_textfield1.dart';
+import '../../utils/route_utils.dart';
 
 class ProductDetails extends GetView<ProductDetailsController> {
   int? a;
@@ -723,6 +724,9 @@ class ProductDetails extends GetView<ProductDetailsController> {
                     ),
                     SizedBox(width: _width * 0.01,),
                     GestureDetector(
+                      onTap: (){
+                        Get.toNamed(kMyCartScreen);
+                      },
                       child: Container(
                         margin: EdgeInsets.only(
                             left: _width * 0.005,
@@ -763,11 +767,11 @@ class ProductDetails extends GetView<ProductDetailsController> {
     double _height = MediaQuery.of(context).size.height;
     double _width = MediaQuery.of(context).size.width;
     return SizedBox(
-      height: _height * 0.55,
+      height: _height * 0.5,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        // mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
+        // mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           SizedBox(height: _height * 0.02,),
           Image.asset(
@@ -787,7 +791,7 @@ class ProductDetails extends GetView<ProductDetailsController> {
             padding: EdgeInsets.symmetric(horizontal: _width * 0.05, vertical: _height * 0.02),
             height: _height * 0.2,
             decoration: const BoxDecoration(
-              color: Colors.red,
+              color: Colors.transparent,
               image:  DecorationImage(image: AssetImage(
                 ImageUtils.bag
               ),
@@ -815,54 +819,46 @@ class ProductDetails extends GetView<ProductDetailsController> {
             fontSize2: _height * 0.012,
             fontFamily2: poppinsRegular,
           ),
-          Spacer(),
-          Padding(padding: EdgeInsets.symmetric(horizontal: _width * 0.02),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                padding: EdgeInsets.symmetric(
-                    horizontal: _width * 0.1,
-                    vertical: _height * 0.02
-                ),
-                color: homeBoxColor,
-                child: Center(
-                  child: TextWidget(
-                    textTitle: 'Back To Shopping',
-                    fontSize: _height * 0.015,
-                  ),
-                ),
+          const Spacer(),
+          Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            CustomButton(
+              margin: EdgeInsets.zero,
+              width: _width * 0.4,
+              onTap: (){
+                Get.back();
+              },
+              padding: EdgeInsets.symmetric(
+                  // horizontal: _width * 0.05,
+                  vertical: _height * 0.0125
               ),
-              Container(
-                // height: _height * 0.05,
-                // width: _width * 0.25,
-                padding: EdgeInsets.symmetric(
-                  horizontal: _width * 0.1,
-                  vertical: _height * 0.02
-                ),
-                // width: double.infinity,
-                color: homeBoxColor,
-                child: Center(
-                  child: TextWidget(
-                    textTitle: 'Back To Shopping',
-                    fontSize: _height * 0.01,
-                  ),
-                ),
+              title: 'Back To Shopping',
+              color: backToShopping,
+              textColor: Colors.white,
+              fontSize: _height * 0.0175,
+              fontFamily: poppinsRegular,
+              borderRadius: _width * 0.012,
+            ),
+
+            CustomButton(
+              margin: EdgeInsets.zero,
+              width: _width * 0.4,
+              padding: EdgeInsets.symmetric(
+                  // horizontal: _width * 0.05,
+                  vertical: _height * 0.0125
               ),
-              CustomButton(
-                title: 'Back To Shopping',
-              )
+              title: 'My Cart',
+              color: buyNow,
+              textColor: Colors.white,
+              fontSize: _height * 0.0175,
+              fontFamily: poppinsRegular,
+              borderRadius: _width * 0.012,
+            ),
 
-              // CustomButton(
-              //   padding: EdgeInsets.symmetric(horizontal: _width * 0.02,vertical: _height * 0.01),
-              //   title: 'My Cart',
-              //   color: homeBoxColor,
-              // ),
-
-            ],
-          ),
-          ),
-          SizedBox(height: _height * 0.01,),
+          ],
+            ),
+          SizedBox(height: _height * 0.02,),
 
         ],
       ),

@@ -44,10 +44,13 @@ class CustomButton extends StatelessWidget {
   dynamic title;
   dynamic margin;
   dynamic padding;
-  Color? color;
-  double? borderRadius;
-  double? height;
-  double? width;
+  final Color? color;
+  final Color? textColor;
+  final double? borderRadius;
+  final double? fontSize;
+  final double? height;
+  final double? width;
+  dynamic fontFamily;
   void Function()? onTap;
   CustomButton({
     this.title,
@@ -56,6 +59,9 @@ class CustomButton extends StatelessWidget {
     this.padding,
     this.color,
     this.borderRadius,
+    this.textColor,
+    this.fontSize,
+    this.fontFamily,
     this.height,
     this.width
   });
@@ -76,9 +82,9 @@ class CustomButton extends StatelessWidget {
         child: Center(
           child: TextWidget(
             textTitle: title,
-            fontFamily: montserratBold,
-            fontSize: 10.0,
-            color: Colors.white,
+            fontFamily: fontFamily,
+            fontSize: fontSize,
+            color: textColor,
           ),
         ),
       ),

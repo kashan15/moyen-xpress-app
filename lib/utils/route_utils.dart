@@ -5,6 +5,7 @@ const String kCategoryDetails = "/CATEGORY_DETAILS";
 const String kCategoryScreen = "/CATEGORY_SCREEN";
 const String kProductDetailsScreen = "/PRODUCT_DETAILS_SCREEN";
 const String kNotificationScreen = "/NOTIFICATION_SCREEN";
+const String kMyCartScreen = "/CART_SCREEN";
 const String kNavBar = "/NAV_BAR";
 const String kNavBar1 = "/NAV_BAR1";
 const String kDashboardScreen = "/DASHBOARD_SCREEN";

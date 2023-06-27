@@ -3,6 +3,7 @@ import 'package:moyen_xpress_app/controller/categories_controller.dart';
 import 'package:moyen_xpress_app/controller/categories_details_controller.dart';
 import 'package:moyen_xpress_app/controller/home_controller.dart';
 import 'package:moyen_xpress_app/controller/login_screen_controller.dart';
+import 'package:moyen_xpress_app/controller/my_cart_controller.dart';
 import 'package:moyen_xpress_app/controller/navbar_controller.dart';
 import 'package:moyen_xpress_app/controller/notification_controller.dart';
 import 'package:moyen_xpress_app/controller/product_details_controller.dart';
@@ -26,6 +27,7 @@ class ControllerBinding extends Bindings {
     Get.lazyPut(() => NavBarController());
     Get.lazyPut(() => DashboardTabController());
     Get.lazyPut(() => CategoriesController());
+    Get.lazyPut(() => MyCartController());
 
   }
 }
