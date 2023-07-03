@@ -3,6 +3,7 @@ const String kSplashScreen = "/SPLASH_SCREEN";
 const String kSignupScreen = "/SIGNUP_SCREEN";
 const String kCategoryDetails = "/CATEGORY_DETAILS";
 const String kCategoryScreen = "/CATEGORY_SCREEN";
+const String kOrderConfirmation = "/ORDER_CONFIRMATION_SCREEN";
 const String kProductDetailsScreen = "/PRODUCT_DETAILS_SCREEN";
 const String kNotificationScreen = "/NOTIFICATION_SCREEN";
 const String kMyCartScreen = "/CART_SCREEN";

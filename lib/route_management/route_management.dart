@@ -2,6 +2,7 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:moyen_xpress_app/components/custom_navbar.dart';
 import 'package:moyen_xpress_app/view/authentication/login_screen.dart';
 import 'package:moyen_xpress_app/view/authentication/signup_screen.dart';
+import 'package:moyen_xpress_app/view/cart/order_confirmation.dart';
 import 'package:moyen_xpress_app/view/categories/categories_details.dart';
 import 'package:moyen_xpress_app/view/categories/categories_screen.dart';
 import 'package:moyen_xpress_app/view/notification/notification_screen.dart';
@@ -41,6 +42,11 @@ class RouteManagement {
       GetPage(
         name:   kCategoryScreen,
         page: () => CategoriesScreen(),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
+        name:   kOrderConfirmation,
+        page: () => OrderConfirmation(),
         binding: ControllerBinding(),
       ),
       GetPage(
