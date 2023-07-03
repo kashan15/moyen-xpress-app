@@ -21,6 +21,7 @@ const String kChatScreen = "/CHAT_SCREEN";
 const String kCallingScreen = "/CALLING_SCREEN";
 const String kAboutScreen = "/ABOUT_SCREEN";
 const String kProfileScreen = "/PROFILE_SCREEN";
+const String kEditAccount = "/EDIT_ACCOUNT";
 const String kCallHistoryScreen = "/CALL_HISTORY_SCREEN";
 const String kCallHistoryDetailScreen = "/CALL_HISTORY_DETAIL_SCREEN";
 const String kMyWalletScreen = "/MY_WALLET_SCREEN";

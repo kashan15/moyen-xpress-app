@@ -54,6 +54,7 @@ const Color cartBox = Color(0xffFFAC4D);
 const Color buyNow = Color(0xffE76D13);
 const Color backToShopping = Color(0xffF29551);
 const Color cartBoxColor = Color(0xffE0E0E0);
+const Color customGreyColor = Colors.grey;
 
 
 

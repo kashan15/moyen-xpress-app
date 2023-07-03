@@ -46,8 +46,10 @@ class CustomTextField1 extends StatelessWidget {
   final Image? suffixIcon;
   final Image? prefixIcon;
   final double fontSize;
+  final dynamic fontFamily;
   final TextEditingController controller;
   final Function(String)? onChanged;
+  final EdgeInsetsGeometry? contentPadding;
 
   CustomTextField1({
     // required this.labelText,
@@ -58,6 +60,8 @@ class CustomTextField1 extends StatelessWidget {
     this.prefixIcon,
     required this.controller,
     this.onChanged,
+    this.contentPadding,
+    this.fontFamily
   });
 
   @override
@@ -72,14 +76,16 @@ class CustomTextField1 extends StatelessWidget {
         hintText: hintText,
         hintStyle: TextStyle(
           fontSize: hintFontSize,
+            fontFamily: fontFamily,
             textBaseline: TextBaseline.alphabetic,
             overflow: TextOverflow.ellipsis
         ),
         alignLabelWithHint: true, // Aligns the label with the hint text
-        contentPadding: const EdgeInsets.symmetric(
-            vertical: 10.0,
-            horizontal: 10.0
-        ),
+        contentPadding: contentPadding,
+        // const EdgeInsets.symmetric(
+        //     vertical: 10.0,
+        //     horizontal: 10.0
+        // ),
         suffixIcon: suffixIcon,
         suffixIconConstraints: const BoxConstraints(
           minWidth: 30.0
@@ -91,6 +97,7 @@ class CustomTextField1 extends StatelessWidget {
       textAlignVertical: TextAlignVertical.top,
       style: TextStyle(
         fontSize: fontSize,
+        fontFamily: fontFamily,
         textBaseline: TextBaseline.alphabetic,
         overflow: TextOverflow.ellipsis
       ),

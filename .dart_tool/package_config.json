@@ -212,6 +212,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "images_picker",
+      "rootUri": "file:///C:/Users/Flutter/AppData/Local/Pub/Cache/hosted/pub.dev/images_picker-1.2.11",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "intl",
       "rootUri": "file:///C:/Users/Flutter/AppData/Local/Pub/Cache/hosted/pub.dev/intl-0.18.1",
       "packageUri": "lib/",
@@ -446,7 +452,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-07-03T08:34:08.794032Z",
+  "generated": "2023-07-03T17:39:38.162881Z",
   "generator": "pub",
   "generatorVersion": "2.19.4"
 }

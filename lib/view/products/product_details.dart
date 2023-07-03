@@ -44,7 +44,9 @@ class ProductDetails extends GetView<ProductDetailsController> {
                   IconButton(
                     padding: EdgeInsets.zero,
                       constraints: const BoxConstraints(),
-                      onPressed: (){},
+                      onPressed: (){
+                      Get.back();
+                      },
                       icon: Icon(Icons.arrow_back_ios,
                       size: _height * 0.025,
                       )
@@ -78,6 +80,11 @@ class ProductDetails extends GetView<ProductDetailsController> {
                       hintFontSize: _height * 0.015,
                       fontSize: _height * 0.015,
                       suffixIcon: Image.asset(ImageUtils.searchIcon),
+                      contentPadding:
+                      const EdgeInsets.symmetric(
+                          vertical: 10.0,
+                          horizontal: 10.0
+                      ),
                       controller: controller.searchController,
                       onChanged: (value) {
                         print(value);
@@ -411,30 +418,35 @@ class ProductDetails extends GetView<ProductDetailsController> {
                           top: _height * 0.0175,
                           left: _width * 0.575,
                           child:
-                          Container(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: _width * 0.02,
-                              vertical: _height * 0.0125,
-                            ),
-                            decoration: BoxDecoration(
-                                color: Colors.black,
-                                borderRadius: BorderRadius.circular(_width * 0.0125)
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Image.asset(
-                                  ImageUtils.chatIcon,
-                                  height: _height * 0.02,
-                                ),
-                                SizedBox(width: _width * 0.02,),
-                                TextWidget(
-                                  textTitle: 'Chat With Seller',
-                                  color: Colors.white,
-                                  fontSize: _height * 0.015,
-                                  fontFamily: poppinsRegular,
-                                )
-                              ],
+                          GestureDetector(
+                            onTap: (){
+                              Get.toNamed(kChatScreen);
+                            },
+                            child: Container(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: _width * 0.02,
+                                vertical: _height * 0.0125,
+                              ),
+                              decoration: BoxDecoration(
+                                  color: Colors.black,
+                                  borderRadius: BorderRadius.circular(_width * 0.0125)
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Image.asset(
+                                    ImageUtils.chatIcon,
+                                    height: _height * 0.025,
+                                  ),
+                                  SizedBox(width: _width * 0.02,),
+                                  TextWidget(
+                                    textTitle: 'Chat With Seller',
+                                    color: Colors.white,
+                                    fontSize: _height * 0.015,
+                                    fontFamily: poppinsRegular,
+                                  )
+                                ],
+                              ),
                             ),
                           )
                       ),

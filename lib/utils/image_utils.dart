@@ -79,5 +79,17 @@ class ImageUtils{
   static const String smallBag = 'assets/images/smallBag.png';
   static const String person = 'assets/images/person.png';
   static const String person1 = 'assets/images/person1.png';
+  static const String profile = 'assets/images/profile.png';
+  static const String profile1 = 'assets/images/profile1.png';
+  static const String men = 'assets/images/men.jpeg';
+}
 
+Widget genericAsset({var asset,Color? iconColor,BoxFit? boxFit,}){
+  return asset.runtimeType != IconData
+      ? Image(
+    image: AssetImage(asset,),
+    fit: boxFit ?? BoxFit.cover,
+    //height: iconHeight,
+  )
+      : Icon(asset,color:iconColor);
 }

@@ -4,8 +4,11 @@ import 'package:moyen_xpress_app/view/authentication/login_screen.dart';
 import 'package:moyen_xpress_app/view/authentication/signup_screen.dart';
 import 'package:moyen_xpress_app/view/categories/categories_details.dart';
 import 'package:moyen_xpress_app/view/categories/categories_screen.dart';
+import 'package:moyen_xpress_app/view/chat/chat_screen.dart';
 import 'package:moyen_xpress_app/view/notification/notification_screen.dart';
 import 'package:moyen_xpress_app/view/products/product_details.dart';
+import 'package:moyen_xpress_app/view/profile/edit_account.dart';
+import 'package:moyen_xpress_app/view/profile/profile_screen.dart';
 import 'package:moyen_xpress_app/view/splash/splash_screen.dart';
 import '../components/custom_navbar1.dart';
 import '../utils/route_utils.dart';
@@ -44,6 +47,11 @@ class RouteManagement {
         binding: ControllerBinding(),
       ),
       GetPage(
+        name:   kChatScreen,
+        page: () => ChatScreen(),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
         name:   kProductDetailsScreen,
         page: () => ProductDetails(),
         binding: ControllerBinding(),
@@ -51,6 +59,16 @@ class RouteManagement {
       GetPage(
         name:   kMyCartScreen,
         page: () => MyCart(),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
+        name:   kProfileScreen,
+        page: () => ProfileScreen(),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
+        name:   kEditAccount,
+        page: () => EditAccountScreen(),
         binding: ControllerBinding(),
       ),
       GetPage(

@@ -52,6 +52,8 @@ dependencies:
   firebase_core: ^2.1.1
   readmore:
   modal_bottom_sheet:
+  images_picker:
+
 
 dev_dependencies:
   flutter_test:
