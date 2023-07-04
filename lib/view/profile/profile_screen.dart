@@ -54,7 +54,7 @@ class ProfileScreen extends GetView<ProfileController> {
         top: false,
         bottom: false,
         child: Scaffold(
-          backgroundColor: backgroundColor,
+          // backgroundColor: backgroundColor,
           body: Column(
             children: [
               // SizedBox(height: _height * 0.03,),
@@ -171,13 +171,15 @@ class ProfileScreen extends GetView<ProfileController> {
                     return Column(
                       children: [
                         GestureDetector(
-                          onTap: (){},
+                          onTap: (){
+                            Get.toNamed(kSettingsScreen);
+                          },
                           child: Container(
                             padding: EdgeInsets.symmetric(
                               //horizontal: _width * 0.02,
                               vertical: _height * 0.015
                             ),
-                            color: backgroundColor,
+                            // color: backgroundColor,
                             child: Row(
                               children: [
                                 Icon(

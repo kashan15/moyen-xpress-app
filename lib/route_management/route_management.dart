@@ -15,6 +15,7 @@ import '../utils/route_utils.dart';
 import '../view/cart/my_cart.dart';
 import '../view/dashboard_tab_screen.dart';
 import '../view/home/home_screen.dart';
+import '../view/profile/settings/settings_screen.dart';
 import 'controller_binding.dart';
 
 
@@ -34,6 +35,11 @@ class RouteManagement {
       GetPage(
         name:   kSplashScreen,
         page: () =>  const SplashScreen(),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
+        name:   kSettingsScreen,
+        page: () =>  SettingsScreen(),
         binding: ControllerBinding(),
       ),
       GetPage(

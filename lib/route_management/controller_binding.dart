@@ -9,11 +9,14 @@ import 'package:moyen_xpress_app/controller/navbar_controller.dart';
 import 'package:moyen_xpress_app/controller/notification_controller.dart';
 import 'package:moyen_xpress_app/controller/product_details_controller.dart';
 import 'package:moyen_xpress_app/controller/profile_screen_controller.dart';
+import 'package:moyen_xpress_app/controller/settings_screen_controller.dart';
 import 'package:moyen_xpress_app/controller/signup_screen_controller.dart';
 import 'package:moyen_xpress_app/controller/splash_screen_controller.dart';
 import 'package:moyen_xpress_app/controller/tab_controller.dart';
+import 'package:moyen_xpress_app/controller/theme_controller.dart';
 import 'package:moyen_xpress_app/view/chat/chat_controller.dart';
 import 'package:moyen_xpress_app/view/profile/edit_account.dart';
+import 'package:moyen_xpress_app/view/profile/settings/settings_screen.dart';
 
 import '../controller/dashboard_tab_controller.dart';
 
@@ -35,6 +38,8 @@ class ControllerBinding extends Bindings {
     Get.lazyPut(() => ProfileController());
     Get.lazyPut(() => EditAccountController());
     Get.lazyPut(() => ChatController());
+    Get.lazyPut(() => SettingsController());
+    Get.lazyPut(() => ThemeController());
 
   }
 }
