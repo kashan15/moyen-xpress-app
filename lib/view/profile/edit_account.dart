@@ -209,7 +209,8 @@ class EditAccountScreen extends GetView<EditAccountController> {
                                     blurRadius: 2,
                                     spreadRadius: 2,
                                     offset: Offset(0, 0))
-                              ]),
+                              ]
+                          ),
                           child: CustomTextField1(
                             hintText: 'John Smith',
                             hintFontSize: _height * 0.015,
@@ -444,7 +445,8 @@ class EditAccountScreen extends GetView<EditAccountController> {
                   ),
                 )
               ],
-            )),
+            )
+        ),
       ),
     );
   }

@@ -54,6 +54,13 @@ const Color cartBox = Color(0xffFFAC4D);
 const Color buyNow = Color(0xffE76D13);
 const Color backToShopping = Color(0xffF29551);
 const Color cartBoxColor = Color(0xffE0E0E0);
+const Color paypalColor = Color(0xffE6F1FC);
+const Color stripeColor = Color(0xffEFEFFF);
+const Color walletColor = Color(0xffF9DBBE);
+const Color wireColor = Color(0xffE6F8DF);
+const Color historyBackground = Color(0xffF1F1F1);
+
+
 const Color customGreyColor = Colors.grey;
 
 

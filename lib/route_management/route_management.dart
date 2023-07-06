@@ -6,9 +6,12 @@ import 'package:moyen_xpress_app/view/categories/categories_details.dart';
 import 'package:moyen_xpress_app/view/categories/categories_screen.dart';
 import 'package:moyen_xpress_app/view/chat/chat_screen.dart';
 import 'package:moyen_xpress_app/view/notification/notification_screen.dart';
+import 'package:moyen_xpress_app/view/payment/payment_method.dart';
+import 'package:moyen_xpress_app/view/payment/payment_method_details.dart';
 import 'package:moyen_xpress_app/view/products/product_details.dart';
 import 'package:moyen_xpress_app/view/profile/edit_account.dart';
 import 'package:moyen_xpress_app/view/profile/profile_screen.dart';
+import 'package:moyen_xpress_app/view/purchase/purchase_history.dart';
 import 'package:moyen_xpress_app/view/splash/splash_screen.dart';
 import '../components/custom_navbar1.dart';
 import '../utils/route_utils.dart';
@@ -40,6 +43,21 @@ class RouteManagement {
       GetPage(
         name:   kSettingsScreen,
         page: () =>  SettingsScreen(),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
+        name:   kPaymentScreen,
+        page: () =>  PaymentScreen(),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
+        name:   kPaymentDetails,
+        page: () =>  PaymentDetailsScreen(),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
+        name:   kPurchaseHistory,
+        page: () =>  PurchaseHistory(),
         binding: ControllerBinding(),
       ),
       GetPage(

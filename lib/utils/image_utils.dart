@@ -28,6 +28,8 @@ class ImageUtils{
   static const  starIcon = "assets/icons/starIcon.png";
   static const  chatIcon = "assets/icons/chatIcon.png";
   static const  cartCheckIcon = "assets/icons/cartCheck.png";
+  static const  paymentIcon = "assets/icons/paymentIcon.png";
+  static const String deleteIcon = 'assets/icons/deleteIcon.png';
 
 
   /// Images
@@ -82,6 +84,15 @@ class ImageUtils{
   static const String profile = 'assets/images/profile.png';
   static const String profile1 = 'assets/images/profile1.png';
   static const String men = 'assets/images/men.jpeg';
+  static const String paymentCard = 'assets/images/credit-card-4.png';
+  static const String stripe = 'assets/images/stripe.jpg';
+  static const String visa = 'assets/images/visa.png';
+  static const String paypal = 'assets/images/paypal.png';
+  static const String paypalLogo = 'assets/images/paypalLogo.png';
+  static const String stripeLogo = 'assets/images/stripeLogo.png';
+  static const String walletLogo = 'assets/images/walletLogo.png';
+  static const String wireLogo = 'assets/images/wireLogo.png';
+
 }
 
 Widget genericAsset({var asset,Color? iconColor,BoxFit? boxFit,}){

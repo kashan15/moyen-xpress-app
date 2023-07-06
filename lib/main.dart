@@ -55,6 +55,14 @@ class MyApp extends StatelessWidget {
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
             title: 'Moyen Xpress App',
+
+            theme: ThemeData(
+              primarySwatch: primaryColorSwatch,
+              // colorScheme: const ColorScheme.dark(),
+              fontFamily:'Nexa',
+            ),
+            //Default theme
+
             // theme: ThemeData.light(),
             // darkTheme: ThemeData.dark(),
             // themeMode: ThemeMode.system,
@@ -77,15 +85,8 @@ class MyApp extends StatelessWidget {
             // darkTheme: ThemeData.dark(), // standard dark theme
             // themeMode: ThemeMode.system,
 
-            // theme: ThemeData(
-            //   primarySwatch: primaryColorSwatch,
-            //   // colorScheme: const ColorScheme.dark(),
-            //   fontFamily:'Nexa',
-            // ),
-             // Default theme
 
-
-          initialRoute: kNavBar1,
+          initialRoute: kPurchaseHistory,
             getPages: RouteManagement.getPages(),
 
             // initialBinding: ControllerBinding(),

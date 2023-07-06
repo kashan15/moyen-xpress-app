@@ -130,7 +130,7 @@ class SettingsScreen extends GetView<SettingsController> {
                 child: Row(
                   children: [
                     TextWidget(
-                      textTitle: 'Dark Mode',
+                      textTitle: 'Promotions',
                       fontWeight: FontWeight.w700,
                       fontSize: _height * 0.02,
                       color: Colors.black,
@@ -139,14 +139,22 @@ class SettingsScreen extends GetView<SettingsController> {
                 ),
               ),
               SizedBox(height: _height * 0.02,),
-              ThemeContainer(
+              // ThemeContainer(
+              //   color: Colors.white,
+              //   borderRadius: _width * 0.02,
+              //   title1: 'ON',
+              //   title2: 'OFF',
+              //   fontSize: _height * 0.015,
+              //   fontFamily: poppinsSemiBold,
+              // )
+              SettingsContainer(
                 color: Colors.white,
                 borderRadius: _width * 0.02,
                 title1: 'ON',
                 title2: 'OFF',
                 fontSize: _height * 0.015,
                 fontFamily: poppinsSemiBold,
-              )
+              ),
             ],
           ),
         ),

@@ -17,7 +17,7 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
     double _height = MediaQuery.of(context).size.height;
     double _width = MediaQuery.of(context).size.width;
     return AppBar(
-        //backgroundColor: Colors.white,
+        backgroundColor: Colors.white,
         elevation: 1,
         shadowColor: Colors.black,
         title: Image.asset(
@@ -34,7 +34,7 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
                 Icon(
                   Icons.search,
                   size: _height * 0.025,
-                  // color: Colors.black,
+                   color: Colors.black,
 
                 ),
                 const SizedBox(width: 10),
@@ -43,7 +43,7 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
                   child: Icon(
                       Icons.menu,
                       size: _height * 0.025,
-                      // color: Colors.black
+                      color: Colors.black
                   ),
                 )
               ],
