@@ -7,14 +7,18 @@ import 'package:moyen_xpress_app/route_management/route_management.dart';
 import 'package:moyen_xpress_app/utils/color_utils.dart';
 import 'package:moyen_xpress_app/utils/route_utils.dart';
 import 'package:moyen_xpress_app/utils/size_utils.dart';
+import 'package:moyen_xpress_app/utils/storage_utils.dart';
 import 'package:moyen_xpress_app/view/profile/settings/settings_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'controller/theme_controller.dart';
+import 'lang/trans.dart';
 
+String? route;
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   // await Firebase.initializeApp();
+  final getStorage = GetStorage();
   runApp( MyApp());
 }
 
@@ -41,52 +45,30 @@ ThemeData _lightTheme = ThemeData(
 class MyApp extends StatelessWidget {
 
   final ThemeController themeController = Get.put(ThemeController());
+  final _getStorage = GetStorage();
 
   @override
 
   Widget build(BuildContext context) {
-     //CustomSize.getInstance().init(context);
-    //CustomSize().init(context);
-
-
+    final bool isAlreadyLogin = _getStorage.read(isAlreadyLoginUtil) ?? false;
+    final String languageLocale = _getStorage.read(languageLocalePUtil) ?? "en";
     return ScreenUtilInit(
         designSize: const Size(360, 690),
         builder: (context, child) {
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
             title: 'Moyen Xpress App',
-
             theme: ThemeData(
               primarySwatch: primaryColorSwatch,
               // colorScheme: const ColorScheme.dark(),
               fontFamily:'Nexa',
             ),
             //Default theme
+            locale: Locale(languageLocale),
+            fallbackLocale: const Locale('en', 'US'),
+            translations: AppTranslations(),
 
-            // theme: ThemeData.light(),
-            // darkTheme: ThemeData.dark(),
-            // themeMode: ThemeMode.system,
-
-
-
-            // theme: ThemeData(
-            //   scaffoldBackgroundColor: backgroundColor,
-            //   // brightness: Brightness.dark,
-            //   // primaryColor: Colors.lightBlue[800],
-            //   appBarTheme: const AppBarTheme(
-            //     backgroundColor: Colors.yellow,
-            //   ),
-            //   iconTheme: const IconThemeData(
-            //    color: Colors.red,
-            //
-            //   )
-            //
-            // ),
-            // darkTheme: ThemeData.dark(), // standard dark theme
-            // themeMode: ThemeMode.system,
-
-
-          initialRoute: kPurchaseHistory,
+            initialRoute: kNavBar1,
             getPages: RouteManagement.getPages(),
 
             // initialBinding: ControllerBinding(),

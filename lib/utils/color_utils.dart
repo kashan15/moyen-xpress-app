@@ -62,6 +62,7 @@ const Color historyBackground = Color(0xffF1F1F1);
 
 
 const Color customGreyColor = Colors.grey;
+const Color textFieldColor = Color(0xfff2f3f8);
 
 
 

@@ -51,6 +51,7 @@ class CustomButton extends StatelessWidget {
   final double? height;
   final double? width;
   dynamic fontFamily;
+  final bool isSelected;
   void Function()? onTap;
   CustomButton({
     this.title,
@@ -63,7 +64,8 @@ class CustomButton extends StatelessWidget {
     this.fontSize,
     this.fontFamily,
     this.height,
-    this.width
+    this.width,
+    required this.isSelected
   });
 
   @override

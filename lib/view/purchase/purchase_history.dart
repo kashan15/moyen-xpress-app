@@ -237,7 +237,7 @@ class PurchaseHistory extends GetView<PurchaseHistoryController> {
 
                                               ], // top widgets
                                             ),
-                                            const Spacer(),
+                                            //const Spacer(),
                                             Container(
                                               color: Colors.brown,
                                               height: 20,

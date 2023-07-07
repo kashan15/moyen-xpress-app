@@ -42,7 +42,7 @@ class RouteManagement {
       ),
       GetPage(
         name:   kSettingsScreen,
-        page: () =>  SettingsScreen(),
+        page: () =>  SettingsScreen1(),
         binding: ControllerBinding(),
       ),
       GetPage(

@@ -425,6 +425,7 @@ class EditAccountScreen extends GetView<EditAccountController> {
                       SizedBox(height: _height * 0.02,),
                       const Spacer(),
                       CustomButton(
+                        isSelected: false,
                         margin: EdgeInsets.symmetric(horizontal: _width * 0.06),
                         padding:
                             EdgeInsets.symmetric(
@@ -462,6 +463,7 @@ class EditAccountScreen extends GetView<EditAccountController> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CustomButton(
+              isSelected: false,
               margin: EdgeInsets.symmetric(horizontal: _width * 0.06),
               padding: EdgeInsets.symmetric(vertical: _height * 0.015),
               onTap: () => imagePickerController.pickImageFromCamera(),
@@ -476,6 +478,7 @@ class EditAccountScreen extends GetView<EditAccountController> {
               height: _height * 0.02,
             ),
             CustomButton(
+              isSelected: false,
               margin: EdgeInsets.symmetric(horizontal: _width * 0.06),
               padding: EdgeInsets.symmetric(vertical: _height * 0.015),
               onTap: () => imagePickerController.pickImageFromGallery(),

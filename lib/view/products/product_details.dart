@@ -836,6 +836,7 @@ class ProductDetails extends GetView<ProductDetailsController> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             CustomButton(
+              isSelected: false,
               margin: EdgeInsets.zero,
               width: _width * 0.4,
               onTap: (){
@@ -854,6 +855,7 @@ class ProductDetails extends GetView<ProductDetailsController> {
             ),
 
             CustomButton(
+              isSelected: false,
               margin: EdgeInsets.zero,
               width: _width * 0.4,
               padding: EdgeInsets.symmetric(

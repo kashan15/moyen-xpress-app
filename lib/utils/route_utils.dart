@@ -11,6 +11,7 @@ const String kNavBar1 = "/NAV_BAR1";
 const String kDashboardScreen = "/DASHBOARD_SCREEN";
 const String kAgentHomeScreen = "/AGENT_HOME_SCREEN";
 const String kWelcomeScreen = "/WELCOME_SCREEN";
+const String kDashboardTab = '/DASHBOARD_TAB';
 const String kOnBoardingScreen = "/ON_BOARDING_SCREEN";
 const String kLoginScreen = "/LOGIN_SCREEN";
 const String kLogout = "/LOGOUT";

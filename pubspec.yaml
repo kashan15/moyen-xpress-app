@@ -53,6 +53,7 @@ dependencies:
   readmore:
   modal_bottom_sheet:
   images_picker:
+  dropdown_search: ^0.6.3
 
 dev_dependencies:
   flutter_test:

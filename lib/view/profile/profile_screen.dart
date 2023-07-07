@@ -140,6 +140,7 @@ class ProfileScreen extends GetView<ProfileController> {
                     ),
                     SizedBox(height: _height * 0.025,),
                     CustomButton(
+                      isSelected: false,
                       margin: EdgeInsets.symmetric(
                         horizontal: _width * 0.02
                       ),
@@ -172,7 +173,7 @@ class ProfileScreen extends GetView<ProfileController> {
                       children: [
                         GestureDetector(
                           onTap: (){
-                            Get.toNamed(kPaymentScreen);
+                            Get.toNamed(kSettingsScreen);
                           },
                           child: Container(
                             padding: EdgeInsets.symmetric(

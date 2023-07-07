@@ -307,6 +307,7 @@ class PaymentDetailsScreen extends GetView<PaymentController> {
                         textColor: Colors.white,
                         borderRadius: _width * 0.015,
                         color: homeBoxColor,
+                        isSelected: false,
                       ),
                       SizedBox(
                         height: _height * 0.05,
