@@ -722,7 +722,7 @@ class _SettingsScreen1State extends State<SettingsScreen1> {
     double _height = MediaQuery.of(context).size.height;
     double _width = MediaQuery.of(context).size.width;
     Get.defaultDialog(
-      title: settingsSUtil.tr,
+      title: settings.tr,
       titleStyle: TextStyle(color: cartBox),
       content: Form(
         // key: sendRequestFormKey,

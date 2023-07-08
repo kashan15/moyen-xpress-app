@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:moyen_xpress_app/components/custom_richtext.dart';
 import 'package:moyen_xpress_app/controller/categories_controller.dart';
 import 'package:moyen_xpress_app/controller/notification_controller.dart';
+import 'package:moyen_xpress_app/utils/lang_string_util.dart';
 import 'package:moyen_xpress_app/utils/route_utils.dart';
 
 import '../../components/text_widget.dart';
@@ -15,29 +16,50 @@ class NotificationScreen extends GetView<NotificationController> {
 
   List orderNumber = [
     {
-      "order": "#8585858585"
+      "order": " #8585858585 "
+    },
+    {
+      "order": " #8585858585 "
     },{
-      "order": "#8585858585"
+      "order": " #8585858585 "
     },{
-      "order": "#8585858585"
+      "order": " #8585858585 "
     },{
-      "order": "#8585858585"
+      "order": " #8585858585 "
     },{
-      "order": "#8585858585"
+      "order": " #8585858585 "
     },{
-      "order": "#8585858585"
+      "order": " #8585858585 "
     },{
-      "order": "#8585858585"
+      "order": " #8585858585 "
     },{
-      "order": "#8585858585"
+      "order": " #8585858585 "
     },{
-      "order": "#8585858585"
+      "order": " #8585858585 "
     },{
-      "order": "#8585858585"
+      "order": " #8585858585 "
     },{
-      "order": "#8585858585"
+      "order": " #8585858585 "
     },{
-      "order": "#8585858585"
+      "order": " #8585858585 "
+    },{
+      "order": " #8585858585 "
+    },{
+      "order": " #8585858585 "
+    },{
+      "order": " #8585858585 "
+    },{
+      "order": " #8585858585 "
+    },{
+      "order": " #8585858585 "
+    },{
+      "order": " #8585858585 "
+    },{
+      "order": " #8585858585 "
+    },{
+      "order": " #8585858585 "
+    },{
+      "order": " #8585858585 "
     },
   ];
 
@@ -64,13 +86,13 @@ class NotificationScreen extends GetView<NotificationController> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           TextWidget(
-                            textTitle: 'Notifications',
+                            textTitle: notifications.tr,
                             fontSize: _height * 0.02,
                             fontWeight: FontWeight.w600,
                             color: Colors.black,
                           ),
                           TextWidget(
-                            textTitle: 'mark as read',
+                            textTitle: markAsRead.tr,
                             fontSize: _height * 0.015,
                             fontWeight: FontWeight.w600,
                             color: homeBoxColor,
@@ -114,15 +136,15 @@ class NotificationScreen extends GetView<NotificationController> {
                                 height: _height * 0.025,
                               ),
                               CustomRichText(
-                                textSpan1: 'order ',
+                                textSpan1: notificationText1.tr,
                                 textSpan2: orderNumber[index]["order"],
-                                textSpan3: ' has been placed',
+                                textSpan3: notificationText2.tr,
                                 color1: Colors.black,
                                 color2: homeBoxColor,
                                 color3: Colors.black,
                               ),
                               TextWidget(
-                                textTitle: '1m ago',
+                                textTitle: '1 ${notificationText3.tr}',
                                 fontSize: _height * 0.015,
                                 fontWeight: FontWeight.normal,
                                 color: Colors.grey.withOpacity(0.8),

@@ -6,6 +6,7 @@ import 'package:moyen_xpress_app/controller/my_cart_controller.dart';
 import 'package:moyen_xpress_app/controller/profile_screen_controller.dart';
 import 'package:moyen_xpress_app/utils/color_utils.dart';
 import 'package:moyen_xpress_app/utils/image_utils.dart';
+import 'package:moyen_xpress_app/utils/lang_string_util.dart';
 import 'package:moyen_xpress_app/utils/route_utils.dart';
 
 import '../../components/custom_richtext.dart';
@@ -22,23 +23,23 @@ class ProfileScreen extends GetView<ProfileController> {
   List itemList = [
     {
       'icon': Icons.home_outlined,
-      'name': 'My Orders'
+      'name': myOrder.tr
     },
     {
       'icon': Icons.info_outline_rounded,
-      'name': 'My Information'
+      'name': myInformation.tr
     },{
       'icon': Icons.local_shipping_outlined,
-      'name': 'Shipping Address'
+      'name': shippingAddress.tr
     },{
       'icon': Icons.payment,
-      'name': 'Payment Methods'
+      'name': paymentMethod.tr
     },{
       'icon': Icons.settings,
-      'name': 'Settings'
+      'name': settings.tr
     },{
       'icon': Icons.logout,
-      'name': 'Logout'
+      'name': logout.tr
     },
   ];
   @override
@@ -150,7 +151,7 @@ class ProfileScreen extends GetView<ProfileController> {
                       onTap: (){
                         Get.toNamed(kEditAccount);
                       },
-                      title: 'Edit Account',
+                      title: editAccount.tr,
                       fontFamily: poppinsMedium,
                       fontSize: _height * 0.0175,
                       textColor: Colors.white,
