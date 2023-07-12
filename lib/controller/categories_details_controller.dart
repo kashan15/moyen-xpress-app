@@ -22,11 +22,11 @@ class CategoriesDetailsController extends GetxController
   late TabController tabController;
 
   final List<Widget> myTabs = [
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
+    HomeScreen(image1: ''),
+    HomeScreen(image1: ''),
+    HomeScreen(image1: ''),
+    HomeScreen(image1: ''),
+    HomeScreen(image1: ''),
   ];
 
   List<String> tabTitle = [

@@ -19,4 +19,5 @@ class ProductDetailsController extends GetxController
   bool tap4 = false;
 
 
+
 }

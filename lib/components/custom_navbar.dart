@@ -35,7 +35,7 @@ class CustomNavBar extends GetView<NavBarController>{
                 child: const Text("Custom widget example"),
                 onPressed: () => PersistentNavBarNavigator.pushNewScreen(
                   context,
-                  screen: HomeScreen()
+                  screen: HomeScreen(image1: '')
                 ),
               ),
             ),
@@ -82,11 +82,11 @@ class _ProvidedStylesExampleState extends State<ProvidedStylesExample> {
   }
 
   List<Widget> _buildScreens() => [
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
+    HomeScreen(image1: ''),
+    HomeScreen(image1: ''),
+    HomeScreen(image1: ''),
+    HomeScreen(image1: ''),
+    HomeScreen(image1: ''),
   ];
 
   List<PersistentBottomNavBarItem> _navBarsItems() => [

@@ -5,6 +5,7 @@ import 'package:moyen_xpress_app/controller/edit_account_controller.dart';
 import 'package:moyen_xpress_app/controller/home_controller.dart';
 import 'package:moyen_xpress_app/controller/login_screen_controller.dart';
 import 'package:moyen_xpress_app/controller/my_cart_controller.dart';
+import 'package:moyen_xpress_app/controller/my_orders_controller.dart';
 import 'package:moyen_xpress_app/controller/navbar_controller.dart';
 import 'package:moyen_xpress_app/controller/notification_controller.dart';
 import 'package:moyen_xpress_app/controller/payment_method_controller.dart';
@@ -15,6 +16,7 @@ import 'package:moyen_xpress_app/controller/signup_screen_controller.dart';
 import 'package:moyen_xpress_app/controller/splash_screen_controller.dart';
 import 'package:moyen_xpress_app/controller/tab_controller.dart';
 import 'package:moyen_xpress_app/controller/theme_controller.dart';
+import 'package:moyen_xpress_app/orders/my_orders.dart';
 import 'package:moyen_xpress_app/view/chat/chat_controller.dart';
 import 'package:moyen_xpress_app/view/profile/edit_account.dart';
 import 'package:moyen_xpress_app/view/profile/settings/settings_screen.dart';
@@ -33,7 +35,6 @@ class ControllerBinding extends Bindings {
     Get.lazyPut(() => HomeController());
     Get.lazyPut(() => CategoriesDetailsController());
     Get.lazyPut(() => NotificationController());
-    Get.lazyPut(() => ProductDetailsController());
     Get.lazyPut(() => NavBarController());
     Get.lazyPut(() => DashboardTabController());
     Get.lazyPut(() => CategoriesController());
@@ -45,6 +46,7 @@ class ControllerBinding extends Bindings {
     Get.lazyPut(() => ThemeController());
     Get.lazyPut(() => PaymentController());
     Get.lazyPut(() => PurchaseHistoryController());
-
+    Get.lazyPut(() => MyOrdersController());
+    Get.lazyPut(() => ProductDetailsController());
   }
 }

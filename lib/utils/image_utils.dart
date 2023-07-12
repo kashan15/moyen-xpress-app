@@ -30,6 +30,8 @@ class ImageUtils{
   static const  cartCheckIcon = "assets/icons/cartCheck.png";
   static const  paymentIcon = "assets/icons/paymentIcon.png";
   static const String deleteIcon = 'assets/icons/deleteIcon.png';
+  static const String shipTransparentIcon = 'assets/icons/shipTransparentIcon.png';
+  static const String quoteTransparentIcon = 'assets/icons/quoteTransparentIcon.png';
 
 
   /// Images
@@ -92,6 +94,7 @@ class ImageUtils{
   static const String stripeLogo = 'assets/images/stripeLogo.png';
   static const String walletLogo = 'assets/images/walletLogo.png';
   static const String wireLogo = 'assets/images/wireLogo.png';
+  static const String myOrderBanner = 'assets/images/myOrderBanner.png';
 
 }
 

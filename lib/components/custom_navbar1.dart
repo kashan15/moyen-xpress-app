@@ -36,9 +36,9 @@ class BottomNavBar extends GetView<NavBarController> {
 
     List<Widget> _buildScreens() {
       return [
-        HomeScreen(),
+        HomeScreen(image1: ''),
         CategoriesScreen(),
-        HomeScreen(),
+        HomeScreen(image1: ''),
         NotificationScreen(),
         ProfileScreen(),
       ];

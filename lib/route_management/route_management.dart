@@ -1,5 +1,8 @@
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:moyen_xpress_app/components/custom_navbar.dart';
+import 'package:moyen_xpress_app/controller/home_controller.dart';
 import 'package:moyen_xpress_app/view/authentication/login_screen.dart';
 import 'package:moyen_xpress_app/view/authentication/signup_screen.dart';
 import 'package:moyen_xpress_app/view/categories/categories_details.dart';
@@ -14,6 +17,7 @@ import 'package:moyen_xpress_app/view/profile/profile_screen.dart';
 import 'package:moyen_xpress_app/view/purchase/purchase_history.dart';
 import 'package:moyen_xpress_app/view/splash/splash_screen.dart';
 import '../components/custom_navbar1.dart';
+import '../orders/my_orders.dart';
 import '../utils/route_utils.dart';
 import '../view/cart/my_cart.dart';
 import '../view/dashboard_tab_screen.dart';
@@ -23,11 +27,12 @@ import 'controller_binding.dart';
 
 
 class RouteManagement {
+  HomeController homeController = Get.put(HomeController());
   static List<GetPage> getPages() {
     return [
       GetPage(
         name:   kHomeScreen,
-        page: () =>  HomeScreen(),
+        page: () =>  HomeScreen(image1: '',),
         binding: ControllerBinding(),
       ),
       GetPage(
@@ -43,6 +48,11 @@ class RouteManagement {
       GetPage(
         name:   kSettingsScreen,
         page: () =>  SettingsScreen1(),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
+        name:   kMyOrdersScreen,
+        page: () =>  MyOrdersScreen(),
         binding: ControllerBinding(),
       ),
       GetPage(
@@ -75,11 +85,11 @@ class RouteManagement {
         page: () => ChatScreen(),
         binding: ControllerBinding(),
       ),
-      GetPage(
-        name:   kProductDetailsScreen,
-        page: () => ProductDetails(),
-        binding: ControllerBinding(),
-      ),
+      // GetPage(
+      //   name:   kProductDetailsScreen,
+      //   page: () => ProductDetails(),
+      //   binding: ControllerBinding(),
+      // ),
       GetPage(
         name:   kMyCartScreen,
         page: () => MyCart(),

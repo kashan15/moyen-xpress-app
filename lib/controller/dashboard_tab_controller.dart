@@ -42,11 +42,11 @@ class DashboardTabController extends GetxController
   late Rx<String> tabTitleText = ''.obs;
 
   final List<Widget> myTabs = [
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
+    HomeScreen(image1: ''),
+    HomeScreen(image1: ''),
+    HomeScreen(image1: ''),
+    HomeScreen(image1: ''),
+    HomeScreen(image1: ''),
 
   ];
 

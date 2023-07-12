@@ -8,6 +8,7 @@ import 'package:moyen_xpress_app/controller/product_details_controller.dart';
 import 'package:moyen_xpress_app/utils/color_utils.dart';
 import 'package:moyen_xpress_app/utils/font_utils.dart';
 import 'package:moyen_xpress_app/utils/image_utils.dart';
+import 'package:moyen_xpress_app/view/home/home_screen.dart';
 import 'package:readmore/readmore.dart';
 
 import '../../components/custom_textfield1.dart';
@@ -15,8 +16,10 @@ import '../../utils/route_utils.dart';
 
 class ProductDetails extends GetView<ProductDetailsController> {
   int? a;
+  final HomeScreen imageIndex;
  ProductDetails({super.key,
-   this.a
+   this.a,
+   required this.imageIndex
 });
 
  // bool tap1 = false;
@@ -25,9 +28,11 @@ class ProductDetails extends GetView<ProductDetailsController> {
  //  bool tap4 = false;
 
   @override
-  Widget build(BuildContext context) {
+
+  Widget build(BuildContext context,) {
     double _height = MediaQuery.of(context).size.height;
     double _width = MediaQuery.of(context).size.width;
+    final ProductDetailsController controller = Get.put(ProductDetailsController());
     controller.globalContext = context;
     return DefaultTabController(
       length: 4,
@@ -134,10 +139,11 @@ class ProductDetails extends GetView<ProductDetailsController> {
                         child: Container(
                           height: _height * 0.225,
                           width: _width * 0.5,
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                               color: Colors.transparent,
                               image: DecorationImage(image: AssetImage(
-                                  ImageUtils.bag
+                                  imageIndex.image1
+                                //ImageUtils.bag
                               ),
                                   fit: BoxFit.contain
                               )
@@ -186,8 +192,9 @@ class ProductDetails extends GetView<ProductDetailsController> {
                                       Colors.white,
                                   width: 2
                                 ),
-                                image: const DecorationImage(image: AssetImage(
-                                  ImageUtils.bag,
+                                image:  DecorationImage(image: AssetImage(
+                                  // ImageUtils.bag,
+                                    imageIndex.image1
                                 ),
                                 fit: BoxFit.contain
                                 )
@@ -219,8 +226,8 @@ class ProductDetails extends GetView<ProductDetailsController> {
                                         Colors.white,
                                         width: 2
                                     ),
-                                    image: const DecorationImage(image: AssetImage(
-                                      ImageUtils.bag,
+                                    image:  DecorationImage(image: AssetImage(
+                                        imageIndex.image1
                                     ),
                                         fit: BoxFit.contain
                                     )
@@ -252,8 +259,8 @@ class ProductDetails extends GetView<ProductDetailsController> {
                                         Colors.white,
                                         width: 2
                                     ),
-                                    image: const DecorationImage(image: AssetImage(
-                                      ImageUtils.bag,
+                                    image: DecorationImage(image: AssetImage(
+                                        imageIndex.image1
                                     ),
                                         fit: BoxFit.contain
                                     )
@@ -285,9 +292,9 @@ class ProductDetails extends GetView<ProductDetailsController> {
                                         Colors.white,
                                         width: 2
                                     ),
-                                    image: const DecorationImage(
+                                    image:  DecorationImage(
                                         image: AssetImage(
-                                      ImageUtils.bag,
+                                            imageIndex.image1
                                     ),
                                         fit: BoxFit.contain
                                     )
@@ -300,7 +307,8 @@ class ProductDetails extends GetView<ProductDetailsController> {
                   ),
                   SizedBox(height: _height * 0.02,),
                   TextWidget(
-                    textTitle: 'Women Shoulder Handbag',
+                    //textTitle: 'Women Shoulder Handbag',
+                     textTitle: imageIndex.name,
                     fontWeight: FontWeight.w700,
                     fontSize: _height * 0.025,
                   ),

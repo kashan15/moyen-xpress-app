@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:moyen_xpress_app/utils/image_utils.dart';
 import 'package:moyen_xpress_app/view/home/home_screen.dart';
 
 import '../components/test_class.dart';
@@ -21,12 +22,127 @@ class HomeController extends GetxController
 
   late TabController tabController;
 
+  List<HomeScreen> itemsList = [
+    HomeScreen(
+        image1: ImageUtils.bag,
+      name: 'Women Shoulder Handbag',
+    ),
+    HomeScreen(
+      image1: ImageUtils.dealItem,
+      name: 'Microwave Oven',
+    ),
+    HomeScreen(
+      image1: ImageUtils.bag,
+      name: 'Women Shoulder Handbag',
+    ),
+    HomeScreen(
+      image1: ImageUtils.dealItem,
+      name: 'Microwave Oven',
+    ),
+  ];
+
+  List<HomeScreen> dailyDealsList = [
+    HomeScreen(
+      image1: ImageUtils.dealItem,
+      name: 'Microwave Oven',
+    ),
+    HomeScreen(
+      image1: ImageUtils.dealItem,
+      name: 'Microwave Oven',
+    ),
+    HomeScreen(
+      image1: ImageUtils.dealItem,
+      name: 'Microwave Oven',
+    ),
+    HomeScreen(
+      image1: ImageUtils.dealItem,
+      name: 'Microwave Oven',
+    ),
+  ];
+
+  List<HomeScreen> newArrivalsList = [
+    HomeScreen(
+      image1: ImageUtils.newArrival,
+      name: 'T-Shirts',
+    ),
+    HomeScreen(
+      image1: ImageUtils.newArrival,
+      name: 'T-Shirts',
+    ),
+    HomeScreen(
+      image1: ImageUtils.newArrival,
+      name: 'T-Shirts',
+    ),
+    HomeScreen(
+      image1: ImageUtils.newArrival,
+      name: 'T-Shirts',
+    ),
+  ];
+
+  List<HomeScreen> promotionsList = [
+    HomeScreen(
+      image1: ImageUtils.promotionPic,
+      name: 'Promotions',
+    ),
+    HomeScreen(
+      image1: ImageUtils.promotionPic,
+      name: 'Promotions',
+    ),
+    HomeScreen(
+      image1: ImageUtils.promotionPic,
+      name: 'Promotions',
+    ),
+    HomeScreen(
+      image1: ImageUtils.promotionPic,
+      name: 'Promotions',
+    ),
+  ];
+
+  List<HomeScreen> topSellersList = [
+    HomeScreen(
+      image1: ImageUtils.topSeller,
+      name: 'Pascal Shop',
+    ),
+    HomeScreen(
+      image1: ImageUtils.topSeller,
+      name: 'Pascal Shop',
+    ),
+    HomeScreen(
+      image1: ImageUtils.topSeller,
+      name: 'Pascal Shop',
+    ),
+    HomeScreen(
+      image1: ImageUtils.topSeller,
+      name: 'Pascal Shop',
+    ),
+  ];
+
+  List<HomeScreen> topBrandsList = [
+    HomeScreen(
+      image1: ImageUtils.topBrands,
+      name: 'Nike',
+    ),
+    HomeScreen(
+      image1: ImageUtils.topBrands,
+      name: 'Nike',
+    ),
+    HomeScreen(
+      image1: ImageUtils.topBrands,
+      name: 'Nike',
+    ),
+    HomeScreen(
+      image1: ImageUtils.topBrands,
+      name: 'Nike',
+    ),
+  ];
+
+
   final List<Widget> myTabs = [
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
+    HomeScreen(image1: ''),
+    HomeScreen(image1: ''),
+    HomeScreen(image1: ''),
+    HomeScreen(image1: ''),
+    HomeScreen(image1: ''),
   ];
 
   List<String> tabTitle = [

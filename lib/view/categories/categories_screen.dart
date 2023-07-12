@@ -73,7 +73,7 @@ class CategoriesScreen extends GetView<CategoriesController> {
     double _width = MediaQuery.of(context).size.width;
     int columnsCount = MediaQuery.of(context).size.width < 600 ? 2 : 1;
     return Scaffold(
-      // backgroundColor: backgroundColor,
+      backgroundColor: backgroundColor,
       body: SingleChildScrollView(
         child: Column(
           children: [
