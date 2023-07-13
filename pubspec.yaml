@@ -54,6 +54,7 @@ dependencies:
   modal_bottom_sheet:
   images_picker:
   dropdown_search: ^0.6.3
+  slide_countdown: ^0.6.0
 
 dev_dependencies:
   flutter_test:
@@ -131,6 +132,10 @@ flutter:
     - family: PoppinsSemiBold
       fonts:
         - asset: assets/fonts/Poppins-SemiBold.ttf
+
+    - family: PoppinsSemiBoldItalic
+      fonts:
+        - asset: assets/fonts/Poppins-SemiBoldItalic.ttf
 
     - family: PoppinsBold
       fonts:

@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:moyen_xpress_app/controller/categories_controller.dart';
 import 'package:moyen_xpress_app/controller/categories_details_controller.dart';
+import 'package:moyen_xpress_app/controller/drawer_controller.dart';
 import 'package:moyen_xpress_app/controller/edit_account_controller.dart';
 import 'package:moyen_xpress_app/controller/home_controller.dart';
 import 'package:moyen_xpress_app/controller/login_screen_controller.dart';
@@ -48,5 +49,6 @@ class ControllerBinding extends Bindings {
     Get.lazyPut(() => PurchaseHistoryController());
     Get.lazyPut(() => MyOrdersController());
     Get.lazyPut(() => ProductDetailsController());
+    Get.lazyPut(() => DrawerScreenController());
   }
 }

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:moyen_xpress_app/view/categories/categories_screen.dart';
 import 'package:moyen_xpress_app/view/home/home_screen.dart';
 
 import '../components/test_class.dart';
+import '../utils/image_utils.dart';
+import '../view/categories/categories_details.dart';
 
 class CategoriesDetailsController extends GetxController
     with GetSingleTickerProviderStateMixin
@@ -12,6 +15,8 @@ class CategoriesDetailsController extends GetxController
   double blockWidth = 1;
   double height = 1;
   double width = 1;
+
+  bool categoryTap = false;
 
   RxInt notificationCount = 9.obs;
 
@@ -27,6 +32,25 @@ class CategoriesDetailsController extends GetxController
     HomeScreen(image1: ''),
     HomeScreen(image1: ''),
     HomeScreen(image1: ''),
+  ];
+
+  List<CategoryDetailsScreen> allProducts = [
+    CategoryDetailsScreen(
+      image: ImageUtils.products1,
+      name: "Bicycle",
+    ),
+    CategoryDetailsScreen(
+      image: ImageUtils.products2,
+      name: "Sneakers",
+    ),
+    CategoryDetailsScreen(
+      image: ImageUtils.products3,
+      name: "Swim Goggle",
+    ),
+    CategoryDetailsScreen(
+      image: ImageUtils.products4,
+      name: "Fishing Net",
+    ),
   ];
 
   List<String> tabTitle = [

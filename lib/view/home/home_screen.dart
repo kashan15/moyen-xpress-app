@@ -11,11 +11,13 @@ import 'package:moyen_xpress_app/utils/font_utils.dart';
 import 'package:moyen_xpress_app/utils/image_utils.dart';
 import 'package:moyen_xpress_app/utils/route_utils.dart';
 import 'package:moyen_xpress_app/view/products/product_details.dart';
+import 'package:slide_countdown/slide_countdown.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../components/custom_drawer.dart';
 import '../../components/custom_navbar.dart';
 import '../../controller/home_controller.dart';
+import '../../utils/theme.dart';
 
 class HomeScreen extends GetView<HomeController> {
   final String image1;
@@ -318,9 +320,9 @@ class HomeScreen extends GetView<HomeController> {
                                           padding: EdgeInsets.only(left: 5),
                                           child: TextWidget(
                                             textTitle: categoriesList[index]["name"],
-                                            fontFamily: montserratRegular,
-                                            fontSize: 12.0,
-                                            fontWeight: FontWeight.w600,
+                                            fontFamily: poppinsRegular,
+                                            fontSize: Get.height * 0.0125,
+                                            // fontWeight: FontWeight.w600,
                                             color: Colors.black,
                                             maxLines: 2,
                                             overFlow: TextOverflow.ellipsis,
@@ -568,7 +570,7 @@ class HomeScreen extends GetView<HomeController> {
                               )
                             ],
                           ),
-                          SizedBox(height: _height * 0.02,),
+
                           // SizedBox(
                           //   height: 240,
                           //   child: PageView.builder(
@@ -607,6 +609,39 @@ class HomeScreen extends GetView<HomeController> {
                           //   },
                           // ),
 
+                          /// Flash Deal
+                          SizedBox(height: _height * 0.02,),
+                          TextWidget1(
+                            textTitle: 'Flash Deal',
+                            style: CustomTheme.heading,
+                          ),
+
+                         //SizedBox(height: _height * 0.02,),
+                          TextWidget1(
+                            textTitle: 'Upto 50% off',
+                            style: CustomTheme.italicHeading,
+                          ),
+                          /// CountDown
+                          SizedBox(height: _height * 0.01,),
+                          SlideCountdownSeparated(
+                            height: Get.height * 0.0325,
+                            width: Get.width * 0.07,
+                            textStyle: TextStyle(
+                              color: Colors.white,
+                              fontFamily: poppinsMedium,
+                              fontSize: Get.height * 0.02
+                            ),
+
+                            duration: const Duration(hours: 12),
+                            decoration: BoxDecoration(
+                              color: homeBoxColor,
+                              borderRadius: BorderRadius.circular(
+                                _width * 0.005
+                              )
+                            ),
+
+                          ),
+
 
                           /// PageView SmoothPage Indicator
                           // SizedBox(
@@ -635,7 +670,7 @@ class HomeScreen extends GetView<HomeController> {
                           //     type: WormType.thinUnderground,
                           //   ),
                           // ),
-
+                          SizedBox(height: _height * 0.01,),
                           GridView.builder(
                             shrinkWrap: true,
                             physics: const NeverScrollableScrollPhysics(),
@@ -656,7 +691,8 @@ class HomeScreen extends GetView<HomeController> {
                                 onTap: (){
                                   Get.to(
                                       ProductDetails(
-                                          imageIndex: controller.itemsList[index])
+                                          imageIndex: controller.itemsList[index],
+                                      )
                                   );
                                 },
                                 child: Container(
@@ -717,27 +753,23 @@ class HomeScreen extends GetView<HomeController> {
                                           ),
                                         ),
                                         SizedBox(height: _height * 0.01,),
-                                        TextWidget(
+                                        TextWidget1(
                                           //textTitle: 'Microwave Oven',
                                           textTitle: controller.itemsList[index].name,
-                                          fontFamily: montserratSemiBold,
-                                          fontSize: 11.0,
+                                          style: CustomTheme.productName,
                                           maxLines: 1,
                                           overFlow: TextOverflow.ellipsis,
-                                          color: Colors.black,
                                         ),
-                                        SizedBox(height: _height * 0.005,),
-                                        TextWidget(
+                                        SizedBox(height: _height * 0.004,),
+                                        TextWidget1(
                                           textTitle: '\$75.00',
-                                          fontFamily: montserratSemiBold,
-                                          fontSize: 11.0,
-                                          color: homeBoxColor,
+                                          style: CustomTheme.productPrice,
                                         ),
-                                        SizedBox(height: _height * 0.005,),
+                                        SizedBox(height: _height * 0.0025,),
                                         RatingWidget(
                                           initialRating: 4.5,
                                         ),
-                                        SizedBox(height: _height * 0.008,),
+                                        SizedBox(height: _height * 0.006,),
                                         Row(
                                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                           children: [
@@ -848,8 +880,10 @@ class HomeScreen extends GetView<HomeController> {
                               // Build each container
                               return  GestureDetector(
                                 onTap: (){
+                                  controller.homeTap = true;
                                  Get.to(
-                                     ProductDetails(imageIndex: controller.dailyDealsList[index])
+                                     ProductDetails(
+                                         imageIndex: controller.dailyDealsList[index])
                                  );
                                 },
                                 child: Container(
@@ -908,24 +942,20 @@ class HomeScreen extends GetView<HomeController> {
                                           ),
                                         ),
                                         SizedBox(height: _height * 0.01,),
-                                        TextWidget(
+                                        TextWidget1(
                                           textTitle: controller.dailyDealsList[index].name,
-                                          fontFamily: montserratSemiBold,
-                                          fontSize: 11.0,
-                                          color: Colors.black,
+                                          style: CustomTheme.productName,
                                         ),
-                                        SizedBox(height: _height * 0.004,),
-                                        TextWidget(
+                                        SizedBox(height: _height * 0.002,),
+                                        TextWidget1(
                                           textTitle: '\$75.00',
-                                          fontFamily: montserratSemiBold,
-                                          fontSize: 11.0,
-                                          color: homeBoxColor,
+                                          style: CustomTheme.productPrice,
                                         ),
-                                        SizedBox(height: _height * 0.005,),
+                                        SizedBox(height: _height * 0.0025,),
                                         RatingWidget(
                                           initialRating: 4.5,
                                         ),
-                                        SizedBox(height: _height * 0.008,),
+                                        SizedBox(height: _height * 0.006,),
                                         Row(
                                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                           children: [
@@ -1143,24 +1173,20 @@ class HomeScreen extends GetView<HomeController> {
                                           ),
                                         ),
                                         SizedBox(height: _height * 0.01,),
-                                        TextWidget(
+                                        TextWidget1(
                                           textTitle: controller.newArrivalsList[index].name,
-                                          fontFamily: montserratSemiBold,
-                                          fontSize: 11.0,
-                                          color: Colors.black,
+                                         style: CustomTheme.productName,
                                         ),
-                                        SizedBox(height: _height * 0.004,),
-                                        TextWidget(
+                                        SizedBox(height: _height * 0.002,),
+                                        TextWidget1(
                                           textTitle: '\$75.00',
-                                          fontFamily: montserratSemiBold,
-                                          fontSize: 11.0,
-                                          color: homeBoxColor,
+                                          style: CustomTheme.productPrice,
                                         ),
-                                        SizedBox(height: _height * 0.005,),
+                                        SizedBox(height: _height * 0.0025,),
                                         RatingWidget(
                                           initialRating: 4.5,
                                         ),
-                                        SizedBox(height: _height * 0.008,),
+                                        SizedBox(height: _height * 0.006,),
                                         Row(
                                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                           children: [
@@ -1491,14 +1517,11 @@ class HomeScreen extends GetView<HomeController> {
                                          ),
                                        ),
                                        SizedBox(height: _height * 0.015,),
-                                       TextWidget(
+                                       TextWidget1(
                                          textTitle: controller.topSellersList[index].name,
-                                         fontSize: 12.0,
-                                         fontFamily: montserratSemiBold,
-                                         //fontWeight: FontWeight.w600,
-                                         color: Colors.black,
+                                         style: CustomTheme.topProductsName,
                                        ),
-                                       SizedBox(height: _height * 0.005,),
+                                       SizedBox(height: _height * 0.0025,),
                                        RatingWidget(
                                          initialRating: 4.5,
                                        ),
@@ -1644,14 +1667,11 @@ class HomeScreen extends GetView<HomeController> {
                                         ),
                                       ),
                                       SizedBox(height: _height * 0.015,),
-                                      TextWidget(
+                                      TextWidget1(
                                         textTitle: controller.topBrandsList[index].name,
-                                        fontSize: 12.0,
-                                        fontFamily: montserratSemiBold,
-                                        //fontWeight: FontWeight.w600,
-                                        color: Colors.black,
+                                       style: CustomTheme.topProductsName,
                                       ),
-                                      SizedBox(height: _height * 0.005,),
+                                      SizedBox(height: _height * 0.0025,),
                                       RatingWidget(
                                         initialRating: 4.5,
                                       ),

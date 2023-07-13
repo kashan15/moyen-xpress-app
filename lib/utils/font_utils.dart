@@ -7,4 +7,5 @@ const String montserratBold = "MontserratBold";
 const String poppinsRegular = "PoppinsRegular";
 const String poppinsMedium = "PoppinsMedium";
 const String poppinsSemiBold = "PoppinsSemiBold";
+const String poppinsSemiBoldItalic = "PoppinsSemiBoldItalic";
 const String poppinsBold = "PoppinsBold";

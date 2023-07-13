@@ -1,50 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:moyen_xpress_app/components/text_widget.dart';
+import 'package:moyen_xpress_app/controller/drawer_controller.dart';
 import 'package:moyen_xpress_app/utils/color_utils.dart';
 import 'package:moyen_xpress_app/utils/font_utils.dart';
 import 'package:moyen_xpress_app/utils/image_utils.dart';
 
-class CustomDrawer extends StatelessWidget {
+class CustomDrawer extends GetView<DrawerScreenController> {
    CustomDrawer({Key? key}) : super(key: key);
-
-  List drawerItemList = [
-    {
-      "icon": ImageUtils.homeIconDrawer,
-      "name": "Home"
-    },
-    {
-      "icon": ImageUtils.storeIcon,
-      "name": "Stores"
-    },{
-      "icon": ImageUtils.aboutIcon,
-      "name": "About"
-    },{
-      "icon": ImageUtils.phoneIcon,
-      "name": "Contact"
-    },{
-      "icon": ImageUtils.shippingIcon,
-      "name": "Shipping"
-    },{
-      "icon": ImageUtils.technicianIcon,
-      "name": "Technician"
-    },
-    {
-      "icon": ImageUtils.advertiserIcon,
-      "name": "Advertiser"
-    },
-    {
-      "icon": ImageUtils.sellerIcon,
-      "name": "Seller"
-    },
-    {
-      "icon": ImageUtils.auctionIcon,
-      "name": "Auction"
-    },{
-      "icon": ImageUtils.wholesaleIcon,
-      "name": "Wholesale"
-    },
-
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +29,7 @@ class CustomDrawer extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(_width * 0.02),
-                  image: DecorationImage(
+                  image: const DecorationImage(
                       image: AssetImage(ImageUtils.drawerImage),
                   fit: BoxFit.cover
                   )
@@ -74,40 +37,43 @@ class CustomDrawer extends StatelessWidget {
               ),
               SizedBox(height: 10,),
 
-              // ListView.separated(
-              //   padding: EdgeInsets.symmetric(vertical: 12),
-              //   physics: const NeverScrollableScrollPhysics(),
-              //   shrinkWrap: true,
-              //   itemCount: drawerItemList.length,
-              //   itemBuilder: (context, index) {
-              //     return Container(
-              //       padding: EdgeInsets.symmetric(horizontal: 12),
-              //       child: Row(
-              //         children: [
-              //           Image.asset(
-              //             drawerItemList[index]["icon"],
-              //             height: 20,
-              //           ),
-              //           SizedBox(width: 8,),
-              //           TextWidget(
-              //             textTitle: drawerItemList[index]["name"],
-              //             color: Colors.white,
-              //             fontFamily: montserratSemiBold,
-              //             // fontWeight: FontWeight.w900,
-              //             fontSize: 15,
-              //           ),
-              //         ],
-              //       ),
-              //     );
-              //   },
-              //   separatorBuilder: (context, index) {
-              //     return SizedBox(height: _height * 0.05,
-              //       child: Divider(
-              //         color: Colors.grey,
-              //         thickness: 1,
-              //       ),
-              //     );
-              //   },
+              // SizedBox(
+              //   height: _height * 1,
+              //   child: ListView.separated(
+              //     padding: EdgeInsets.symmetric(vertical: 12),
+              //     physics: const NeverScrollableScrollPhysics(),
+              //     shrinkWrap: true,
+              //     itemCount: controller.drawerItemList.length,
+              //     itemBuilder: (context, index) {
+              //       return Container(
+              //         padding: EdgeInsets.symmetric(horizontal: 12),
+              //         child: Row(
+              //           children: [
+              //             Image.asset(
+              //               controller.drawerItemList[index]["icon"],
+              //               height: 20,
+              //             ),
+              //             SizedBox(width: 8,),
+              //             TextWidget(
+              //               textTitle: controller.drawerItemList[index]["name"],
+              //               color: Colors.white,
+              //               fontFamily: montserratSemiBold,
+              //               // fontWeight: FontWeight.w900,
+              //               fontSize: 15,
+              //             ),
+              //           ],
+              //         ),
+              //       );
+              //     },
+              //     separatorBuilder: (context, index) {
+              //       return SizedBox(height: _height * 0.05,
+              //         child: Divider(
+              //           color: Colors.grey,
+              //           thickness: 1,
+              //         ),
+              //       );
+              //     },
+              //   ),
               // ),
 
             ],

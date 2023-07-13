@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:moyen_xpress_app/components/text_widget.dart';
 
 import '../utils/color_utils.dart';
@@ -31,7 +33,7 @@ class CustomGridButton extends StatelessWidget {
           child: TextWidget(
             textTitle: title,
             fontFamily: montserratBold,
-            fontSize: 10.0,
+            fontSize: Get.height * 0.0115,
             color: Colors.white,
           ),
         ),

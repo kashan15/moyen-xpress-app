@@ -16,6 +16,8 @@ class HomeController extends GetxController
 
   RxInt notificationCount = 9.obs;
 
+  bool homeTap = false;
+
   late Rx<String> tabTitleText = ''.obs;
 
   late BuildContext globalContext;

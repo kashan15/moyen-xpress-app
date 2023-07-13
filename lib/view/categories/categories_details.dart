@@ -8,10 +8,16 @@ import 'package:moyen_xpress_app/controller/categories_details_controller.dart';
 import 'package:moyen_xpress_app/utils/color_utils.dart';
 import 'package:moyen_xpress_app/utils/font_utils.dart';
 import 'package:moyen_xpress_app/utils/image_utils.dart';
+import 'package:moyen_xpress_app/view/products/product_details.dart';
 import '../../controller/home_controller.dart';
 
 class CategoryDetailsScreen extends GetView<CategoriesDetailsController> {
-  CategoryDetailsScreen({super.key});
+  final String? name;
+  final String? image;
+  CategoryDetailsScreen({super.key,
+  this.name,
+     this.image
+  });
 
   dynamic pages = [];
   dynamic pagesVertical = [];
@@ -45,24 +51,24 @@ class CategoryDetailsScreen extends GetView<CategoriesDetailsController> {
     },
   ];
 
-  List allProducts = [
-    {
-      "image": ImageUtils.products1,
-      "name": "Bicycle"
-    },
-    {
-      "image": ImageUtils.products2,
-      "name": "Sneakers"
-    },
-    {
-      "image": ImageUtils.products3,
-      "name": "Swim Goggle"
-    },
-    {
-      "image": ImageUtils.products4,
-      "name": "Fishing Net"
-    },
-  ];
+  // List allProducts = [
+  //   {
+  //     "image": ImageUtils.products1,
+  //     "name": "Bicycle"
+  //   },
+  //   {
+  //     "image": ImageUtils.products2,
+  //     "name": "Sneakers"
+  //   },
+  //   {
+  //     "image": ImageUtils.products3,
+  //     "name": "Swim Goggle"
+  //   },
+  //   {
+  //     "image": ImageUtils.products4,
+  //     "name": "Fishing Net"
+  //   },
+  // ];
 
   List color = [
     {
@@ -255,176 +261,185 @@ class CategoryDetailsScreen extends GetView<CategoriesDetailsController> {
                     ),
                     itemBuilder: (BuildContext context, int index) {
                       // Build each container
-                      return  Container(
-                          padding: EdgeInsets.symmetric(horizontal: _width * 0.0225, vertical: _height * 0.0125),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(_width * 0.025),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
-                                blurRadius: 3,
-                                //spreadRadius: 5,
-                                offset: Offset(0, 5), // Shadow position
-                              ),],
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Container(
-                                    //margin: EdgeInsets.only(right: _width * 0.15),
-                                    padding: EdgeInsets.symmetric(horizontal: _width * 0.005, vertical: _height * 0.004),
-                                    decoration: BoxDecoration(
-                                        color: homeBoxColor,
-                                        borderRadius: BorderRadius.circular(_width * 0.0105),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Colors.grey.withOpacity(0.5),
-                                            blurRadius: 3,
-                                            //spreadRadius: 5,
-                                            offset: Offset(0, 3), // Shadow position
-                                          ),]
-                                    ),
-                                    child: Center(
-                                      child: TextWidget(
-                                        textTitle: '25%',
-                                        fontFamily: montserratSemiBold,
-                                        fontSize: 12.0,
-                                        color: Colors.white,
+                      return  GestureDetector(
+                        onTap: (){
+                          // Get.to(
+                          //   ProductDetails(
+                          //     imageIndex2: controller.allProducts[index],
+                          //   )
+                          // );
+                        },
+                        child: Container(
+                            padding: EdgeInsets.symmetric(horizontal: _width * 0.0225, vertical: _height * 0.0125),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(_width * 0.025),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  blurRadius: 3,
+                                  //spreadRadius: 5,
+                                  offset: Offset(0, 5), // Shadow position
+                                ),],
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Container(
+                                      //margin: EdgeInsets.only(right: _width * 0.15),
+                                      padding: EdgeInsets.symmetric(horizontal: _width * 0.005, vertical: _height * 0.004),
+                                      decoration: BoxDecoration(
+                                          color: homeBoxColor,
+                                          borderRadius: BorderRadius.circular(_width * 0.0105),
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: Colors.grey.withOpacity(0.5),
+                                              blurRadius: 3,
+                                              //spreadRadius: 5,
+                                              offset: Offset(0, 3), // Shadow position
+                                            ),]
                                       ),
-                                    ),
-                                  ),
-                                  Container(
-                                    //margin: EdgeInsets.only(right: _width * 0.285),
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: _width * 0.01,
-                                        vertical: _height * 0.002
-                                    ),
-                                    decoration: BoxDecoration(
-                                        color: color[index]["color"],
-                                        borderRadius: BorderRadius.circular(_width * 0.005),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: color[index]["shadow"],
-                                            blurRadius: 3,
-                                            //spreadRadius: 5,
-                                            offset: Offset(0, 3), // Shadow position
-                                          ),]
-                                    ),
-                                    child: Center(
-                                      child: TextWidget(
-                                        textTitle: 'Top Seller',
-                                        fontFamily: montserratSemiBold,
-                                        fontSize: 10.0,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: _height * 0.02,),
-                              Container(
-                                height: _height * 0.115,
-                                width: double.infinity,
-                                margin: EdgeInsets.symmetric(horizontal: _width * 0.018),
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    image: DecorationImage(image: AssetImage(
-                                      allProducts[index]['image'],
-                                    ),
-                                      fit: BoxFit.contain,
-                                    )
-                                ),
-                              ),
-                              SizedBox(height: _height * 0.01,),
-                              TextWidget(
-                                textTitle:  allProducts[index]['name'],
-                                fontFamily: montserratSemiBold,
-                                fontSize: 11.0,
-                                color: Colors.black,
-                              ),
-                              SizedBox(height: _height * 0.004,),
-                              TextWidget(
-                                textTitle: '\$75.00',
-                                fontFamily: montserratSemiBold,
-                                fontSize: 11.0,
-                                color: homeBoxColor,
-                              ),
-                              SizedBox(height: _height * 0.005,),
-                              RatingWidget(
-                                initialRating: 4.5,
-                              ),
-                              SizedBox(height: _height * 0.008,),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  CustomGridButton(
-                                    onTap: (){},
-                                    title: 'Add to cart',
-                                  ),
-                                  Container(
-                                    padding: EdgeInsets.symmetric(horizontal: _width * 0.025, vertical: _height * 0.005),
-                                    decoration: BoxDecoration(
-                                        color: homeBoxColor,
-                                        borderRadius: BorderRadius.circular(_width * 0.01)
-                                    ),
-                                    child: Center(
-                                        child: Icon(
-                                          Icons.favorite_border_outlined, size: _height * 0.015,
+                                      child: Center(
+                                        child: TextWidget(
+                                          textTitle: '25%',
+                                          fontFamily: montserratSemiBold,
+                                          fontSize: 12.0,
                                           color: Colors.white,
-                                        )
+                                        ),
+                                      ),
                                     ),
-                                  )
-                                ],
-                              ),
+                                    Container(
+                                      //margin: EdgeInsets.only(right: _width * 0.285),
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: _width * 0.01,
+                                          vertical: _height * 0.002
+                                      ),
+                                      decoration: BoxDecoration(
+                                          color: color[index]["color"],
+                                          borderRadius: BorderRadius.circular(_width * 0.005),
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: color[index]["shadow"],
+                                              blurRadius: 3,
+                                              //spreadRadius: 5,
+                                              offset: Offset(0, 3), // Shadow position
+                                            ),]
+                                      ),
+                                      child: Center(
+                                        child: TextWidget(
+                                          textTitle: 'Top Seller',
+                                          fontFamily: montserratSemiBold,
+                                          fontSize: 10.0,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: _height * 0.02,),
+                                Container(
+                                  height: _height * 0.115,
+                                  width: double.infinity,
+                                  margin: EdgeInsets.symmetric(horizontal: _width * 0.018),
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      image: DecorationImage(image: AssetImage(
+                                        controller.allProducts[index].image!
+                                      ),
+                                        fit: BoxFit.contain,
+                                      )
+                                  ),
+                                ),
+                                SizedBox(height: _height * 0.01,),
+                                TextWidget(
+                                  textTitle:  controller.allProducts[index].name,
+                                  fontFamily: montserratSemiBold,
+                                  fontSize: 11.0,
+                                  color: Colors.black,
+                                ),
+                                SizedBox(height: _height * 0.004,),
+                                TextWidget(
+                                  textTitle: '\$75.00',
+                                  fontFamily: montserratSemiBold,
+                                  fontSize: 11.0,
+                                  color: homeBoxColor,
+                                ),
+                                SizedBox(height: _height * 0.005,),
+                                RatingWidget(
+                                  initialRating: 4.5,
+                                ),
+                                SizedBox(height: _height * 0.008,),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    CustomGridButton(
+                                      onTap: (){},
+                                      title: 'Add to cart',
+                                    ),
+                                    Container(
+                                      padding: EdgeInsets.symmetric(horizontal: _width * 0.025, vertical: _height * 0.005),
+                                      decoration: BoxDecoration(
+                                          color: homeBoxColor,
+                                          borderRadius: BorderRadius.circular(_width * 0.01)
+                                      ),
+                                      child: Center(
+                                          child: Icon(
+                                            Icons.favorite_border_outlined, size: _height * 0.015,
+                                            color: Colors.white,
+                                          )
+                                      ),
+                                    )
+                                  ],
+                                ),
 
-                              Row(
-                                children: [
+                                Row(
+                                  children: [
 
-                                ],
-                              )
-                            ],
-                          )
+                                  ],
+                                )
+                              ],
+                            )
 
 
-                        // Column(
-                        //   children:[
-                        //     Row(
-                        //     crossAxisAlignment: CrossAxisAlignment.start,
-                        //     children: [
-                        //       SizedBox(width: _width * 0.02,),
-                        //       TextWidget(
-                        //         textTitle: 'Learning Lessons',
-                        //         color: ColorUtils.white,
-                        //         fontFamily: FontUtils.montserratSemiBold,
-                        //         fontSize: 1.5.t,
-                        //       ),
-                        //     ],
-                        //   ),
-                        //     SizedBox(height: _height * 0.018,),
-                        //     Row(
-                        //       //crossAxisAlignment: CrossAxisAlignment.end,
-                        //       mainAxisAlignment: MainAxisAlignment.end,
-                        //       children: [
-                        //         CircleAvatar(
-                        //           backgroundColor: Colors.white,
-                        //           radius: _height * 0.0275,
-                        //           // backgroundImage: AssetImage(
-                        //           //     ImageUtils.homeIcon1,
-                        //           // ),
-                        //           child: Image.asset(ImageUtils.homeIcon2, height: _height * 0.035,),
-                        //         ),
-                        //         SizedBox(width: _width * 0.020,),
-                        //       ],
-                        //     ),
-                        //
-                        // ]),
+                          // Column(
+                          //   children:[
+                          //     Row(
+                          //     crossAxisAlignment: CrossAxisAlignment.start,
+                          //     children: [
+                          //       SizedBox(width: _width * 0.02,),
+                          //       TextWidget(
+                          //         textTitle: 'Learning Lessons',
+                          //         color: ColorUtils.white,
+                          //         fontFamily: FontUtils.montserratSemiBold,
+                          //         fontSize: 1.5.t,
+                          //       ),
+                          //     ],
+                          //   ),
+                          //     SizedBox(height: _height * 0.018,),
+                          //     Row(
+                          //       //crossAxisAlignment: CrossAxisAlignment.end,
+                          //       mainAxisAlignment: MainAxisAlignment.end,
+                          //       children: [
+                          //         CircleAvatar(
+                          //           backgroundColor: Colors.white,
+                          //           radius: _height * 0.0275,
+                          //           // backgroundImage: AssetImage(
+                          //           //     ImageUtils.homeIcon1,
+                          //           // ),
+                          //           child: Image.asset(ImageUtils.homeIcon2, height: _height * 0.035,),
+                          //         ),
+                          //         SizedBox(width: _width * 0.020,),
+                          //       ],
+                          //     ),
+                          //
+                          // ]),
 
+                        ),
                       );
                     },
                   ),

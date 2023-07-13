@@ -68,7 +68,7 @@ class MyApp extends StatelessWidget {
             fallbackLocale: const Locale('en', 'US'),
             translations: AppTranslations(),
 
-            initialRoute: kLoginScreen,
+            initialRoute: kNavBar1,
             getPages: RouteManagement.getPages(),
 
             // initialBinding: ControllerBinding(),

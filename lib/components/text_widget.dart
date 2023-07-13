@@ -46,3 +46,31 @@ class TextWidget extends StatelessWidget {
     );
   }
 }
+
+class TextWidget1 extends StatelessWidget {
+  dynamic textTitle;
+  dynamic textAlign;
+  dynamic maxLines;
+  dynamic overFlow;
+  TextStyle? style;
+
+  TextWidget1(
+      {
+        this.textAlign,
+        this.textTitle,
+        this.maxLines,
+        this.overFlow,
+        this.style
+      });
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      textTitle,
+      textAlign: textAlign,
+      maxLines: maxLines,
+      overflow: overFlow,
+      style: style
+    );
+  }
+}
