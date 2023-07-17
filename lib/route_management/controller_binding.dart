@@ -17,13 +17,13 @@ import 'package:moyen_xpress_app/controller/signup_screen_controller.dart';
 import 'package:moyen_xpress_app/controller/splash_screen_controller.dart';
 import 'package:moyen_xpress_app/controller/tab_controller.dart';
 import 'package:moyen_xpress_app/controller/theme_controller.dart';
-import 'package:moyen_xpress_app/orders/my_orders.dart';
 import 'package:moyen_xpress_app/view/chat/chat_controller.dart';
 import 'package:moyen_xpress_app/view/profile/edit_account.dart';
 import 'package:moyen_xpress_app/view/profile/settings/settings_screen.dart';
 import 'package:moyen_xpress_app/view/purchase/purchase_history.dart';
 
 import '../controller/dashboard_tab_controller.dart';
+import '../controller/my_order_details_controller.dart';
 import '../controller/purchase_history_controller.dart';
 
 
@@ -48,6 +48,7 @@ class ControllerBinding extends Bindings {
     Get.lazyPut(() => PaymentController());
     Get.lazyPut(() => PurchaseHistoryController());
     Get.lazyPut(() => MyOrdersController());
+    Get.lazyPut(() => MyOrderDetailsController());
     Get.lazyPut(() => ProductDetailsController());
     Get.lazyPut(() => DrawerScreenController());
   }

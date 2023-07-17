@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../utils/image_utils.dart';
+import '../view/payment/payment_method_details.dart';
 
 class PaymentController extends GetxController
     with GetSingleTickerProviderStateMixin
@@ -26,6 +27,17 @@ class PaymentController extends GetxController
   RxBool isSelected = false.obs;
 
   List checkList = [].obs;
+
+  // List<PaymentDetailsScreen> itemsList = [
+  //   PaymentDetailsScreen(
+  //     image1: ImageUtils.bag,
+  //     name: 'Women Shoulder Handbag',
+  //   ),
+  //   PaymentDetailsScreen(
+  //     image1: ImageUtils.dealItem,
+  //     name: 'Microwave Oven',
+  //   ),
+  // ];
 
   void toggleSelection(int index) {
     checkList[index].isSelected = !checkList[index].isSelected;

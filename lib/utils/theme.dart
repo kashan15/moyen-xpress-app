@@ -10,6 +10,21 @@ class CustomTheme {
     fontFamily: poppinsSemiBold,
     color: Colors.black,
   );
+  static final balanceText = TextStyle(
+    fontSize: Get.height * 0.0175,
+    fontFamily: poppinsSemiBold,
+    color: homeBoxColor,
+  );
+  static final rechargeText = TextStyle(
+    fontSize: Get.height * 0.0175,
+    fontFamily: poppinsSemiBold,
+    color: Colors.white,
+  );
+  static final balanceAmount = TextStyle(
+    fontSize: Get.height * 0.045,
+    fontFamily: poppinsBold,
+    color: Colors.white,
+  );
   static final italicHeading = TextStyle(
     fontSize: Get.height * 0.025,
     fontFamily: poppinsSemiBoldItalic,

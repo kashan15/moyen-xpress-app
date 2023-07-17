@@ -147,7 +147,6 @@ class ProductDetails extends GetView<ProductDetailsController> {
                               image:
                               DecorationImage(image: AssetImage(
                                   imageIndex!.image1
-
                               ),
                                   fit: BoxFit.contain
                               )

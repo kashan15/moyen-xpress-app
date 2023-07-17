@@ -9,6 +9,7 @@ import 'package:moyen_xpress_app/view/categories/categories_details.dart';
 import 'package:moyen_xpress_app/view/categories/categories_screen.dart';
 import 'package:moyen_xpress_app/view/chat/chat_screen.dart';
 import 'package:moyen_xpress_app/view/notification/notification_screen.dart';
+import 'package:moyen_xpress_app/view/orders/my_order_details.dart';
 import 'package:moyen_xpress_app/view/payment/payment_method.dart';
 import 'package:moyen_xpress_app/view/payment/payment_method_details.dart';
 import 'package:moyen_xpress_app/view/products/product_details.dart';
@@ -17,11 +18,11 @@ import 'package:moyen_xpress_app/view/profile/profile_screen.dart';
 import 'package:moyen_xpress_app/view/purchase/purchase_history.dart';
 import 'package:moyen_xpress_app/view/splash/splash_screen.dart';
 import '../components/custom_navbar1.dart';
-import '../orders/my_orders.dart';
 import '../utils/route_utils.dart';
 import '../view/cart/my_cart.dart';
 import '../view/dashboard_tab_screen.dart';
 import '../view/home/home_screen.dart';
+import '../view/orders/my_orders.dart';
 import '../view/profile/settings/settings_screen.dart';
 import 'controller_binding.dart';
 
@@ -53,6 +54,11 @@ class RouteManagement {
       GetPage(
         name:   kMyOrdersScreen,
         page: () =>  MyOrdersScreen(),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
+        name:   kMyOrderDetailsScreen,
+        page: () =>  MyOrderDetailsScreen(index: 0),
         binding: ControllerBinding(),
       ),
       GetPage(

@@ -11,10 +11,14 @@ import 'package:moyen_xpress_app/utils/color_utils.dart';
 import 'package:moyen_xpress_app/utils/font_utils.dart';
 import 'package:moyen_xpress_app/utils/image_utils.dart';
 
+import '../orders/my_order_details.dart';
+
 
 class PaymentDetailsScreen extends GetView<PaymentController> {
+  // final MyOrderDetailsScreen? nameInstance;
   PaymentDetailsScreen({
     super.key,
+    // this.nameInstance
   });
 
   bool willPop = true;
@@ -100,6 +104,7 @@ class PaymentDetailsScreen extends GetView<PaymentController> {
                                 children: [
                                   TextWidget(
                                     textTitle: 'Payment Method',
+                                    // textTitle: nameInstance!.name,
                                     fontWeight: FontWeight.w700,
                                     fontFamily: poppinsSemiBold,
                                     fontSize: _height * 0.025,
