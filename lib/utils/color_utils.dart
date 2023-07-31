@@ -59,6 +59,7 @@ const Color stripeColor = Color(0xffEFEFFF);
 const Color walletColor = Color(0xffF9DBBE);
 const Color wireColor = Color(0xffE6F8DF);
 const Color historyBackground = Color(0xffF1F1F1);
+const Color deliveredColor = Color(0xff129E31);
 
 
 const Color customGreyColor = Colors.grey;

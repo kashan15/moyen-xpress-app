@@ -3,12 +3,14 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:moyen_xpress_app/components/custom_grid_button.dart';
+import 'package:moyen_xpress_app/components/new_custom_dialogue.dart';
 import 'package:moyen_xpress_app/components/text_widget.dart';
 import 'package:moyen_xpress_app/controller/my_cart_controller.dart';
 import 'package:moyen_xpress_app/controller/profile_screen_controller.dart';
 import 'package:moyen_xpress_app/utils/color_utils.dart';
 import 'package:moyen_xpress_app/utils/image_utils.dart';
 
+import '../../components/custom_dialog.dart';
 import '../../components/custom_richtext.dart';
 import '../../components/custom_textfield1.dart';
 import '../../controller/edit_account_controller.dart';
@@ -20,6 +22,7 @@ class EditAccountScreen extends GetView<EditAccountController> {
   });
 
   bool willPop = true;
+
 
   final EditAccountController imagePickerController = EditAccountController();
 
@@ -87,16 +90,23 @@ class EditAccountScreen extends GetView<EditAccountController> {
                             if (imagePickerController.imagePath.value.isNotEmpty) {
                               return GestureDetector(
                                 onTap: (){
-                                  showModalBottomSheet(
-                                      context: context,
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.vertical(
-                                              top: Radius.circular(
-                                                  _width * 0.06
-                                              ))),
-                                      builder: (BuildContext context) {
-                                        return customModalSheet(context);
-                                      });
+                                  // showModalBottomSheet(
+                                  //     context: context,
+                                  //     shape: RoundedRectangleBorder(
+                                  //         borderRadius: BorderRadius.vertical(
+                                  //             top: Radius.circular(
+                                  //                 _width * 0.06
+                                  //             ))),
+                                  //     builder: (BuildContext context) {
+                                  //       return customModalSheet(context);
+                                  //     });
+                                  Get.dialog(
+                                      CustomDialogSimple(
+                                        title: 'Work In Progress',
+                                        description: 'currently we are working on that feature',
+                                        okTap: false,
+                                      )
+                                  );
                                 },
                                 child: CircleAvatar(
                                   radius: _width * 0.125,
@@ -108,15 +118,22 @@ class EditAccountScreen extends GetView<EditAccountController> {
                               return
                                 GestureDetector(
                                   onTap: (){
-                                    showModalBottomSheet(
-                                        context: context,
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.vertical(
-                                                top: Radius.circular(
-                                                    _width * 0.06))),
-                                        builder: (BuildContext context) {
-                                          return customModalSheet(context);
-                                        });
+                                    // showModalBottomSheet(
+                                    //     context: context,
+                                    //     shape: RoundedRectangleBorder(
+                                    //         borderRadius: BorderRadius.vertical(
+                                    //             top: Radius.circular(
+                                    //                 _width * 0.06))),
+                                    //     builder: (BuildContext context) {
+                                    //       return customModalSheet(context);
+                                    //     });
+                                    Get.dialog(
+                                        CustomDialogSimple(
+                                          title: 'Work In Progress',
+                                          description: 'currently we are working on that feature',
+                                          okTap: false,
+                                        )
+                                    );
                                   },
                                   child: CircleAvatar(
                                     radius: Get.height * 0.065,
@@ -134,15 +151,15 @@ class EditAccountScreen extends GetView<EditAccountController> {
                             left: _width * 0.190,
                             child: GestureDetector(
                               onTap: () {
-                                showModalBottomSheet(
-                                    context: context,
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.vertical(
-                                            top: Radius.circular(
-                                                _width * 0.06))),
-                                    builder: (BuildContext context) {
-                                      return customModalSheet(context);
-                                    });
+                                // showModalBottomSheet(
+                                //     context: context,
+                                //     shape: RoundedRectangleBorder(
+                                //         borderRadius: BorderRadius.vertical(
+                                //             top: Radius.circular(
+                                //                 _width * 0.06))),
+                                //     builder: (BuildContext context) {
+                                //       return customModalSheet(context);
+                                //     });
                               },
                               child: CircleAvatar(
                                 radius: _width * 0.04,
@@ -431,7 +448,15 @@ class EditAccountScreen extends GetView<EditAccountController> {
                             EdgeInsets.symmetric(
                                 vertical: _height * 0.02
                             ),
-                        onTap: () {},
+                        onTap: () {
+                          Get.dialog(
+                              CustomDialogSimple(
+                                title: 'Done',
+                                description: 'profile changes has been saved',
+                                okTap: true,
+                              )
+                          );
+                        },
                         title: 'Save',
                         fontFamily: poppinsMedium,
                         fontSize: _height * 0.0175,

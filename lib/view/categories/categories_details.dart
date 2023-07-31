@@ -135,7 +135,7 @@ class CategoryDetailsScreen extends GetView<CategoriesDetailsController> {
                     //color: Colors.yellow,
                     margin: EdgeInsets.symmetric(horizontal: _width * 0.04),
                     decoration: const BoxDecoration(
-                        color: Colors.yellow,
+                        color: Colors.white,
                         image: DecorationImage(image: AssetImage(
                             ImageUtils.categoryDetailBanner
                         ),
@@ -218,10 +218,10 @@ class CategoryDetailsScreen extends GetView<CategoriesDetailsController> {
                                       padding: EdgeInsets.only(left: 5),
                                       child: TextWidget(
                                         textTitle: categoriesList[index]["name"],
-                                        fontFamily: montserratRegular,
-                                        fontSize: 12.0,
-                                        fontWeight: FontWeight.w600,
+                                        fontFamily: poppinsRegular,
+                                        fontSize: Get.height * 0.0125,
                                         color: Colors.black,
+                                        textAlign: TextAlign.center,
                                         maxLines: 2,
                                         overFlow: TextOverflow.ellipsis,
                                       ),
@@ -255,9 +255,12 @@ class CategoryDetailsScreen extends GetView<CategoriesDetailsController> {
                     itemCount: 4, // Number of containers
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: columnsCount,
-                      childAspectRatio: 0.68,
-                      crossAxisSpacing: 25.0,
-                      mainAxisSpacing: 25.0,
+                      // childAspectRatio: 0.68,
+                      // crossAxisSpacing: 25.0,
+                      // mainAxisSpacing: 25.0,
+                        childAspectRatio: Get.height * 0.00080,
+                        crossAxisSpacing: Get.width * 0.06,
+                        mainAxisSpacing: Get.height * 0.0275
                     ),
                     itemBuilder: (BuildContext context, int index) {
                       // Build each container
@@ -485,7 +488,7 @@ class CategoryDetailsScreen extends GetView<CategoriesDetailsController> {
           itemCount: categoriesList.length,
           itemBuilder: (context, index) {
             return Container(
-                color: Colors.yellow,
+                color: Colors.white,
                 // padding: EdgeInsets.all(1.w),
                 child: Container(
                   color: Colors.white,

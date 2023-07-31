@@ -30,6 +30,9 @@ class ImageUtils{
   static const  cartCheckIcon = "assets/icons/cartCheck.png";
   static const  paymentIcon = "assets/icons/paymentIcon.png";
   static const String deleteIcon = 'assets/icons/deleteIcon.png';
+  static const String checkIcon = 'assets/icons/check.png';
+  static const String progressIcon = 'assets/icons/progressIcon.jpg';
+  static const String logoutIcon = 'assets/icons/logout.png ';
   static const String shipTransparentIcon = 'assets/icons/shipTransparentIcon.png';
   static const String quoteTransparentIcon = 'assets/icons/quoteTransparentIcon.png';
 

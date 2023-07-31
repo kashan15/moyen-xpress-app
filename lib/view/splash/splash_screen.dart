@@ -12,7 +12,7 @@ class SplashScreen extends GetView<SplashScreenController> {
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        color: Colors.blue,
+        color: Colors.white,
         child: Image.asset("assets/images/full_splash_image.jpg",width: double.infinity,
           fit: BoxFit.fill,
         ),

@@ -12,6 +12,7 @@ import 'package:moyen_xpress_app/view/categories/categories_details.dart';
 import 'package:moyen_xpress_app/view/home/home_screen.dart';
 import 'package:readmore/readmore.dart';
 
+import '../../components/custom_dialog.dart';
 import '../../components/custom_textfield1.dart';
 import '../../utils/route_utils.dart';
 
@@ -523,29 +524,31 @@ class ProductDetails extends GetView<ProductDetailsController> {
                       // height: _height * 0.05,
                         color: Colors.white,
                       margin: EdgeInsets.symmetric(horizontal: _width * 0.04),
-                      child: const ReadMoreText(
+                      child: ReadMoreText(
                         'Introducing the exquisite Ladies Handbag, a fashion-forward accessory designed to elevate your style and keep your essentials organized with effortless sophistication. Crafted with meticulous attention to detail, this handbag is the epitome of elegance and functionality.The exterior of this handbag showcases a perfect blend of timeless charm and contemporary flair. It features a high-quality, durable material that Introducing the exquisite Ladies Handbag, a fashion-forward accessory designed to elevate your style and keep your essentials organized with effortless sophistication. Crafted with meticulous attention to detail, this handbag is the epitome of elegance and functionality.' ,
                         trimLines: 6,
                         textScaleFactor: 1,
                         colorClickableText: Colors.black,
                         trimMode: TrimMode.Line,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: Get.height * 0.0140,
+                        ),
                         trimCollapsedText: 'Read more',
+                        moreStyle: TextStyle(
+                          fontSize: Get.height * 0.0140,
+                          fontWeight: FontWeight.bold,
+                          color: homeBoxColor,
+                        ),
                         trimExpandedText: 'Show less',
                         lessStyle: TextStyle(
-                          fontSize: 12.5,
+                          fontSize: Get.height * 0.0140,
                           fontWeight: FontWeight.bold,
                           color: homeBoxColor,
                           // textBaseline: TextBaseline.alphabetic
                         ),
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 12.5
-                        ),
-                        moreStyle: TextStyle(
-                            fontSize: 12.0,
-                            fontWeight: FontWeight.bold,
-                            color: homeBoxColor,
-                        ),
+
+
                       ),
                       // TextWidget(
                       //   textTitle:
@@ -561,29 +564,31 @@ class ProductDetails extends GetView<ProductDetailsController> {
                       // height: _height * 0.05,
                       color: Colors.white,
                       margin: EdgeInsets.symmetric(horizontal: _width * 0.04),
-                      child: const ReadMoreText(
+                      child: ReadMoreText(
                         'Introducing the exquisite Ladies Handbag, a fashion-forward accessory designed to elevate your style and keep your essentials organized with effortless sophistication. Crafted with meticulous attention to detail, this handbag is the epitome of elegance and functionality.The exterior of this handbag showcases a perfect blend of timeless charm and contemporary flair. It features a high-quality, durable material that Introducing the exquisite Ladies Handbag, a fashion-forward accessory designed to elevate your style and keep your essentials organized with effortless sophistication. Crafted with meticulous attention to detail, this handbag is the epitome of elegance and functionality.' ,
                         trimLines: 6,
                         textScaleFactor: 1,
                         colorClickableText: Colors.black,
                         trimMode: TrimMode.Line,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: Get.height * 0.0140,
+                        ),
                         trimCollapsedText: 'Read more',
+                        moreStyle: TextStyle(
+                          fontSize: Get.height * 0.0140,
+                          fontWeight: FontWeight.bold,
+                          color: homeBoxColor,
+                        ),
                         trimExpandedText: 'Show less',
                         lessStyle: TextStyle(
-                          fontSize: 12.5,
+                          fontSize: Get.height * 0.0140,
                           fontWeight: FontWeight.bold,
                           color: homeBoxColor,
                           // textBaseline: TextBaseline.alphabetic
                         ),
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 12.5
-                        ),
-                        moreStyle: TextStyle(
-                          fontSize: 12.0,
-                          fontWeight: FontWeight.bold,
-                          color: homeBoxColor,
-                        ),
+
+
                       ),
                       // TextWidget(
                       //   textTitle:
@@ -599,29 +604,31 @@ class ProductDetails extends GetView<ProductDetailsController> {
                       // height: _height * 0.05,
                       color: Colors.white,
                       margin: EdgeInsets.symmetric(horizontal: _width * 0.04),
-                      child: const ReadMoreText(
+                      child: ReadMoreText(
                         'Introducing the exquisite Ladies Handbag, a fashion-forward accessory designed to elevate your style and keep your essentials organized with effortless sophistication. Crafted with meticulous attention to detail, this handbag is the epitome of elegance and functionality.The exterior of this handbag showcases a perfect blend of timeless charm and contemporary flair. It features a high-quality, durable material that Introducing the exquisite Ladies Handbag, a fashion-forward accessory designed to elevate your style and keep your essentials organized with effortless sophistication. Crafted with meticulous attention to detail, this handbag is the epitome of elegance and functionality.' ,
                         trimLines: 6,
                         textScaleFactor: 1,
                         colorClickableText: Colors.black,
                         trimMode: TrimMode.Line,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: Get.height * 0.0140,
+                        ),
                         trimCollapsedText: 'Read more',
+                        moreStyle: TextStyle(
+                          fontSize: Get.height * 0.0140,
+                          fontWeight: FontWeight.bold,
+                          color: homeBoxColor,
+                        ),
                         trimExpandedText: 'Show less',
                         lessStyle: TextStyle(
-                          fontSize: 12.5,
+                          fontSize: Get.height * 0.0140,
                           fontWeight: FontWeight.bold,
                           color: homeBoxColor,
                           // textBaseline: TextBaseline.alphabetic
                         ),
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 12.5
-                        ),
-                        moreStyle: TextStyle(
-                          fontSize: 12.0,
-                          fontWeight: FontWeight.bold,
-                          color: homeBoxColor,
-                        ),
+
+
                       ),
                       // TextWidget(
                       //   textTitle:
@@ -637,29 +644,31 @@ class ProductDetails extends GetView<ProductDetailsController> {
                       // height: _height * 0.05,
                       color: Colors.white,
                       margin: EdgeInsets.symmetric(horizontal: _width * 0.04),
-                      child: const ReadMoreText(
+                      child: ReadMoreText(
                         'Introducing the exquisite Ladies Handbag, a fashion-forward accessory designed to elevate your style and keep your essentials organized with effortless sophistication. Crafted with meticulous attention to detail, this handbag is the epitome of elegance and functionality.The exterior of this handbag showcases a perfect blend of timeless charm and contemporary flair. It features a high-quality, durable material that Introducing the exquisite Ladies Handbag, a fashion-forward accessory designed to elevate your style and keep your essentials organized with effortless sophistication. Crafted with meticulous attention to detail, this handbag is the epitome of elegance and functionality.' ,
                         trimLines: 6,
                         textScaleFactor: 1,
                         colorClickableText: Colors.black,
                         trimMode: TrimMode.Line,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: Get.height * 0.0140,
+                        ),
                         trimCollapsedText: 'Read more',
+                        moreStyle: TextStyle(
+                          fontSize: Get.height * 0.0140,
+                          fontWeight: FontWeight.bold,
+                          color: homeBoxColor,
+                        ),
                         trimExpandedText: 'Show less',
                         lessStyle: TextStyle(
-                          fontSize: 12.5,
+                          fontSize: Get.height * 0.0140,
                           fontWeight: FontWeight.bold,
                           color: homeBoxColor,
                           // textBaseline: TextBaseline.alphabetic
                         ),
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 12.5
-                        ),
-                        moreStyle: TextStyle(
-                          fontSize: 12.0,
-                          fontWeight: FontWeight.bold,
-                          color: homeBoxColor,
-                        ),
+
+
                       ),
                       // TextWidget(
                       //   textTitle:
@@ -748,7 +757,14 @@ class ProductDetails extends GetView<ProductDetailsController> {
                     SizedBox(width: _width * 0.01,),
                     GestureDetector(
                       onTap: (){
-                        Get.toNamed(kMyCartScreen);
+                        // Get.toNamed(kMyCartScreen);
+                        Get.dialog(
+                            CustomDialogSimple(
+                              title: 'Work In Progress',
+                              description: 'currently we are working on that feature',
+                              okTap: false,
+                            )
+                        );
                       },
                       child: Container(
                         margin: EdgeInsets.only(

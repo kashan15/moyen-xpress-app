@@ -16,7 +16,7 @@ class LoginScreen extends GetView<LoginScreenController> {
     return Scaffold(
         floatingActionButton: GestureDetector(
           onTap: (){
-            Get.offNamed(kHomeScreen);
+            Get.offNamed(kNavBar1);
           },
           child:const Padding(
             padding: EdgeInsets.only(right: 20.0,bottom: 20),
@@ -128,12 +128,13 @@ class LoginScreen extends GetView<LoginScreenController> {
                                   ),
                                   GestureDetector(
                                     onTap: () async {
-                                      if(controller.formKey.currentState!.validate()){
-                                        controller.login();
-                                      }else{
-                                        print("false");
-                                      }
-                                      //  Get.toNamed(kWebViewScreen);
+                                      /// Login API
+                                      // if(controller.formKey.currentState!.validate()){
+                                      //   controller.login();
+                                      // }else{
+                                      //   print("false");
+                                      // }
+                                       Get.toNamed(kNavBar1);
                                     },
                                     child: Container(
                                       height: 35,

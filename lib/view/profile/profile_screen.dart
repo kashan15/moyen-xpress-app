@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:moyen_xpress_app/components/custom_grid_button.dart';
+import 'package:moyen_xpress_app/components/new_custom_dialogue.dart';
 import 'package:moyen_xpress_app/components/text_widget.dart';
+import 'package:moyen_xpress_app/controller/login_screen_controller.dart';
 import 'package:moyen_xpress_app/controller/my_cart_controller.dart';
 import 'package:moyen_xpress_app/controller/profile_screen_controller.dart';
 import 'package:moyen_xpress_app/utils/color_utils.dart';
 import 'package:moyen_xpress_app/utils/image_utils.dart';
 import 'package:moyen_xpress_app/utils/lang_string_util.dart';
 import 'package:moyen_xpress_app/utils/route_utils.dart';
+import 'package:moyen_xpress_app/view/authentication/login_screen.dart';
 
+import '../../components/custom_dialog.dart';
 import '../../components/custom_richtext.dart';
 import '../../utils/font_utils.dart';
 
@@ -18,7 +22,10 @@ class ProfileScreen extends GetView<ProfileController> {
 
   });
 
+  LoginScreenController instance1 = LoginScreenController();
+
   bool willPop = true;
+  int selectOption = 0;
 
   List itemList = [
     {
@@ -174,7 +181,67 @@ class ProfileScreen extends GetView<ProfileController> {
                       children: [
                         GestureDetector(
                           onTap: (){
-                            Get.toNamed(kSettingsScreen);
+                            selectOption = index;
+                            if(index == 0){
+                              // Get.dialog(
+                              //     CustomDialogSimple(
+                              //       title: 'Work In Progress',
+                              //       description: 'currently we are working on that feature',
+                              //       okTap: false,
+                              //     )
+                              // );
+                              Get.toNamed(kMyOrdersScreen);
+                            }
+                            if(index == 1){
+                              // Get.dialog(
+                              //     CustomDialogSimple(
+                              //       title: 'Work In Progress',
+                              //       description: 'currently we are working on that feature',
+                              //       okTap: false,
+                              //     )
+                              // );
+                              Get.toNamed(kEditAccount);
+                            }
+                            if(index == 2){
+                              Get.dialog(
+                                  CustomDialogSimple(
+                                    title: 'Work In Progress',
+                                    description: 'currently we are working on that feature',
+                                    okTap: false,
+                                  )
+                              );
+                            }
+                            if(index == 3){
+                              // Get.dialog(
+                              //     CustomDialogSimple(
+                              //       title: 'Work In Progress',
+                              //       description: 'currently we are working on that feature',
+                              //       okTap: false,
+                              //     )
+                              // );
+                              Get.toNamed(kPaymentScreen);
+                            }
+                            if(index == 4){
+                              Get.toNamed(kSettingsScreen);
+                            }
+                            if(index == 5){
+                              /// Error
+                              /// Duplicate GlobalKey detected in widget tree.
+                              // Get.dialog(
+                              //   CustomDialog1(
+                              //     key: instance1.formKey,
+                              //       title: 'Logout',
+                              //       label: 'Are you sure you want to logout?',
+                              //       primaryLabel: 'Yes',
+                              //       primaryTap: (){
+                              //         Get.to(LoginScreen());
+                              //       },
+                              //       secondaryLabel: 'No',
+                              //     secondaryTap: ()=> Get.back(),
+                              //     asset: Image.asset('assets/icons/logout.png'),
+                              //   )
+                              // );
+                            }
                           },
                           child: Container(
                             padding: EdgeInsets.symmetric(

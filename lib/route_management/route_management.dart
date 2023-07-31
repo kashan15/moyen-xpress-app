@@ -8,20 +8,26 @@ import 'package:moyen_xpress_app/view/authentication/signup_screen.dart';
 import 'package:moyen_xpress_app/view/categories/categories_details.dart';
 import 'package:moyen_xpress_app/view/categories/categories_screen.dart';
 import 'package:moyen_xpress_app/view/chat/chat_screen.dart';
+import 'package:moyen_xpress_app/view/history/purchase%20history/purchase_history.dart';
+import 'package:moyen_xpress_app/view/history/purchase%20history/purchase_history_details.dart';
 import 'package:moyen_xpress_app/view/notification/notification_screen.dart';
 import 'package:moyen_xpress_app/view/orders/my_order_details.dart';
+import 'package:moyen_xpress_app/view/orders/quote%20order/quote_order_details.dart';
+import 'package:moyen_xpress_app/view/orders/shipping%20order/shipping_order_details.dart';
+import 'package:moyen_xpress_app/view/orders/shipping%20order/shipping_orders.dart';
 import 'package:moyen_xpress_app/view/payment/payment_method.dart';
 import 'package:moyen_xpress_app/view/payment/payment_method_details.dart';
 import 'package:moyen_xpress_app/view/products/product_details.dart';
 import 'package:moyen_xpress_app/view/profile/edit_account.dart';
 import 'package:moyen_xpress_app/view/profile/profile_screen.dart';
-import 'package:moyen_xpress_app/view/purchase/purchase_history.dart';
+import 'package:moyen_xpress_app/view/quotes/shipping_quote_details.dart';
 import 'package:moyen_xpress_app/view/splash/splash_screen.dart';
 import '../components/custom_navbar1.dart';
 import '../utils/route_utils.dart';
 import '../view/cart/my_cart.dart';
 import '../view/dashboard_tab_screen.dart';
 import '../view/home/home_screen.dart';
+import '../view/onboard initial screen/initial_screen.dart';
 import '../view/orders/my_orders.dart';
 import '../view/profile/settings/settings_screen.dart';
 import 'controller_binding.dart';
@@ -47,6 +53,11 @@ class RouteManagement {
         binding: ControllerBinding(),
       ),
       GetPage(
+        name:   kInitialScreen,
+        page: () => InitialDetailScreen(),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
         name:   kSettingsScreen,
         page: () =>  SettingsScreen1(),
         binding: ControllerBinding(),
@@ -67,15 +78,41 @@ class RouteManagement {
         binding: ControllerBinding(),
       ),
       GetPage(
+        name:   kPurchaseHistory,
+        page: () =>  PurchaseHistoryScreen(),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
+        name:   kPurchaseHistoryDetails,
+        page: () =>  PurchaseHistoryDetailsScreen(),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
         name:   kPaymentDetails,
         page: () =>  PaymentDetailsScreen(),
         binding: ControllerBinding(),
       ),
       GetPage(
-        name:   kPurchaseHistory,
-        page: () =>  PurchaseHistory(),
+        name:   kShippingOrder,
+        page: () =>  ShippingOrderScreen(),
         binding: ControllerBinding(),
       ),
+      GetPage(
+        name:   kShippingOrderDetails,
+        page: () =>  ShippingOrderDetailsScreen(),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
+        name:   kQuoteOrderDetails,
+        page: () =>  QuoteOrderDetailsScreen(),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
+        name:   kShippingQuoteDetails,
+        page: () =>  ShippingQuoteDetailsScreen(),
+        binding: ControllerBinding(),
+      ),
+
       GetPage(
         name:   kSignupScreen,
         page: () =>  const SignupScreen(),

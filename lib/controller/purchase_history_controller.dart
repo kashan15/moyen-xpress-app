@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
+
+import '../view/orders/my_order_details.dart';
 
 class PurchaseHistoryController extends GetxController
     with GetSingleTickerProviderStateMixin
@@ -15,6 +18,14 @@ class PurchaseHistoryController extends GetxController
   bool tap3 = false;
   bool tap4 = false;
 
+  List<MyOrderDetailsScreen> itemsList = [
+    MyOrderDetailsScreen(
+      name: 'Recharge',
+    ),
+    MyOrderDetailsScreen(
+      name: 'Wallet',
+    ),
+  ];
 
 }
 

@@ -230,13 +230,13 @@ class HomeScreen extends GetView<HomeController> {
                       child: Column(
                         // crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const SizedBox(height: 10,),
+                          SizedBox(height: _height * 0.01,),
                           Container(
                             width: double.infinity,
                             height: _height * 0.22,
                             //color: Colors.yellow,
                             decoration: const BoxDecoration(
-                              color: Colors.yellow,
+                              color: Colors.white,
                               image: DecorationImage(image: AssetImage(
                                 ImageUtils.homeBanner
                               ),
@@ -244,7 +244,7 @@ class HomeScreen extends GetView<HomeController> {
                               )
                             ),
                           ),
-                          const SizedBox(height: 10,),
+                          SizedBox(height: _height * 0.0125,),
                           Row(
                             children:[
                               SizedBox(width: _width * 0.04,),
@@ -254,11 +254,11 @@ class HomeScreen extends GetView<HomeController> {
                               color: Colors.black,
                             ),
                          ]),
-                      const SizedBox(height: 10,),
+                          SizedBox(height: _height * 0.0125,),
 
                           /// Previous Categories
                           SizedBox(
-                            height: _height * 0.140,
+                            height: _height * 0.1525,
                             child: ListView.builder(
                             physics: BouncingScrollPhysics(),
                             scrollDirection: Axis.horizontal,
@@ -315,15 +315,15 @@ class HomeScreen extends GetView<HomeController> {
                                             ),
                                           )
                                         ),
-                                        SizedBox(height: 10,),
+                                        SizedBox(height: Get.height * 0.01,),
                                         Padding(
                                           padding: EdgeInsets.only(left: 5),
                                           child: TextWidget(
                                             textTitle: categoriesList[index]["name"],
                                             fontFamily: poppinsRegular,
                                             fontSize: Get.height * 0.0125,
-                                            // fontWeight: FontWeight.w600,
                                             color: Colors.black,
+                                            textAlign: TextAlign.center,
                                             maxLines: 2,
                                             overFlow: TextOverflow.ellipsis,
                                           ),
@@ -333,8 +333,10 @@ class HomeScreen extends GetView<HomeController> {
                                   ));
                             }),
                           ),
-                             const SizedBox(height: 20,),
-                          buildPageIndicator(),
+
+                             /// buildPageIndicator
+                          //    const SizedBox(height: 20,),
+                          // buildPageIndicator(),
 
                       //     Column(
                       //       mainAxisSize: MainAxisSize.min,
@@ -453,7 +455,7 @@ class HomeScreen extends GetView<HomeController> {
                       //       ],
                       //     ),
 
-                          SizedBox(height: _height * 0.02,),
+                          SizedBox(height: _height * 0.01,),
                           Stack(
                             children: [
                               Container(
@@ -681,9 +683,10 @@ class HomeScreen extends GetView<HomeController> {
                             itemCount: 4, // Number of containers
                             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: columnsCount,
-                              childAspectRatio: 0.68,
-                              crossAxisSpacing: 25.0,
-                              mainAxisSpacing: 25.0,
+                              // childAspectRatio: Get.height * 0.000790,
+                                childAspectRatio: _height * 0.00079,
+                              crossAxisSpacing: Get.width * 0.06,
+                              mainAxisSpacing: Get.height * 0.025
                             ),
                             itemBuilder: (BuildContext context, int index) {
                               // Build each container
@@ -792,12 +795,6 @@ class HomeScreen extends GetView<HomeController> {
                                             )
                                           ],
                                         ),
-
-                                        Row(
-                                          children: [
-
-                                          ],
-                                        )
                                       ],
                                     )
 
@@ -872,9 +869,12 @@ class HomeScreen extends GetView<HomeController> {
                             itemCount: 4, // Number of containers
                             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: columnsCount,
-                              childAspectRatio: 0.68,
-                              crossAxisSpacing: 25.0,
-                              mainAxisSpacing: 25.0,
+                              // childAspectRatio: 0.68,
+                              childAspectRatio: Get.height * 0.00080,
+                              // crossAxisSpacing: 25.0,
+                              // mainAxisSpacing: 25.0,
+                                crossAxisSpacing: Get.width * 0.06,
+                                mainAxisSpacing: Get.height * 0.025
                             ),
                             itemBuilder: (BuildContext context, int index) {
                               // Build each container
@@ -937,7 +937,7 @@ class HomeScreen extends GetView<HomeController> {
                                               image: DecorationImage(image: AssetImage(
                                                 controller.dailyDealsList[index].image1
                                               ),
-                                                fit: BoxFit.cover,
+                                                fit: BoxFit.contain,
                                               )
                                           ),
                                         ),
@@ -979,11 +979,6 @@ class HomeScreen extends GetView<HomeController> {
                                           ],
                                         ),
 
-                                        Row(
-                                          children: [
-
-                                          ],
-                                        )
                                       ],
                                     )
 
@@ -1128,9 +1123,12 @@ class HomeScreen extends GetView<HomeController> {
                             itemCount: 4, // Number of containers
                             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: columnsCount,
-                              childAspectRatio: 0.68,
-                              crossAxisSpacing: 25.0,
-                              mainAxisSpacing: 25.0,
+                              // childAspectRatio: 0.68,
+                                childAspectRatio: Get.height * 0.000790,
+                              // crossAxisSpacing: 25.0,
+                              // mainAxisSpacing: 25.0,
+                                crossAxisSpacing: Get.width * 0.06,
+                                mainAxisSpacing: Get.height * 0.025
                             ),
                             itemBuilder: (BuildContext context, int index) {
                               // Build each container
@@ -1209,12 +1207,6 @@ class HomeScreen extends GetView<HomeController> {
                                             )
                                           ],
                                         ),
-
-                                        Row(
-                                          children: [
-
-                                          ],
-                                        )
                                       ],
                                     )
 
@@ -1290,9 +1282,12 @@ class HomeScreen extends GetView<HomeController> {
                             itemCount: 4, // Number of containers
                             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: columnsCount,
-                              childAspectRatio: 0.68,
-                              crossAxisSpacing: 25.0,
-                              mainAxisSpacing: 25.0,
+                              // childAspectRatio: 0.68,
+                                childAspectRatio: Get.height * 0.00080,
+                              // crossAxisSpacing: 25.0,
+                              // mainAxisSpacing: 25.0,
+                                crossAxisSpacing: Get.width * 0.06,
+                                mainAxisSpacing: Get.height * 0.025
                             ),
                             itemBuilder: (BuildContext context, int index) {
                               // Build each container
@@ -1473,9 +1468,12 @@ class HomeScreen extends GetView<HomeController> {
                             itemCount: 4, // Number of containers
                             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: columnsCount,
-                              childAspectRatio: 0.68,
-                              crossAxisSpacing: 25.0,
-                              mainAxisSpacing: 25.0,
+                              // childAspectRatio: 0.68,
+                                childAspectRatio: Get.height * 0.00080,
+                              // crossAxisSpacing: 25.0,
+                              // mainAxisSpacing: 25.0,
+                                crossAxisSpacing: Get.width * 0.06,
+                                mainAxisSpacing: Get.height * 0.025
                             ),
                             itemBuilder: (BuildContext context, int index) {
                               // Build each container
@@ -1623,9 +1621,12 @@ class HomeScreen extends GetView<HomeController> {
                             itemCount: 4, // Number of containers
                             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: columnsCount,
-                              childAspectRatio: 0.68,
-                              crossAxisSpacing: 25.0,
-                              mainAxisSpacing: 25.0,
+                              // childAspectRatio: 0.68,
+                                childAspectRatio: Get.height * 0.00080,
+                              // crossAxisSpacing: 25.0,
+                              // mainAxisSpacing: 25.0,
+                                crossAxisSpacing: Get.width * 0.06,
+                                mainAxisSpacing: Get.height * 0.025
                             ),
                             itemBuilder: (BuildContext context, int index) {
                               // Build each container
@@ -1755,7 +1756,7 @@ class HomeScreen extends GetView<HomeController> {
                             margin: EdgeInsets.symmetric(horizontal: _width * 0.04),
                             padding: EdgeInsets.symmetric(horizontal: _width * 0.06, vertical: _height * 0.04),
                             width: double.infinity,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               image: DecorationImage(image: AssetImage(
                                 ImageUtils.shippingImage
                               ),
@@ -1799,7 +1800,7 @@ class HomeScreen extends GetView<HomeController> {
                                     ),
                                     SizedBox(width: _width * 0.0225,),
                                     RichText(
-                                      text: TextSpan(
+                                      text: const TextSpan(
                                         text: 'Ship With Moyen Xpress\n',
                                        // style: DefaultTextStyle.of(context).style,
                                           style:
@@ -1808,8 +1809,8 @@ class HomeScreen extends GetView<HomeController> {
                                               fontWeight: FontWeight.bold,
                                               fontFamily: montserratBold
                                           ),
-                                        children: const <TextSpan>[
-                                          TextSpan(
+                                        children:  <TextSpan>[
+                                           TextSpan(
                                               text: 'Use Moyen Xpress as your shipping\n',
                                               style:
                                           TextStyle(
@@ -1844,7 +1845,7 @@ class HomeScreen extends GetView<HomeController> {
                                     ),
                                     SizedBox(width: _width * 0.018,),
                                     RichText(
-                                      text: TextSpan(
+                                      text: const TextSpan(
                                         text: 'Send Anything, Anywhere\n',
                                         style:
                                         TextStyle(
@@ -1852,7 +1853,7 @@ class HomeScreen extends GetView<HomeController> {
                                             fontWeight: FontWeight.bold,
                                             fontFamily: montserratBold
                                         ),
-                                        children: const <TextSpan>[
+                                        children:  <TextSpan>[
                                           TextSpan(
                                               text: 'Use Moyen Xpress shipping & send\n',
                                               style:
@@ -2090,7 +2091,7 @@ class HomeScreen extends GetView<HomeController> {
                            ),
                          )
                      ),
-                     SizedBox(height: 10,),
+                     SizedBox(height: _height * 0.0125,),
                      Padding(
                        padding: EdgeInsets.only(left: 5),
                        child: TextWidget(

@@ -10,6 +10,12 @@ class CustomTheme {
     fontFamily: poppinsSemiBold,
     color: Colors.black,
   );
+
+  static final shortHeading = TextStyle(
+    fontSize: Get.height * 0.02,
+    fontFamily: poppinsSemiBold,
+    color: Colors.black,
+  );
   static final balanceText = TextStyle(
     fontSize: Get.height * 0.0175,
     fontFamily: poppinsSemiBold,
@@ -29,6 +35,26 @@ class CustomTheme {
     fontSize: Get.height * 0.025,
     fontFamily: poppinsSemiBoldItalic,
     color: homeBoxColor,
+  );
+  static final shippingText1 = TextStyle(
+    fontSize: Get.height * 0.0125,
+    fontFamily: poppinsSemiBold,
+    color: Colors.grey,
+  );
+  static final shippingText2 = TextStyle(
+    fontSize: Get.height * 0.0125,
+    fontFamily: poppinsMedium,
+    color: Colors.black,
+  );
+  static final shippingText3 = TextStyle(
+    fontSize: Get.height * 0.0125,
+    fontFamily: poppinsMedium,
+    color: deliveredColor,
+  );
+  static final shippingText4 = TextStyle(
+    fontSize: Get.height * 0.0125,
+    fontFamily: poppinsMedium,
+    color: Colors.red,
   );
   static final productName = TextStyle(
     fontSize: Get.height * 0.0125,

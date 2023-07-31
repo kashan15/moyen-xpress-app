@@ -5,7 +5,7 @@ class ProfileController extends GetxController
     with GetSingleTickerProviderStateMixin
 {
   late BuildContext globalContext;
-  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+  // GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   TextEditingController searchController = TextEditingController();
 

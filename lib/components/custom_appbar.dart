@@ -5,7 +5,7 @@ import 'package:moyen_xpress_app/utils/size_utils.dart';
 class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
   final Function()? onMenuClicked;
    CustomAppbar({Key? key,
-   required this.onMenuClicked
+    this.onMenuClicked
    }) : super(key: key);
 
 

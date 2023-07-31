@@ -96,11 +96,14 @@ class CategoriesScreen extends GetView<CategoriesController> {
                   vertical: _height * 0.01
               ),
               itemCount: categoriesItems.length, // Number of containers
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 4,
-                childAspectRatio: 0.60,
-                crossAxisSpacing: 15.0,
-                mainAxisSpacing: 20.0,
+                // childAspectRatio: 0.60,
+                childAspectRatio: Get.height * 0.000735,
+                // crossAxisSpacing: 15.0,
+                crossAxisSpacing: Get.width * 0.02,
+                // mainAxisSpacing: 20.0,
+                  mainAxisSpacing: Get.height * 0.025
               ),
               itemBuilder: (BuildContext context, int index) {
                 // Build each container
@@ -185,7 +188,7 @@ class CategoriesScreen extends GetView<CategoriesController> {
                         SizedBox(height: _height * 0.01,),
                         TextWidget(
                         textTitle: categoriesItems[index]['name'],
-                        fontSize: _height * 0.015,
+                        fontSize: _height * 0.0125,
                         color: Colors.black,
                         textAlign: TextAlign.center,
                         maxLines: 2,

@@ -82,7 +82,7 @@ class BottomNavBar extends GetView<NavBarController> {
       key: controller.scaffoldKey,
       //extendBodyBehindAppBar: true,
       appBar: CustomAppbar(
-        onMenuClicked: ()=> controller.scaffoldKey.currentState!.openEndDrawer(),
+        //onMenuClicked: ()=> controller.scaffoldKey.currentState!.openEndDrawer(),
       ),
       endDrawer: CustomDrawer(),
       body: PersistentTabView(
