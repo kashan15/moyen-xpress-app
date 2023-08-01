@@ -8,6 +8,7 @@ import 'package:moyen_xpress_app/controller/profile_screen_controller.dart';
 import 'package:moyen_xpress_app/utils/color_utils.dart';
 import 'package:moyen_xpress_app/utils/image_utils.dart';
 import 'package:moyen_xpress_app/utils/theme.dart';
+import '../../../components/custom_dialog.dart';
 import '../../../components/custom_richtext.dart';
 import '../../../controller/shipping_order_details_controller.dart';
 import '../../../controller/shipping_orders_controller.dart';
@@ -231,7 +232,13 @@ class QuoteOrderDetailsScreen extends GetView<ShippingOrderDetailsController> {
                                         margin: EdgeInsets.zero,
                                         width: _width * 0.31,
                                         onTap: (){
-                                          Get.back();
+                                          Get.dialog(
+                                              CustomDialogSimple(
+                                                  title: 'Downloaded',
+                                                  description: 'invoice downloaded successfully',
+                                                  okTap: true
+                                              )
+                                          );
                                         },
                                         padding: EdgeInsets.symmetric(
                                           // horizontal: _width * 0.05,

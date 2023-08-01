@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:moyen_xpress_app/components/custom_dialog.dart';
 import 'package:moyen_xpress_app/components/custom_grid_button.dart';
 import 'package:moyen_xpress_app/components/text_widget.dart';
 import 'package:moyen_xpress_app/controller/my_cart_controller.dart';
@@ -8,6 +9,7 @@ import 'package:moyen_xpress_app/controller/profile_screen_controller.dart';
 import 'package:moyen_xpress_app/utils/color_utils.dart';
 import 'package:moyen_xpress_app/utils/image_utils.dart';
 import 'package:moyen_xpress_app/utils/route_utils.dart';
+import 'package:moyen_xpress_app/view/orders/shipping%20order/shipping_order_details.dart';
 import '../../../components/custom_richtext.dart';
 import '../../../controller/shipping_orders_controller.dart';
 import '../../../utils/font_utils.dart';
@@ -15,11 +17,13 @@ import '../../../utils/font_utils.dart';
 
 
 class ShippingOrderScreen extends GetView<ShippingOrderController> {
+  bool check = false;
   ShippingOrderScreen({super.key,
-
+    required this.check
   });
 
   bool willPop = true;
+  int select = 0;
 
   List items = [
     {
@@ -42,7 +46,8 @@ class ShippingOrderScreen extends GetView<ShippingOrderController> {
   Widget build(BuildContext context) {
     double _height = MediaQuery.of(context).size.height;
     double _width = MediaQuery.of(context).size.width;
-    controller.globalContext = context;
+    // controller.globalContext = context;
+    final ShippingOrderController controller = Get.put(ShippingOrderController());
     return WillPopScope(
       onWillPop: () async{
         return willPop;
@@ -56,7 +61,7 @@ class ShippingOrderScreen extends GetView<ShippingOrderController> {
             // physics: const NeverScrollableScrollPhysics(),
             child: Column(
               children: [
-                SizedBox(height: _height * 0.05,),
+                SizedBox(height: _height * 0.075,),
                 Row(
                   children: [
                     IconButton(
@@ -74,7 +79,9 @@ class ShippingOrderScreen extends GetView<ShippingOrderController> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             TextWidget(
-                              textTitle: 'Shipping Orders',
+                              textTitle: check == false ?
+                              'Shipping Orders' :
+                              'Quote Orders',
                               fontWeight: FontWeight.w700,
                               fontSize: _height * 0.025,
                               color: Colors.black,
@@ -93,11 +100,17 @@ class ShippingOrderScreen extends GetView<ShippingOrderController> {
                     shrinkWrap: true,
                     scrollDirection: Axis.vertical,
                     padding: EdgeInsets.zero,
-                    itemCount: 10,
+                    itemCount: 4,
                     itemBuilder: (context, index) {
                       return GestureDetector(
                         onTap: (){
-                          Get.toNamed(kShippingQuoteDetails);
+                          select = index;
+                          if(check == false ){
+                            Get.to(ShippingOrderDetailsScreen(check1: false,));
+                          }
+                          if(check == true ){
+                            Get.to(ShippingOrderDetailsScreen(check1: true,));
+                          }
                         },
                         child: Container(
                           margin: EdgeInsets.symmetric(
@@ -235,7 +248,15 @@ class ShippingOrderScreen extends GetView<ShippingOrderController> {
                                         IconButton(
                                           padding: EdgeInsets.zero,
                                             constraints: const BoxConstraints(),
-                                            onPressed: (){},
+
+                                            onPressed: (){
+                                            Get.dialog(
+                                              CustomDialogSimple(
+                                                  title: 'Done',
+                                                  description: 'item has been deleted successfully',
+                                                  okTap: true)
+                                            );
+                                            },
                                             icon: Image.asset(
                                               ImageUtils.deleteIcon,
                                               height: Get.height * 0.02,

@@ -85,6 +85,34 @@ class CategoryDetailsScreen extends GetView<CategoriesDetailsController> {
       "color": Colors.white,
       "shadow": Colors.white
     },
+    {
+      "color": Colors.white,
+      "shadow": Colors.white
+    },{
+      "color": topSeller,
+      "shadow": Colors.grey.withOpacity(0.5)
+    },{
+      "color": topSeller,
+      "shadow": Colors.grey.withOpacity(0.5)
+    },
+    {
+      "color": Colors.white,
+      "shadow": Colors.white
+    },
+    {
+      "color": Colors.white,
+      "shadow": Colors.white
+    },{
+      "color": topSeller,
+      "shadow": Colors.grey.withOpacity(0.5)
+    },{
+      "color": topSeller,
+      "shadow": Colors.grey.withOpacity(0.5)
+    },
+    {
+      "color": Colors.white,
+      "shadow": Colors.white
+    },
   ];
 
   bool shouldPop = true;
@@ -128,7 +156,7 @@ class CategoryDetailsScreen extends GetView<CategoriesDetailsController> {
               child: Column(
                 // crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                   SizedBox(height: _height * 0.04,),
+                   SizedBox(height: _height * 0.06,),
                   Container(
                     width: double.infinity,
                     height: _height * 0.20,
@@ -156,7 +184,7 @@ class CategoryDetailsScreen extends GetView<CategoriesDetailsController> {
                   const SizedBox(height: 10,),
 
                   SizedBox(
-                    height: _height * 0.140,
+                    height: _height * 0.1425,
                     child: ListView.builder(
                         physics: BouncingScrollPhysics(),
                         scrollDirection: Axis.horizontal,
@@ -232,7 +260,7 @@ class CategoryDetailsScreen extends GetView<CategoriesDetailsController> {
                         }),
                   ),
 
-                  SizedBox(height: _height * 0.02,),
+                  SizedBox(height: _height * 0.015,),
 
                   Row(
                       children:[
@@ -252,13 +280,13 @@ class CategoryDetailsScreen extends GetView<CategoriesDetailsController> {
                         horizontal: _width * 0.06,
                         vertical: _height * 0.02
                     ),
-                    itemCount: 4, // Number of containers
+                    itemCount: controller.allProducts.length, // Number of containers
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: columnsCount,
                       // childAspectRatio: 0.68,
                       // crossAxisSpacing: 25.0,
                       // mainAxisSpacing: 25.0,
-                        childAspectRatio: Get.height * 0.00080,
+                        childAspectRatio: Get.height * 0.000835,
                         crossAxisSpacing: Get.width * 0.06,
                         mainAxisSpacing: Get.height * 0.0275
                     ),

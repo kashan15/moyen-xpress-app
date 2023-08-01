@@ -17,6 +17,7 @@ import 'package:moyen_xpress_app/controller/purchase_history_details_controller.
 import 'package:moyen_xpress_app/controller/quote_order_details_controller.dart';
 import 'package:moyen_xpress_app/controller/settings_screen_controller.dart';
 import 'package:moyen_xpress_app/controller/shipping_order_details_controller.dart';
+import 'package:moyen_xpress_app/controller/show_more_controller.dart';
 import 'package:moyen_xpress_app/controller/signup_screen_controller.dart';
 import 'package:moyen_xpress_app/controller/splash_screen_controller.dart';
 import 'package:moyen_xpress_app/controller/theme_controller.dart';
@@ -58,6 +59,7 @@ class ControllerBinding extends Bindings {
     Get.lazyPut(() => ShippingQuoteDetailsController());
     Get.lazyPut(() => PurchaseHistoryController());
     Get.lazyPut(() => PurchaseHistoryDetailsController());
+    Get.lazyPut(() => ShowMoreController());
 
   }
 }

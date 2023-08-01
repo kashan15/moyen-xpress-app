@@ -100,7 +100,7 @@ class ProductDetails extends GetView<ProductDetailsController> {
                       },
                     )
                   ),
-                  SizedBox(width: _width * 0.04,),
+                  SizedBox(width: _width * 0.025,),
                   IconButton(
                       padding: EdgeInsets.zero,
                       constraints: const BoxConstraints(),
@@ -109,7 +109,7 @@ class ProductDetails extends GetView<ProductDetailsController> {
                         size: _height * 0.025,
                       )
                   ),
-                  SizedBox(width: _width * 0.04,),
+                  SizedBox(width: _width * 0.015,),
                   IconButton(
                       padding: EdgeInsets.zero,
                       constraints: const BoxConstraints(),
@@ -755,38 +755,41 @@ class ProductDetails extends GetView<ProductDetailsController> {
                       ),
                     ),
                     SizedBox(width: _width * 0.01,),
-                    GestureDetector(
-                      onTap: (){
-                        // Get.toNamed(kMyCartScreen);
-                        Get.dialog(
-                            CustomDialogSimple(
-                              title: 'Work In Progress',
-                              description: 'currently we are working on that feature',
-                              okTap: false,
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: (){
+                          // Get.toNamed(kMyCartScreen);
+                          Get.dialog(
+                              CustomDialogSimple(
+                                title: 'Work In Progress',
+                                description: 'currently we are working on that feature',
+                                okTap: false,
+                              )
+                          );
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(
+                              //left: _width * 0.005,
+                              top: _height * 0.004,
+                              bottom: _height * 0.0055
+                          ),
+
+                          padding: EdgeInsets.symmetric(
+                            horizontal: _width * 0.140,
+                            // vertical: _height * 0.005,
+                          ),
+                          decoration: BoxDecoration(
+                              color: buyNow,
+                              borderRadius: BorderRadius.circular(_width * 0.015)
+                          ),
+                          child: Center(
+                            child: TextWidget(
+                              textTitle: 'Buy Now',
+                              color: Colors.white,
+                              fontSize: _height * 0.0155,
+                              fontFamily: poppinsRegular,
                             )
-                        );
-                      },
-                      child: Container(
-                        margin: EdgeInsets.only(
-                            left: _width * 0.005,
-                            top: _height * 0.004,
-                            bottom: _height * 0.0055
-                        ),
-                        padding: EdgeInsets.symmetric(
-                          horizontal: _width * 0.140,
-                          // vertical: _height * 0.005,
-                        ),
-                        decoration: BoxDecoration(
-                            color: buyNow,
-                            borderRadius: BorderRadius.circular(_width * 0.015)
-                        ),
-                        child: Center(
-                          child: TextWidget(
-                            textTitle: 'Buy Now',
-                            color: Colors.white,
-                            fontSize: _height * 0.0155,
-                            fontFamily: poppinsRegular,
-                          )
+                          ),
                         ),
                       ),
                     ),

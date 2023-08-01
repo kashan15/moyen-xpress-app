@@ -551,7 +551,7 @@ class _SettingsScreen1State extends State<SettingsScreen1> {
             child: Column(
               children: [
                 SizedBox(
-                  height: _height * 0.05,
+                  height: _height * 0.075,
                 ),
                 Row(
                   children: [

@@ -10,6 +10,7 @@ import 'package:moyen_xpress_app/view/categories/categories_screen.dart';
 import 'package:moyen_xpress_app/view/chat/chat_screen.dart';
 import 'package:moyen_xpress_app/view/history/purchase%20history/purchase_history.dart';
 import 'package:moyen_xpress_app/view/history/purchase%20history/purchase_history_details.dart';
+import 'package:moyen_xpress_app/view/home/show_more.dart';
 import 'package:moyen_xpress_app/view/notification/notification_screen.dart';
 import 'package:moyen_xpress_app/view/orders/my_order_details.dart';
 import 'package:moyen_xpress_app/view/orders/quote%20order/quote_order_details.dart';
@@ -94,12 +95,12 @@ class RouteManagement {
       ),
       GetPage(
         name:   kShippingOrder,
-        page: () =>  ShippingOrderScreen(),
+        page: () =>  ShippingOrderScreen(check: false,),
         binding: ControllerBinding(),
       ),
       GetPage(
         name:   kShippingOrderDetails,
-        page: () =>  ShippingOrderDetailsScreen(),
+        page: () =>  ShippingOrderDetailsScreen(check1: false,),
         binding: ControllerBinding(),
       ),
       GetPage(
@@ -162,6 +163,36 @@ class RouteManagement {
       GetPage(
         name: kNotificationScreen,
         page: () => NotificationScreen(),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
+        name: kShowMoreScreen,
+        page: () => ShowMoreScreen(image1: ''),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
+        name: kShowMoreScreen2,
+        page: () => ShowMoreScreen2(image1: ''),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
+        name: kShowMoreScreen3,
+        page: () => ShowMoreScreen3(image1: ''),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
+        name: kShowMoreScreen4,
+        page: () => ShowMoreScreen4(image1: ''),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
+        name: kShowMoreScreen5,
+        page: () => ShowMoreScreen5(image1: ''),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
+        name: kShowMoreScreen6,
+        page: () => ShowMoreScreen6(image1: ''),
         binding: ControllerBinding(),
       ),
 

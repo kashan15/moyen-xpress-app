@@ -103,7 +103,7 @@ class CategoriesScreen extends GetView<CategoriesController> {
                 // crossAxisSpacing: 15.0,
                 crossAxisSpacing: Get.width * 0.02,
                 // mainAxisSpacing: 20.0,
-                  mainAxisSpacing: Get.height * 0.025
+                  mainAxisSpacing: Get.height * 0.01
               ),
               itemBuilder: (BuildContext context, int index) {
                 // Build each container

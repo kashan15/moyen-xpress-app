@@ -684,7 +684,7 @@ class HomeScreen extends GetView<HomeController> {
                             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: columnsCount,
                               // childAspectRatio: Get.height * 0.000790,
-                                childAspectRatio: _height * 0.00079,
+                                childAspectRatio: _height * 0.000835,
                               crossAxisSpacing: Get.width * 0.06,
                               mainAxisSpacing: Get.height * 0.025
                             ),
@@ -840,7 +840,9 @@ class HomeScreen extends GetView<HomeController> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               ShowMoreButton(
-                                onTap: (){},
+                                onTap: (){
+                                  Get.toNamed(kShowMoreScreen);
+                                },
                                 title: 'Show more',
                               )
                           ]
@@ -870,7 +872,7 @@ class HomeScreen extends GetView<HomeController> {
                             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: columnsCount,
                               // childAspectRatio: 0.68,
-                              childAspectRatio: Get.height * 0.00080,
+                              childAspectRatio: Get.height * 0.000835,
                               // crossAxisSpacing: 25.0,
                               // mainAxisSpacing: 25.0,
                                 crossAxisSpacing: Get.width * 0.06,
@@ -1024,7 +1026,9 @@ class HomeScreen extends GetView<HomeController> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 ShowMoreButton(
-                                  onTap: (){},
+                                  onTap: (){
+                                    Get.toNamed(kShowMoreScreen2);
+                                  },
                                   title: 'Show more',
                                 )
                               ]
@@ -1124,7 +1128,7 @@ class HomeScreen extends GetView<HomeController> {
                             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: columnsCount,
                               // childAspectRatio: 0.68,
-                                childAspectRatio: Get.height * 0.000790,
+                                childAspectRatio: Get.height * 0.000835,
                               // crossAxisSpacing: 25.0,
                               // mainAxisSpacing: 25.0,
                                 crossAxisSpacing: Get.width * 0.06,
@@ -1253,7 +1257,9 @@ class HomeScreen extends GetView<HomeController> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 ShowMoreButton(
-                                  onTap: (){},
+                                  onTap: (){
+                                    Get.toNamed(kShowMoreScreen3);
+                                  },
                                   title: 'Show more',
                                 )
                               ]
@@ -1283,7 +1289,7 @@ class HomeScreen extends GetView<HomeController> {
                             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: columnsCount,
                               // childAspectRatio: 0.68,
-                                childAspectRatio: Get.height * 0.00080,
+                                childAspectRatio: Get.height * 0.00087,
                               // crossAxisSpacing: 25.0,
                               // mainAxisSpacing: 25.0,
                                 crossAxisSpacing: Get.width * 0.06,
@@ -1387,7 +1393,9 @@ class HomeScreen extends GetView<HomeController> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 ShowMoreButton(
-                                  onTap: (){},
+                                  onTap: (){
+                                    Get.toNamed(kShowMoreScreen4);
+                                  },
                                   title: 'Show more',
                                 )
                               ]
@@ -1469,7 +1477,7 @@ class HomeScreen extends GetView<HomeController> {
                             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: columnsCount,
                               // childAspectRatio: 0.68,
-                                childAspectRatio: Get.height * 0.00080,
+                                childAspectRatio: Get.height * 0.00087,
                               // crossAxisSpacing: 25.0,
                               // mainAxisSpacing: 25.0,
                                 crossAxisSpacing: Get.width * 0.06,
@@ -1592,7 +1600,9 @@ class HomeScreen extends GetView<HomeController> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 ShowMoreButton(
-                                  onTap: (){},
+                                  onTap: (){
+                                    Get.toNamed(kShowMoreScreen5);
+                                  },
                                   title: 'Show more',
                                 )
                               ]
@@ -1622,7 +1632,7 @@ class HomeScreen extends GetView<HomeController> {
                             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: columnsCount,
                               // childAspectRatio: 0.68,
-                                childAspectRatio: Get.height * 0.00080,
+                                childAspectRatio: Get.height * 0.00087,
                               // crossAxisSpacing: 25.0,
                               // mainAxisSpacing: 25.0,
                                 crossAxisSpacing: Get.width * 0.06,
@@ -1745,7 +1755,9 @@ class HomeScreen extends GetView<HomeController> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 ShowMoreButton(
-                                  onTap: (){},
+                                  onTap: (){
+                                    Get.toNamed(kShowMoreScreen6);
+                                  },
                                   title: 'Show more',
                                 )
                               ]

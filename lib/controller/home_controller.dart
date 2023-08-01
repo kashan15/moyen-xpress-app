@@ -30,16 +30,16 @@ class HomeController extends GetxController
       name: 'Women Shoulder Handbag',
     ),
     HomeScreen(
-      image1: ImageUtils.dealItem,
-      name: 'Microwave Oven',
+      image1: ImageUtils.bag,
+      name: 'Women Shoulder Handbag',
     ),
     HomeScreen(
       image1: ImageUtils.bag,
       name: 'Women Shoulder Handbag',
     ),
     HomeScreen(
-      image1: ImageUtils.dealItem,
-      name: 'Microwave Oven',
+      image1: ImageUtils.bag,
+      name: 'Women Shoulder Handbag',
     ),
   ];
 

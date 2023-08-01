@@ -47,7 +47,7 @@ class EditAccountScreen extends GetView<EditAccountController> {
                   child: Column(
                     children: [
                       SizedBox(
-                        height: _height * 0.05,
+                        height: _height * 0.075,
                       ),
                       Row(
                         children: [

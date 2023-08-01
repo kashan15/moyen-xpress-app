@@ -51,6 +51,38 @@ class CategoriesDetailsController extends GetxController
       image: ImageUtils.products4,
       name: "Fishing Net",
     ),
+    CategoryDetailsScreen(
+      image: ImageUtils.products1,
+      name: "Bicycle",
+    ),
+    CategoryDetailsScreen(
+      image: ImageUtils.products2,
+      name: "Sneakers",
+    ),
+    CategoryDetailsScreen(
+      image: ImageUtils.products3,
+      name: "Swim Goggle",
+    ),
+    CategoryDetailsScreen(
+      image: ImageUtils.products4,
+      name: "Fishing Net",
+    ),
+    CategoryDetailsScreen(
+      image: ImageUtils.products1,
+      name: "Bicycle",
+    ),
+    CategoryDetailsScreen(
+      image: ImageUtils.products2,
+      name: "Sneakers",
+    ),
+    CategoryDetailsScreen(
+      image: ImageUtils.products3,
+      name: "Swim Goggle",
+    ),
+    CategoryDetailsScreen(
+      image: ImageUtils.products4,
+      name: "Fishing Net",
+    ),
   ];
 
   List<String> tabTitle = [

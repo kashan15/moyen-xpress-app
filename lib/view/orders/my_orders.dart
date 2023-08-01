@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:moyen_xpress_app/components/custom_dialog.dart';
 import 'package:moyen_xpress_app/components/custom_grid_button.dart';
 import 'package:moyen_xpress_app/components/text_widget.dart';
 import 'package:moyen_xpress_app/controller/my_cart_controller.dart';
@@ -9,6 +10,7 @@ import 'package:moyen_xpress_app/utils/color_utils.dart';
 import 'package:moyen_xpress_app/utils/image_utils.dart';
 import 'package:moyen_xpress_app/utils/lang_string_util.dart';
 import 'package:moyen_xpress_app/utils/route_utils.dart';
+import 'package:moyen_xpress_app/view/orders/shipping%20order/shipping_orders.dart';
 
 import '../../components/custom_richtext.dart';
 import '../../utils/font_utils.dart';
@@ -20,6 +22,7 @@ class MyOrdersScreen extends GetView<MyOrdersController> {
   });
 
   bool willPop = true;
+  int select = 0;
 
   List items = [
     {
@@ -56,7 +59,7 @@ class MyOrdersScreen extends GetView<MyOrdersController> {
             physics: const NeverScrollableScrollPhysics(),
             child: Column(
               children: [
-                SizedBox(height: _height * 0.05,),
+                SizedBox(height: _height * 0.075,),
                 Row(
                   children: [
                     IconButton(
@@ -110,7 +113,24 @@ class MyOrdersScreen extends GetView<MyOrdersController> {
                     itemCount: 3,
                     itemBuilder: (context, index) {
                       return GestureDetector(
-                        onTap: (){},
+                        onTap: (){
+                          select = index;
+                          if(index == 0){
+                            Get.to(ShippingOrderScreen(check: false));
+                          }
+                          if(index == 1){
+                            Get.to(ShippingOrderScreen(check: true));
+                          }
+                          if(index == 2){
+                            Get.dialog(
+                              CustomDialogSimple(
+                                  title: 'Work in progress',
+                                  description: 'currently we are working on this feature',
+                                  okTap: false
+                              )
+                            );
+                          }
+                        },
                         child: Stack(
                             children:[
                               Container(
