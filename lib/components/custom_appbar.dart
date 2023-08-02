@@ -37,15 +37,14 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
                    color: Colors.black,
 
                 ),
-                const SizedBox(width: 10),
-                GestureDetector(
-                  onTap: onMenuClicked,
-                  child: Icon(
+                // const SizedBox(width: 10),
+                IconButton(onPressed: onMenuClicked,
+                    constraints: const BoxConstraints(),
+                    icon: Icon(
                       Icons.menu,
                       size: _height * 0.025,
-                      color: Colors.black
-                  ),
-                )
+                      color: Colors.black,
+                    ))
               ],
             ),
           )

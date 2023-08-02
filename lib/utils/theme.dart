@@ -10,6 +10,11 @@ class CustomTheme {
     fontFamily: poppinsSemiBold,
     color: Colors.black,
   );
+  static final normalText = TextStyle(
+    fontSize: Get.height * 0.01,
+    fontFamily: poppinsSemiBold,
+    color: Colors.white,
+  );
 
   static final shortHeading = TextStyle(
     fontSize: Get.height * 0.02,

@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 import 'package:moyen_xpress_app/components/custom_appbar.dart';
+import 'package:moyen_xpress_app/components/custom_dialog.dart';
 import 'package:moyen_xpress_app/components/custom_grid_button.dart';
 import 'package:moyen_xpress_app/components/rating_widget.dart';
 import 'package:moyen_xpress_app/components/text_widget.dart';
@@ -683,8 +684,8 @@ class HomeScreen extends GetView<HomeController> {
                             itemCount: 4, // Number of containers
                             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: columnsCount,
-                              // childAspectRatio: Get.height * 0.000790,
-                                childAspectRatio: _height * 0.000835,
+                                // childAspectRatio: _height * 0.000835,
+                                childAspectRatio: Get.width*1.35 / Get.height*1.04,
                               crossAxisSpacing: Get.width * 0.06,
                               mainAxisSpacing: Get.height * 0.025
                             ),
@@ -777,7 +778,14 @@ class HomeScreen extends GetView<HomeController> {
                                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                           children: [
                                             CustomGridButton(
-                                              onTap: (){},
+                                              onTap: (){
+                                                Get.dialog(
+                                                  CustomDialogSimple(
+                                                      title: 'Added To Cart',
+                                                      description: 'your item has been added to cart',
+                                                      okTap: true)
+                                                );
+                                              },
                                               title: 'Add to cart',
                                             ),
                                             Container(
@@ -871,8 +879,9 @@ class HomeScreen extends GetView<HomeController> {
                             itemCount: 4, // Number of containers
                             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: columnsCount,
-                              // childAspectRatio: 0.68,
-                              childAspectRatio: Get.height * 0.000835,
+
+                              // childAspectRatio: Get.height * 0.000835,
+                                childAspectRatio: Get.width*1.35 / Get.height*1.04,
                               // crossAxisSpacing: 25.0,
                               // mainAxisSpacing: 25.0,
                                 crossAxisSpacing: Get.width * 0.06,
@@ -962,7 +971,14 @@ class HomeScreen extends GetView<HomeController> {
                                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                           children: [
                                             CustomGridButton(
-                                              onTap: (){},
+                                              onTap: (){
+                                                Get.dialog(
+                                                    CustomDialogSimple(
+                                                        title: 'Added To Cart',
+                                                        description: 'your item has been added to cart',
+                                                        okTap: true)
+                                                );
+                                              },
                                               title: 'Add to cart',
                                             ),
                                             Container(
@@ -1127,8 +1143,9 @@ class HomeScreen extends GetView<HomeController> {
                             itemCount: 4, // Number of containers
                             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: columnsCount,
-                              // childAspectRatio: 0.68,
-                                childAspectRatio: Get.height * 0.000835,
+
+                               // childAspectRatio: Get.height * 0.000835,
+                                childAspectRatio: Get.width*1.35 / Get.height*1.05,
                               // crossAxisSpacing: 25.0,
                               // mainAxisSpacing: 25.0,
                                 crossAxisSpacing: Get.width * 0.06,
@@ -1193,7 +1210,14 @@ class HomeScreen extends GetView<HomeController> {
                                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                           children: [
                                             CustomGridButton(
-                                              onTap: (){},
+                                              onTap: (){
+                                                Get.dialog(
+                                                    CustomDialogSimple(
+                                                        title: 'Added To Cart',
+                                                        description: 'your item has been added to cart',
+                                                        okTap: true)
+                                                );
+                                              },
                                               title: 'Add to cart',
                                             ),
                                             Container(
@@ -1288,8 +1312,9 @@ class HomeScreen extends GetView<HomeController> {
                             itemCount: 4, // Number of containers
                             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: columnsCount,
-                              // childAspectRatio: 0.68,
-                                childAspectRatio: Get.height * 0.00087,
+
+                                //childAspectRatio: Get.height * 0.00087,
+                                childAspectRatio: Get.width*1.35 / Get.height*1.04,
                               // crossAxisSpacing: 25.0,
                               // mainAxisSpacing: 25.0,
                                 crossAxisSpacing: Get.width * 0.06,
@@ -1476,8 +1501,9 @@ class HomeScreen extends GetView<HomeController> {
                             itemCount: 4, // Number of containers
                             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: columnsCount,
-                              // childAspectRatio: 0.68,
-                                childAspectRatio: Get.height * 0.00087,
+
+                                //childAspectRatio: Get.height * 0.00087,
+                                childAspectRatio: Get.width*1.35 / Get.height*1.04,
                               // crossAxisSpacing: 25.0,
                               // mainAxisSpacing: 25.0,
                                 crossAxisSpacing: Get.width * 0.06,
@@ -1631,8 +1657,9 @@ class HomeScreen extends GetView<HomeController> {
                             itemCount: 4, // Number of containers
                             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: columnsCount,
-                              // childAspectRatio: 0.68,
-                                childAspectRatio: Get.height * 0.00087,
+
+                                //childAspectRatio: Get.height * 0.00087,
+                                childAspectRatio: Get.width*1.35 / Get.height*1.04,
                               // crossAxisSpacing: 25.0,
                               // mainAxisSpacing: 25.0,
                                 crossAxisSpacing: Get.width * 0.06,
