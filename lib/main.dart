@@ -63,12 +63,14 @@ class MyApp extends StatelessWidget {
               // colorScheme: const ColorScheme.dark(),
               fontFamily:'Nexa',
             ),
+
             //Default theme
             locale: Locale(languageLocale),
             fallbackLocale: const Locale('en', 'US'),
             translations: AppTranslations(),
 
             initialRoute: kSplashScreen,
+
             getPages: RouteManagement.getPages(),
 
             // initialBinding: ControllerBinding(),

@@ -9,7 +9,9 @@ import 'package:moyen_xpress_app/controller/my_cart_controller.dart';
 import 'package:moyen_xpress_app/controller/my_orders_controller.dart';
 import 'package:moyen_xpress_app/controller/navbar_controller.dart';
 import 'package:moyen_xpress_app/controller/notification_controller.dart';
+
 import 'package:moyen_xpress_app/controller/payment_method_controller.dart';
+
 import 'package:moyen_xpress_app/controller/product_details_controller.dart';
 import 'package:moyen_xpress_app/controller/profile_screen_controller.dart';
 import 'package:moyen_xpress_app/controller/purchase_history_controller.dart';
@@ -60,6 +62,7 @@ class ControllerBinding extends Bindings {
     Get.lazyPut(() => PurchaseHistoryController());
     Get.lazyPut(() => PurchaseHistoryDetailsController());
     Get.lazyPut(() => ShowMoreController());
+
 
   }
 }
