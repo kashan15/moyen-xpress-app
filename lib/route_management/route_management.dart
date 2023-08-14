@@ -1,12 +1,37 @@
 
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/routes/get_route.dart';
+
+import '../components/custom_navbar.dart';
 import '../components/custom_navbar1.dart';
+import '../controller/home_controller.dart';
 import '../utils/route_utils.dart';
+import '../view/authentication/login_screen.dart';
+import '../view/authentication/signup_screen.dart';
 import '../view/cart/my_cart.dart';
+import '../view/categories/categories_details.dart';
+import '../view/categories/categories_screen.dart';
+import '../view/chat/chat_screen.dart';
 import '../view/dashboard_tab_screen.dart';
+import '../view/history/purchase history/purchase_history.dart';
+import '../view/history/purchase history/purchase_history_details.dart';
 import '../view/home/home_screen.dart';
+import '../view/home/show_more.dart';
+import '../view/notification/notification_screen.dart';
 import '../view/onboard initial screen/initial_screen.dart';
+import '../view/orders/my_order_details.dart';
 import '../view/orders/my_orders.dart';
+import '../view/orders/quote order/quote_order_details.dart';
+import '../view/orders/shipping order/shipping_order_details.dart';
+import '../view/orders/shipping order/shipping_orders.dart';
+import '../view/payment/payment_method.dart';
+import '../view/payment/payment_method_details.dart';
+import '../view/profile/edit_account.dart';
+import '../view/profile/profile_screen.dart';
 import '../view/profile/settings/settings_screen.dart';
+import '../view/quotes/shipping_quote_details.dart';
+import '../view/splash/splash_screen.dart';
 import 'controller_binding.dart';
 
 

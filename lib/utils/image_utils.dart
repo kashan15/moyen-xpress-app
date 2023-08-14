@@ -35,6 +35,7 @@ class ImageUtils{
   static const String logoutIcon = 'assets/icons/logout.png ';
   static const String shipTransparentIcon = 'assets/icons/shipTransparentIcon.png';
   static const String quoteTransparentIcon = 'assets/icons/quoteTransparentIcon.png';
+  static const String payIcon = 'assets/icons/pay.png';
 
 
   /// Images

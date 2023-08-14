@@ -386,7 +386,7 @@ class OrderConfirmation extends GetView<MyCartController> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Image.asset(
-                                ImageUtils.cashIcon,
+                                ImageUtils.payIcon,
                                 height: _height *0.02
                             ),
                             SizedBox(width: _width * 0.02,),
@@ -407,7 +407,7 @@ class OrderConfirmation extends GetView<MyCartController> {
                         child: Row(
                           children: [
                             Image.asset(
-                                ImageUtils.cashIcon,
+                                ImageUtils.payIcon,
                                 height: _height *0.02
                             ),
                             SizedBox(width: _width*0.02,),
@@ -447,7 +447,7 @@ class OrderConfirmation extends GetView<MyCartController> {
                         child: Row(
                           children: [
                             Image.asset(
-                                ImageUtils.cashIcon,
+                                ImageUtils.payIcon,
                                 height: _height *0.02
                             ),
                             SizedBox(width: _width*0.02,),
