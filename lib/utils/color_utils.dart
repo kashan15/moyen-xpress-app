@@ -44,6 +44,8 @@ const Color locationColor = Color(0xff124394);
 const Color homeBoxColor = Color(0xffDA6E26);
 const Color categoriesColor = Color(0xffEB751F);
 const Color backgroundColor = Color(0xffF2F3F8);
+const Color snapchatColor = Color(0xffFCBB45);
+const Color textFieldColor = Color(0xff3A3A3A);
 const Color topSeller = Color(0xff434343);
 const Color productContainer = Color(0xffF7F7F7);
 const Color customWhiteColor = Colors.white;
@@ -64,7 +66,7 @@ const Color drawerItem = Color(0xffE5834F);
 
 
 const Color customGreyColor = Colors.grey;
-const Color textFieldColor = Color(0xfff2f3f8);
+// const Color textFieldColor = Color(0xfff2f3f8);
 
 
 

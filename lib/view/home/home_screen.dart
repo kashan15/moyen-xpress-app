@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
+import 'package:like_button/like_button.dart';
 import 'package:moyen_xpress_app/components/custom_appbar.dart';
 import 'package:moyen_xpress_app/components/custom_dialog.dart';
 import 'package:moyen_xpress_app/components/custom_grid_button.dart';
@@ -788,17 +789,37 @@ class HomeScreen extends GetView<HomeController> {
                                               },
                                               title: 'Add to cart',
                                             ),
-                                            Container(
-                                              padding: EdgeInsets.symmetric(horizontal: _width * 0.025, vertical: _height * 0.005),
-                                              decoration: BoxDecoration(
-                                                  color: homeBoxColor,
-                                                  borderRadius: BorderRadius.circular(_width * 0.01)
-                                              ),
-                                              child: Center(
-                                                child: Icon(
-                                                  Icons.favorite_border_outlined, size: _height * 0.015,
-                                                color: Colors.white,
-                                                )
+                                            GestureDetector(
+                                              onTap: (){},
+                                              child: Container(
+                                                padding: EdgeInsets.symmetric(horizontal: _width * 0.025, vertical: _height * 0.005),
+                                                decoration: BoxDecoration(
+                                                    color: homeBoxColor.withOpacity(0.5),
+                                                    borderRadius: BorderRadius.circular(_width * 0.01)
+                                                ),
+                                                child:
+                                                LikeButton(
+                                                  size: Get.height * 0.015,
+                                                  // circleColor: CircleColor(
+                                                  //     start: Colors.white, end: Colors.yellowAccent
+                                                  // ),
+                                                  circleColor:
+                                                  const CircleColor(
+                                                      start: Colors.redAccent,
+                                                      end: Colors.yellowAccent),
+                                                  bubblesColor: const BubblesColor(
+                                                    dotPrimaryColor: Colors.redAccent,
+                                                    dotSecondaryColor: Colors.red,
+                                                  ),
+                                                  likeBuilder: (isTapped){
+                                                    return Icon(
+                                                      isTapped ?
+                                                      Icons.favorite : Icons.favorite_border,
+                                                      color: isTapped ? Colors.red : Colors.white,
+                                                      size: Get.height * 0.015,
+                                                    );
+                                                  },
+                                                ),
                                               ),
                                             )
                                           ],
@@ -981,17 +1002,43 @@ class HomeScreen extends GetView<HomeController> {
                                               },
                                               title: 'Add to cart',
                                             ),
-                                            Container(
-                                              padding: EdgeInsets.symmetric(horizontal: _width * 0.025, vertical: _height * 0.005),
-                                              decoration: BoxDecoration(
-                                                  color: homeBoxColor,
-                                                  borderRadius: BorderRadius.circular(_width * 0.01)
-                                              ),
-                                              child: Center(
-                                                  child: Icon(
-                                                    Icons.favorite_border_outlined, size: _height * 0.015,
-                                                    color: Colors.white,
-                                                  )
+                                            GestureDetector(
+                                              onTap: (){},
+                                              child: Container(
+                                                padding: EdgeInsets.symmetric(horizontal: _width * 0.025, vertical: _height * 0.005),
+                                                decoration: BoxDecoration(
+                                                    color: homeBoxColor.withOpacity(0.5),
+                                                    borderRadius: BorderRadius.circular(_width * 0.01)
+                                                ),
+                                                child:
+                                                // Center(
+                                                //     child: Icon(
+                                                //       Icons.favorite_border_outlined, size: _height * 0.015,
+                                                //       color: Colors.white,
+                                                //     )
+                                                // ),
+                                                LikeButton(
+                                                  size: Get.height * 0.015,
+                                                  // circleColor: CircleColor(
+                                                  //     start: Colors.white, end: Colors.yellowAccent
+                                                  // ),
+                                                  circleColor:
+                                                  const CircleColor(
+                                                      start: Colors.redAccent,
+                                                      end: Colors.yellowAccent),
+                                                  bubblesColor: const BubblesColor(
+                                                    dotPrimaryColor: Colors.redAccent,
+                                                    dotSecondaryColor: Colors.red,
+                                                  ),
+                                                  likeBuilder: (isTapped){
+                                                    return Icon(
+                                                      isTapped ?
+                                                      Icons.favorite : Icons.favorite_border,
+                                                      color: isTapped ? Colors.red : Colors.white,
+                                                      size: Get.height * 0.015,
+                                                    );
+                                                  },
+                                                ),
                                               ),
                                             )
                                           ],
@@ -1220,21 +1267,40 @@ class HomeScreen extends GetView<HomeController> {
                                               },
                                               title: 'Add to cart',
                                             ),
-                                            Container(
-                                              padding: EdgeInsets.symmetric(horizontal: _width * 0.025, vertical: _height * 0.005),
-                                              decoration: BoxDecoration(
-                                                  color: homeBoxColor,
-                                                  borderRadius: BorderRadius.circular(_width * 0.01)
-                                              ),
-                                              child: Center(
-                                                  child: Icon(
-                                                    Icons.favorite_border_outlined, size: _height * 0.015,
-                                                    color: Colors.white,
-                                                  )
+                                            GestureDetector(
+                                              onTap: (){},
+                                              child: Container(
+                                                padding: EdgeInsets.symmetric(horizontal: _width * 0.025, vertical: _height * 0.005),
+                                                decoration: BoxDecoration(
+                                                    color: homeBoxColor.withOpacity(0.5),
+                                                    borderRadius: BorderRadius.circular(_width * 0.01)
+                                                ),
+                                                child: LikeButton(
+                                                  size: Get.height * 0.015,
+                                                  // circleColor: CircleColor(
+                                                  //     start: Colors.white, end: Colors.yellowAccent
+                                                  // ),
+                                                  circleColor:
+                                                  const CircleColor(
+                                                      start: Colors.redAccent,
+                                                      end: Colors.yellowAccent),
+                                                  bubblesColor: const BubblesColor(
+                                                    dotPrimaryColor: Colors.redAccent,
+                                                    dotSecondaryColor: Colors.red,
+                                                  ),
+                                                  likeBuilder: (isTapped){
+                                                    return Icon(
+                                                      isTapped ?
+                                                      Icons.favorite : Icons.favorite_border,
+                                                      color: isTapped ? Colors.red : Colors.white,
+                                                      size: Get.height * 0.015,
+                                                    );
+                                                  },
+                                                ),
                                               ),
                                             )
                                           ],
-                                        ),
+                                        ), 
                                       ],
                                     )
 

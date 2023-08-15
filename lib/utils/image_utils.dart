@@ -36,6 +36,18 @@ class ImageUtils{
   static const String shipTransparentIcon = 'assets/icons/shipTransparentIcon.png';
   static const String quoteTransparentIcon = 'assets/icons/quoteTransparentIcon.png';
   static const String payIcon = 'assets/icons/pay.png';
+  static const String facebookIcon = 'assets/icons/facebook.png';
+  static const String instaIcon = 'assets/icons/insta.png';
+  static const String twitterIcon = 'assets/icons/twitter.png';
+  static const String pinterestIcon = 'assets/icons/pinteresr.png';
+  static const String snapchatIcon = 'assets/icons/snapchat.png';
+  static const String ballIcon = 'assets/icons/ball.png';
+  static const String youtubeIcon = 'assets/icons/youtube.png';
+  static const String whatsappIcon = 'assets/icons/whatsapp.png';
+  static const String mailIcon = 'assets/icons/mail.png';
+  static const String facebookIcon1 = 'assets/icons/facebookIcon.png';
+  static const String gmailIcon1 = 'assets/icons/gmailIcon.png';
+  static const String appleIcon1 = 'assets/icons/appleIcon.png';
 
 
   /// Images
@@ -100,6 +112,11 @@ class ImageUtils{
   static const String wireLogo = 'assets/images/wireLogo.png';
   static const String myOrderBanner = 'assets/images/myOrderBanner.png';
   static const String walletBalanceLogo = 'assets/images/walletBalanceLogo.png';
+  static const String loginBackground = 'assets/images/loginBackground.png';
+  static const String onboard1 = 'assets/images/onboard1.png';
+  static const String onboard2 = 'assets/images/onboard2.png';
+  static const String onboard3 = 'assets/images/onboard2.png';
+
 
 }
 

@@ -2,12 +2,14 @@
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:moyen_xpress_app/view/authentication/new_login_screen.dart';
 
 import '../components/custom_navbar.dart';
 import '../components/custom_navbar1.dart';
 import '../controller/home_controller.dart';
 import '../utils/route_utils.dart';
 import '../view/authentication/login_screen.dart';
+import '../view/authentication/new_signup_screen.dart';
 import '../view/authentication/signup_screen.dart';
 import '../view/cart/my_cart.dart';
 import '../view/categories/categories_details.dart';
@@ -46,7 +48,7 @@ class RouteManagement {
       ),
       GetPage(
         name:   kLoginScreen,
-        page: () =>  const LoginScreen(),
+        page: () =>  const LoginScreenNew(),
         binding: ControllerBinding(),
       ),
       GetPage(
@@ -117,7 +119,7 @@ class RouteManagement {
 
       GetPage(
         name:   kSignupScreen,
-        page: () =>  const SignupScreen(),
+        page: () =>  const SignupScreenNew(),
         binding: ControllerBinding(),
       ),
       GetPage(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
+import 'package:like_button/like_button.dart';
 import 'package:moyen_xpress_app/components/custom_grid_button.dart';
 import 'package:moyen_xpress_app/components/rating_widget.dart';
 import 'package:moyen_xpress_app/components/text_widget.dart';
@@ -10,6 +11,7 @@ import 'package:moyen_xpress_app/utils/color_utils.dart';
 import 'package:moyen_xpress_app/utils/font_utils.dart';
 import 'package:moyen_xpress_app/utils/image_utils.dart';
 import 'package:moyen_xpress_app/view/products/product_details.dart';
+import '../../components/custom_dialog.dart';
 import '../../controller/home_controller.dart';
 import '../../utils/theme.dart';
 
@@ -133,8 +135,9 @@ class ShowMoreScreen extends GetView<ShowMoreController> {
                 itemCount: itemList.length, // Number of containers
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: columnsCount,
-                    // childAspectRatio: Get.height * 0.000790,
-                    childAspectRatio: _height * 0.00087,
+
+                    //childAspectRatio: _height * 0.00087,
+                    childAspectRatio: Get.width*1.35 / Get.height*1.04,
                     crossAxisSpacing: Get.width * 0.06,
                     mainAxisSpacing: Get.height * 0.025
                 ),
@@ -223,20 +226,53 @@ class ShowMoreScreen extends GetView<ShowMoreController> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 CustomGridButton(
-                                  onTap: (){},
+                                  onTap: (){
+                                    Get.dialog(
+                                        CustomDialogSimple(
+                                            title: 'Added To Cart',
+                                            description: 'your item has been added to cart',
+                                            okTap: true)
+                                    );
+                                  },
                                   title: 'Add to cart',
                                 ),
-                                Container(
-                                  padding: EdgeInsets.symmetric(horizontal: _width * 0.025, vertical: _height * 0.005),
-                                  decoration: BoxDecoration(
-                                      color: homeBoxColor,
-                                      borderRadius: BorderRadius.circular(_width * 0.01)
-                                  ),
-                                  child: Center(
-                                      child: Icon(
-                                        Icons.favorite_border_outlined, size: _height * 0.015,
-                                        color: Colors.white,
-                                      )
+                                GestureDetector(
+                                  onTap: (){},
+                                  child: Container(
+                                    padding: EdgeInsets.symmetric(horizontal: _width * 0.025, vertical: _height * 0.005),
+                                    decoration: BoxDecoration(
+                                        color: homeBoxColor.withOpacity(0.5),
+                                        borderRadius: BorderRadius.circular(_width * 0.01)
+                                    ),
+                                    child:
+                                    // Center(
+                                    //     child: Icon(
+                                    //       Icons.favorite_border_outlined, size: _height * 0.015,
+                                    //       color: Colors.white,
+                                    //     )
+                                    // ),
+                                    LikeButton(
+                                      size: Get.height * 0.015,
+                                      // circleColor: CircleColor(
+                                      //     start: Colors.white, end: Colors.yellowAccent
+                                      // ),
+                                      circleColor:
+                                      const CircleColor(
+                                          start: Colors.redAccent,
+                                          end: Colors.yellowAccent),
+                                      bubblesColor: const BubblesColor(
+                                        dotPrimaryColor: Colors.redAccent,
+                                        dotSecondaryColor: Colors.red,
+                                      ),
+                                      likeBuilder: (isTapped){
+                                        return Icon(
+                                          isTapped ?
+                                          Icons.favorite : Icons.favorite_border,
+                                          color: isTapped ? Colors.red : Colors.white,
+                                          size: Get.height * 0.015,
+                                        );
+                                      },
+                                    ),
                                   ),
                                 )
                               ],
@@ -398,8 +434,9 @@ class ShowMoreScreen2 extends GetView<ShowMoreController> {
                 itemCount: itemList.length, // Number of containers
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: columnsCount,
-                    // childAspectRatio: Get.height * 0.000790,
-                    childAspectRatio: _height * 0.00087,
+
+                    //childAspectRatio: _height * 0.00087,
+                    childAspectRatio: Get.width*1.35 / Get.height*1.04,
                     crossAxisSpacing: Get.width * 0.06,
                     mainAxisSpacing: Get.height * 0.025
                 ),
@@ -488,20 +525,46 @@ class ShowMoreScreen2 extends GetView<ShowMoreController> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 CustomGridButton(
-                                  onTap: (){},
+                                  onTap: (){
+                                    Get.dialog(
+                                        CustomDialogSimple(
+                                            title: 'Added To Cart',
+                                            description: 'your item has been added to cart',
+                                            okTap: true)
+                                    );
+                                  },
                                   title: 'Add to cart',
                                 ),
-                                Container(
-                                  padding: EdgeInsets.symmetric(horizontal: _width * 0.025, vertical: _height * 0.005),
-                                  decoration: BoxDecoration(
-                                      color: homeBoxColor,
-                                      borderRadius: BorderRadius.circular(_width * 0.01)
-                                  ),
-                                  child: Center(
-                                      child: Icon(
-                                        Icons.favorite_border_outlined, size: _height * 0.015,
-                                        color: Colors.white,
-                                      )
+                                GestureDetector(
+                                  onTap: (){},
+                                  child: Container(
+                                    padding: EdgeInsets.symmetric(horizontal: _width * 0.025, vertical: _height * 0.005),
+                                    decoration: BoxDecoration(
+                                        color: homeBoxColor.withOpacity(0.5),
+                                        borderRadius: BorderRadius.circular(_width * 0.01)
+                                    ),
+                                    child: LikeButton(
+                                      size: Get.height * 0.015,
+                                      // circleColor: CircleColor(
+                                      //     start: Colors.white, end: Colors.yellowAccent
+                                      // ),
+                                      circleColor:
+                                      const CircleColor(
+                                          start: Colors.redAccent,
+                                          end: Colors.yellowAccent),
+                                      bubblesColor: const BubblesColor(
+                                        dotPrimaryColor: Colors.redAccent,
+                                        dotSecondaryColor: Colors.red,
+                                      ),
+                                      likeBuilder: (isTapped){
+                                        return Icon(
+                                          isTapped ?
+                                          Icons.favorite : Icons.favorite_border,
+                                          color: isTapped ? Colors.red : Colors.white,
+                                          size: Get.height * 0.015,
+                                        );
+                                      },
+                                    ),
                                   ),
                                 )
                               ],
@@ -663,8 +726,9 @@ class ShowMoreScreen3 extends GetView<ShowMoreController> {
                 itemCount: itemList.length, // Number of containers
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: columnsCount,
-                    // childAspectRatio: Get.height * 0.000790,
-                    childAspectRatio: _height * 0.00087,
+
+                    //childAspectRatio: _height * 0.00087,
+                    childAspectRatio: Get.width*1.35 / Get.height*1.04,
                     crossAxisSpacing: Get.width * 0.06,
                     mainAxisSpacing: Get.height * 0.025
                 ),
@@ -753,20 +817,46 @@ class ShowMoreScreen3 extends GetView<ShowMoreController> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 CustomGridButton(
-                                  onTap: (){},
+                                  onTap: (){
+                                    Get.dialog(
+                                        CustomDialogSimple(
+                                            title: 'Added To Cart',
+                                            description: 'your item has been added to cart',
+                                            okTap: true)
+                                    );
+                                  },
                                   title: 'Add to cart',
                                 ),
-                                Container(
-                                  padding: EdgeInsets.symmetric(horizontal: _width * 0.025, vertical: _height * 0.005),
-                                  decoration: BoxDecoration(
-                                      color: homeBoxColor,
-                                      borderRadius: BorderRadius.circular(_width * 0.01)
-                                  ),
-                                  child: Center(
-                                      child: Icon(
-                                        Icons.favorite_border_outlined, size: _height * 0.015,
-                                        color: Colors.white,
-                                      )
+                                GestureDetector(
+                                  onTap: (){},
+                                  child: Container(
+                                    padding: EdgeInsets.symmetric(horizontal: _width * 0.025, vertical: _height * 0.005),
+                                    decoration: BoxDecoration(
+                                        color: homeBoxColor.withOpacity(0.5),
+                                        borderRadius: BorderRadius.circular(_width * 0.01)
+                                    ),
+                                    child: LikeButton(
+                                      size: Get.height * 0.015,
+                                      // circleColor: CircleColor(
+                                      //     start: Colors.white, end: Colors.yellowAccent
+                                      // ),
+                                      circleColor:
+                                      const CircleColor(
+                                          start: Colors.redAccent,
+                                          end: Colors.yellowAccent),
+                                      bubblesColor: const BubblesColor(
+                                        dotPrimaryColor: Colors.redAccent,
+                                        dotSecondaryColor: Colors.red,
+                                      ),
+                                      likeBuilder: (isTapped){
+                                        return Icon(
+                                          isTapped ?
+                                          Icons.favorite : Icons.favorite_border,
+                                          color: isTapped ? Colors.red : Colors.white,
+                                          size: Get.height * 0.015,
+                                        );
+                                      },
+                                    ),
                                   ),
                                 )
                               ],
@@ -916,8 +1006,9 @@ class ShowMoreScreen4 extends GetView<ShowMoreController> {
                 itemCount: itemList.length, // Number of containers
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: columnsCount,
-                    // childAspectRatio: 0.68,
-                    childAspectRatio: Get.height * 0.00087,
+
+                    //childAspectRatio: Get.height * 0.00087,
+                    childAspectRatio: Get.width*1.35 / Get.height*1.04,
                     // crossAxisSpacing: 25.0,
                     // mainAxisSpacing: 25.0,
                     crossAxisSpacing: Get.width * 0.06,
@@ -1130,8 +1221,9 @@ class ShowMoreScreen5 extends GetView<ShowMoreController> {
                 itemCount: itemList.length, // Number of containers
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: columnsCount,
-                    // childAspectRatio: 0.68,
-                    childAspectRatio: Get.height * 0.00087,
+
+                    //childAspectRatio: Get.height * 0.00087,
+                    childAspectRatio: Get.width*1.35 / Get.height*1.04,
                     // crossAxisSpacing: 25.0,
                     // mainAxisSpacing: 25.0,
                     crossAxisSpacing: Get.width * 0.06,
@@ -1363,8 +1455,9 @@ class ShowMoreScreen6 extends GetView<ShowMoreController> {
                 itemCount: itemList.length, // Number of containers
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: columnsCount,
-                    // childAspectRatio: 0.68,
-                    childAspectRatio: Get.height * 0.00087,
+
+                    //childAspectRatio: Get.height * 0.00087,
+                    childAspectRatio: Get.width*1.35 / Get.height*1.04,
                     // crossAxisSpacing: 25.0,
                     // mainAxisSpacing: 25.0,
                     crossAxisSpacing: Get.width * 0.06,

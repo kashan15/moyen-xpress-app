@@ -131,6 +131,10 @@ flutter:
       fonts:
        - asset: assets/fonts/Poppins-Regular.ttf
 
+    - family: PoppinsLight
+      fonts:
+        - asset: assets/fonts/Poppins-Light.ttf
+
     - family: PoppinsMedium
       fonts:
         - asset: assets/fonts/Poppins-Medium.ttf

@@ -41,65 +41,79 @@ import 'package:flutter/material.dart';
 
 class CustomTextField1 extends StatelessWidget {
   // final String labelText;
-  final String hintText;
-  final double hintFontSize;
-  final Image? suffixIcon;
+   String? hintText;
+  double? hintFontSize;
+  final Widget? suffixIcon;
   final Image? prefixIcon;
   final double fontSize;
   final dynamic fontFamily;
   final TextEditingController controller;
   final Function(String)? onChanged;
   final EdgeInsetsGeometry? contentPadding;
+  final Color? textColor;
+  final Color? hintColor;
+  final Color? cursorColor;
+  TextInputType? inputType;
+  String? Function(String?)? validation;
+  final bool obscureText;
+
 
   CustomTextField1({
     // required this.labelText,
-    required this.hintText,
-    required this.hintFontSize,
+    this.hintText,
+    this.hintFontSize,
     required this.fontSize,
     this.suffixIcon,
     this.prefixIcon,
     required this.controller,
     this.onChanged,
     this.contentPadding,
-    this.fontFamily
+    this.fontFamily,
+    this.textColor,
+    this.hintColor,
+    this.cursorColor,
+    this.inputType,
+    this.validation,
+    this.obscureText = false,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
+      validator: validation,
+      keyboardType: inputType,
+      cursorColor: cursorColor,
+      obscureText: obscureText,
       autofocus: false,
       decoration: InputDecoration(
-        // labelText: labelText,
         border: InputBorder.none,
         isDense: true,
         hintText: hintText,
         hintStyle: TextStyle(
+          color: hintColor,
           fontSize: hintFontSize,
             fontFamily: fontFamily,
             textBaseline: TextBaseline.alphabetic,
-            overflow: TextOverflow.ellipsis
+            overflow: TextOverflow.ellipsis,
+            decoration: TextDecoration.none
         ),
-        alignLabelWithHint: true, // Aligns the label with the hint text
+        alignLabelWithHint: true,
         contentPadding: contentPadding,
-        // const EdgeInsets.symmetric(
-        //     vertical: 10.0,
-        //     horizontal: 10.0
-        // ),
         suffixIcon: suffixIcon,
         suffixIconConstraints: const BoxConstraints(
           minWidth: 30.0
         ),
-        // suffixIconColor: Colors.transparent,
-        //suffixIconConstraints: const BoxConstraints.tightFor(height: 10.0),
         prefix: prefixIcon
       ),
       textAlignVertical: TextAlignVertical.top,
       style: TextStyle(
         fontSize: fontSize,
         fontFamily: fontFamily,
+        color: textColor,
         textBaseline: TextBaseline.alphabetic,
-        overflow: TextOverflow.ellipsis
+        overflow: TextOverflow.ellipsis,
+        decoration: TextDecoration.none
       ),
       onChanged: onChanged,
 

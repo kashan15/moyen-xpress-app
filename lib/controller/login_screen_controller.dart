@@ -32,14 +32,14 @@ class LoginScreenController extends GetxController{
     prefs.setString("intro_screen", "true");
   }
 
-  getVisibleIcon() {
+   getVisibleIcon() {
     // if(controller.isPasswordVisible.value)
     // {|
     return GestureDetector(
         onTap: onPasswordVisibilityChange,
         child: !isPasswordVisible.value
-            ? Icon(Icons.visibility_off_outlined,color: Color(kPrimaryColor), size: sizeW(20))
-            : Icon(Icons.visibility_outlined, color: Color(kPrimaryColor),size: sizeW(20)));
+            ? Icon(Icons.visibility_off_outlined,color: Colors.white, size: sizeW(20))
+            : Icon(Icons.visibility_outlined, color: Colors.white,size: sizeW(20)));
   }
 
   onPasswordVisibilityChange() {

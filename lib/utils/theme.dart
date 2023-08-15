@@ -10,9 +10,30 @@ class CustomTheme {
     fontFamily: poppinsSemiBold,
     color: Colors.black,
   );
+  static final headingWhiteBold = TextStyle(
+    fontSize: Get.height * 0.025,
+    fontFamily: poppinsSemiBold,
+    color: Colors.white,
+  );
+  static final headingWhite = TextStyle(
+    fontSize: Get.height * 0.02,
+    fontFamily: poppinsLight,
+    color: Colors.white,
+  );
+  static final largeheading = TextStyle(
+    fontSize: Get.height * 0.04,
+    fontFamily: poppinsBold,
+    color: Colors.white,
+  );
+
   static final normalText = TextStyle(
     fontSize: Get.height * 0.01,
     fontFamily: poppinsSemiBold,
+    color: Colors.white,
+  );
+  static final normalTextLogin = TextStyle(
+    fontSize: Get.height * 0.02,
+    fontFamily: poppinsRegular,
     color: Colors.white,
   );
 
@@ -20,6 +41,11 @@ class CustomTheme {
     fontSize: Get.height * 0.02,
     fontFamily: poppinsSemiBold,
     color: Colors.black,
+  );
+  static final shortHeadingWhite = TextStyle(
+    fontSize: Get.height * 0.02,
+    fontFamily: poppinsLight,
+    color: Colors.white,
   );
   static final balanceText = TextStyle(
     fontSize: Get.height * 0.0175,
