@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:moyen_xpress_app/controller/about_screen_controller.dart';
 import 'package:moyen_xpress_app/controller/categories_controller.dart';
 import 'package:moyen_xpress_app/controller/categories_details_controller.dart';
 import 'package:moyen_xpress_app/controller/drawer_controller.dart';
@@ -22,6 +23,8 @@ import 'package:moyen_xpress_app/controller/shipping_order_details_controller.da
 import 'package:moyen_xpress_app/controller/show_more_controller.dart';
 import 'package:moyen_xpress_app/controller/signup_screen_controller.dart';
 import 'package:moyen_xpress_app/controller/splash_screen_controller.dart';
+import 'package:moyen_xpress_app/controller/store_home_controller.dart';
+import 'package:moyen_xpress_app/controller/store_screen_controller.dart';
 import 'package:moyen_xpress_app/controller/theme_controller.dart';
 import 'package:moyen_xpress_app/view/chat/chat_controller.dart';
 import '../controller/dashboard_tab_controller.dart';
@@ -62,7 +65,8 @@ class ControllerBinding extends Bindings {
     Get.lazyPut(() => PurchaseHistoryController());
     Get.lazyPut(() => PurchaseHistoryDetailsController());
     Get.lazyPut(() => ShowMoreController());
-
-
+    Get.lazyPut(() => StoreScreenController());
+    Get.lazyPut(() => StoreHomeController());
+    Get.lazyPut(() => AboutScreenController());
   }
 }

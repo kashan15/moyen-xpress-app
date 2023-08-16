@@ -674,6 +674,7 @@ class HomeScreen extends GetView<HomeController> {
                           //     type: WormType.thinUnderground,
                           //   ),
                           // ),
+
                           SizedBox(height: _height * 0.01,),
                           GridView.builder(
                             shrinkWrap: true,

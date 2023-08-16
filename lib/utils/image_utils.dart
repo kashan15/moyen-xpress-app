@@ -116,6 +116,8 @@ class ImageUtils{
   static const String onboard1 = 'assets/images/onboard1.png';
   static const String onboard2 = 'assets/images/onboard2.png';
   static const String onboard3 = 'assets/images/onboard2.png';
+  static const String storeHomeBanner = 'assets/images/storeHomeBanner.png';
+  static const String aboutBanner = 'assets/images/aboutBanner.png';
 
 
 }

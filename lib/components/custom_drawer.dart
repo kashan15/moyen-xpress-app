@@ -40,14 +40,15 @@ class CustomDrawer extends GetView<DrawerScreenController> {
                         image: AssetImage(ImageUtils.drawerImage),
                         fit: BoxFit.cover)),
               ),
-              SizedBox(
-                height: 10,
-              ),
+              SizedBox(height: Get.height * 0.02,),
 
               SizedBox(
                 height: _height * 1,
                 child: ListView.separated(
-                  padding: EdgeInsets.symmetric(vertical: Get.height * 0.0125),
+                  padding: EdgeInsets.symmetric(
+                    vertical: Get.height * 0.0125,
+                    horizontal: Get.width * 0.025
+                  ),
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: controller.drawerItemList.length,
@@ -74,10 +75,10 @@ class CustomDrawer extends GetView<DrawerScreenController> {
                                 ),
                                 boxShadow: [
                                   BoxShadow(
-                                    spreadRadius: 2,
-                                    blurRadius: 7,
-                                    offset: Offset(0, 1),
-                                    color: Colors.black.withOpacity(0.3)
+                                    spreadRadius: 1,
+                                    blurRadius: 5,
+                                    offset: Offset(0, 3),
+                                    color: Colors.black.withOpacity(0.15)
                                   )
                                 ]
                               ),
@@ -85,15 +86,15 @@ class CustomDrawer extends GetView<DrawerScreenController> {
                                 child:
                                 Image.asset(
                                   controller.drawerItemList[index]["icon"],
-                                  height: Get.height * 0.025,
+                                  height: Get.height * 0.1,
                                 ),
                               ),
                             ),
-                            SizedBox(width: Get.width * 0.025,),
+                            SizedBox(width: Get.width * 0.045,),
                             TextWidget(
                               textTitle: controller.drawerItemList[index]["name"],
                               color: Colors.white,
-                              fontFamily: montserratSemiBold,
+                              fontFamily: montserratMedium,
                               // fontWeight: FontWeight.w900,
                               fontSize: Get.height * 0.02,
                             ),

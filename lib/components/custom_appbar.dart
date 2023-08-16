@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:moyen_xpress_app/components/text_widget.dart';
 import 'package:moyen_xpress_app/utils/image_utils.dart';
 import 'package:moyen_xpress_app/utils/size_utils.dart';
 
@@ -52,4 +55,55 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
       );
 
   }
+}
+
+class CustomAppbar1 extends StatelessWidget implements PreferredSizeWidget {
+String? heading;
+CustomAppbar1({Key? key,
+  this.heading
+}) : super(key: key);
+
+
+@override
+Size get preferredSize => Size.fromHeight(kToolbarHeight);
+
+@override
+Widget build(BuildContext context) {
+  double _height = MediaQuery.of(context).size.height;
+  double _width = MediaQuery.of(context).size.width;
+  return AppBar(
+    backgroundColor: Colors.white,
+    elevation: 1,
+    shadowColor: Colors.transparent,
+    title: Row(
+      children: [
+        IconButton(
+            padding: EdgeInsets.only(left: _width * 0.025),
+            constraints: const BoxConstraints(),
+            onPressed: () {
+              Get.back();
+            },
+            icon: Icon(
+              Icons.arrow_back_ios,
+              size: _height * 0.025,
+              color: Colors.black,
+            )),
+        Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextWidget(
+                  textTitle: heading,
+                  fontWeight: FontWeight.w700,
+                  fontSize: _height * 0.025,
+                  color: Colors.black,
+                ),
+              ],
+            ))
+      ],
+    ),
+    automaticallyImplyLeading: false,
+  );
+
+}
 }

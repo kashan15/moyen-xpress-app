@@ -2,7 +2,9 @@
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:moyen_xpress_app/view/about/about_screen.dart';
 import 'package:moyen_xpress_app/view/authentication/new_login_screen.dart';
+import 'package:moyen_xpress_app/view/store/store_home_screen.dart';
 
 import '../components/custom_navbar.dart';
 import '../components/custom_navbar1.dart';
@@ -34,6 +36,7 @@ import '../view/profile/profile_screen.dart';
 import '../view/profile/settings/settings_screen.dart';
 import '../view/quotes/shipping_quote_details.dart';
 import '../view/splash/splash_screen.dart';
+import '../view/store/store_screen.dart';
 import 'controller_binding.dart';
 
 
@@ -96,6 +99,22 @@ class RouteManagement {
         page: () =>  PaymentDetailsScreen(),
         binding: ControllerBinding(),
       ),
+      GetPage(
+        name:   kStoreScreen,
+        page: () =>  StoreScreen(),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
+        name:   kStoreHome,
+        page: () =>  StoreHome(),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
+        name:   kAboutScreen,
+        page: () =>  AboutScreen(),
+        binding: ControllerBinding(),
+      ),
+
       GetPage(
         name:   kShippingOrder,
         page: () =>  ShippingOrderScreen(check: false,),
