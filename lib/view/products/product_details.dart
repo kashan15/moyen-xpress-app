@@ -12,9 +12,11 @@ import 'package:moyen_xpress_app/utils/image_utils.dart';
 import 'package:moyen_xpress_app/view/categories/categories_details.dart';
 import 'package:moyen_xpress_app/view/home/home_screen.dart';
 import 'package:readmore/readmore.dart';
+import 'package:slide_countdown/slide_countdown.dart';
 
 import '../../components/custom_dialog.dart';
 import '../../components/custom_textfield1.dart';
+import '../../constants/validations.dart';
 import '../../utils/route_utils.dart';
 import '../../utils/theme.dart';
 
@@ -1180,12 +1182,14 @@ import '../../utils/theme.dart';
 
 class ProductDetails extends StatelessWidget {
   int? a;
+  bool? check1 = false;
   final HomeScreen? imageIndex;
   final CategoryDetailsScreen? imageIndex2;
   ProductDetails({super.key,
     this.a,
     this.imageIndex,
-    this.imageIndex2
+    this.imageIndex2,
+    this.check1
   });
 
   // bool tap1 = false;
@@ -1242,6 +1246,8 @@ class ProductDetails extends StatelessWidget {
     },
   ];
 
+  TextEditingController searchController = TextEditingController();
+
   int select = 0;
   bool tap = false;
   Widget build(BuildContext context,) {
@@ -1249,9 +1255,9 @@ class ProductDetails extends StatelessWidget {
     double _width = MediaQuery.of(context).size.width;
     final ProductDetailsController controller = Get.put(ProductDetailsController());
     controller.globalContext = context;
-    int columnsCount = MediaQuery.of(context).size.width < 200 ? 4 : 2;
-    return DefaultTabController(
-      length: 4,
+    return
+      DefaultTabController(
+      length: check1 == false ? 4 : 3,
       child: Scaffold(
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
@@ -1354,105 +1360,10 @@ class ProductDetails extends StatelessWidget {
                 ),
               ),
               SizedBox(height: _height * 0.05,),
+
+              check1 == false ?
               Column(
                 children: [
-
-                  /// Stack Multiple
-                  // Stack(
-                  // children: [
-                  //   Container(
-                  //     margin: EdgeInsets.symmetric(horizontal: _width * 0.06),
-                  //     padding: EdgeInsets.symmetric(horizontal: _width * 0.04, vertical: _height * 0.04),
-                  //     decoration: BoxDecoration(
-                  //         color: Colors.grey.withOpacity(0.15),
-                  //         borderRadius: BorderRadius.circular(_width * 0.02)
-                  //     ),
-                  //     height: _height * 0.325,
-                  //     width: double.infinity,
-                  //   ),
-                  //   Positioned(
-                  //     top: _height * 0.01,
-                  //     left: _width * 0.24,
-                  //     child: Container(
-                  //       height: _height * 0.225,
-                  //       width: _width * 0.5,
-                  //       decoration: BoxDecoration(
-                  //           color: Colors.transparent,
-                  //           image:
-                  //           DecorationImage(image: AssetImage(
-                  //               imageIndex!.image1
-                  //           ),
-                  //               fit: BoxFit.contain
-                  //           )
-                  //       ),
-                  //     ),
-                  //   ),
-                  //   Positioned(
-                  //       top: _height * 0.025,
-                  //       left: _width * 0.8,
-                  //       child:
-                  //       GestureDetector(
-                  //         child: LikeButton(
-                  //           size: Get.height * 0.015,
-                  //           // circleColor: CircleColor(
-                  //           //     start: Colors.white, end: Colors.yellowAccent
-                  //           // ),
-                  //           circleColor:
-                  //           const CircleColor(
-                  //               start: Colors.blueAccent,
-                  //               end: Colors.yellowAccent),
-                  //           bubblesColor: BubblesColor(
-                  //             dotPrimaryColor: Colors.blueAccent,
-                  //             dotSecondaryColor: Colors.blue,
-                  //           ),
-                  //           circleSize: 50.0,
-                  //           bubblesSize: 50.0,
-                  //           likeBuilder: (isTapped){
-                  //             return Icon(
-                  //               isTapped ?
-                  //               Icons.thumb_up_alt : Icons.thumb_up_alt_outlined,
-                  //               color: isTapped ? Colors.blueAccent : Colors.blueAccent,
-                  //               size: Get.height * 0.025,
-                  //             );
-                  //           },
-                  //         ),
-                  //       ),
-                  //   ),
-                  //   Positioned(
-                  //       top: _height * 0.025,
-                  //       left: _width * 0.865,
-                  //       child: GestureDetector(
-                  //         child:
-                  //         LikeButton(
-                  //           size: Get.height * 0.015,
-                  //           // circleColor: CircleColor(
-                  //           //     start: Colors.white, end: Colors.yellowAccent
-                  //           // ),
-                  //           circleColor:
-                  //           const CircleColor(
-                  //               start: Colors.redAccent,
-                  //               end: Colors.yellowAccent),
-                  //           bubblesColor: BubblesColor(
-                  //             dotPrimaryColor: Colors.redAccent,
-                  //             dotSecondaryColor: Colors.red,
-                  //           ),
-                  //           circleSize: 50.0,
-                  //           bubblesSize: 50.0,
-                  //           likeBuilder: (isTapped){
-                  //             return Icon(
-                  //               isTapped ?
-                  //               Icons.favorite : Icons.favorite_border,
-                  //               color: isTapped ? Colors.red : Colors.red,
-                  //               size: Get.height * 0.025,
-                  //             );
-                  //           },
-                  //         ),
-                  //       )
-                  //   ),
-                  //
-                  //
-                  // ],
-                  //   ),
 
                   Container(
                     margin: EdgeInsets.symmetric(horizontal: _width * 0.06),
@@ -1649,6 +1560,8 @@ class ProductDetails extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: _height * 0.02,),
+
+
                   Stack(
                     children: [
                       Container(
@@ -1761,11 +1674,259 @@ class ProductDetails extends StatelessWidget {
 
 
                 ],
+              ) :
+              Column(
+                children: [
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: _width * 0.06),
+                    padding: EdgeInsets.symmetric(horizontal: _width * 0.06, vertical: _height * 0.02),
+                    decoration: BoxDecoration(
+                        color: Colors.grey.withOpacity(0.15),
+                        borderRadius: BorderRadius.circular(_width * 0.02)
+                    ),
+                    height: _height * 0.35,
+                    width: double.infinity,
+                    child: Column(
+                      children: [
+
+                        Align(
+                          alignment: Alignment.center,
+                          child:
+                          Container(
+                            height: _height * 0.225,
+                            width: _width * 0.5,
+                            decoration: const BoxDecoration(
+                                color: Colors.transparent,
+                                image:
+                                DecorationImage(image: AssetImage(
+                                    ImageUtils.auctionPic
+                                ),
+                                    fit: BoxFit.contain
+                                )
+                            ),
+                          ),
+                        ),
+
+                        Container(
+                          height: Get.height * 0.07,
+                          color: Colors.transparent,
+                          child: ListView.builder(
+                              shrinkWrap: true,
+                              scrollDirection: Axis.horizontal,
+                              padding: EdgeInsets.symmetric(horizontal: Get.width * 0.01),
+                              itemCount: 4,
+                              itemBuilder: (context, index){
+                                return Row(
+                                    children:[
+                                      GestureDetector(
+                                        onTap: (){
+                                          controller.changeColor(index);
+                                        },
+                                        child: Obx(()=>
+                                            Container(
+                                              height: Get.height * 0.06,
+                                              width: Get.width * 0.15,
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: Get.width * 0.08,
+                                                  vertical: Get.height * 0.01
+                                              ),
+                                              decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  borderRadius: BorderRadius.circular(
+                                                      Get.width * 0.01
+                                                  ),
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                        color: Colors.grey.withOpacity(0.3),
+                                                        blurRadius: 2,
+                                                        spreadRadius: 2,
+                                                        offset: Offset(0, 3)
+                                                    )
+                                                  ],
+                                                  border:
+                                                  Border.all(
+                                                      color: controller.selectIcon.value == index ?
+                                                      homeBoxColor : Colors.white,
+                                                      width: 2
+                                                  ),
+                                                  image:  const DecorationImage(image: AssetImage(
+                                                    // ImageUtils.bag,
+                                                      ImageUtils.auctionPic
+                                                  ),
+                                                      fit: BoxFit.contain
+                                                  )
+                                              ),
+                                            ),
+                                        ),
+                                      ),
+
+                                      SizedBox(width: Get.width * 0.02,)
+                                    ]);
+                              }
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  SizedBox(height: _height * 0.01,),
+                  TextWidget(
+                    //textTitle: 'Women Shoulder Handbag',
+                    textTitle: 'Car',
+                    fontWeight: FontWeight.w700,
+                    fontSize: _height * 0.025,
+                  ),
+                  SizedBox(height: _height * 0.01,),
+
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children:[
+                        TextWidget(
+                          //textTitle: 'Women Shoulder Handbag',
+                          textTitle: 'Auction Will End:',
+                          fontSize: Get.height * 0.015,
+                          fontFamily: poppinsMedium,
+                        ),
+                        SizedBox(width: Get.width * 0.02,),
+                        SlideCountdownSeparated(
+                          height: Get.height * 0.0325,
+                          width: Get.width * 0.07,
+                          textStyle: TextStyle(
+                              color: Colors.black,
+                              fontFamily: poppinsSemiBold,
+                              fontSize: Get.height * 0.02
+                          ),
+
+                          duration: const Duration(hours: 12),
+                          decoration: BoxDecoration(
+                              color: homeBoxColor,
+                              borderRadius: BorderRadius.circular(
+                                  _width * 0.005
+                              )
+                          ),
+
+                        ),
+                      ] ),
+                  SizedBox(height: _height * 0.025,),
+
+                  Stack(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.symmetric(horizontal: _width * 0.04),
+                        padding: EdgeInsets.symmetric(horizontal: _width * 0.04, vertical: _height * 0.02),
+                        width: double.infinity,
+                        height: _height * 0.08,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(_width * 0.02),
+                          gradient: const LinearGradient(
+                            colors: [
+                              Color(0xffE66B12),
+                              Color(0xffF3921F)
+                            ],
+                          ),
+                        ),
+
+                      ),
+                      Positioned(
+                        top: _height * 0.0175,
+                        left: _width * 0.06,
+                        child: CircleAvatar(
+                          radius: _width * 0.05,
+                          backgroundImage: AssetImage(ImageUtils.person1,),
+                        ),
+                      ),
+                      Positioned(
+                        top: _height * 0.0435,
+                        left: _width * 0.15,
+                        child: CircleAvatar(
+                          radius: _width * 0.01,
+                          backgroundColor: Colors.green,
+                        ),
+                      ),
+                      Positioned(
+                        top: _height * 0.025,
+                        left: _width * 0.2,
+                        child: TextWidget(
+                          textTitle: 'John Smith',
+                          color: Colors.white,
+                          fontWeight: FontWeight.w700,
+                          fontSize: _height * 0.0175,
+                        ),
+                      ),
+                      Positioned(
+                        top: _height * 0.0485,
+                        left: _width * 0.2,
+                        child: Image.asset(
+                          ImageUtils.starIcon,
+                          height: _height * 0.0125,
+                          // color: Colors.yellow,
+                        ),
+                      ),
+                      Positioned(
+                          top: _height * 0.0480,
+                          left: _width * 0.235,
+                          child:
+                          CustomRichText(
+                            textSpan1: '4.7/5',
+                            color1: Colors.white,
+                            fontWeight1: FontWeight.w700,
+                            fontSize1: _height * 0.011,
+                            fontFamily1: poppinsSemiBold,
+                            textSpan2: ' (Reviews)',
+                            color2: reviewColor,
+                            fontWeight2: FontWeight.normal,
+                            fontSize2: _height * 0.011,
+                            fontFamily2: poppinsRegular,
+                          )
+                      ),
+                      Positioned(
+                          top: _height * 0.0175,
+                          left: _width * 0.575,
+                          child:
+                          GestureDetector(
+                            onTap: (){
+                              Get.toNamed(kChatScreen);
+                            },
+                            child: Container(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: _width * 0.02,
+                                vertical: _height * 0.0125,
+                              ),
+                              decoration: BoxDecoration(
+                                  color: Colors.black,
+                                  borderRadius: BorderRadius.circular(_width * 0.0125)
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Image.asset(
+                                    ImageUtils.chatIcon,
+                                    height: _height * 0.025,
+                                  ),
+                                  SizedBox(width: _width * 0.02,),
+                                  TextWidget(
+                                    textTitle: 'Chat With Seller',
+                                    color: Colors.white,
+                                    fontSize: _height * 0.015,
+                                    fontFamily: poppinsRegular,
+                                  )
+                                ],
+                              ),
+                            ),
+                          )
+                      ),
+                    ],
+                  ),
+
+
+                ],
               ),
+
               SizedBox(height: _height * 0.01,),
               SizedBox(
                 height: _height * 0.0275,
-                child: TabBar(
+                child: check1 == false ?
+                TabBar(
                   //padding: EdgeInsets.symmetric(horizontal: _width * 0.035),
                   controller: controller.tabController,
                   labelColor: homeBoxColor,
@@ -1804,12 +1965,43 @@ class ProductDetails extends StatelessWidget {
                         text: 'Customer Q&A'
                     ),
                   ],
+                ) :
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: TabBar(
+                    //padding: EdgeInsets.symmetric(horizontal: _width * 0.035),
+                    controller: controller.tabController,
+                    labelColor: homeBoxColor,
+                    indicatorColor: homeBoxColor,
+                    isScrollable: true,
+                    indicatorPadding: EdgeInsets.zero,
+                    unselectedLabelColor: Colors.black,
+                    indicatorSize: TabBarIndicatorSize.label,
+                    indicatorWeight: 1.5,
+
+                    labelStyle: TextStyle(
+                        fontSize: _height * 0.01425
+                    ),
+                    tabs: const [
+                      Tab(
+                        text: 'Description',
+                      ),
+                      Tab(
+                          text: 'Note'
+                      ),
+                      Tab(
+                          text: 'Product Info'
+                      ),
+
+                    ],
+                  ),
                 ),
               ),
               const SizedBox(height: 20.0), // Adjust spacing as needed
               SizedBox(
                 height: _height * 0.2,
-                child: TabBarView(
+                child: check1 == false ?
+                TabBarView(
                   controller: controller.tabController,
                   children: [
                     // Add your tab views here
@@ -1974,6 +2166,132 @@ class ProductDetails extends StatelessWidget {
                       // ),
                     ),
                   ],
+                ) :
+                TabBarView(
+                  controller: controller.tabController,
+                  children: [
+                    // Add your tab views here
+                    Container(
+                      // height: _height * 0.05,
+                      color: Colors.white,
+                      margin: EdgeInsets.symmetric(horizontal: _width * 0.04),
+                      child: ReadMoreText(
+                        'Introducing the exquisite Ladies Handbag, a fashion-forward accessory designed to elevate your style and keep your essentials organized with effortless sophistication. Crafted with meticulous attention to detail, this handbag is the epitome of elegance and functionality.The exterior of this handbag showcases a perfect blend of timeless charm and contemporary flair. It features a high-quality, durable material that Introducing the exquisite Ladies Handbag, a fashion-forward accessory designed to elevate your style and keep your essentials organized with effortless sophistication. Crafted with meticulous attention to detail, this handbag is the epitome of elegance and functionality.' ,
+                        trimLines: 6,
+                        textScaleFactor: 1,
+                        colorClickableText: Colors.black,
+                        trimMode: TrimMode.Line,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: Get.height * 0.0140,
+                        ),
+                        trimCollapsedText: 'Read more',
+                        moreStyle: TextStyle(
+                          fontSize: Get.height * 0.0140,
+                          fontWeight: FontWeight.bold,
+                          color: homeBoxColor,
+                        ),
+                        trimExpandedText: 'Show less',
+                        lessStyle: TextStyle(
+                          fontSize: Get.height * 0.0140,
+                          fontWeight: FontWeight.bold,
+                          color: homeBoxColor,
+                          // textBaseline: TextBaseline.alphabetic
+                        ),
+
+
+                      ),
+                      // TextWidget(
+                      //   textTitle:
+                      //   'Introducing the exquisite Ladies Handbag, a fashion-forward accessory designed to elevate your style and keep your essentials organized with effortless sophistication. Crafted with meticulous attention to detail, this handbag is the epitome of elegance and functionality.The exterior of this handbag showcases a perfect blend of timeless charm and contemporary flair. It features a high-quality, durable material that.......Read More',
+                      //   color: Colors.black,
+                      //   fontFamily: poppinsRegular,
+                      //   fontSize: _height * 0.011,
+                      //   maxLines: 6,
+                      //   overFlow: TextOverflow.ellipsis,
+                      // ),
+                    ),
+                    Container(
+                      // height: _height * 0.05,
+                      color: Colors.white,
+                      margin: EdgeInsets.symmetric(horizontal: _width * 0.04),
+                      child: ReadMoreText(
+                        'Introducing the exquisite Ladies Handbag, a fashion-forward accessory designed to elevate your style and keep your essentials organized with effortless sophistication. Crafted with meticulous attention to detail, this handbag is the epitome of elegance and functionality.The exterior of this handbag showcases a perfect blend of timeless charm and contemporary flair. It features a high-quality, durable material that Introducing the exquisite Ladies Handbag, a fashion-forward accessory designed to elevate your style and keep your essentials organized with effortless sophistication. Crafted with meticulous attention to detail, this handbag is the epitome of elegance and functionality.' ,
+                        trimLines: 6,
+                        textScaleFactor: 1,
+                        colorClickableText: Colors.black,
+                        trimMode: TrimMode.Line,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: Get.height * 0.0140,
+                        ),
+                        trimCollapsedText: 'Read more',
+                        moreStyle: TextStyle(
+                          fontSize: Get.height * 0.0140,
+                          fontWeight: FontWeight.bold,
+                          color: homeBoxColor,
+                        ),
+                        trimExpandedText: 'Show less',
+                        lessStyle: TextStyle(
+                          fontSize: Get.height * 0.0140,
+                          fontWeight: FontWeight.bold,
+                          color: homeBoxColor,
+                          // textBaseline: TextBaseline.alphabetic
+                        ),
+
+
+                      ),
+                      // TextWidget(
+                      //   textTitle:
+                      //   'Introducing the exquisite Ladies Handbag, a fashion-forward accessory designed to elevate your style and keep your essentials organized with effortless sophistication. Crafted with meticulous attention to detail, this handbag is the epitome of elegance and functionality.The exterior of this handbag showcases a perfect blend of timeless charm and contemporary flair. It features a high-quality, durable material that.......Read More',
+                      //   color: Colors.black,
+                      //   fontFamily: poppinsRegular,
+                      //   fontSize: _height * 0.011,
+                      //   maxLines: 6,
+                      //   overFlow: TextOverflow.ellipsis,
+                      // ),
+                    ),
+                    Container(
+                      // height: _height * 0.05,
+                      color: Colors.white,
+                      margin: EdgeInsets.symmetric(horizontal: _width * 0.04),
+                      child: ReadMoreText(
+                        'Introducing the exquisite Ladies Handbag, a fashion-forward accessory designed to elevate your style and keep your essentials organized with effortless sophistication. Crafted with meticulous attention to detail, this handbag is the epitome of elegance and functionality.The exterior of this handbag showcases a perfect blend of timeless charm and contemporary flair. It features a high-quality, durable material that Introducing the exquisite Ladies Handbag, a fashion-forward accessory designed to elevate your style and keep your essentials organized with effortless sophistication. Crafted with meticulous attention to detail, this handbag is the epitome of elegance and functionality.' ,
+                        trimLines: 6,
+                        textScaleFactor: 1,
+                        colorClickableText: Colors.black,
+                        trimMode: TrimMode.Line,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: Get.height * 0.0140,
+                        ),
+                        trimCollapsedText: 'Read more',
+                        moreStyle: TextStyle(
+                          fontSize: Get.height * 0.0140,
+                          fontWeight: FontWeight.bold,
+                          color: homeBoxColor,
+                        ),
+                        trimExpandedText: 'Show less',
+                        lessStyle: TextStyle(
+                          fontSize: Get.height * 0.0140,
+                          fontWeight: FontWeight.bold,
+                          color: homeBoxColor,
+                          // textBaseline: TextBaseline.alphabetic
+                        ),
+
+
+                      ),
+                      // TextWidget(
+                      //   textTitle:
+                      //   'Introducing the exquisite Ladies Handbag, a fashion-forward accessory designed to elevate your style and keep your essentials organized with effortless sophistication. Crafted with meticulous attention to detail, this handbag is the epitome of elegance and functionality.The exterior of this handbag showcases a perfect blend of timeless charm and contemporary flair. It features a high-quality, durable material that.......Read More',
+                      //   color: Colors.black,
+                      //   fontFamily: poppinsRegular,
+                      //   fontSize: _height * 0.011,
+                      //   maxLines: 6,
+                      //   overFlow: TextOverflow.ellipsis,
+                      // ),
+                    ),
+                  ],
                 ),
               ),
 
@@ -1990,23 +2308,18 @@ class ProductDetails extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           TextWidget(
-                            textTitle: 'Discount Price:',
+                            textTitle: 'Start Biding',
                             color: Colors.black,
                             fontSize: _height * 0.015,
-                            fontFamily: poppinsRegular,
+                            fontFamily: poppinsSemiBold,
                           ),
 
                           CustomRichText(
-                            textSpan1: '\$37.39',
+                            textSpan1: '\$1,000/-',
                             color1: homeBoxColor,
                             fontWeight1: FontWeight.bold,
                             fontSize1: _height * 0.02,
                             fontFamily1: poppinsSemiBold,
-                            textSpan2: ' /Pieces',
-                            color2: Colors.black,
-                            fontWeight2: FontWeight.normal,
-                            fontSize2: _height * 0.010,
-                            fontFamily2: poppinsRegular,
                           )
                         ],
                       ),
@@ -2024,6 +2337,7 @@ class ProductDetails extends StatelessWidget {
                                 return customModalSheet(context);
                               }
                           );
+
                         },
                         child: Container(
                           margin: EdgeInsets.only(
@@ -2039,11 +2353,16 @@ class ProductDetails extends StatelessWidget {
                               color: cartBox,
                               borderRadius: BorderRadius.circular(_width * 0.015)
                           ),
-                          child: const Center(
-                            child: Icon(
+                          child:  Center(
+                            child:
+                            check1 == false ?
+                            Icon(
                               Icons.shopping_cart_outlined,
                               color: Colors.white,
-                            ),
+                            ) :
+                            Image.asset(
+                              ImageUtils.auctionIcon
+                            )
                           ),
                         ),
                       ),
@@ -2051,14 +2370,27 @@ class ProductDetails extends StatelessWidget {
                       Expanded(
                         child: GestureDetector(
                           onTap: (){
-                            // Get.toNamed(kMyCartScreen);
-                            Get.dialog(
-                                CustomDialogSimple(
-                                  title: 'Work In Progress',
-                                  description: 'currently we are working on that feature',
-                                  okTap: false,
-                                )
-                            );
+                            if(check1 == false){
+                              Get.dialog(
+                                  CustomDialogSimple(
+                                    title: 'Work In Progress',
+                                    description: 'currently we are working on that feature',
+                                    okTap: false,
+                                  )
+                              );
+                            } else {
+                              showModalBottomSheet(
+                                  context: context,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.vertical(
+                                          top: Radius.circular(_width * 0.06)
+                                      )
+                                  ),
+                                  builder: (BuildContext context){
+                                    return customModalSheetAutoBid(context);
+                                  }
+                              );
+                            }
                           },
                           child: Container(
                             margin: EdgeInsets.only(
@@ -2076,8 +2408,15 @@ class ProductDetails extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(_width * 0.015)
                             ),
                             child: Center(
-                                child: TextWidget(
+                                child: check1 == false ?
+                                TextWidget(
                                   textTitle: 'Buy Now',
+                                  color: Colors.white,
+                                  fontSize: _height * 0.0155,
+                                  fontFamily: poppinsRegular,
+                                ):
+                                TextWidget(
+                                  textTitle: 'Auto Bid',
                                   color: Colors.white,
                                   fontSize: _height * 0.0155,
                                   fontFamily: poppinsRegular,
@@ -2102,8 +2441,10 @@ class ProductDetails extends StatelessWidget {
     double _height = MediaQuery.of(context).size.height;
     double _width = MediaQuery.of(context).size.width;
     return SizedBox(
-      height: _height * 0.5,
-      child: Column(
+      height: Get.height * 0.5,
+      child:
+      check1 == false ?
+      Column(
         // mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         // mainAxisSize: MainAxisSize.min,
@@ -2198,6 +2539,284 @@ class ProductDetails extends StatelessWidget {
           SizedBox(height: _height * 0.02,),
 
         ],
+      ) :
+      Column(
+        // mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        // mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          SizedBox(height: _height * 0.02,),
+          Image.asset(
+            ImageUtils.auctionIconBlack,
+            height: _height * 0.045,
+          ),
+          SizedBox(height: _height * 0.005,),
+          CustomRichText(
+            textSpan1: 'Bid For Product ',
+            color1: Colors.black,
+            fontWeight1: FontWeight.bold,
+            fontSize1: _height * 0.025,
+            overFlow1: TextOverflow.ellipsis,
+            maxLines1: 1,
+            textAlign1: TextAlign.center,
+            fontFamily1: poppinsSemiBold,
+            textSpan2: '(Min Bid Amount: \$2,000.00)',
+            color2: Colors.black,
+            fontWeight2: FontWeight.normal,
+            fontSize2: _height * 0.015,
+            overFlow2: TextOverflow.ellipsis,
+            maxLines2: 1,
+            textAlign2: TextAlign.center,
+            fontFamily2: poppinsRegular,
+          ),
+          SizedBox(height: _height * 0.02,),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: _width * 0.2),
+            padding: EdgeInsets.symmetric(horizontal: _width * 0.05, vertical: _height * 0.02),
+            height: Get.height * 0.2,
+            decoration: const BoxDecoration(
+                color: Colors.transparent,
+                image:  DecorationImage(image: AssetImage(
+                    ImageUtils.auctionPic
+                ),
+                    fit: BoxFit.contain
+                )
+            ),
+          ),
+          SizedBox(height: _height * 0.02,),
+          Container(
+              margin: EdgeInsets.symmetric(horizontal: Get.width * 0.1,),
+              padding: EdgeInsets.symmetric(horizontal: Get.width * 0.05,),
+              height: Get.height * 0.06,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(
+                      Get.width * 0.015
+                  ),
+                  border: Border.all(
+                      color: Colors.grey,
+                      width: Get.width * 0.002
+                  )
+              ),
+              child: CustomTextField(
+                title: 'Enter Bid Amount',
+                inputBorder: InputBorder.none,
+                inputType: TextInputType.number,
+                // prefixIcon: Image.asset("assets/images/key.png",color:Color(kPrimaryColor)),
+              )
+          ),
+
+          const Spacer(),
+          CustomButton(
+            isSelected: false,
+            onTap: (){
+              Get.back();
+            },
+            margin: EdgeInsets.zero,
+            width: _width * 0.4,
+            padding: EdgeInsets.symmetric(
+              // horizontal: _width * 0.05,
+                vertical: _height * 0.0125
+            ),
+            title: 'Submit',
+            color: buyNow,
+            textColor: Colors.white,
+            fontSize: _height * 0.0175,
+            fontFamily: poppinsRegular,
+            borderRadius: _width * 0.012,
+          ),
+          SizedBox(height: _height * 0.02,),
+
+        ],
+      )
+
+    );
+  }
+
+  /// Custom Modal AutoBid Sheet
+  Widget customModalSheetAutoBid(BuildContext context){
+    double _height = MediaQuery.of(context).size.height;
+    double _width = MediaQuery.of(context).size.width;
+    return Expanded(
+      child: SingleChildScrollView(
+        child: SizedBox(
+          height: Get.height * 0.75,
+          child: Column(
+            // mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            // mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              SizedBox(height: _height * 0.02,),
+              Image.asset(
+                ImageUtils.auctionIconBlack,
+                height: _height * 0.045,
+              ),
+              SizedBox(height: _height * 0.005,),
+              CustomRichText(
+                textSpan1: 'Bid For Product ',
+                color1: Colors.black,
+                fontWeight1: FontWeight.bold,
+                fontSize1: _height * 0.025,
+                overFlow1: TextOverflow.ellipsis,
+                maxLines1: 1,
+                textAlign1: TextAlign.center,
+                fontFamily1: poppinsSemiBold,
+                textSpan2: '(Min Bid Amount: \$2,000.00)',
+                color2: Colors.black,
+                fontWeight2: FontWeight.normal,
+                fontSize2: _height * 0.015,
+                overFlow2: TextOverflow.ellipsis,
+                maxLines2: 1,
+                textAlign2: TextAlign.center,
+                fontFamily2: poppinsRegular,
+              ),
+              SizedBox(height: _height * 0.02,),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: _width * 0.2),
+                padding: EdgeInsets.symmetric(horizontal: _width * 0.05, vertical: _height * 0.02),
+                height: Get.height * 0.2,
+                decoration: const BoxDecoration(
+                    color: Colors.transparent,
+                    image:  DecorationImage(image: AssetImage(
+                        ImageUtils.auctionPic
+                    ),
+                        fit: BoxFit.contain
+                    )
+                ),
+              ),
+              SizedBox(height: _height * 0.02,),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: Get.width * 0.1
+                ),
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: TextWidget1(
+                    textTitle: 'Start Bid Amount',
+                    style: CustomTheme.normalTextLightBlack,
+                  ),
+                ),
+              ),
+              Container(
+                  margin: EdgeInsets.symmetric(horizontal: Get.width * 0.1,),
+                  padding: EdgeInsets.symmetric(horizontal: Get.width * 0.05,),
+                  height: Get.height * 0.06,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(
+                          Get.width * 0.015
+                      ),
+                      border: Border.all(
+                          color: Colors.grey,
+                          width: Get.width * 0.002
+                      )
+                  ),
+                  child: CustomTextField(
+                    title: 'Enter Bid Amount',
+                    inputBorder: InputBorder.none,
+                    inputType: TextInputType.number,
+                    // prefixIcon: Image.asset("assets/images/key.png",color:Color(kPrimaryColor)),
+                  )
+              ),
+
+              SizedBox(height: _height * 0.02,),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: Get.width * 0.1
+                ),
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: TextWidget1(
+                    textTitle: 'Start Bid Amount',
+                    style: CustomTheme.normalTextLightBlack,
+                  ),
+                ),
+              ),
+              Container(
+                  margin: EdgeInsets.symmetric(horizontal: Get.width * 0.1,),
+                  padding: EdgeInsets.symmetric(horizontal: Get.width * 0.05,),
+                  height: Get.height * 0.06,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(
+                          Get.width * 0.015
+                      ),
+                      border: Border.all(
+                          color: Colors.grey,
+                          width: Get.width * 0.002
+                      )
+                  ),
+                  child: CustomTextField(
+                    title: 'Enter Bid Amount',
+                    inputBorder: InputBorder.none,
+                    inputType: TextInputType.number,
+                    // prefixIcon: Image.asset("assets/images/key.png",color:Color(kPrimaryColor)),
+                  )
+              ),
+
+              SizedBox(height: _height * 0.02,),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: Get.width * 0.1
+                ),
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: TextWidget1(
+                    textTitle: 'Start Bid Amount',
+                    style: CustomTheme.normalTextLightBlack,
+                  ),
+                ),
+              ),
+              Container(
+                  margin: EdgeInsets.symmetric(horizontal: Get.width * 0.1,),
+                  padding: EdgeInsets.symmetric(horizontal: Get.width * 0.05,),
+                  height: Get.height * 0.06,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(
+                          Get.width * 0.015
+                      ),
+                      border: Border.all(
+                          color: Colors.grey,
+                          width: Get.width * 0.002
+                      )
+                  ),
+                  child: CustomTextField(
+                    title: 'Enter Bid Amount',
+                    inputBorder: InputBorder.none,
+                    inputType: TextInputType.number,
+                    // prefixIcon: Image.asset("assets/images/key.png",color:Color(kPrimaryColor)),
+                  )
+              ),
+
+              const Spacer(),
+              CustomButton(
+                isSelected: false,
+                onTap: (){
+                  Get.back();
+                },
+                margin: EdgeInsets.zero,
+                width: _width * 0.4,
+                padding: EdgeInsets.symmetric(
+                  // horizontal: _width * 0.05,
+                    vertical: _height * 0.0125
+                ),
+                title: 'Submit',
+                color: buyNow,
+                textColor: Colors.white,
+                fontSize: _height * 0.0175,
+                fontFamily: poppinsRegular,
+                borderRadius: _width * 0.012,
+              ),
+              SizedBox(height: _height * 0.02,),
+
+            ],
+          ),
+        ),
       ),
     );
   }

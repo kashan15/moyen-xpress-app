@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:moyen_xpress_app/view/about/about_screen.dart';
+import 'package:moyen_xpress_app/view/auction/auction_products.dart';
 import 'package:moyen_xpress_app/view/authentication/new_login_screen.dart';
 import 'package:moyen_xpress_app/view/store/store_home_screen.dart';
 
@@ -112,6 +113,11 @@ class RouteManagement {
       GetPage(
         name:   kAboutScreen,
         page: () =>  AboutScreen(),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
+        name:   kAuctionScreen,
+        page: () =>  AuctionScreen(),
         binding: ControllerBinding(),
       ),
 

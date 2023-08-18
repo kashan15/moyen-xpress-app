@@ -45,7 +45,7 @@ class CustomTextField1 extends StatelessWidget {
   double? hintFontSize;
   final Widget? suffixIcon;
   final Image? prefixIcon;
-  final double fontSize;
+  double? fontSize;
   final dynamic fontFamily;
   final TextEditingController controller;
   final Function(String)? onChanged;
@@ -62,7 +62,7 @@ class CustomTextField1 extends StatelessWidget {
     // required this.labelText,
     this.hintText,
     this.hintFontSize,
-    required this.fontSize,
+    this.fontSize,
     this.suffixIcon,
     this.prefixIcon,
     required this.controller,

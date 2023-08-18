@@ -10,6 +10,8 @@ import 'package:moyen_xpress_app/utils/route_utils.dart';
 class CustomDrawer extends GetView<DrawerScreenController> {
   CustomDrawer({Key? key}) : super(key: key);
 
+  int select = 0;
+
   @override
   Widget build(BuildContext context) {
     final double _width = MediaQuery.of(context).size.width;
@@ -53,52 +55,74 @@ class CustomDrawer extends GetView<DrawerScreenController> {
                   shrinkWrap: true,
                   itemCount: controller.drawerItemList.length,
                   itemBuilder: (context, index) {
-                    return GestureDetector(
-                      onTap: (){
-                        // Get.toNamed(kNavBar1);
-                      },
-                      child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 12),
-                        child: Row(
-                          children: [
-                            // Image.asset(
-                            //   controller.drawerItemList[index]["icon"],
-                            //   height: Get.height * 0.025,
-                            // ),
-                            Container(
-                              height: Get.height * 0.05,
-                              width: Get.width * 0.11,
-                              decoration: BoxDecoration(
-                                color: drawerItem,
-                                borderRadius: BorderRadius.circular(
-                                  Get.width * 0.015
+                    return Material(
+                      color: homeBoxColor,
+                      // shadowColor: Colors.black,
+                      elevation: 0,
+                      child: InkWell(
+                        onTap: (){
+                         select = index;
+                         if(index == 0){
+                           Get.toNamed(kNavBar1);
+                         }
+                         if(index == 1){
+                           Get.toNamed(kStoreHome);
+                         }
+                         if(index == 2){
+                           Get.toNamed(kAboutScreen);
+                         }
+                         if(index == 8){
+                           Get.toNamed(kAuctionScreen);
+                         }
+                        },
+                        child: Container(
+                          // color: Colors.yellow,
+                          width: double.infinity,
+                          padding: EdgeInsets.symmetric(
+                              horizontal: Get.width * 0.02
+                          ),
+                          child: Row(
+                            children: [
+                              // Image.asset(
+                              //   controller.drawerItemList[index]["icon"],
+                              //   height: Get.height * 0.025,
+                              // ),
+                              Container(
+                                height: Get.height * 0.05,
+                                width: Get.width * 0.11,
+                                decoration: BoxDecoration(
+                                  color: drawerItem,
+                                  borderRadius: BorderRadius.circular(
+                                    Get.width * 0.015
+                                  ),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      spreadRadius: 1,
+                                      blurRadius: 5,
+                                      offset: Offset(0, 3),
+                                      color: Colors.black.withOpacity(0.15)
+                                    )
+                                  ]
                                 ),
-                                boxShadow: [
-                                  BoxShadow(
-                                    spreadRadius: 1,
-                                    blurRadius: 5,
-                                    offset: Offset(0, 3),
-                                    color: Colors.black.withOpacity(0.15)
-                                  )
-                                ]
-                              ),
-                              child: Center(
-                                child:
-                                Image.asset(
-                                  controller.drawerItemList[index]["icon"],
-                                  height: Get.height * 0.1,
+                                child: Center(
+                                  child:
+                                  Image.asset(
+                                    controller.drawerItemList[index]["icon"],
+                                    height: Get.height * 0.1,
+                                  ),
                                 ),
                               ),
-                            ),
-                            SizedBox(width: Get.width * 0.045,),
-                            TextWidget(
-                              textTitle: controller.drawerItemList[index]["name"],
-                              color: Colors.white,
-                              fontFamily: montserratMedium,
-                              // fontWeight: FontWeight.w900,
-                              fontSize: Get.height * 0.02,
-                            ),
-                          ],
+                              SizedBox(width: Get.width * 0.045,),
+                              TextWidget(
+                                textTitle: controller.drawerItemList[index]["name"],
+                                color: Colors.white,
+                                fontFamily: montserratMedium,
+                                // fontWeight: FontWeight.w900,
+                                fontSize: Get.height * 0.02,
+                              ),
+
+                            ],
+                          ),
                         ),
                       ),
                     );

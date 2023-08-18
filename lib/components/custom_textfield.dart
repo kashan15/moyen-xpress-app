@@ -13,6 +13,7 @@ class CustomTextField extends StatelessWidget {
   String? title;
   TextInputType? inputType;
   final bool obscureText;
+  InputBorder? inputBorder;
   CustomTextField({
     Key? key,
     this.textEditingController,
@@ -21,6 +22,7 @@ class CustomTextField extends StatelessWidget {
     this.title,
     this.validation,
     this.inputType,
+    this.inputBorder,
     this.obscureText = false,
 
   }) : super(key: key);
@@ -34,6 +36,7 @@ class CustomTextField extends StatelessWidget {
       keyboardType: inputType,
       obscureText: obscureText,
       decoration: InputDecoration(
+        border: inputBorder,
           prefixIcon:prefixIcon,
           suffixIcon: suffixIcon,
           hintText: title

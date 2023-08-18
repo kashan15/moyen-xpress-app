@@ -697,6 +697,7 @@ class HomeScreen extends GetView<HomeController> {
                                 onTap: (){
                                   Get.to(
                                       ProductDetails(
+                                        check1: false,
                                           imageIndex: controller.itemsList[index],
                                       )
                                   );
@@ -916,6 +917,7 @@ class HomeScreen extends GetView<HomeController> {
                                   controller.homeTap = true;
                                  Get.to(
                                      ProductDetails(
+                                         check1: false,
                                          imageIndex: controller.dailyDealsList[index])
                                  );
                                 },
@@ -1204,7 +1206,9 @@ class HomeScreen extends GetView<HomeController> {
                               return  GestureDetector(
                                 onTap: (){
                                  Get.to(
-                                     ProductDetails(imageIndex: controller.newArrivalsList[index])
+                                     ProductDetails(
+                                         check1: false,
+                                         imageIndex: controller.newArrivalsList[index])
                                  );
                                 },
                                 child: Container(
@@ -1392,7 +1396,9 @@ class HomeScreen extends GetView<HomeController> {
                               return  GestureDetector(
                                 onTap: (){
                                   Get.to(
-                                    ProductDetails(imageIndex: controller.promotionsList[index])
+                                    ProductDetails(
+                                        check1: false,
+                                        imageIndex: controller.promotionsList[index])
                                   );
                                 },
                                 child: Container(
@@ -1581,7 +1587,9 @@ class HomeScreen extends GetView<HomeController> {
                               return  GestureDetector(
                                 onTap: (){
                                  Get.to(
-                                     ProductDetails(imageIndex: controller.topSellersList[index])
+                                     ProductDetails(
+                                         check1: false,
+                                         imageIndex: controller.topSellersList[index])
                                  );
                                 },
                                 child: Container(
@@ -1737,7 +1745,9 @@ class HomeScreen extends GetView<HomeController> {
                               return  GestureDetector(
                                 onTap: (){
                                  Get.to(
-                                     ProductDetails(imageIndex: controller.topBrandsList[index])
+                                     ProductDetails(
+                                         check1: false,
+                                         imageIndex: controller.topBrandsList[index])
                                  );
                                 },
                                 child: Container(

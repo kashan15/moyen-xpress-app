@@ -13,6 +13,7 @@ class ImageUtils{
   static const  aboutIcon = "assets/icons/about.png";
   static const  advertiserIcon = "assets/icons/advertiser.png";
   static const  auctionIcon = "assets/icons/auction.png";
+  static const  auctionIconBlack = "assets/icons/auctionBlack.png";
   static const  homeIconDrawer = "assets/icons/home.png";
   static const  phoneIcon = "assets/icons/phone.png";
   static const  sellerIcon = "assets/icons/seller.png";
@@ -118,6 +119,8 @@ class ImageUtils{
   static const String onboard3 = 'assets/images/onboard2.png';
   static const String storeHomeBanner = 'assets/images/storeHomeBanner.png';
   static const String aboutBanner = 'assets/images/aboutBanner.png';
+  static const String auctionBanner = 'assets/images/auctionBanner.png';
+  static const String auctionPic = 'assets/images/auctionPic.png';
 
 
 }

@@ -286,7 +286,7 @@ class CategoryDetailsScreen extends GetView<CategoriesDetailsController> {
                       // childAspectRatio: 0.68,
                       // crossAxisSpacing: 25.0,
                       // mainAxisSpacing: 25.0,
-                        childAspectRatio: Get.height * 0.000835,
+                        childAspectRatio: Get.width*1.35 / Get.height*1.04,
                         crossAxisSpacing: Get.width * 0.06,
                         mainAxisSpacing: Get.height * 0.0275
                     ),

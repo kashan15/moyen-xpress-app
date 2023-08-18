@@ -31,6 +31,16 @@ class CustomTheme {
     fontFamily: poppinsSemiBold,
     color: Colors.white,
   );
+  static final normalTextBlack = TextStyle(
+    fontSize: Get.height * 0.015,
+    fontFamily: poppinsSemiBold,
+    color: Colors.black,
+  );
+  static final normalTextLightBlack = TextStyle(
+    fontSize: Get.height * 0.015,
+    fontFamily: poppinsRegular,
+    color: Colors.black,
+  );
   static final normalTextLogin = TextStyle(
     fontSize: Get.height * 0.02,
     fontFamily: poppinsRegular,

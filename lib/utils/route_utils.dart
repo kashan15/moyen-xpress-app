@@ -33,6 +33,7 @@ const String kOtpScreen = "/OTP_SCREEN";
 const String kUserTypeScreen = "/USER_TYPE_SCREEN";
 const String kStoreScreen = "/STORE_SCREEN";
 const String kStoreHome = "/STORE_HOME";
+const String kAuctionScreen = "/AUCTION_SCREEN";
 const String kAvailableAgentsScreen = "/AVAILABLE_AGENTS_SCREEN";
 const String kChatScreen = "/CHAT_SCREEN";
 const String kCallingScreen = "/CALLING_SCREEN";

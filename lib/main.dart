@@ -69,7 +69,7 @@ class MyApp extends StatelessWidget {
             fallbackLocale: const Locale('en', 'US'),
             translations: AppTranslations(),
 
-            initialRoute: kAboutScreen,
+            initialRoute: kNavBar1,
             getPages: RouteManagement.getPages(),
 
 
