@@ -5,6 +5,7 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:moyen_xpress_app/view/about/about_screen.dart';
 import 'package:moyen_xpress_app/view/auction/auction_products.dart';
 import 'package:moyen_xpress_app/view/authentication/new_login_screen.dart';
+import 'package:moyen_xpress_app/view/cart/order_confirmation.dart';
 import 'package:moyen_xpress_app/view/store/store_home_screen.dart';
 
 import '../components/custom_navbar.dart';
@@ -108,6 +109,11 @@ class RouteManagement {
       GetPage(
         name:   kStoreHome,
         page: () =>  StoreHome(),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
+        name:   kOrderConfirmation,
+        page: () =>  OrderConfirmation(),
         binding: ControllerBinding(),
       ),
       GetPage(

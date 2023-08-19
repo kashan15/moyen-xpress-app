@@ -9,6 +9,7 @@ import 'package:moyen_xpress_app/controller/product_details_controller.dart';
 import 'package:moyen_xpress_app/utils/color_utils.dart';
 import 'package:moyen_xpress_app/utils/font_utils.dart';
 import 'package:moyen_xpress_app/utils/image_utils.dart';
+import 'package:moyen_xpress_app/view/cart/my_cart.dart';
 import 'package:moyen_xpress_app/view/categories/categories_details.dart';
 import 'package:moyen_xpress_app/view/home/home_screen.dart';
 import 'package:readmore/readmore.dart';
@@ -1182,7 +1183,7 @@ import '../../utils/theme.dart';
 
 class ProductDetails extends StatelessWidget {
   int? a;
-  bool? check1 = false;
+  int? check1 = 0;
   final HomeScreen? imageIndex;
   final CategoryDetailsScreen? imageIndex2;
   ProductDetails({super.key,
@@ -1247,6 +1248,9 @@ class ProductDetails extends StatelessWidget {
   ];
 
   TextEditingController searchController = TextEditingController();
+  TextEditingController startBidAmount = TextEditingController();
+  TextEditingController incrementBid = TextEditingController();
+  TextEditingController maxBid = TextEditingController();
 
   int select = 0;
   bool tap = false;
@@ -1257,7 +1261,7 @@ class ProductDetails extends StatelessWidget {
     controller.globalContext = context;
     return
       DefaultTabController(
-      length: check1 == false ? 4 : 3,
+      length: check1 == 0 ? 4 : 3,
       child: Scaffold(
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
@@ -1361,7 +1365,7 @@ class ProductDetails extends StatelessWidget {
               ),
               SizedBox(height: _height * 0.05,),
 
-              check1 == false ?
+              check1 == 0 ?
               Column(
                 children: [
 
@@ -1925,7 +1929,7 @@ class ProductDetails extends StatelessWidget {
               SizedBox(height: _height * 0.01,),
               SizedBox(
                 height: _height * 0.0275,
-                child: check1 == false ?
+                child: check1 == 0 ?
                 TabBar(
                   //padding: EdgeInsets.symmetric(horizontal: _width * 0.035),
                   controller: controller.tabController,
@@ -2000,7 +2004,7 @@ class ProductDetails extends StatelessWidget {
               const SizedBox(height: 20.0), // Adjust spacing as needed
               SizedBox(
                 height: _height * 0.2,
-                child: check1 == false ?
+                child: check1 == 0 ?
                 TabBarView(
                   controller: controller.tabController,
                   children: [
@@ -2307,13 +2311,28 @@ class ProductDetails extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          check1 == 0 ?
+                          TextWidget(
+                            textTitle: 'Discount Price',
+                            color: Colors.black,
+                            fontSize: _height * 0.015,
+                            fontFamily: poppinsSemiBold,
+                          ) :
                           TextWidget(
                             textTitle: 'Start Biding',
                             color: Colors.black,
                             fontSize: _height * 0.015,
                             fontFamily: poppinsSemiBold,
                           ),
-
+                          check1 == 0 ?
+                          CustomRichText(
+                            textSpan1: '\$37.39',
+                            color1: homeBoxColor,
+                            fontWeight1: FontWeight.bold,
+                            fontSize1: _height * 0.02,
+                            fontFamily1: poppinsSemiBold,
+                            textSpan2: '/pieces',
+                          ) :
                           CustomRichText(
                             textSpan1: '\$1,000/-',
                             color1: homeBoxColor,
@@ -2355,7 +2374,7 @@ class ProductDetails extends StatelessWidget {
                           ),
                           child:  Center(
                             child:
-                            check1 == false ?
+                            check1 == 0 ?
                             Icon(
                               Icons.shopping_cart_outlined,
                               color: Colors.white,
@@ -2370,7 +2389,7 @@ class ProductDetails extends StatelessWidget {
                       Expanded(
                         child: GestureDetector(
                           onTap: (){
-                            if(check1 == false){
+                            if(check1 == 0){
                               Get.dialog(
                                   CustomDialogSimple(
                                     title: 'Work In Progress',
@@ -2408,7 +2427,7 @@ class ProductDetails extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(_width * 0.015)
                             ),
                             child: Center(
-                                child: check1 == false ?
+                                child: check1 == 0 ?
                                 TextWidget(
                                   textTitle: 'Buy Now',
                                   color: Colors.white,
@@ -2443,7 +2462,7 @@ class ProductDetails extends StatelessWidget {
     return SizedBox(
       height: Get.height * 0.5,
       child:
-      check1 == false ?
+      check1 == 0 ?
       Column(
         // mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -2522,6 +2541,9 @@ class ProductDetails extends StatelessWidget {
                 isSelected: false,
                 margin: EdgeInsets.zero,
                 width: _width * 0.4,
+                onTap: (){
+                  Get.to(MyCart(select: 0,));
+                },
                 padding: EdgeInsets.symmetric(
                   // horizontal: _width * 0.05,
                     vertical: _height * 0.0125
@@ -2638,186 +2660,278 @@ class ProductDetails extends StatelessWidget {
   Widget customModalSheetAutoBid(BuildContext context){
     double _height = MediaQuery.of(context).size.height;
     double _width = MediaQuery.of(context).size.width;
-    return Expanded(
-      child: SingleChildScrollView(
-        child: SizedBox(
-          height: Get.height * 0.75,
-          child: Column(
-            // mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            // mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              SizedBox(height: _height * 0.02,),
-              Image.asset(
-                ImageUtils.auctionIconBlack,
-                height: _height * 0.045,
-              ),
-              SizedBox(height: _height * 0.005,),
-              CustomRichText(
-                textSpan1: 'Bid For Product ',
-                color1: Colors.black,
-                fontWeight1: FontWeight.bold,
-                fontSize1: _height * 0.025,
-                overFlow1: TextOverflow.ellipsis,
-                maxLines1: 1,
-                textAlign1: TextAlign.center,
-                fontFamily1: poppinsSemiBold,
-                textSpan2: '(Min Bid Amount: \$2,000.00)',
-                color2: Colors.black,
-                fontWeight2: FontWeight.normal,
-                fontSize2: _height * 0.015,
-                overFlow2: TextOverflow.ellipsis,
-                maxLines2: 1,
-                textAlign2: TextAlign.center,
-                fontFamily2: poppinsRegular,
-              ),
-              SizedBox(height: _height * 0.02,),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: _width * 0.2),
-                padding: EdgeInsets.symmetric(horizontal: _width * 0.05, vertical: _height * 0.02),
-                height: Get.height * 0.2,
-                decoration: const BoxDecoration(
-                    color: Colors.transparent,
-                    image:  DecorationImage(image: AssetImage(
-                        ImageUtils.auctionPic
+    return Column(
+      children:[
+        Expanded(
+        child: SingleChildScrollView(
+          child: SizedBox(
+            height: Get.height * 0.75,
+            child: Column(
+              children: [
+                SizedBox(height: _height * 0.02,),
+                Image.asset(
+                  ImageUtils.auctionIconBlack,
+                  height: _height * 0.045,
+                ),
+                SizedBox(height: _height * 0.005,),
+                CustomRichText(
+                  textSpan1: 'Bid For Product ',
+                  color1: Colors.black,
+                  fontWeight1: FontWeight.bold,
+                  fontSize1: _height * 0.025,
+                  overFlow1: TextOverflow.ellipsis,
+                  maxLines1: 1,
+                  textAlign1: TextAlign.center,
+                  fontFamily1: poppinsSemiBold,
+                  textSpan2: '(Min Bid Amount: \$2,000.00)',
+                  color2: Colors.black,
+                  fontWeight2: FontWeight.normal,
+                  fontSize2: _height * 0.015,
+                  overFlow2: TextOverflow.ellipsis,
+                  maxLines2: 1,
+                  textAlign2: TextAlign.center,
+                  fontFamily2: poppinsRegular,
+                ),
+                SizedBox(height: _height * 0.02,),
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: _width * 0.2),
+                  padding: EdgeInsets.symmetric(horizontal: _width * 0.05, vertical: _height * 0.02),
+                  height: Get.height * 0.2,
+                  decoration: const BoxDecoration(
+                      color: Colors.transparent,
+                      image:  DecorationImage(image: AssetImage(
+                          ImageUtils.auctionPic
+                      ),
+                          fit: BoxFit.contain
+                      )
+                  ),
+                ),
+                SizedBox(height: _height * 0.02,),
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: Get.width * 0.1
+                  ),
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: TextWidget1(
+                      textTitle: 'Start Bid Amount',
+                      style: CustomTheme.normalTextLightBlack,
                     ),
-                        fit: BoxFit.contain
+                  ),
+                ),
+                Container(
+                    margin: EdgeInsets.symmetric(horizontal: Get.width * 0.1,),
+                    padding: EdgeInsets.symmetric(horizontal: Get.width * 0.05,),
+                    height: Get.height * 0.06,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(
+                            Get.width * 0.015
+                        ),
+                        border: Border.all(
+                            color: Colors.grey,
+                            width: Get.width * 0.002
+                        )
+                    ),
+                    child: CustomTextField(
+                      title: '2000',
+                      inputBorder: InputBorder.none,
+                      inputType: TextInputType.number,
+                      // prefixIcon: Image.asset("assets/images/key.png",color:Color(kPrimaryColor)),
                     )
                 ),
-              ),
-              SizedBox(height: _height * 0.02,),
-              Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: Get.width * 0.1
-                ),
-                child: Align(
-                  alignment: Alignment.topLeft,
-                  child: TextWidget1(
-                    textTitle: 'Start Bid Amount',
-                    style: CustomTheme.normalTextLightBlack,
-                  ),
-                ),
-              ),
-              Container(
-                  margin: EdgeInsets.symmetric(horizontal: Get.width * 0.1,),
-                  padding: EdgeInsets.symmetric(horizontal: Get.width * 0.05,),
-                  height: Get.height * 0.06,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(
-                          Get.width * 0.015
-                      ),
-                      border: Border.all(
-                          color: Colors.grey,
-                          width: Get.width * 0.002
-                      )
-                  ),
-                  child: CustomTextField(
-                    title: 'Enter Bid Amount',
-                    inputBorder: InputBorder.none,
-                    inputType: TextInputType.number,
-                    // prefixIcon: Image.asset("assets/images/key.png",color:Color(kPrimaryColor)),
-                  )
-              ),
 
-              SizedBox(height: _height * 0.02,),
-              Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: Get.width * 0.1
-                ),
-                child: Align(
-                  alignment: Alignment.topLeft,
-                  child: TextWidget1(
-                    textTitle: 'Start Bid Amount',
-                    style: CustomTheme.normalTextLightBlack,
+                SizedBox(height: _height * 0.02,),
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: Get.width * 0.1
+                  ),
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: TextWidget1(
+                      textTitle: 'Increment Per Bid',
+                      style: CustomTheme.normalTextLightBlack,
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                  margin: EdgeInsets.symmetric(horizontal: Get.width * 0.1,),
-                  padding: EdgeInsets.symmetric(horizontal: Get.width * 0.05,),
-                  height: Get.height * 0.06,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(
-                          Get.width * 0.015
-                      ),
-                      border: Border.all(
-                          color: Colors.grey,
-                          width: Get.width * 0.002
-                      )
+                Container(
+                    margin: EdgeInsets.symmetric(horizontal: Get.width * 0.1,),
+                    padding: EdgeInsets.symmetric(horizontal: Get.width * 0.05,),
+                    height: Get.height * 0.06,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(
+                            Get.width * 0.015
+                        ),
+                        border: Border.all(
+                            color: Colors.grey,
+                            width: Get.width * 0.002
+                        )
+                    ),
+                    child: CustomTextField(
+                      title: '1000',
+                      inputBorder: InputBorder.none,
+                      inputType: TextInputType.number,
+                      // prefixIcon: Image.asset("assets/images/key.png",color:Color(kPrimaryColor)),
+                    )
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: Get.width * 0.1
                   ),
-                  child: CustomTextField(
-                    title: 'Enter Bid Amount',
-                    inputBorder: InputBorder.none,
-                    inputType: TextInputType.number,
-                    // prefixIcon: Image.asset("assets/images/key.png",color:Color(kPrimaryColor)),
-                  )
-              ),
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: TextWidget1(
+                      textTitle: 'Minimum Increment Per Bid Should be Greater than or Equal to 1000',
+                      style: CustomTheme.smallText,
+                    ),
+                  ),
+                ),
 
-              SizedBox(height: _height * 0.02,),
-              Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: Get.width * 0.1
-                ),
-                child: Align(
-                  alignment: Alignment.topLeft,
-                  child: TextWidget1(
-                    textTitle: 'Start Bid Amount',
-                    style: CustomTheme.normalTextLightBlack,
+                SizedBox(height: _height * 0.02,),
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: Get.width * 0.1
+                  ),
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: TextWidget1(
+                      textTitle: 'Maximum Bid Amount',
+                      style: CustomTheme.normalTextLightBlack,
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                  margin: EdgeInsets.symmetric(horizontal: Get.width * 0.1,),
-                  padding: EdgeInsets.symmetric(horizontal: Get.width * 0.05,),
-                  height: Get.height * 0.06,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(
-                          Get.width * 0.015
-                      ),
-                      border: Border.all(
-                          color: Colors.grey,
-                          width: Get.width * 0.002
-                      )
-                  ),
-                  child: CustomTextField(
-                    title: 'Enter Bid Amount',
-                    inputBorder: InputBorder.none,
-                    inputType: TextInputType.number,
-                    // prefixIcon: Image.asset("assets/images/key.png",color:Color(kPrimaryColor)),
-                  )
-              ),
-
-              const Spacer(),
-              CustomButton(
-                isSelected: false,
-                onTap: (){
-                  Get.back();
-                },
-                margin: EdgeInsets.zero,
-                width: _width * 0.4,
-                padding: EdgeInsets.symmetric(
-                  // horizontal: _width * 0.05,
-                    vertical: _height * 0.0125
+                Container(
+                    margin: EdgeInsets.symmetric(horizontal: Get.width * 0.1,),
+                    padding: EdgeInsets.symmetric(horizontal: Get.width * 0.05,),
+                    height: Get.height * 0.06,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(
+                            Get.width * 0.015
+                        ),
+                        border: Border.all(
+                            color: Colors.grey,
+                            width: Get.width * 0.002
+                        )
+                    ),
+                    child: CustomTextField(
+                      title: 'Enter Bid Amount',
+                      inputBorder: InputBorder.none,
+                      inputType: TextInputType.number,
+                      // prefixIcon: Image.asset("assets/images/key.png",color:Color(kPrimaryColor)),
+                    )
                 ),
-                title: 'Submit',
-                color: buyNow,
-                textColor: Colors.white,
-                fontSize: _height * 0.0175,
-                fontFamily: poppinsRegular,
-                borderRadius: _width * 0.012,
-              ),
-              SizedBox(height: _height * 0.02,),
-
-            ],
+                const Spacer(),
+                CustomButton(
+                  isSelected: false,
+                  onTap: (){
+                    Get.back();
+                    showModalBottomSheet(
+                        context: context,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.vertical(
+                                top: Radius.circular(_width * 0.06)
+                            )
+                        ),
+                        builder: (BuildContext context){
+                          return customSuccessfulModalSheet(context);
+                        }
+                    );
+                  },
+                  margin: EdgeInsets.zero,
+                  width: _width * 0.4,
+                  padding: EdgeInsets.symmetric(
+                    // horizontal: _width * 0.05,
+                      vertical: _height * 0.0125
+                  ),
+                  title: 'Submit',
+                  color: buyNow,
+                  textColor: Colors.white,
+                  fontSize: _height * 0.0175,
+                  fontFamily: poppinsRegular,
+                  borderRadius: _width * 0.012,
+                ),
+                SizedBox(height: _height * 0.02,),
+              ],
+            ),
           ),
         ),
       ),
+    ]);
+  }
+
+  Widget customSuccessfulModalSheet(BuildContext context){
+    //controller.globalContext = context;
+    double _height = MediaQuery.of(context).size.height;
+    double _width = MediaQuery.of(context).size.width;
+    return SizedBox(
+        height: Get.height * 0.4,
+        child:
+        Column(
+          // mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          // mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            SizedBox(height: _height * 0.035,),
+            Image.asset(
+              ImageUtils.cartCheckIcon,
+              height: _height * 0.055,
+            ),
+            SizedBox(height: _height * 0.005,),
+            TextWidget(
+              textTitle: 'Bid Placed Successfully',
+              color: Colors.black,
+              fontSize: _height * 0.025,
+              fontFamily: poppinsSemiBold,
+            ),
+            SizedBox(height: _height * 0.01,),
+            TextWidget(
+              textTitle: 'Bid Amount',
+              color: Colors.black,
+              fontSize: _height * 0.0175,
+              fontFamily: poppinsSemiBold,
+            ),
+            SizedBox(height: _height * 0.01,),
+            TextWidget(
+              textTitle: '\$2,000/-',
+              color: homeBoxColor,
+              fontSize: _height * 0.035,
+              fontFamily: poppinsSemiBold,
+            ),
+            SizedBox(height: _height * 0.01,),
+            TextWidget(
+              textTitle: 'If you win this auction, you will receive an email.',
+              color: Colors.black,
+              fontSize: _height * 0.015,
+              fontFamily: poppinsRegular,
+            ),
+            const Spacer(),
+            CustomButton(
+              isSelected: false,
+              onTap: (){
+                Get.back();
+              },
+              margin: EdgeInsets.zero,
+              width: _width * 0.4,
+              padding: EdgeInsets.symmetric(
+                // horizontal: _width * 0.05,
+                  vertical: _height * 0.0125
+              ),
+              title: 'OK',
+              color: buyNow,
+              textColor: Colors.white,
+              fontSize: _height * 0.0175,
+              fontFamily: poppinsRegular,
+              borderRadius: _width * 0.012,
+            ),
+            SizedBox(height: Get.height * 0.02,)
+          ],
+        )
+
     );
   }
 

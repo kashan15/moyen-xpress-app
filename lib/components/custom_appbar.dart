@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:moyen_xpress_app/components/text_widget.dart';
+import 'package:moyen_xpress_app/utils/font_utils.dart';
 import 'package:moyen_xpress_app/utils/image_utils.dart';
 import 'package:moyen_xpress_app/utils/size_utils.dart';
 
@@ -96,6 +97,7 @@ Widget build(BuildContext context) {
                   textTitle: heading,
                   fontWeight: FontWeight.w700,
                   fontSize: _height * 0.025,
+                  fontFamily: poppinsMedium,
                   color: Colors.black,
                 ),
               ],

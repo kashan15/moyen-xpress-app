@@ -697,7 +697,7 @@ class HomeScreen extends GetView<HomeController> {
                                 onTap: (){
                                   Get.to(
                                       ProductDetails(
-                                        check1: false,
+                                        check1: 0,
                                           imageIndex: controller.itemsList[index],
                                       )
                                   );
@@ -917,7 +917,7 @@ class HomeScreen extends GetView<HomeController> {
                                   controller.homeTap = true;
                                  Get.to(
                                      ProductDetails(
-                                         check1: false,
+                                         check1: 0,
                                          imageIndex: controller.dailyDealsList[index])
                                  );
                                 },
@@ -1207,7 +1207,7 @@ class HomeScreen extends GetView<HomeController> {
                                 onTap: (){
                                  Get.to(
                                      ProductDetails(
-                                         check1: false,
+                                         check1: 0,
                                          imageIndex: controller.newArrivalsList[index])
                                  );
                                 },
@@ -1397,7 +1397,7 @@ class HomeScreen extends GetView<HomeController> {
                                 onTap: (){
                                   Get.to(
                                     ProductDetails(
-                                        check1: false,
+                                        check1: 0,
                                         imageIndex: controller.promotionsList[index])
                                   );
                                 },
@@ -1588,7 +1588,7 @@ class HomeScreen extends GetView<HomeController> {
                                 onTap: (){
                                  Get.to(
                                      ProductDetails(
-                                         check1: false,
+                                         check1: 0,
                                          imageIndex: controller.topSellersList[index])
                                  );
                                 },
@@ -1746,7 +1746,7 @@ class HomeScreen extends GetView<HomeController> {
                                 onTap: (){
                                  Get.to(
                                      ProductDetails(
-                                         check1: false,
+                                         check1: 0,
                                          imageIndex: controller.topBrandsList[index])
                                  );
                                 },

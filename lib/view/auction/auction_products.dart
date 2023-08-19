@@ -140,7 +140,7 @@ class AuctionScreen extends GetView<AuctionScreenController> {
                       onTap: (){
                         Get.to(
                           ProductDetails(
-                            check1: true,
+                            check1: 0,
                           )
                         );
                       },

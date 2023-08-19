@@ -49,6 +49,8 @@ class ImageUtils{
   static const String facebookIcon1 = 'assets/icons/facebookIcon.png';
   static const String gmailIcon1 = 'assets/icons/gmailIcon.png';
   static const String appleIcon1 = 'assets/icons/appleIcon.png';
+  static const String editIcon = 'assets/icons/edit.png';
+  static const String storeIconBlack = 'assets/icons/storeIcon.png';
 
 
   /// Images
@@ -121,6 +123,7 @@ class ImageUtils{
   static const String aboutBanner = 'assets/images/aboutBanner.png';
   static const String auctionBanner = 'assets/images/auctionBanner.png';
   static const String auctionPic = 'assets/images/auctionPic.png';
+
 
 
 }

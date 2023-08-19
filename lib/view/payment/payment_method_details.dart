@@ -16,9 +16,11 @@ import '../orders/my_order_details.dart';
 
 class PaymentDetailsScreen extends GetView<PaymentController> {
   // final MyOrderDetailsScreen? nameInstance;
+  int? select = 0;
   PaymentDetailsScreen({
     super.key,
     // this.nameInstance
+    this.select
   });
 
   bool willPop = true;
@@ -72,7 +74,7 @@ class PaymentDetailsScreen extends GetView<PaymentController> {
         top: false,
         bottom: false,
         child: Scaffold(
-          backgroundColor: backgroundColor,
+          backgroundColor: Colors.white,
           body: CustomScrollView(
             slivers: [
               SliverFillRemaining(
@@ -117,10 +119,26 @@ class PaymentDetailsScreen extends GetView<PaymentController> {
                       SizedBox(
                         height: _height * 0.03,
                       ),
+                      select == 0 ?
                       Image.asset(
                         ImageUtils.paypalLogo,
                         height: _height * 0.1,
-                      ),
+                      ) :
+                          select == 1 ?
+                          Image.asset(
+                            ImageUtils.stripeLogo,
+                            height: _height * 0.1,
+                          ) :
+                             select == 2 ?
+                             Image.asset(
+                               ImageUtils.walletLogo,
+                               height: _height * 0.1,
+                             ) :
+                             select == 3 ?
+                             Image.asset(
+                               ImageUtils.wireLogo,
+                               height: _height * 0.1,
+                             ) : const SizedBox(),
                       SizedBox(
                         height: _height * 0.03,
                       ),
