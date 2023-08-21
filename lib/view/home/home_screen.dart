@@ -457,164 +457,127 @@ class HomeScreen extends GetView<HomeController> {
                       //       ],
                       //     ),
 
-                          SizedBox(height: _height * 0.01,),
-                          Stack(
-                            children: [
-                              Container(
-                                  width: double.infinity,
-                                  margin: EdgeInsets.symmetric(horizontal: _width * 0.05),
-                                  padding: EdgeInsets.symmetric(vertical: _height * 0.025),
-                                  decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      boxShadow: [
-                                        BoxShadow(
-                                            color: Colors.grey.withOpacity(0.3),
-                                            blurRadius: 6.0,
-                                            //spreadRadius: 1,
-                                            offset: Offset(0, 0)
-                                        )
-                                      ]
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      Image.asset(
-                                        ImageUtils.shippingIcon3,
-                                        height: _height * 0.04,
-                                      ),
-                                      SizedBox(width: _width * 0.04,),
-                                      RichText(
-                                        text: const TextSpan(
-                                          text: 'Free Shipping / Free Return\n',
-                                          style:
-                                          TextStyle(
-                                              fontSize: 16.0,
-                                              color: homeBoxColor,
-                                              fontWeight: FontWeight.bold,
-                                              fontFamily: poppinsMedium
-                                          ),
-                                          children:  <TextSpan>[
-                                            TextSpan(
-                                                text: 'For all orders above\$99',
-                                                style:
-                                                TextStyle(
-                                                    height: 1.2,
-                                                    fontSize: 13.0,
-                                                    color: Colors.black,
-                                                    fontWeight: FontWeight.normal,
-                                                    fontFamily: poppinsRegular
-                                                )
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  )
-                              ),
-
-                              Positioned(
-                                top: _height * 0.0275,
-                                left: _width * 0,
-                                child: Container(
-                                  // alignment: Alignment.center,
-                                  padding: EdgeInsets.symmetric(
-                                      vertical: _height * 0.0025, horizontal: _width * 0.025
-                                  ),
-                                  decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      shape: BoxShape.circle,
-                                      boxShadow: [
-                                        BoxShadow(
-                                            color: Colors.black.withOpacity(0.2),
-                                            blurRadius: 1,
-                                            spreadRadius: 1,
-                                            offset: Offset(0, 3)
-                                        )
-                                      ]
-                                  ),
-                                  child: Center(
-                                      child:
-                                      Image.asset(
-                                        ImageUtils.backIcon,
-                                        height: _height * 0.03,
-                                      )
-                                  ),
-                                ),
-                              ),
-
-                              Positioned(
-                                top: _height * 0.0275,
-                                right: _width * 0,
-                                child: Container(
-                                  // alignment: Alignment.center,
-                                  padding: EdgeInsets.symmetric(
-                                      vertical: _height * 0.0025, horizontal: _width * 0.025
-                                  ),
-                                  decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      shape: BoxShape.circle,
-                                      boxShadow: [
-                                        BoxShadow(
-                                            color: Colors.black.withOpacity(0.2),
-                                            blurRadius: 1,
-                                            spreadRadius: 1,
-                                            offset: Offset(0, 3)
-                                        )
-                                      ]
-                                  ),
-                                  child: Center(
-                                      child:
-                                      Image.asset(
-                                        ImageUtils.backIcon,
-                                        height: _height * 0.03,
-                                      )
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-
-                          // SizedBox(
-                          //   height: 240,
-                          //   child: PageView.builder(
-                          //     controller:
-                          //     controller.verticalControllerElectronics,
-                          //     scrollDirection: Axis.horizontal,
-                          //     // itemCount: pages.length,
-                          //     itemBuilder: (_, index) {
-                          //       return FractionallySizedBox(
-                          //         // widthFactor: 1 /
-                          //         //     verticalControllerElectronics
-                          //         //         .viewportFraction,
-                          //         child: categoriesList[index],
-                          //       );
-                          //     },
-                          //     itemCount: categoriesList.length,
-                          //   ),
-                          // ),
+                          /// Free Shipping / Free Return
+                          // Stack(
+                          //   children: [
+                          //     Container(
+                          //         width: double.infinity,
+                          //         margin: EdgeInsets.symmetric(horizontal: _width * 0.05),
+                          //         padding: EdgeInsets.symmetric(vertical: _height * 0.025),
+                          //         decoration: BoxDecoration(
+                          //             color: Colors.white,
+                          //             boxShadow: [
+                          //               BoxShadow(
+                          //                   color: Colors.grey.withOpacity(0.3),
+                          //                   blurRadius: 6.0,
+                          //                   //spreadRadius: 1,
+                          //                   offset: Offset(0, 0)
+                          //               )
+                          //             ]
+                          //         ),
+                          //         child: Row(
+                          //           mainAxisAlignment: MainAxisAlignment.center,
+                          //           crossAxisAlignment: CrossAxisAlignment.center,
+                          //           children: [
+                          //             Image.asset(
+                          //               ImageUtils.shippingIcon3,
+                          //               height: _height * 0.04,
+                          //             ),
+                          //             SizedBox(width: _width * 0.04,),
+                          //             RichText(
+                          //               text: const TextSpan(
+                          //                 text: 'Free Shipping / Free Return\n',
+                          //                 style:
+                          //                 TextStyle(
+                          //                     fontSize: 16.0,
+                          //                     color: homeBoxColor,
+                          //                     fontWeight: FontWeight.bold,
+                          //                     fontFamily: poppinsMedium
+                          //                 ),
+                          //                 children:  <TextSpan>[
+                          //                   TextSpan(
+                          //                       text: 'For all orders above\$99',
+                          //                       style:
+                          //                       TextStyle(
+                          //                           height: 1.2,
+                          //                           fontSize: 13.0,
+                          //                           color: Colors.black,
+                          //                           fontWeight: FontWeight.normal,
+                          //                           fontFamily: poppinsRegular
+                          //                       )
+                          //                   ),
+                          //                 ],
+                          //               ),
+                          //             ),
+                          //           ],
+                          //         )
+                          //     ),
                           //
-                          // SmoothPageIndicator(
-                          //   controller: controller.verticalControllerElectronics,
-                          //   // PageController
-                          //   axisDirection: Axis.horizontal,
-                          //   count: categoriesList.length,
-                          //   effect: const WormEffect(
-                          //       dotColor: Colors.red,
-                          //       activeDotColor: Colors.black,
-                          //       dotWidth: 10,
-                          //       dotHeight: 10,
-                          //     type: WormType.thinUnderground,
-                          //   ),
+                          //     Positioned(
+                          //       top: _height * 0.0275,
+                          //       left: _width * 0,
+                          //       child: Container(
+                          //         // alignment: Alignment.center,
+                          //         padding: EdgeInsets.symmetric(
+                          //             vertical: _height * 0.0025, horizontal: _width * 0.025
+                          //         ),
+                          //         decoration: BoxDecoration(
+                          //             color: Colors.white,
+                          //             shape: BoxShape.circle,
+                          //             boxShadow: [
+                          //               BoxShadow(
+                          //                   color: Colors.black.withOpacity(0.2),
+                          //                   blurRadius: 1,
+                          //                   spreadRadius: 1,
+                          //                   offset: Offset(0, 3)
+                          //               )
+                          //             ]
+                          //         ),
+                          //         child: Center(
+                          //             child:
+                          //             Image.asset(
+                          //               ImageUtils.backIcon,
+                          //               height: _height * 0.03,
+                          //             )
+                          //         ),
+                          //       ),
+                          //     ),
                           //
-                          //   // your preferred effect
-                          //   onDotClicked: (index) {
-                          //     print(index);
-                          //   },
+                          //     Positioned(
+                          //       top: _height * 0.0275,
+                          //       right: _width * 0,
+                          //       child: Container(
+                          //         // alignment: Alignment.center,
+                          //         padding: EdgeInsets.symmetric(
+                          //             vertical: _height * 0.0025, horizontal: _width * 0.025
+                          //         ),
+                          //         decoration: BoxDecoration(
+                          //             color: Colors.white,
+                          //             shape: BoxShape.circle,
+                          //             boxShadow: [
+                          //               BoxShadow(
+                          //                   color: Colors.black.withOpacity(0.2),
+                          //                   blurRadius: 1,
+                          //                   spreadRadius: 1,
+                          //                   offset: Offset(0, 3)
+                          //               )
+                          //             ]
+                          //         ),
+                          //         child: Center(
+                          //             child:
+                          //             Image.asset(
+                          //               ImageUtils.backIcon,
+                          //               height: _height * 0.03,
+                          //             )
+                          //         ),
+                          //       ),
+                          //     )
+                          //   ],
                           // ),
+
 
                           /// Flash Deal
-                          SizedBox(height: _height * 0.02,),
+                          SizedBox(height: _height * 0.01,),
                           TextWidget1(
                             textTitle: 'Flash Deal',
                             style: CustomTheme.heading,
@@ -1798,9 +1761,6 @@ class HomeScreen extends GetView<HomeController> {
                                       )
                                     ],
                                   ),
-
-
-
                                   // Container(
                                   //   width: double.infinity,
                                   //   margin: EdgeInsets.symmetric(horizontal: _width * 0.02,  vertical: _height * 0.05),
@@ -1868,237 +1828,239 @@ class HomeScreen extends GetView<HomeController> {
                           ),
                           SizedBox(height: _height * 0.025,),
 
-                          Container(
-                            margin: EdgeInsets.symmetric(horizontal: _width * 0.04),
-                            padding: EdgeInsets.symmetric(horizontal: _width * 0.06, vertical: _height * 0.04),
-                            width: double.infinity,
-                            decoration: const BoxDecoration(
-                              image: DecorationImage(image: AssetImage(
-                                ImageUtils.shippingImage
-                              ),
-                              fit: BoxFit.cover
-                              )
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                RichText(
-                                  text: const TextSpan(
-                                    text: 'Moyenxpress\n',
-                                    style:
-                                    TextStyle(
-                                        fontSize: 28.0,
-                                        fontWeight: FontWeight.bold,
-                                        fontFamily: poppinsBold
-                                    ),
-                                    children:  <TextSpan>[
-                                      TextSpan(
-                                          text: 'Shipping',
-                                          style:
-                                          TextStyle(
-                                            height: 1.1,
-                                              fontSize: 42.0,
-                                              fontWeight: FontWeight.bold,
-                                              fontFamily: poppinsBold
-                                          )
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                SizedBox(height: _height * 0.02,),
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Image.asset(
-                                      ImageUtils.shippingIcon1,
-                                      height: _height * 0.03,
-                                      fit: BoxFit.cover,
-                                    ),
-                                    SizedBox(width: _width * 0.0225,),
-                                    RichText(
-                                      text: const TextSpan(
-                                        text: 'Ship With Moyen Xpress\n',
-                                       // style: DefaultTextStyle.of(context).style,
-                                          style:
-                                          TextStyle(
-                                              fontSize: 14.0,
-                                              fontWeight: FontWeight.bold,
-                                              fontFamily: montserratBold
-                                          ),
-                                        children:  <TextSpan>[
-                                           TextSpan(
-                                              text: 'Use Moyen Xpress as your shipping\n',
-                                              style:
-                                          TextStyle(
-                                              fontSize: 10.0,
-                                              fontWeight: FontWeight.normal,
-                                            fontFamily: montserratMedium
-                                          )
-                                          ),
-                                          TextSpan(
-                                              text: 'target & get exclusive discounts.',
-                                              style:
-                                              TextStyle(
-                                                fontSize: 10.0,
-                                                  fontWeight: FontWeight.normal,
-                                                  fontFamily: montserratMedium
-                                              )
-                                          ),
-                                        ],
-                                      ),
-                                    )
-                                  ],
-                                ),
+                          /// MoyenXpress Shipping
+                          // Container(
+                          //   margin: EdgeInsets.symmetric(horizontal: _width * 0.04),
+                          //   padding: EdgeInsets.symmetric(horizontal: _width * 0.06, vertical: _height * 0.04),
+                          //   width: double.infinity,
+                          //   decoration: const BoxDecoration(
+                          //     image: DecorationImage(image: AssetImage(
+                          //       ImageUtils.shippingImage
+                          //     ),
+                          //     fit: BoxFit.cover
+                          //     )
+                          //   ),
+                          //   child: Column(
+                          //     crossAxisAlignment: CrossAxisAlignment.start,
+                          //     children: [
+                          //       RichText(
+                          //         text: const TextSpan(
+                          //           text: 'Moyenxpress\n',
+                          //           style:
+                          //           TextStyle(
+                          //               fontSize: 28.0,
+                          //               fontWeight: FontWeight.bold,
+                          //               fontFamily: poppinsBold
+                          //           ),
+                          //           children:  <TextSpan>[
+                          //             TextSpan(
+                          //                 text: 'Shipping',
+                          //                 style:
+                          //                 TextStyle(
+                          //                   height: 1.1,
+                          //                     fontSize: 42.0,
+                          //                     fontWeight: FontWeight.bold,
+                          //                     fontFamily: poppinsBold
+                          //                 )
+                          //             ),
+                          //           ],
+                          //         ),
+                          //       ),
+                          //       SizedBox(height: _height * 0.02,),
+                          //       Row(
+                          //         crossAxisAlignment: CrossAxisAlignment.start,
+                          //         children: [
+                          //           Image.asset(
+                          //             ImageUtils.shippingIcon1,
+                          //             height: _height * 0.03,
+                          //             fit: BoxFit.cover,
+                          //           ),
+                          //           SizedBox(width: _width * 0.0225,),
+                          //           RichText(
+                          //             text: const TextSpan(
+                          //               text: 'Ship With Moyen Xpress\n',
+                          //              // style: DefaultTextStyle.of(context).style,
+                          //                 style:
+                          //                 TextStyle(
+                          //                     fontSize: 14.0,
+                          //                     fontWeight: FontWeight.bold,
+                          //                     fontFamily: montserratBold
+                          //                 ),
+                          //               children:  <TextSpan>[
+                          //                  TextSpan(
+                          //                     text: 'Use Moyen Xpress as your shipping\n',
+                          //                     style:
+                          //                 TextStyle(
+                          //                     fontSize: 10.0,
+                          //                     fontWeight: FontWeight.normal,
+                          //                   fontFamily: montserratMedium
+                          //                 )
+                          //                 ),
+                          //                 TextSpan(
+                          //                     text: 'target & get exclusive discounts.',
+                          //                     style:
+                          //                     TextStyle(
+                          //                       fontSize: 10.0,
+                          //                         fontWeight: FontWeight.normal,
+                          //                         fontFamily: montserratMedium
+                          //                     )
+                          //                 ),
+                          //               ],
+                          //             ),
+                          //           )
+                          //         ],
+                          //       ),
+                          //
+                          //       SizedBox(height: _height * 0.02,),
+                          //       Row(
+                          //         crossAxisAlignment: CrossAxisAlignment.start,
+                          //         children: [
+                          //           Image.asset(
+                          //             ImageUtils.shippingIcon2,
+                          //             height: _height * 0.035,
+                          //             fit: BoxFit.cover,
+                          //           ),
+                          //           SizedBox(width: _width * 0.018,),
+                          //           RichText(
+                          //             text: const TextSpan(
+                          //               text: 'Send Anything, Anywhere\n',
+                          //               style:
+                          //               TextStyle(
+                          //                   fontSize: 14.0,
+                          //                   fontWeight: FontWeight.bold,
+                          //                   fontFamily: montserratBold
+                          //               ),
+                          //               children:  <TextSpan>[
+                          //                 TextSpan(
+                          //                     text: 'Use Moyen Xpress shipping & send\n',
+                          //                     style:
+                          //                     TextStyle(
+                          //                         fontSize: 10.0,
+                          //                         fontWeight: FontWeight.normal,
+                          //                         fontFamily: montserratMedium
+                          //                     )
+                          //                 ),
+                          //                 TextSpan(
+                          //                     text: 'anything, anywhere in the world.',
+                          //                     style:
+                          //                     TextStyle(
+                          //                         fontSize: 10.0,
+                          //                         fontWeight: FontWeight.normal,
+                          //                         fontFamily: montserratMedium
+                          //                     )
+                          //                 ),
+                          //               ],
+                          //             ),
+                          //           )
+                          //         ],
+                          //       )
+                          //     ],
+                          //   ),
+                          // ),
 
-                                SizedBox(height: _height * 0.02,),
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Image.asset(
-                                      ImageUtils.shippingIcon2,
-                                      height: _height * 0.035,
-                                      fit: BoxFit.cover,
-                                    ),
-                                    SizedBox(width: _width * 0.018,),
-                                    RichText(
-                                      text: const TextSpan(
-                                        text: 'Send Anything, Anywhere\n',
-                                        style:
-                                        TextStyle(
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.bold,
-                                            fontFamily: montserratBold
-                                        ),
-                                        children:  <TextSpan>[
-                                          TextSpan(
-                                              text: 'Use Moyen Xpress shipping & send\n',
-                                              style:
-                                              TextStyle(
-                                                  fontSize: 10.0,
-                                                  fontWeight: FontWeight.normal,
-                                                  fontFamily: montserratMedium
-                                              )
-                                          ),
-                                          TextSpan(
-                                              text: 'anything, anywhere in the world.',
-                                              style:
-                                              TextStyle(
-                                                  fontSize: 10.0,
-                                                  fontWeight: FontWeight.normal,
-                                                  fontFamily: montserratMedium
-                                              )
-                                          ),
-                                        ],
-                                      ),
-                                    )
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
+
+                          /// Terms & Conditions
+                          // Stack(
+                          //   children: [
+                          //     Container(
+                          //       width: double.infinity,
+                          //       margin: EdgeInsets.symmetric(horizontal: _width * 0.05),
+                          //       padding: EdgeInsets.symmetric(vertical: _height * 0.025),
+                          //       decoration: BoxDecoration(
+                          //           color: Colors.white,
+                          //           boxShadow: [
+                          //             BoxShadow(
+                          //                 color: Colors.grey.withOpacity(0.3),
+                          //                 blurRadius: 6.0,
+                          //                 //spreadRadius: 1,
+                          //                 offset: Offset(0, 0)
+                          //             )
+                          //           ]
+                          //       ),
+                          //       child: Row(
+                          //         mainAxisAlignment: MainAxisAlignment.center,
+                          //         crossAxisAlignment: CrossAxisAlignment.center,
+                          //         children: [
+                          //           Image.asset(
+                          //             ImageUtils.termsIcon,
+                          //             height: _height * 0.04,
+                          //           ),
+                          //           SizedBox(width: _width * 0.04,),
+                          //           TextWidget(
+                          //             textTitle: 'Terms & Conditions',
+                          //             fontFamily: poppinsMedium,
+                          //             fontSize: 20.0,
+                          //             fontWeight: FontWeight.w600,
+                          //             color: homeBoxColor,
+                          //
+                          //           ),
+                          //         ],
+                          //       )
+                          //     ),
+                          //
+                          //     Positioned(
+                          //       top: _height * 0.0275,
+                          //       left: _width * 0,
+                          //       child: Container(
+                          //         // alignment: Alignment.center,
+                          //         padding: EdgeInsets.symmetric(
+                          //             vertical: _height * 0.0025, horizontal: _width * 0.025
+                          //         ),
+                          //         decoration: BoxDecoration(
+                          //           color: Colors.white,
+                          //           shape: BoxShape.circle,
+                          //             boxShadow: [
+                          //               BoxShadow(
+                          //                   color: Colors.black.withOpacity(0.2),
+                          //                   blurRadius: 1,
+                          //                   spreadRadius: 1,
+                          //                   offset: Offset(0, 3)
+                          //               )
+                          //             ]
+                          //         ),
+                          //         child: Center(
+                          //           child:
+                          //           Image.asset(
+                          //             ImageUtils.backIcon,
+                          //             height: _height * 0.03,
+                          //           )
+                          //         ),
+                          //       ),
+                          //     ),
+                          //
+                          //     Positioned(
+                          //       top: _height * 0.0275,
+                          //       right: _width * 0,
+                          //       child: Container(
+                          //         // alignment: Alignment.center,
+                          //         padding: EdgeInsets.symmetric(
+                          //             vertical: _height * 0.0025, horizontal: _width * 0.025
+                          //         ),
+                          //         decoration: BoxDecoration(
+                          //             color: Colors.white,
+                          //             shape: BoxShape.circle,
+                          //             boxShadow: [
+                          //               BoxShadow(
+                          //                   color: Colors.black.withOpacity(0.2),
+                          //                   blurRadius: 1,
+                          //                   spreadRadius: 1,
+                          //                   offset: Offset(0, 3)
+                          //               )
+                          //             ]
+                          //         ),
+                          //         child: Center(
+                          //             child:
+                          //             Image.asset(
+                          //               ImageUtils.backIcon,
+                          //               height: _height * 0.03,
+                          //             )
+                          //         ),
+                          //       ),
+                          //     )
+                          //   ],
+                          // ),
+
                           SizedBox(height: _height * 0.025,),
-
-                          Stack(
-                            children: [
-                              Container(
-                                width: double.infinity,
-                                margin: EdgeInsets.symmetric(horizontal: _width * 0.05),
-                                padding: EdgeInsets.symmetric(vertical: _height * 0.025),
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    boxShadow: [
-                                      BoxShadow(
-                                          color: Colors.grey.withOpacity(0.3),
-                                          blurRadius: 6.0,
-                                          //spreadRadius: 1,
-                                          offset: Offset(0, 0)
-                                      )
-                                    ]
-                                ),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Image.asset(
-                                      ImageUtils.termsIcon,
-                                      height: _height * 0.04,
-                                    ),
-                                    SizedBox(width: _width * 0.04,),
-                                    TextWidget(
-                                      textTitle: 'Terms & Conditions',
-                                      fontFamily: poppinsMedium,
-                                      fontSize: 20.0,
-                                      fontWeight: FontWeight.w600,
-                                      color: homeBoxColor,
-
-                                    ),
-                                  ],
-                                )
-                              ),
-
-                              Positioned(
-                                top: _height * 0.0275,
-                                left: _width * 0,
-                                child: Container(
-                                  // alignment: Alignment.center,
-                                  padding: EdgeInsets.symmetric(
-                                      vertical: _height * 0.0025, horizontal: _width * 0.025
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    shape: BoxShape.circle,
-                                      boxShadow: [
-                                        BoxShadow(
-                                            color: Colors.black.withOpacity(0.2),
-                                            blurRadius: 1,
-                                            spreadRadius: 1,
-                                            offset: Offset(0, 3)
-                                        )
-                                      ]
-                                  ),
-                                  child: Center(
-                                    child:
-                                    Image.asset(
-                                      ImageUtils.backIcon,
-                                      height: _height * 0.03,
-                                    )
-                                  ),
-                                ),
-                              ),
-
-                              Positioned(
-                                top: _height * 0.0275,
-                                right: _width * 0,
-                                child: Container(
-                                  // alignment: Alignment.center,
-                                  padding: EdgeInsets.symmetric(
-                                      vertical: _height * 0.0025, horizontal: _width * 0.025
-                                  ),
-                                  decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      shape: BoxShape.circle,
-                                      boxShadow: [
-                                        BoxShadow(
-                                            color: Colors.black.withOpacity(0.2),
-                                            blurRadius: 1,
-                                            spreadRadius: 1,
-                                            offset: Offset(0, 3)
-                                        )
-                                      ]
-                                  ),
-                                  child: Center(
-                                      child:
-                                      Image.asset(
-                                        ImageUtils.backIcon,
-                                        height: _height * 0.03,
-                                      )
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-
-                          SizedBox(height: _height * 0.045,),
 
 
                         ],

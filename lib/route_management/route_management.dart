@@ -6,6 +6,8 @@ import 'package:moyen_xpress_app/view/about/about_screen.dart';
 import 'package:moyen_xpress_app/view/auction/auction_products.dart';
 import 'package:moyen_xpress_app/view/authentication/new_login_screen.dart';
 import 'package:moyen_xpress_app/view/cart/order_confirmation.dart';
+import 'package:moyen_xpress_app/view/shipping/shipment_description.dart';
+import 'package:moyen_xpress_app/view/shipping/shipping_From.dart';
 import 'package:moyen_xpress_app/view/store/store_home_screen.dart';
 
 import '../components/custom_navbar.dart';
@@ -37,8 +39,10 @@ import '../view/profile/edit_account.dart';
 import '../view/profile/profile_screen.dart';
 import '../view/profile/settings/settings_screen.dart';
 import '../view/quotes/shipping_quote_details.dart';
+import '../view/shipping/shipment_form.dart';
 import '../view/splash/splash_screen.dart';
 import '../view/store/store_screen.dart';
+import '../view/technician/technician_search_screen.dart';
 import 'controller_binding.dart';
 
 
@@ -117,6 +121,11 @@ class RouteManagement {
         binding: ControllerBinding(),
       ),
       GetPage(
+        name:   kShipmentForm,
+        page: () =>  ShipmentForm(),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
         name:   kAboutScreen,
         page: () =>  AboutScreen(),
         binding: ControllerBinding(),
@@ -126,10 +135,14 @@ class RouteManagement {
         page: () =>  AuctionScreen(),
         binding: ControllerBinding(),
       ),
-
       GetPage(
         name:   kShippingOrder,
         page: () =>  ShippingOrderScreen(check: false,),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
+        name:   kShippingFromScreen,
+        page: () =>  ShippingFromScreen(),
         binding: ControllerBinding(),
       ),
       GetPage(
@@ -147,7 +160,16 @@ class RouteManagement {
         page: () =>  ShippingQuoteDetailsScreen(),
         binding: ControllerBinding(),
       ),
-
+      GetPage(
+        name:   kShipmentDescription,
+        page: () =>  ShipmentDescription(),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
+        name:   kTechnicianSearchScreen,
+        page: () =>  TechnicianSearchScreen(),
+        binding: ControllerBinding(),
+      ),
       GetPage(
         name:   kSignupScreen,
         page: () =>  const SignupScreenNew(),

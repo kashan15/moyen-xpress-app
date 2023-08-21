@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../view/auction/auction_products.dart';
 import '../view/orders/my_order_details.dart';
 
 class AuctionScreenController extends GetxController
@@ -26,7 +27,6 @@ class AuctionScreenController extends GetxController
       name: 'Wallet',
     ),
   ];
-
 
 
 }

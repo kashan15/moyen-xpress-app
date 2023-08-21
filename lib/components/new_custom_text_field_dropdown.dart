@@ -31,3 +31,23 @@ class Dropdown extends StatelessWidget {
         ));
   }
 }
+
+class Dropdown1 extends StatelessWidget {
+  final Widget dropdown;
+
+  const Dropdown1({Key? key, required this.dropdown}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: sizeH(50),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10.0), // Set your desired border radius
+        border: Border.all(
+          color: Colors.grey.withOpacity(0.1), // Set your desired border color
+        ),
+      ),
+      child: dropdown
+    );
+  }
+}

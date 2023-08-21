@@ -1679,6 +1679,7 @@ class ProductDetails extends StatelessWidget {
 
                 ],
               ) :
+                  check1 == 1 ?
               Column(
                 children: [
                   Container(
@@ -1924,7 +1925,299 @@ class ProductDetails extends StatelessWidget {
 
 
                 ],
-              ),
+              ) :
+                      check1 == 2 ?
+                      Column(
+                        children: [
+
+                          Container(
+                            margin: EdgeInsets.symmetric(horizontal: _width * 0.06),
+                            padding: EdgeInsets.symmetric(horizontal: _width * 0.06, vertical: _height * 0.02),
+                            decoration: BoxDecoration(
+                                color: Colors.grey.withOpacity(0.15),
+                                borderRadius: BorderRadius.circular(_width * 0.02)
+                            ),
+                            height: _height * 0.35,
+                            width: double.infinity,
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    GestureDetector(
+                                      child: LikeButton(
+                                        size: Get.height * 0.015,
+                                        // circleColor: CircleColor(
+                                        //     start: Colors.white, end: Colors.yellowAccent
+                                        // ),
+
+                                        circleColor:
+                                        const CircleColor(
+                                            start: Colors.blueAccent,
+                                            end: Colors.yellowAccent),
+                                        bubblesColor: BubblesColor(
+                                          dotPrimaryColor: Colors.blueAccent,
+                                          dotSecondaryColor: Colors.blue,
+                                        ),
+                                        circleSize: 50.0,
+                                        bubblesSize: 50.0,
+                                        likeBuilder: (isTapped){
+                                          return Icon(
+                                            isTapped ?
+                                            Icons.thumb_up_alt : Icons.thumb_up_alt_outlined,
+                                            color: isTapped ? Colors.blueAccent : Colors.blueAccent,
+                                            size: Get.height * 0.025,
+                                          );
+                                        },
+                                      ),
+                                    ),
+
+                                    SizedBox(width: Get.width * 0.03,),
+                                    GestureDetector(
+                                      child:
+                                      LikeButton(
+                                        size: Get.height * 0.015,
+                                        // circleColor: CircleColor(
+                                        //     start: Colors.white, end: Colors.yellowAccent
+                                        // ),
+                                        circleColor:
+                                        const CircleColor(
+                                            start: Colors.redAccent,
+                                            end: Colors.yellowAccent),
+                                        bubblesColor: BubblesColor(
+                                          dotPrimaryColor: Colors.redAccent,
+                                          dotSecondaryColor: Colors.red,
+                                        ),
+                                        circleSize: 50.0,
+                                        bubblesSize: 50.0,
+                                        likeBuilder: (isTapped){
+                                          return Icon(
+                                            isTapped ?
+                                            Icons.favorite : Icons.favorite_border,
+                                            color: isTapped ? Colors.red : Colors.red,
+                                            size: Get.height * 0.025,
+                                          );
+                                        },
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Align(
+                                  alignment: Alignment.center,
+                                  child:
+                                  Container(
+                                    height: _height * 0.225,
+                                    width: _width * 0.5,
+                                    decoration: BoxDecoration(
+                                        color: Colors.transparent,
+                                        image:
+                                        DecorationImage(image: AssetImage(
+                                            ImageUtils.technicianPic2
+                                        ),
+                                            fit: BoxFit.contain
+                                        )
+                                    ),
+                                  ),
+                                ),
+
+                                Container(
+                                  height: Get.height * 0.07,
+                                  color: Colors.transparent,
+                                  child: ListView.builder(
+                                      shrinkWrap: true,
+                                      scrollDirection: Axis.horizontal,
+                                      padding: EdgeInsets.symmetric(horizontal: Get.width * 0.01),
+                                      itemCount: 4,
+                                      itemBuilder: (context, index){
+                                        return Row(
+                                            children:[
+                                              GestureDetector(
+                                                onTap: (){
+                                                  controller.changeColor(index);
+                                                },
+                                                child: Obx(()=>
+                                                    Container(
+                                                      height: Get.height * 0.06,
+                                                      width: Get.width * 0.15,
+                                                      decoration: BoxDecoration(
+                                                          color: Colors.white,
+                                                          borderRadius: BorderRadius.circular(
+                                                              Get.width * 0.01
+                                                          ),
+                                                          boxShadow: [
+                                                            BoxShadow(
+                                                                color: Colors.grey.withOpacity(0.3),
+                                                                blurRadius: 2,
+                                                                spreadRadius: 2,
+                                                                offset: Offset(0, 3)
+                                                            )
+                                                          ],
+                                                          border:
+                                                          Border.all(
+                                                              color: controller.selectIcon.value == index ?
+                                                              homeBoxColor : Colors.white,
+                                                              width: 1
+                                                          ),
+                                                          image:  DecorationImage(image: AssetImage(
+                                                            // ImageUtils.bag,
+                                                              ImageUtils.technicianPic2
+                                                          ),
+                                                              fit: BoxFit.contain
+                                                          )
+                                                      ),
+                                                    ),
+                                                ),
+                                              ),
+
+                                              SizedBox(width: Get.width * 0.02,)
+                                            ]);
+                                      }
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                          SizedBox(height: _height * 0.02,),
+                          TextWidget(
+                            //textTitle: 'Women Shoulder Handbag',
+                            textTitle: 'Electrician',
+                            fontWeight: FontWeight.w700,
+                            fontSize: _height * 0.025,
+                          ),
+                          SizedBox(height: _height * 0.01,),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                ImageUtils.starIcon,
+                                // height: _width * 0.08,
+                                color: homeBoxColor,
+                              ),
+                              SizedBox(width: Get.width * 0.01,),
+                              TextWidget(
+                                textTitle: '4.7/5(40)',
+                                fontWeight: FontWeight.w500,
+                                fontSize: _height * 0.015,
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: _height * 0.02,),
+
+
+                          Stack(
+                            children: [
+                              Container(
+                                margin: EdgeInsets.symmetric(horizontal: _width * 0.04),
+                                padding: EdgeInsets.symmetric(horizontal: _width * 0.04, vertical: _height * 0.02),
+                                width: double.infinity,
+                                height: _height * 0.08,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(_width * 0.02),
+                                  gradient: const LinearGradient(
+                                    colors: [
+                                      Color(0xffE66B12),
+                                      Color(0xffF3921F)
+                                    ],
+                                  ),
+                                ),
+
+                              ),
+                              Positioned(
+                                top: _height * 0.0175,
+                                left: _width * 0.06,
+                                child: CircleAvatar(
+                                  radius: _width * 0.05,
+                                  backgroundImage: AssetImage(ImageUtils.person1,),
+                                ),
+                              ),
+                              Positioned(
+                                top: _height * 0.0435,
+                                left: _width * 0.15,
+                                child: CircleAvatar(
+                                  radius: _width * 0.01,
+                                  backgroundColor: Colors.green,
+                                ),
+                              ),
+                              Positioned(
+                                top: _height * 0.025,
+                                left: _width * 0.2,
+                                child: TextWidget(
+                                  textTitle: 'John Smith',
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: _height * 0.0175,
+                                ),
+                              ),
+                              Positioned(
+                                top: _height * 0.0485,
+                                left: _width * 0.2,
+                                child: Image.asset(
+                                  ImageUtils.starIcon,
+                                  height: _height * 0.0125,
+                                  // color: Colors.yellow,
+                                ),
+                              ),
+                              Positioned(
+                                  top: _height * 0.0480,
+                                  left: _width * 0.235,
+                                  child:
+                                  CustomRichText(
+                                    textSpan1: '4.7/5',
+                                    color1: Colors.white,
+                                    fontWeight1: FontWeight.w700,
+                                    fontSize1: _height * 0.011,
+                                    fontFamily1: poppinsSemiBold,
+                                    textSpan2: ' (Reviews)',
+                                    color2: reviewColor,
+                                    fontWeight2: FontWeight.normal,
+                                    fontSize2: _height * 0.011,
+                                    fontFamily2: poppinsRegular,
+                                  )
+                              ),
+                              Positioned(
+                                  top: _height * 0.0175,
+                                  left: _width * 0.575,
+                                  child:
+                                  GestureDetector(
+                                    onTap: (){
+                                      Get.toNamed(kChatScreen);
+                                    },
+                                    child: Container(
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: _width * 0.02,
+                                        vertical: _height * 0.0125,
+                                      ),
+                                      decoration: BoxDecoration(
+                                          color: Colors.black,
+                                          borderRadius: BorderRadius.circular(_width * 0.0125)
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          Image.asset(
+                                            ImageUtils.chatIcon,
+                                            height: _height * 0.025,
+                                          ),
+                                          SizedBox(width: _width * 0.02,),
+                                          TextWidget(
+                                            textTitle: 'Chat With Seller',
+                                            color: Colors.white,
+                                            fontSize: _height * 0.015,
+                                            fontFamily: poppinsRegular,
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  )
+                              ),
+                            ],
+                          ),
+
+
+
+                        ],
+                      ) : const SizedBox(),
 
               SizedBox(height: _height * 0.01,),
               SizedBox(
@@ -2518,24 +2811,24 @@ class ProductDetails extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              CustomButton(
-                isSelected: false,
-                margin: EdgeInsets.zero,
-                width: _width * 0.4,
-                onTap: (){
-                  Get.back();
-                },
-                padding: EdgeInsets.symmetric(
-                  // horizontal: _width * 0.05,
-                    vertical: _height * 0.0125
+                CustomButton(
+                  isSelected: false,
+                  margin: EdgeInsets.zero,
+                  width: _width * 0.4,
+                  onTap: (){
+                    Get.back();
+                  },
+                  padding: EdgeInsets.symmetric(
+                    // horizontal: _width * 0.05,
+                      vertical: _height * 0.0125
+                  ),
+                  title: 'Back To Shopping',
+                  color: backToShopping,
+                  textColor: Colors.white,
+                  fontSize: _height * 0.0175,
+                  fontFamily: poppinsRegular,
+                  borderRadius: _width * 0.012,
                 ),
-                title: 'Back To Shopping',
-                color: backToShopping,
-                textColor: Colors.white,
-                fontSize: _height * 0.0175,
-                fontFamily: poppinsRegular,
-                borderRadius: _width * 0.012,
-              ),
 
               CustomButton(
                 isSelected: false,

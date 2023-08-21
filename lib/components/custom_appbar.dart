@@ -79,7 +79,7 @@ Widget build(BuildContext context) {
     title: Row(
       children: [
         IconButton(
-            padding: EdgeInsets.only(left: _width * 0.025),
+            padding: EdgeInsets.only(left: _width * 0.0),
             constraints: const BoxConstraints(),
             onPressed: () {
               Get.back();

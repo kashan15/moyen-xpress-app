@@ -6,6 +6,7 @@ import 'package:moyen_xpress_app/utils/color_utils.dart';
 import 'package:moyen_xpress_app/utils/font_utils.dart';
 import 'package:moyen_xpress_app/utils/image_utils.dart';
 import 'package:moyen_xpress_app/utils/route_utils.dart';
+import 'package:moyen_xpress_app/view/auction/auction_products.dart';
 
 class CustomDrawer extends GetView<DrawerScreenController> {
   CustomDrawer({Key? key}) : super(key: key);
@@ -71,8 +72,11 @@ class CustomDrawer extends GetView<DrawerScreenController> {
                          if(index == 2){
                            Get.toNamed(kAboutScreen);
                          }
+                         if(index == 5){
+                           Get.toNamed(kTechnicianSearchScreen);
+                         }
                          if(index == 8){
-                           Get.toNamed(kAuctionScreen);
+                           Get.to(AuctionScreen(check: false,));
                          }
                         },
                         child: Container(

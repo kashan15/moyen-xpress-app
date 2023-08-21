@@ -58,6 +58,12 @@ class CustomTheme {
     fontFamily: poppinsSemiBold,
     color: Colors.black,
   );
+  static final shortHeadingMedium = TextStyle(
+    fontSize: Get.height * 0.015,
+    fontFamily: poppinsMedium,
+    color: Colors.black,
+  );
+
   static final shortHeadingWhite = TextStyle(
     fontSize: Get.height * 0.02,
     fontFamily: poppinsLight,

@@ -20,17 +20,21 @@ import 'package:moyen_xpress_app/controller/purchase_history_controller.dart';
 import 'package:moyen_xpress_app/controller/purchase_history_details_controller.dart';
 import 'package:moyen_xpress_app/controller/quote_order_details_controller.dart';
 import 'package:moyen_xpress_app/controller/settings_screen_controller.dart';
+import 'package:moyen_xpress_app/controller/shipment_form_controller.dart';
 import 'package:moyen_xpress_app/controller/shipping_order_details_controller.dart';
 import 'package:moyen_xpress_app/controller/show_more_controller.dart';
 import 'package:moyen_xpress_app/controller/signup_screen_controller.dart';
 import 'package:moyen_xpress_app/controller/splash_screen_controller.dart';
 import 'package:moyen_xpress_app/controller/store_home_controller.dart';
 import 'package:moyen_xpress_app/controller/store_screen_controller.dart';
+import 'package:moyen_xpress_app/controller/technician_search_controller.dart';
 import 'package:moyen_xpress_app/controller/theme_controller.dart';
 import 'package:moyen_xpress_app/view/chat/chat_controller.dart';
 import '../controller/dashboard_tab_controller.dart';
 import '../controller/initial_screen_controller.dart';
 import '../controller/my_order_details_controller.dart';
+import '../controller/shipment_description_controller.dart';
+import '../controller/shipping_From_controller.dart';
 import '../controller/shipping_orders_controller.dart';
 import '../controller/shipping_quote_details_controller.dart';
 
@@ -70,5 +74,9 @@ class ControllerBinding extends Bindings {
     Get.lazyPut(() => StoreHomeController());
     Get.lazyPut(() => AboutScreenController());
     Get.lazyPut(() => AuctionScreenController());
+    Get.lazyPut(() => ShipmentFormController());
+    Get.lazyPut(() => ShippingFromController());
+    Get.lazyPut(() => ShipmentDescriptionController());
+    Get.lazyPut(() => TechnicianSearchController());
   }
 }

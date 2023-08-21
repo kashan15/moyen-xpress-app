@@ -72,7 +72,6 @@ class MyApp extends StatelessWidget {
             initialRoute: kNavBar1,
             getPages: RouteManagement.getPages(),
 
-
             // initialBinding: ControllerBinding(),
           );
         }
