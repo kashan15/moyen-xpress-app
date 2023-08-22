@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:moyen_xpress_app/components/test_class.dart';
 import 'package:moyen_xpress_app/components/text_widget.dart';
+import 'package:moyen_xpress_app/utils/image_utils.dart';
 
 import '../utils/color_utils.dart';
 import '../utils/font_utils.dart';
@@ -83,7 +85,8 @@ class CustomButton extends StatelessWidget {
             color: color,
             borderRadius: BorderRadius.circular(borderRadius!)
         ),
-        child: Center(
+        child:
+        Center(
           child: TextWidget(
             textTitle: title,
             fontFamily: fontFamily,
@@ -91,6 +94,69 @@ class CustomButton extends StatelessWidget {
             color: textColor,
           ),
         ),
+      ),
+    );
+  }
+}
+
+class CustomButtonWithIcon extends StatelessWidget {
+  dynamic title;
+  dynamic margin;
+  dynamic padding;
+  final Color? color;
+  final String? icon;
+  final Color? textColor;
+  final double? borderRadius;
+  final double? fontSize;
+  final double? height;
+  final double? width;
+  dynamic fontFamily;
+  final bool isSelected;
+  void Function()? onTap;
+  CustomButtonWithIcon({
+    this.title,
+    this.onTap,
+    this.margin,
+    this.padding,
+    this.color,
+    this.icon,
+    this.borderRadius,
+    this.textColor,
+    this.fontSize,
+    this.fontFamily,
+    this.height,
+    this.width,
+    required this.isSelected
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        margin: margin,
+        padding: padding,
+        height: height,
+        width: width,
+        decoration: BoxDecoration(
+            color: color,
+            borderRadius: BorderRadius.circular(borderRadius!)
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextWidget(
+              textTitle: title,
+              fontFamily: fontFamily,
+              fontSize: fontSize,
+              color: textColor,
+            ),
+            SizedBox(width: sizeW(10),),
+            SizedBox(
+              height: Get.height * 0.04,
+                child: Image.asset(icon!))
+          ],
+        )
       ),
     );
   }

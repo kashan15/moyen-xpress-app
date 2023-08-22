@@ -155,7 +155,18 @@ class ProfileScreen extends GetView<ProfileController> {
                       padding: EdgeInsets.symmetric(
                         vertical: _height * 0.015
                       ),
-                      onTap: (){
+                      onTap: ()async{
+                        Get.dialog(
+                            const Center(
+                                child: CircularProgressIndicator(
+                                  color: homeBoxColor,
+                                )
+                            ));
+
+                        // Simulate a delay (e.g., 2 seconds)
+                        await Future.delayed(const Duration(seconds: 2));
+                        // Close the progress indicator
+                        Get.back();
                         Get.toNamed(kEditAccount);
                       },
                       title: editAccount.tr,
@@ -180,7 +191,7 @@ class ProfileScreen extends GetView<ProfileController> {
                     return Column(
                       children: [
                         GestureDetector(
-                          onTap: (){
+                          onTap: ()async{
                             selectOption = index;
                             if(index == 0){
                               // Get.dialog(
@@ -225,22 +236,15 @@ class ProfileScreen extends GetView<ProfileController> {
                               Get.toNamed(kSettingsScreen);
                             }
                             if(index == 5){
-                              /// Error
-                              /// Duplicate GlobalKey detected in widget tree.
-                              // Get.dialog(
-                              //   CustomDialog1(
-                              //     key: instance1.formKey,
-                              //       title: 'Logout',
-                              //       label: 'Are you sure you want to logout?',
-                              //       primaryLabel: 'Yes',
-                              //       primaryTap: (){
-                              //         Get.to(LoginScreen());
-                              //       },
-                              //       secondaryLabel: 'No',
-                              //     secondaryTap: ()=> Get.back(),
-                              //     asset: Image.asset('assets/icons/logout.png'),
-                              //   )
-                              // );
+                              Get.dialog(
+                                  const Center(
+                                      child: CircularProgressIndicator(
+                                        color: homeBoxColor,
+                                      )
+                                  ));
+                              await Future.delayed(const Duration(seconds: 2));
+                              Get.back();
+                              Get.toNamed(kLoginScreen);
                             }
                           },
                           child: Container(

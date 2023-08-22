@@ -1,4 +1,8 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../utils/color_utils.dart';
 import '../utils/image_utils.dart';
@@ -49,6 +53,20 @@ Widget circleAvatar({
         child: imageWidget ??
             genericAsset(asset: asset, iconColor: iconColor, boxFit:boxFit)
 
+    ),
+  );
+}
+
+Widget loader() {
+  return SizedBox(
+    height: Get.height,
+    width: Get.width,
+    child: BackdropFilter(
+      filter: ImageFilter.blur(sigmaX: 0.0, sigmaY: 0),
+      child: Container(
+        color: Colors.black.withOpacity(0.1),
+        child: const Center(child: CircularProgressIndicator()),
+      ),
     ),
   );
 }

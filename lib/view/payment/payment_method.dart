@@ -76,6 +76,7 @@ class PaymentScreen extends GetView<PaymentController> {
           backgroundColor: Colors.white,
           appBar: CustomAppbar1(
             heading: 'Payment Methods',
+            color: Colors.white,
           ),
           body: SingleChildScrollView(
             child: Column(

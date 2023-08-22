@@ -6,6 +6,8 @@ import 'package:moyen_xpress_app/utils/font_utils.dart';
 import 'package:moyen_xpress_app/utils/image_utils.dart';
 import 'package:moyen_xpress_app/utils/size_utils.dart';
 
+import 'custom_dialog.dart';
+
 class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
   final Function()? onMenuClicked;
    CustomAppbar({Key? key,
@@ -35,11 +37,24 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
             child: Row(
               children: [
                 //const SizedBox(width: 20),
-                Icon(
-                  Icons.search,
-                  size: _height * 0.025,
-                   color: Colors.black,
+                Material(
+                  child: InkWell(
+                    onTap: (){
+                      Get.dialog(
+                          CustomDialogSimple(
+                            title: 'Work In Progress',
+                            description: 'currently we are working on that feature',
+                            okTap: false,
+                          )
+                      );
+                    },
+                    child: Icon(
+                      Icons.search,
+                      size: _height * 0.025,
+                       color: Colors.black,
 
+                    ),
+                  ),
                 ),
                 // const SizedBox(width: 10),
                 IconButton(onPressed: onMenuClicked,
@@ -60,8 +75,10 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
 
 class CustomAppbar1 extends StatelessWidget implements PreferredSizeWidget {
 String? heading;
+Color? color;
 CustomAppbar1({Key? key,
-  this.heading
+  this.heading,
+  this.color
 }) : super(key: key);
 
 
@@ -73,7 +90,7 @@ Widget build(BuildContext context) {
   double _height = MediaQuery.of(context).size.height;
   double _width = MediaQuery.of(context).size.width;
   return AppBar(
-    backgroundColor: Colors.white,
+    backgroundColor: color,
     elevation: 1,
     shadowColor: Colors.transparent,
     title: Row(

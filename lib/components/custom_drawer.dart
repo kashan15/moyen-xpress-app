@@ -72,10 +72,16 @@ class CustomDrawer extends GetView<DrawerScreenController> {
                          if(index == 2){
                            Get.toNamed(kAboutScreen);
                          }
+                         if(index == 3){
+                           Get.toNamed(kContactUS);
+                         }
+                         if(index == 4){
+                           Get.toNamed(kShipmentForm);
+                         }
                          if(index == 5){
                            Get.toNamed(kTechnicianSearchScreen);
                          }
-                         if(index == 8){
+                         if(index == 6){
                            Get.to(AuctionScreen(check: false,));
                          }
                         },

@@ -15,6 +15,7 @@ import 'package:moyen_xpress_app/utils/color_utils.dart';
 import 'package:moyen_xpress_app/utils/font_utils.dart';
 import 'package:moyen_xpress_app/utils/image_utils.dart';
 
+import '../../../components/custom_appbar.dart';
 import '../../../components/custom_settings_button.dart';
 import '../../../components/new_custom_text_field_dropdown.dart';
 import '../../../components/test_class.dart';
@@ -547,40 +548,14 @@ class _SettingsScreen1State extends State<SettingsScreen1> {
         bottom: false,
         child: Scaffold(
           backgroundColor: backgroundColor,
+          appBar: CustomAppbar1(
+            heading: 'Settings',
+            color: backgroundColor,
+          ),
           body: SingleChildScrollView(
             child: Column(
               children: [
-                SizedBox(
-                  height: _height * 0.075,
-                ),
-                Row(
-                  children: [
-                    IconButton(
-                        padding: EdgeInsets.only(left: _width * 0.025),
-                        constraints: const BoxConstraints(),
-                        onPressed: () {
-                          Get.back();
-                        },
-                        icon: Icon(
-                          Icons.arrow_back_ios,
-                          size: _height * 0.025,
-                        )),
-                    Expanded(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            TextWidget(
-                              textTitle: 'Settings',
-                              fontWeight: FontWeight.w700,
-                              fontSize: _height * 0.025,
-                              color: Colors.black,
-                            ),
-                          ],
-                        ))
-                  ],
-                ),
-
-                SizedBox(height: _height * 0.05,),
+                SizedBox(height: _height * 0.02,),
                 Padding(
                   padding: EdgeInsets.symmetric(
                       horizontal: _width * 0.04

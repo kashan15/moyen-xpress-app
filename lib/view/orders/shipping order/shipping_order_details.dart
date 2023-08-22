@@ -8,6 +8,7 @@ import 'package:moyen_xpress_app/controller/profile_screen_controller.dart';
 import 'package:moyen_xpress_app/utils/color_utils.dart';
 import 'package:moyen_xpress_app/utils/image_utils.dart';
 import 'package:moyen_xpress_app/utils/theme.dart';
+import '../../../components/custom_appbar.dart';
 import '../../../components/custom_dialog.dart';
 import '../../../components/custom_richtext.dart';
 import '../../../controller/shipping_order_details_controller.dart';
@@ -58,40 +59,16 @@ class ShippingOrderDetailsScreen extends GetView<ShippingOrderDetailsController>
         bottom: false,
         child: Scaffold(
           backgroundColor: Colors.white,
+          appBar: CustomAppbar1(
+            heading: check1 == false ? 'Shipping Orders' : 'Quote Orders',
+            color: Colors.white,
+          ),
           body: SingleChildScrollView(
             // physics: const NeverScrollableScrollPhysics(),
             child: check1 == false ?
             Column(
               children: [
-                SizedBox(height: _height * 0.075,),
-                Row(
-                  children: [
-                    IconButton(
-                        padding: EdgeInsets.only(left: _width * 0.025),
-                        constraints: const BoxConstraints(),
-                        onPressed: () {
-                          Get.back();
-                        },
-                        icon: Icon(
-                          Icons.arrow_back_ios,
-                          size: _height * 0.025,
-                        )),
-                    Expanded(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            TextWidget(
-                              textTitle: 'Shipping Orders',
-                              fontWeight: FontWeight.w700,
-                              fontSize: _height * 0.025,
-                              color: Colors.black,
-                            ),
-                          ],
-                        ))
-                  ],
-                ),
-                SizedBox(height: _height * 0.01,),
-
+                // SizedBox(height: _height * 0.02,),
                 /// Main Padding
                 Padding(
                     padding: EdgeInsets.symmetric(
@@ -214,7 +191,15 @@ class ShippingOrderDetailsScreen extends GetView<ShippingOrderDetailsController>
                                     isSelected: false,
                                     margin: EdgeInsets.zero,
                                     width: _width * 0.375,
-                                    onTap: (){
+                                    onTap: ()async{
+                                      Get.dialog(
+                                          const Center(
+                                              child: CircularProgressIndicator(
+                                                color: homeBoxColor,
+                                              )
+                                          ));
+                                      await Future.delayed(const Duration(seconds: 2));
+                                      Get.back();
                                       Get.dialog(
                                           CustomDialogSimple(
                                               title: 'Re Ordered',
@@ -469,35 +454,6 @@ class ShippingOrderDetailsScreen extends GetView<ShippingOrderDetailsController>
             ) :
             Column(
               children: [
-                SizedBox(height: _height * 0.075,),
-                Row(
-                  children: [
-                    IconButton(
-                        padding: EdgeInsets.only(left: _width * 0.025),
-                        constraints: const BoxConstraints(),
-                        onPressed: () {
-                          Get.back();
-                        },
-                        icon: Icon(
-                          Icons.arrow_back_ios,
-                          size: _height * 0.025,
-                        )),
-                    Expanded(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            TextWidget(
-                              textTitle: 'Quote Orders',
-                              fontWeight: FontWeight.w700,
-                              fontSize: _height * 0.025,
-                              color: Colors.black,
-                            ),
-                          ],
-                        ))
-                  ],
-                ),
-                SizedBox(height: _height * 0.01,),
-
                 /// Main Padding
                 Padding(
                   padding: EdgeInsets.symmetric(
@@ -641,7 +597,15 @@ class ShippingOrderDetailsScreen extends GetView<ShippingOrderDetailsController>
                                         isSelected: false,
                                         margin: EdgeInsets.zero,
                                         width: _width * 0.31,
-                                        onTap: (){
+                                        onTap: ()async {
+                                          Get.dialog(
+                                              const Center(
+                                                  child: CircularProgressIndicator(
+                                                    color: homeBoxColor,
+                                                  )
+                                              ));
+                                          await Future.delayed(const Duration(seconds: 2));
+                                          Get.back();
                                           Get.dialog(
                                               CustomDialogSimple(
                                                   title: 'Downloaded',

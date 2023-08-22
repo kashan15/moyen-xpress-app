@@ -639,6 +639,7 @@ class HomeScreen extends GetView<HomeController> {
                           // ),
 
                           SizedBox(height: _height * 0.01,),
+
                           GridView.builder(
                             shrinkWrap: true,
                             physics: const NeverScrollableScrollPhysics(),
@@ -657,11 +658,19 @@ class HomeScreen extends GetView<HomeController> {
                             itemBuilder: (BuildContext context, int index) {
                               // Build each container
                               return  GestureDetector(
-                                onTap: (){
+                                onTap: ()async{
+                                  Get.dialog(
+                                      const Center(
+                                          child: CircularProgressIndicator(
+                                            color: homeBoxColor,
+                                          )
+                                      ));
+                                  await Future.delayed(const Duration(seconds: 2));
+                                  Get.back();
                                   Get.to(
                                       ProductDetails(
                                         check1: 0,
-                                          imageIndex: controller.itemsList[index],
+                                        imageIndex: controller.itemsList[index],
                                       )
                                   );
                                 },
@@ -876,13 +885,21 @@ class HomeScreen extends GetView<HomeController> {
                             itemBuilder: (BuildContext context, int index) {
                               // Build each container
                               return  GestureDetector(
-                                onTap: (){
+                                onTap: ()async{
                                   controller.homeTap = true;
-                                 Get.to(
-                                     ProductDetails(
-                                         check1: 0,
-                                         imageIndex: controller.dailyDealsList[index])
-                                 );
+                                  Get.dialog(
+                                      const Center(
+                                          child: CircularProgressIndicator(
+                                            color: homeBoxColor,
+                                          )
+                                      ));
+                                  await Future.delayed(const Duration(seconds: 2));
+                                  Get.back();
+                                  Get.to(
+                                      ProductDetails(
+                                          check1: 0,
+                                          imageIndex: controller.dailyDealsList[index])
+                                  );
                                 },
                                 child: Container(
                                     padding: EdgeInsets.symmetric(horizontal: _width * 0.0225, vertical: _height * 0.0125),
@@ -1167,7 +1184,15 @@ class HomeScreen extends GetView<HomeController> {
                             itemBuilder: (BuildContext context, int index) {
                               // Build each container
                               return  GestureDetector(
-                                onTap: (){
+                                onTap: ()async{
+                                 Get.dialog(
+                                     const Center(
+                                         child: CircularProgressIndicator(
+                                           color: homeBoxColor,
+                                         )
+                                     ));
+                                 await Future.delayed(const Duration(seconds: 2));
+                                 Get.back();
                                  Get.to(
                                      ProductDetails(
                                          check1: 0,
@@ -1357,11 +1382,19 @@ class HomeScreen extends GetView<HomeController> {
                             itemBuilder: (BuildContext context, int index) {
                               // Build each container
                               return  GestureDetector(
-                                onTap: (){
+                                onTap: ()async{
+                                  Get.dialog(
+                                      const Center(
+                                          child: CircularProgressIndicator(
+                                            color: homeBoxColor,
+                                          )
+                                      ));
+                                  await Future.delayed(const Duration(seconds: 2));
+                                  Get.back();
                                   Get.to(
-                                    ProductDetails(
-                                        check1: 0,
-                                        imageIndex: controller.promotionsList[index])
+                                      ProductDetails(
+                                          check1: 0,
+                                          imageIndex: controller.promotionsList[index])
                                   );
                                 },
                                 child: Container(
@@ -1548,7 +1581,15 @@ class HomeScreen extends GetView<HomeController> {
                             itemBuilder: (BuildContext context, int index) {
                               // Build each container
                               return  GestureDetector(
-                                onTap: (){
+                                onTap: ()async{
+                                 Get.dialog(
+                                     const Center(
+                                         child: CircularProgressIndicator(
+                                           color: homeBoxColor,
+                                         )
+                                     ));
+                                 await Future.delayed(const Duration(seconds: 2));
+                                 Get.back();
                                  Get.to(
                                      ProductDetails(
                                          check1: 0,
@@ -1706,7 +1747,15 @@ class HomeScreen extends GetView<HomeController> {
                             itemBuilder: (BuildContext context, int index) {
                               // Build each container
                               return  GestureDetector(
-                                onTap: (){
+                                onTap: ()async{
+                                 Get.dialog(
+                                     const Center(
+                                         child: CircularProgressIndicator(
+                                           color: homeBoxColor,
+                                         )
+                                     ));
+                                 await Future.delayed(const Duration(seconds: 2));
+                                 Get.back();
                                  Get.to(
                                      ProductDetails(
                                          check1: 0,

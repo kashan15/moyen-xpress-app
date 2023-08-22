@@ -15,7 +15,9 @@ import '../../constants/validations.dart';
 import '../../controller/login_screen_controller.dart';
 
 class LoginScreenNew extends GetView<LoginScreenController> {
-  const LoginScreenNew({Key? key}) : super(key: key);
+   LoginScreenNew({Key? key}) : super(key: key);
+
+  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -189,20 +191,21 @@ class LoginScreenNew extends GetView<LoginScreenController> {
                   ),
                 ),
                 SizedBox(height: Get.height * 0.04,),
-                CustomButton(
-                    isSelected: false,
-                  padding: EdgeInsets.symmetric(vertical: Get.height * 0.02),
-                  margin: EdgeInsets.symmetric(horizontal: Get.width * 0.025),
-                  color: homeBoxColor,
-                  title: 'Signin',
-                  fontSize: Get.height * 0.02,
-                  fontFamily: poppinsMedium,
-                  textColor: Colors.white,
-                  borderRadius: Get.width * 0.015,
-                  onTap: (){
-                      Get.toNamed(kNavBar1);
-                  },
-                ),
+                   CustomButton(
+                      isSelected: false,
+                    padding: EdgeInsets.symmetric(vertical: Get.height * 0.02),
+                    margin: EdgeInsets.symmetric(horizontal: Get.width * 0.025),
+                    color: homeBoxColor,
+                    title: 'Signin',
+                    fontSize: Get.height * 0.02,
+                    fontFamily: poppinsMedium,
+                    textColor: Colors.white,
+                    borderRadius: Get.width * 0.015,
+                    onTap: () {
+                      controller.startDelayedNavigation();
+                    }
+                  ),
+
                 SizedBox(height: Get.height * 0.02,),
                 GestureDetector(
                   onTap: (){

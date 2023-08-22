@@ -12,6 +12,7 @@ import 'package:moyen_xpress_app/utils/lang_string_util.dart';
 import 'package:moyen_xpress_app/utils/route_utils.dart';
 import 'package:moyen_xpress_app/view/orders/shipping%20order/shipping_orders.dart';
 
+import '../../components/custom_appbar.dart';
 import '../../components/custom_richtext.dart';
 import '../../utils/font_utils.dart';
 
@@ -55,38 +56,15 @@ class MyOrdersScreen extends GetView<MyOrdersController> {
         bottom: false,
         child: Scaffold(
           backgroundColor: backgroundColor,
+          appBar: CustomAppbar1(
+            heading: 'My Orders',
+            color: backgroundColor,
+          ),
           body: SingleChildScrollView(
             physics: const NeverScrollableScrollPhysics(),
             child: Column(
               children: [
-                SizedBox(height: _height * 0.075,),
-                Row(
-                  children: [
-                    IconButton(
-                        padding: EdgeInsets.only(left: _width * 0.025),
-                        constraints: const BoxConstraints(),
-                        onPressed: () {
-                          Get.back();
-                        },
-                        icon: Icon(
-                          Icons.arrow_back_ios,
-                          size: _height * 0.025,
-                        )),
-                    Expanded(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            TextWidget(
-                              textTitle: 'My Orders',
-                              fontWeight: FontWeight.w700,
-                              fontSize: _height * 0.025,
-                              color: Colors.black,
-                            ),
-                          ],
-                        ))
-                  ],
-                ),
-                SizedBox(height: _height * 0.03,),
+                SizedBox(height: _height * 0.02,),
                 Container(
                   height: Get.height * 0.25,
                   width: double.infinity,

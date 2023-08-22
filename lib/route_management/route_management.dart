@@ -6,21 +6,20 @@ import 'package:moyen_xpress_app/view/about/about_screen.dart';
 import 'package:moyen_xpress_app/view/auction/auction_products.dart';
 import 'package:moyen_xpress_app/view/authentication/new_login_screen.dart';
 import 'package:moyen_xpress_app/view/cart/order_confirmation.dart';
+import 'package:moyen_xpress_app/view/onboarding/onboarding_screen_1.dart';
 import 'package:moyen_xpress_app/view/shipping/shipment_description.dart';
 import 'package:moyen_xpress_app/view/shipping/shipping_From.dart';
 import 'package:moyen_xpress_app/view/store/store_home_screen.dart';
-
 import '../components/custom_navbar.dart';
 import '../components/custom_navbar1.dart';
 import '../controller/home_controller.dart';
 import '../utils/route_utils.dart';
-import '../view/authentication/login_screen.dart';
 import '../view/authentication/new_signup_screen.dart';
-import '../view/authentication/signup_screen.dart';
 import '../view/cart/my_cart.dart';
 import '../view/categories/categories_details.dart';
 import '../view/categories/categories_screen.dart';
 import '../view/chat/chat_screen.dart';
+import '../view/contact us/contact_us_screen.dart';
 import '../view/dashboard_tab_screen.dart';
 import '../view/history/purchase history/purchase_history.dart';
 import '../view/history/purchase history/purchase_history_details.dart';
@@ -28,6 +27,8 @@ import '../view/home/home_screen.dart';
 import '../view/home/show_more.dart';
 import '../view/notification/notification_screen.dart';
 import '../view/onboard initial screen/initial_screen.dart';
+import '../view/onboarding/onboarding_screen_2.dart';
+import '../view/onboarding/onboarding_screen_3.dart';
 import '../view/orders/my_order_details.dart';
 import '../view/orders/my_orders.dart';
 import '../view/orders/quote order/quote_order_details.dart';
@@ -40,7 +41,7 @@ import '../view/profile/profile_screen.dart';
 import '../view/profile/settings/settings_screen.dart';
 import '../view/quotes/shipping_quote_details.dart';
 import '../view/shipping/shipment_form.dart';
-import '../view/splash/splash_screen.dart';
+import '../view/splash/new_splash_screen.dart';
 import '../view/store/store_screen.dart';
 import '../view/technician/technician_search_screen.dart';
 import 'controller_binding.dart';
@@ -57,7 +58,7 @@ class RouteManagement {
       ),
       GetPage(
         name:   kLoginScreen,
-        page: () =>  const LoginScreenNew(),
+        page: () =>   LoginScreenNew(),
         binding: ControllerBinding(),
       ),
       GetPage(
@@ -68,6 +69,26 @@ class RouteManagement {
       GetPage(
         name:   kInitialScreen,
         page: () => InitialDetailScreen(),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
+        name:   kOnboardScreen1,
+        page: () => const OnboardingScreen1(),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
+        name:   kOnboardScreen2,
+        page: () => const OnboardingScreen2(),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
+        name:   kOnboardScreen3,
+        page: () => const OnboardingScreen3(),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
+        name:   kContactUS,
+        page: () => ContactUsScreen(),
         binding: ControllerBinding(),
       ),
       GetPage(

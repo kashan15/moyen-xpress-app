@@ -568,7 +568,7 @@ class ShipmentDescription extends GetView<ShipmentDescriptionController> {
                             CustomButton(
                               isSelected: false,
                               onTap: (){
-
+                                Get.to(kNavBar1);
                               },
                               margin: EdgeInsets.zero,
                               width: double.infinity,

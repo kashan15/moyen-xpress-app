@@ -15,7 +15,8 @@ class Dropdown extends StatelessWidget {
     return Container(
         padding: EdgeInsets.symmetric(horizontal: sizeW(15)),
         decoration: BoxDecoration(
-          color: textFieldColor,
+          // color: textFieldColor,
+          color: backgroundColor,
           borderRadius: BorderRadius.circular(sizeW(40)),
           boxShadow: [
             BoxShadow(

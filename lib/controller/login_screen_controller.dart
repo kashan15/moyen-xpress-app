@@ -5,9 +5,11 @@ import 'package:moyen_xpress_app/utils/route_utils.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../components/test_class.dart';
+import '../components/text_widget.dart';
 import '../models/login_screen_model.dart';
 import '../services/provider.dart';
 import '../utils/color_utils.dart';
+import '../utils/font_utils.dart';
 
 
 class LoginScreenController extends GetxController{
@@ -49,6 +51,7 @@ class LoginScreenController extends GetxController{
     }
   }
 
+
   void login()async{
     isLoading.value = true;
     showError.value = '';
@@ -80,6 +83,91 @@ class LoginScreenController extends GetxController{
     // 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
     //
 
+  }
+
+  bool isLoading1 = false;
+
+  void onLogin()async{
+    if(email.text.isEmpty){
+      Get.snackbar(
+        'please',
+        'enter email'
+      );
+    }
+    else if(password.text.isEmpty){
+      Get.snackbar(
+          'please',
+          'enter password'
+      );
+    } else {
+      isLoading1 = true;
+      Future.delayed(const Duration(seconds: 3), (){
+        Get.toNamed(kNavBar1);
+      }
+      );
+      isLoading1 = false;
+    }
+  }
+
+  void startDelayedNavigation() async {
+    if(email.text.isEmpty){
+      Get.snackbar(
+          '',
+          '',
+        colorText: Colors.white,
+        backgroundColor: Colors.white,
+        titleText: TextWidget(
+          textTitle: 'please',
+          fontFamily: poppinsSemiBold,
+          fontSize: Get.height * 0.02,
+          color: Colors.black,
+        ),
+        messageText: TextWidget(
+          textTitle: 'enter your email first',
+          fontFamily: poppinsMedium,
+          fontSize: Get.height * 0.015,
+          color: Colors.black,
+        ),
+      );
+    }
+    else if(password.text.isEmpty){
+      Get.snackbar(
+          '',
+          '',
+        colorText: Colors.white,
+        backgroundColor: Colors.white,
+        titleText: TextWidget(
+          textTitle: 'please',
+          fontFamily: poppinsSemiBold,
+          fontSize: Get.height * 0.02,
+          color: Colors.black,
+        ),
+        messageText: TextWidget(
+          textTitle: 'enter password',
+          fontFamily: poppinsMedium,
+          fontSize: Get.height * 0.015,
+          color: Colors.black,
+        ),
+      );
+
+    }
+   else {
+      // Show the circular progress indicator
+      Get.dialog(
+          const Center(
+              child: CircularProgressIndicator(
+                color: homeBoxColor,
+              )
+          ));
+
+      // Simulate a delay (e.g., 2 seconds)
+      await Future.delayed(const Duration(seconds: 2));
+      // Close the progress indicator
+      Get.back();
+
+      // Navigate to a new screen
+      Get.toNamed(kNavBar1);
+    }
   }
 
 

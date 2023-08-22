@@ -10,6 +10,7 @@ import 'package:moyen_xpress_app/utils/color_utils.dart';
 import 'package:moyen_xpress_app/utils/image_utils.dart';
 import 'package:moyen_xpress_app/utils/route_utils.dart';
 import 'package:moyen_xpress_app/view/orders/shipping%20order/shipping_order_details.dart';
+import '../../../components/custom_appbar.dart';
 import '../../../components/custom_richtext.dart';
 import '../../../controller/shipping_orders_controller.dart';
 import '../../../utils/font_utils.dart';
@@ -57,41 +58,15 @@ class ShippingOrderScreen extends GetView<ShippingOrderController> {
         bottom: false,
         child: Scaffold(
           backgroundColor: Colors.white,
+          appBar: CustomAppbar1(
+            heading: check == false ? 'Shipping Orders' : 'Quotes Orders',
+            color: Colors.white,
+          ),
           body: SingleChildScrollView(
             // physics: const NeverScrollableScrollPhysics(),
             child: Column(
               children: [
-                SizedBox(height: _height * 0.075,),
-                Row(
-                  children: [
-                    IconButton(
-                        padding: EdgeInsets.only(left: _width * 0.025),
-                        constraints: const BoxConstraints(),
-                        onPressed: () {
-                          Get.back();
-                        },
-                        icon: Icon(
-                          Icons.arrow_back_ios,
-                          size: _height * 0.025,
-                        )),
-                    Expanded(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            TextWidget(
-                              textTitle: check == false ?
-                              'Shipping Orders' :
-                              'Quote Orders',
-                              fontWeight: FontWeight.w700,
-                              fontSize: _height * 0.025,
-                              color: Colors.black,
-                            ),
-                          ],
-                        ))
-                  ],
-                ),
-                SizedBox(height: _height * 0.03,),
-
+                SizedBox(height: _height * 0.02,),
                 Container(
                   color: Colors.white,
                   height: Get.height,
@@ -249,12 +224,20 @@ class ShippingOrderScreen extends GetView<ShippingOrderController> {
                                           padding: EdgeInsets.zero,
                                             constraints: const BoxConstraints(),
 
-                                            onPressed: (){
+                                            onPressed: ()async{
                                             Get.dialog(
-                                              CustomDialogSimple(
-                                                  title: 'Done',
-                                                  description: 'item has been deleted successfully',
-                                                  okTap: true)
+                                                const Center(
+                                                    child: CircularProgressIndicator(
+                                                      color: homeBoxColor,
+                                                    )
+                                                ));
+                                            await Future.delayed(const Duration(seconds: 2));
+                                            Get.back();
+                                            Get.dialog(
+                                                CustomDialogSimple(
+                                                    title: 'Done',
+                                                    description: 'item has been deleted successfully',
+                                                    okTap: true)
                                             );
                                             },
                                             icon: Image.asset(

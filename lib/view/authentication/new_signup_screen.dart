@@ -288,7 +288,9 @@ class SignupScreenNew extends GetView<SignupScreenController> {
                   fontFamily: poppinsMedium,
                   textColor: Colors.white,
                   borderRadius: Get.width * 0.015,
-                  onTap: (){},
+                  onTap: (){
+                    controller.startDelayedNavigation();
+                  },
                 ),
                 SizedBox(height: Get.height * 0.01,),
                 GestureDetector(

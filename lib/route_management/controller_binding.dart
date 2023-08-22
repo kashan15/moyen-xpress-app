@@ -3,6 +3,7 @@ import 'package:moyen_xpress_app/controller/about_screen_controller.dart';
 import 'package:moyen_xpress_app/controller/auction_products_controller.dart';
 import 'package:moyen_xpress_app/controller/categories_controller.dart';
 import 'package:moyen_xpress_app/controller/categories_details_controller.dart';
+import 'package:moyen_xpress_app/controller/contact_us_screen_controller.dart';
 import 'package:moyen_xpress_app/controller/drawer_controller.dart';
 import 'package:moyen_xpress_app/controller/edit_account_controller.dart';
 import 'package:moyen_xpress_app/controller/home_controller.dart';
@@ -11,6 +12,7 @@ import 'package:moyen_xpress_app/controller/my_cart_controller.dart';
 import 'package:moyen_xpress_app/controller/my_orders_controller.dart';
 import 'package:moyen_xpress_app/controller/navbar_controller.dart';
 import 'package:moyen_xpress_app/controller/notification_controller.dart';
+import 'package:moyen_xpress_app/controller/onboard_screen_controller.dart';
 
 import 'package:moyen_xpress_app/controller/payment_method_controller.dart';
 
@@ -37,7 +39,6 @@ import '../controller/shipment_description_controller.dart';
 import '../controller/shipping_From_controller.dart';
 import '../controller/shipping_orders_controller.dart';
 import '../controller/shipping_quote_details_controller.dart';
-
 
 class ControllerBinding extends Bindings {
   @override
@@ -78,5 +79,7 @@ class ControllerBinding extends Bindings {
     Get.lazyPut(() => ShippingFromController());
     Get.lazyPut(() => ShipmentDescriptionController());
     Get.lazyPut(() => TechnicianSearchController());
+    Get.lazyPut(() => OnboardScreenController());
+    Get.lazyPut(() => ContactUsScreenController());
   }
 }

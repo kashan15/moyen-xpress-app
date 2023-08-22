@@ -108,7 +108,15 @@ class CategoriesScreen extends GetView<CategoriesController> {
               itemBuilder: (BuildContext context, int index) {
                 // Build each container
                 return  GestureDetector(
-                  onTap: (){
+                  onTap: ()async{
+                    Get.dialog(
+                        const Center(
+                            child: CircularProgressIndicator(
+                              color: homeBoxColor,
+                            )
+                        ));
+                    await Future.delayed(const Duration(seconds: 2));
+                    Get.back();
                     Get.toNamed(kCategoryDetails);
                   },
                   child: Container(

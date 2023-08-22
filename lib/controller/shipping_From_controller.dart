@@ -58,7 +58,7 @@ class ShippingFromController extends GetxController
     if (!isTapped.value) {
       isTapped.value = true;
     } else {
-      Get.toNamed(kAboutScreen); // Navigate to the OtherPage
+      Get.toNamed(kShipmentDescription); // Navigate to the OtherPage
     }
   }
 

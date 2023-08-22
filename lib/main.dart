@@ -60,6 +60,9 @@ class MyApp extends StatelessWidget {
             title: 'Moyen Xpress App',
             theme: ThemeData(
               primarySwatch: primaryColorSwatch,
+              appBarTheme: AppBarTheme(
+                backgroundColor: Colors.white
+              ),
               // colorScheme: const ColorScheme.dark(),
               fontFamily:'Nexa',
             ),
@@ -69,7 +72,7 @@ class MyApp extends StatelessWidget {
             fallbackLocale: const Locale('en', 'US'),
             translations: AppTranslations(),
 
-            initialRoute: kNavBar1,
+            initialRoute: kSplashScreen,
             getPages: RouteManagement.getPages(),
 
             // initialBinding: ControllerBinding(),

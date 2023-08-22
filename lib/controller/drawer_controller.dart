@@ -34,19 +34,8 @@ class DrawerScreenController extends GetxController
       "name": "Technician"
     },
     {
-      "icon": ImageUtils.advertiserIcon,
-      "name": "Advertiser"
-    },
-    {
-      "icon": ImageUtils.sellerIcon,
-      "name": "Seller"
-    },
-    {
       "icon": ImageUtils.auctionIcon,
       "name": "Auction"
-    },{
-      "icon": ImageUtils.wholesaleIcon,
-      "name": "Wholesale"
     },
 
   ];

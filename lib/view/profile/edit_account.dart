@@ -10,6 +10,7 @@ import 'package:moyen_xpress_app/controller/profile_screen_controller.dart';
 import 'package:moyen_xpress_app/utils/color_utils.dart';
 import 'package:moyen_xpress_app/utils/image_utils.dart';
 
+import '../../components/custom_appbar.dart';
 import '../../components/custom_dialog.dart';
 import '../../components/custom_richtext.dart';
 import '../../components/custom_textfield1.dart';
@@ -40,50 +41,17 @@ class EditAccountScreen extends GetView<EditAccountController> {
         bottom: false,
         child: Scaffold(
             backgroundColor: backgroundColor,
+            appBar: CustomAppbar1(
+              heading: 'Profile',
+              color: backgroundColor,
+            ),
             body: CustomScrollView(
               slivers: [
                 SliverFillRemaining(
                   hasScrollBody: false,
                   child: Column(
                     children: [
-                      SizedBox(
-                        height: _height * 0.075,
-                      ),
-                      Row(
-                        children: [
-                          IconButton(
-                              padding: EdgeInsets.only(left: _width * 0.025),
-                              constraints: const BoxConstraints(),
-                              onPressed: () {
-                                Get.back();
-                              },
-                              icon: Icon(
-                                Icons.arrow_back_ios,
-                                size: _height * 0.025,
-                              )),
-                          Expanded(
-                              child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              TextWidget(
-                                textTitle: 'Profile',
-                                fontWeight: FontWeight.w700,
-                                fontSize: _height * 0.025,
-                                color: Colors.black,
-                              ),
-                              TextWidget(
-                                textTitle: 'Pro',
-                                fontWeight: FontWeight.w700,
-                                fontSize: _height * 0.025,
-                                color: Colors.transparent,
-                              ),
-                            ],
-                          ))
-                        ],
-                      ),
-                      SizedBox(
-                        height: _height * 0.025,
-                      ),
+                      SizedBox(height: _height * 0.02,),
                       Stack(
                         children: [
                           Obx(() {
@@ -448,7 +416,18 @@ class EditAccountScreen extends GetView<EditAccountController> {
                             EdgeInsets.symmetric(
                                 vertical: _height * 0.02
                             ),
-                        onTap: () {
+                        onTap: ()async{
+                          Get.dialog(
+                              const Center(
+                                  child: CircularProgressIndicator(
+                                    color: homeBoxColor,
+                                  )
+                              ));
+
+                          // Simulate a delay (e.g., 2 seconds)
+                          await Future.delayed(const Duration(seconds: 2));
+                          // Close the progress indicator
+                          Get.back();
                           Get.dialog(
                               CustomDialogSimple(
                                 title: 'Done',

@@ -52,10 +52,12 @@ class ImageUtils{
   static const String editIcon = 'assets/icons/edit.png';
   static const String storeIconBlack = 'assets/icons/storeIcon.png';
   static const String technicianIcon1 = 'assets/icons/technicianIcon.png';
+  static const String arrowForwardCircular = 'assets/icons/arrow.png';
 
 
   /// Images
   static const String logo = 'assets/images/logo.png';
+  static const String moyenLogo = 'assets/images/moyenLogo.png';
   static const String homeBanner = 'assets/images/homeBanner.png';
   static const String dealItem = 'assets/images/dealItem.png';
   static const String newArrival = 'assets/images/newArrival.png';
@@ -119,7 +121,7 @@ class ImageUtils{
   static const String loginBackground = 'assets/images/loginBackground.png';
   static const String onboard1 = 'assets/images/onboard1.png';
   static const String onboard2 = 'assets/images/onboard2.png';
-  static const String onboard3 = 'assets/images/onboard2.png';
+  static const String onboard3 = 'assets/images/onboard3.png';
   static const String storeHomeBanner = 'assets/images/storeHomeBanner.png';
   static const String aboutBanner = 'assets/images/aboutBanner.png';
   static const String auctionBanner = 'assets/images/auctionBanner.png';
@@ -130,7 +132,9 @@ class ImageUtils{
   static const String technicianPic2 = 'assets/images/technicianPic2.png';
   static const String technicianPic3 = 'assets/images/technicianPic3.png';
   static const String technicianPic4 = 'assets/images/technicianPic4.png';
-
+  static const String splashBackground = 'assets/images/splashBackground.png';
+  static const String splashBackground2 = 'assets/images/splashBackground2.png';
+  static const String mapPic = 'assets/images/mapPic.png';
 
 }
 
