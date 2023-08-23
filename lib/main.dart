@@ -72,7 +72,7 @@ class MyApp extends StatelessWidget {
             fallbackLocale: const Locale('en', 'US'),
             translations: AppTranslations(),
 
-            initialRoute: kSplashScreen,
+            initialRoute: kNavBar1,
             getPages: RouteManagement.getPages(),
 
             // initialBinding: ControllerBinding(),

@@ -17,6 +17,7 @@ import 'package:slide_countdown/slide_countdown.dart';
 
 import '../../components/custom_dialog.dart';
 import '../../components/custom_textfield1.dart';
+import '../../components/test_class.dart';
 import '../../constants/validations.dart';
 import '../../utils/route_utils.dart';
 import '../../utils/theme.dart';
@@ -1635,8 +1636,10 @@ class ProductDetails extends StatelessWidget {
                             )
                         ),
                         Positioned(
-                            top: _height * 0.0175,
-                            left: _width * 0.575,
+                            // top: _height * 0.0175,
+                            // left: _width * 0.575,
+                            top: heightFS(12),
+                            left: widthFS(200),
                             child:
                             GestureDetector(
                               onTap: (){

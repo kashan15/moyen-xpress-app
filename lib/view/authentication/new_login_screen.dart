@@ -4,6 +4,7 @@ import 'package:moyen_xpress_app/components/custom_grid_button.dart';
 import 'package:moyen_xpress_app/components/custom_richtext.dart';
 import 'package:moyen_xpress_app/components/custom_textfield.dart';
 import 'package:moyen_xpress_app/components/custom_textfield1.dart';
+import 'package:moyen_xpress_app/components/test_class.dart';
 import 'package:moyen_xpress_app/components/text_widget.dart';
 import 'package:moyen_xpress_app/utils/color_utils.dart';
 import 'package:moyen_xpress_app/utils/font_utils.dart';
@@ -34,7 +35,7 @@ class LoginScreenNew extends GetView<LoginScreenController> {
             padding: EdgeInsets.symmetric(horizontal: Get.width * 0.05),
             child: Column(
               children: [
-                SizedBox(height: Get.height * 0.05,),
+                SizedBox(height: sizeH(45),),
                 /// For Headings
                 Row(
                     children: [
@@ -76,7 +77,7 @@ class LoginScreenNew extends GetView<LoginScreenController> {
                           () =>
                           Column(
                             children: [
-                              SizedBox(height: Get.height * 0.07,),
+                              SizedBox(height: sizeH(50),),
                               Padding(
                                 padding: EdgeInsets.symmetric(
                                     horizontal: Get.width * 0.025
@@ -90,7 +91,7 @@ class LoginScreenNew extends GetView<LoginScreenController> {
                                   ],
                                 ),
                               ),
-                              SizedBox(height: Get.height * 0.01,),
+                              SizedBox(height: sizeH(5),),
                               Container(
                                 margin: EdgeInsets.symmetric(horizontal: Get.width * 0.025),
                                 height: Get.height * 0.075,
@@ -118,7 +119,7 @@ class LoginScreenNew extends GetView<LoginScreenController> {
                                 ),
                               ),
 
-                              SizedBox(height: Get.height * 0.02,),
+                              SizedBox(height: sizeH(8),),
                               Padding(
                                 padding: EdgeInsets.symmetric(
                                     horizontal: Get.width * 0.025
@@ -132,7 +133,7 @@ class LoginScreenNew extends GetView<LoginScreenController> {
                                   ],
                                 ),
                               ),
-                              SizedBox(height: Get.height * 0.01,),
+                              SizedBox(height: sizeH(5),),
                               Container(
                                 margin: EdgeInsets.symmetric(
                                     horizontal: Get.width * 0.025
@@ -171,7 +172,7 @@ class LoginScreenNew extends GetView<LoginScreenController> {
                           ),
                     )
                 ),
-                SizedBox(height: Get.height * 0.01,),
+                SizedBox(height: sizeH(10),),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: Get.width * 0.025),
                   child: Row(
@@ -190,7 +191,7 @@ class LoginScreenNew extends GetView<LoginScreenController> {
                     ],
                   ),
                 ),
-                SizedBox(height: Get.height * 0.04,),
+                SizedBox(height: sizeH(25)),
                    CustomButton(
                       isSelected: false,
                     padding: EdgeInsets.symmetric(vertical: Get.height * 0.02),
@@ -206,7 +207,7 @@ class LoginScreenNew extends GetView<LoginScreenController> {
                     }
                   ),
 
-                SizedBox(height: Get.height * 0.02,),
+                SizedBox(height: sizeH(15),),
                 GestureDetector(
                   onTap: (){
                     Get.toNamed(kSignupScreen);
@@ -219,7 +220,7 @@ class LoginScreenNew extends GetView<LoginScreenController> {
                     decoration: TextDecoration.underline,
                   ),
                 ),
-                SizedBox(height: Get.height * 0.1,),
+                SizedBox(height: sizeH(85),),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: Get.width * 0.025),
                   child: Row(
@@ -231,12 +232,12 @@ class LoginScreenNew extends GetView<LoginScreenController> {
                           thickness: 1,
                         ),
                       ),
-                      SizedBox(width: Get.width * 0.03,),
+                      SizedBox(width: sizeW(10),),
                       TextWidget1(
                           textTitle: 'Or',
                           style: CustomTheme.headingWhiteBold
                       ),
-                      SizedBox(width: Get.width * 0.03,),
+                      SizedBox(width: sizeW(10),),
                       const Expanded(
                         child: Divider(
                           color: Colors.white,
@@ -246,24 +247,25 @@ class LoginScreenNew extends GetView<LoginScreenController> {
                     ],
                   ),
                 ),
-                SizedBox(height: Get.height * 0.02,),
+                SizedBox(height: sizeH(12),),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     CustomSocialContainer(
                       onTap: (){},
                       image: ImageUtils.facebookIcon1,),
-                    SizedBox(width: Get.width * 0.035,),
+                    SizedBox(width: sizeW(10),),
                     CustomSocialContainer(
                       onTap: (){},
                       image: ImageUtils.gmailIcon1,),
-                    SizedBox(width: Get.width * 0.035,),
+                    SizedBox(width: sizeW(10),),
                     CustomSocialContainer(
                       onTap: (){},
                       image: ImageUtils.appleIcon1,),
-                    SizedBox(width: Get.width * 0.035,),
+                    SizedBox(width: sizeW(10),),
                   ],
-                )
+                ),
+                SizedBox(height: sizeH(5),),
               ],
             ),
           ),

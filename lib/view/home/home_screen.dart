@@ -7,6 +7,7 @@ import 'package:moyen_xpress_app/components/custom_appbar.dart';
 import 'package:moyen_xpress_app/components/custom_dialog.dart';
 import 'package:moyen_xpress_app/components/custom_grid_button.dart';
 import 'package:moyen_xpress_app/components/rating_widget.dart';
+import 'package:moyen_xpress_app/components/test_class.dart';
 import 'package:moyen_xpress_app/components/text_widget.dart';
 import 'package:moyen_xpress_app/utils/color_utils.dart';
 import 'package:moyen_xpress_app/utils/font_utils.dart';
@@ -228,6 +229,7 @@ class HomeScreen extends GetView<HomeController> {
                   // endDrawer: const CustomDrawer(),
                   body: SingleChildScrollView(
                     child: Container(
+                      width: double.infinity,
                       color: Colors.white,
                       child: Column(
                         // crossAxisAlignment: CrossAxisAlignment.start,
@@ -649,9 +651,10 @@ class HomeScreen extends GetView<HomeController> {
                             ),
                             itemCount: 4, // Number of containers
                             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: columnsCount,
-                                // childAspectRatio: _height * 0.000835,
-                                childAspectRatio: Get.width*1.35 / Get.height*1.04,
+                              // crossAxisCount: columnsCount,
+                                crossAxisCount: 2,
+                               // childAspectRatio: Get.width*1.35 / Get.height*1.04,
+                                childAspectRatio: sizeH(0.7),
                               crossAxisSpacing: Get.width * 0.06,
                               mainAxisSpacing: Get.height * 0.025
                             ),
@@ -675,7 +678,11 @@ class HomeScreen extends GetView<HomeController> {
                                   );
                                 },
                                 child: Container(
-                                      padding: EdgeInsets.symmetric(horizontal: _width * 0.0225, vertical: _height * 0.0125),
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: _width * 0.0225,
+                                          vertical: _height * 0.0125
+                                      ),
+
                                       decoration: BoxDecoration(
                                         color: gridColor,
                                         borderRadius: BorderRadius.circular(_width * 0.025),
@@ -714,7 +721,8 @@ class HomeScreen extends GetView<HomeController> {
                                             ),
                                           ),
                                         ),
-                                        SizedBox(height: _height * 0.02,),
+                                        // SizedBox(height: _height * 0.02,),
+                                        height(10),
                                         Container(
                                           height: _height * 0.115,
                                           width: double.infinity,
