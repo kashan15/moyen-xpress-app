@@ -9,6 +9,7 @@ import 'package:moyen_xpress_app/utils/image_utils.dart';
 import 'package:moyen_xpress_app/utils/route_utils.dart';
 import 'package:moyen_xpress_app/view/cart/order_confirmation.dart';
 
+import '../../components/custom_dialog.dart';
 import '../../components/custom_richtext.dart';
 import '../../components/test_class.dart';
 import '../../utils/font_utils.dart';
@@ -606,8 +607,9 @@ class MyCart extends StatelessWidget {
                                                   fontFamily2: poppinsRegular,
                                                 ),
                                                 SizedBox(height: _height * 0.02,),
+                                                
                                                 Row(
-                                                  // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                     children:[
                                                       Container(
                                                           height: _height * 0.03,
@@ -679,6 +681,30 @@ class MyCart extends StatelessWidget {
                                                           )
                                                       ),
 
+                                                      Material(
+                                                        child: InkWell(
+                                                          onTap: ()async{
+                                                            Get.dialog(
+                                                                const Center(
+                                                                    child: CircularProgressIndicator(
+                                                                      color: homeBoxColor,
+                                                                    )
+                                                                ));
+                                                            await Future.delayed(const Duration(seconds: 1));
+                                                            Get.back();
+                                                            Get.dialog(
+                                                                CustomDialogSimple(
+                                                                    title: 'Done',
+                                                                    description: 'item has been deleted successfully',
+                                                                    okTap: true)
+                                                            );
+                                                          },
+                                                          child: Image.asset(
+                                                              ImageUtils.deleteIcon
+                                                          ),
+                                                        ),
+                                                      )
+
                                                     ])
                                               ],
                                             ),
@@ -699,18 +725,21 @@ class MyCart extends StatelessWidget {
                                         ],
                                       ),
                                     ),
-                                    Positioned(
-                                        left: sizeW(350),
-                                        top: sizeH(75),
-                                        child: Material(
-                                          child: InkWell(
-                                            onTap: (){},
-                                            child: Image.asset(
-                                                ImageUtils.deleteIcon
-                                            ),
-                                          ),
-                                        )
-                                    ),
+
+                                    /// Delete Icon With Positioned
+                                    // Positioned(
+                                    //     left: sizeW(350),
+                                    //     top: sizeH(75),
+                                    //     child: Material(
+                                    //       child: InkWell(
+                                    //         onTap: (){},
+                                    //         child: Image.asset(
+                                    //             ImageUtils.deleteIcon
+                                    //         ),
+                                    //       ),
+                                    //     )
+                                    // ),
+
                                   ]);
                             },
                           ),
@@ -743,7 +772,15 @@ class MyCart extends StatelessWidget {
                         SizedBox(height: _height * 0.025,),
                         CustomButton(
                           isSelected: false,
-                          onTap: () {
+                          onTap: ()async{
+                            Get.dialog(
+                                const Center(
+                                    child: CircularProgressIndicator(
+                                      color: homeBoxColor,
+                                    )
+                                ));
+                            await Future.delayed(const Duration(seconds: 1));
+                            Get.back();
                             Get.to(OrderConfirmation(select: 0,));
                           },
                           margin: EdgeInsets.symmetric(
@@ -865,41 +902,76 @@ class MyCart extends StatelessWidget {
                                           //     ),
                                           //   ]),
                                           // ),
-                                          Column(
-                                              crossAxisAlignment: CrossAxisAlignment
-                                                  .start,
-                                              children: [
-                                                TextWidget(
-                                                  textTitle: 'Car',
-                                                  color: Colors.black,
-                                                  fontSize: _height * 0.0175,
-                                                  fontFamily: poppinsMedium,
-                                                ),
-                                                TextWidget(
-                                                  textTitle: '\$37.69',
-                                                  color: Colors.black,
-                                                  fontSize: _height * 0.0175,
-                                                  fontFamily: poppinsMedium,
-                                                ),
+                                          Expanded(
+                                            child:
+                                            Column(
+                                                crossAxisAlignment: CrossAxisAlignment
+                                                    .start,
+                                                children: [
+                                                  TextWidget(
+                                                    textTitle: 'Car',
+                                                    color: Colors.black,
+                                                    fontSize: _height * 0.0175,
+                                                    fontFamily: poppinsMedium,
+                                                  ),
 
-                                              ]),
+                                                  Row(
+                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                    children:[
+                                                      TextWidget(
+                                                      textTitle: '\$37.69',
+                                                      color: Colors.black,
+                                                      fontSize: _height * 0.0175,
+                                                      fontFamily: poppinsMedium,
+                                                    ),
+
+                                                      Material(
+                                                        child: InkWell(
+                                                          onTap: ()async{
+                                                            Get.dialog(
+                                                                const Center(
+                                                                    child: CircularProgressIndicator(
+                                                                      color: homeBoxColor,
+                                                                    )
+                                                                ));
+                                                            await Future.delayed(const Duration(seconds: 1));
+                                                            Get.back();
+                                                            Get.dialog(
+                                                                CustomDialogSimple(
+                                                                    title: 'Done',
+                                                                    description: 'item has been deleted successfully',
+                                                                    okTap: true)
+                                                            );
+                                                          },
+                                                          child: Image.asset(
+                                                              ImageUtils.deleteIcon
+                                                          ),
+                                                        ),
+                                                      )
+                                                      // ),
+                                                 ] ),
+
+                                                ]),
+                                          ),
 
 
                                         ],
                                       ),
                                     ),
-                                    Positioned(
-                                        left: sizeW(375),
-                                        top: sizeH(50),
-                                        child: IconButton(
-                                            padding: EdgeInsets.zero,
-                                            constraints: const BoxConstraints(),
-                                            onPressed: () {},
-                                            icon: Image.asset(
-                                                ImageUtils.deleteIcon
-                                            )
-                                        )
-                                    ),
+
+                                    // Positioned(
+                                    //     left: sizeW(375),
+                                    //     top: sizeH(50),
+                                    //     child: IconButton(
+                                    //         padding: EdgeInsets.zero,
+                                    //         constraints: const BoxConstraints(),
+                                    //         onPressed: () {},
+                                    //         icon: Image.asset(
+                                    //             ImageUtils.deleteIcon
+                                    //         )
+                                    //     )
+                                    // ),
+
                                   ]);
                             },
                           ),
@@ -931,7 +1003,15 @@ class MyCart extends StatelessWidget {
                         SizedBox(height: _height * 0.025,),
                         CustomButton(
                           isSelected: false,
-                          onTap: () {
+                          onTap: ()async{
+                            Get.dialog(
+                                const Center(
+                                    child: CircularProgressIndicator(
+                                      color: homeBoxColor,
+                                    )
+                                ));
+                            await Future.delayed(const Duration(seconds: 1));
+                            Get.back();
                             Get.to(OrderConfirmation(select: 0,));
                           },
                           margin: EdgeInsets.symmetric(

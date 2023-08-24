@@ -29,6 +29,12 @@ class LoginScreenController extends GetxController{
     super.onInit();
   }
 
+  // void onInit(){
+  //   email.clear();
+  //   password.clear();
+  //   super.onInit();
+  // }
+
   setIntroScreen()async{
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString("intro_screen", "true");
@@ -87,27 +93,44 @@ class LoginScreenController extends GetxController{
 
   bool isLoading1 = false;
 
-  void onLogin()async{
-    if(email.text.isEmpty){
-      Get.snackbar(
-        'please',
-        'enter email'
-      );
-    }
-    else if(password.text.isEmpty){
-      Get.snackbar(
-          'please',
-          'enter password'
-      );
-    } else {
-      isLoading1 = true;
-      Future.delayed(const Duration(seconds: 3), (){
-        Get.toNamed(kNavBar1);
-      }
-      );
-      isLoading1 = false;
-    }
-  }
+  // void onLogin()async{
+  //   if(email.text.isEmpty){
+  //     Get.snackbar(
+  //       'please',
+  //       'enter email'
+  //     );
+  //   }
+  //   else if(password.text.isEmpty){
+  //     Get.snackbar(
+  //         'please',
+  //         'enter password'
+  //     );
+  //   }
+  //   else if(email.text == 'customer1@gmail.com' && password.text == '123456'){
+  //     isLoading1 = true;
+  //     Future.delayed(const Duration(seconds: 3), (){
+  //       Get.toNamed(kNavBar1);
+  //     }
+  //     );
+  //     isLoading1 = false;
+  //   }
+  //   else {
+  //     Get.snackbar(
+  //         'please',
+  //         'enter correct credentials'
+  //     );
+  //   }
+  //
+  //
+  //   // else {
+  //   //   isLoading1 = true;
+  //   //   Future.delayed(const Duration(seconds: 3), (){
+  //   //     Get.toNamed(kNavBar1);
+  //   //   }
+  //   //   );
+  //   //   isLoading1 = false;
+  //   // }
+  // }
 
   void startDelayedNavigation() async {
     if(email.text.isEmpty){
@@ -151,6 +174,47 @@ class LoginScreenController extends GetxController{
       );
 
     }
+    else if(email.text != "customer1@gmail.com"){
+      Get.snackbar(
+        '',
+        '',
+        colorText: Colors.white,
+        backgroundColor: Colors.white,
+        titleText: TextWidget(
+          textTitle: 'please',
+          fontFamily: poppinsSemiBold,
+          fontSize: Get.height * 0.02,
+          color: Colors.black,
+        ),
+        messageText: TextWidget(
+          textTitle: 'enter correct email',
+          fontFamily: poppinsMedium,
+          fontSize: Get.height * 0.015,
+          color: Colors.black,
+        ),
+      );
+    }
+    else if(password.text != "123456"){
+      Get.snackbar(
+        '',
+        '',
+        colorText: Colors.white,
+        backgroundColor: Colors.white,
+        titleText: TextWidget(
+          textTitle: 'please',
+          fontFamily: poppinsSemiBold,
+          fontSize: Get.height * 0.02,
+          color: Colors.black,
+        ),
+        messageText: TextWidget(
+          textTitle: 'enter correct password',
+          fontFamily: poppinsMedium,
+          fontSize: Get.height * 0.015,
+          color: Colors.black,
+        ),
+      );
+    }
+
    else {
       // Show the circular progress indicator
       Get.dialog(
@@ -159,21 +223,16 @@ class LoginScreenController extends GetxController{
                 color: homeBoxColor,
               )
           ));
-
-      // Simulate a delay (e.g., 2 seconds)
       await Future.delayed(const Duration(seconds: 2));
-      // Close the progress indicator
       Get.back();
-
-      // Navigate to a new screen
-      Get.toNamed(kNavBar1);
+      Get.offAllNamed(kNavBar1);
+      // email.clear();
+      // password.clear();
     }
   }
 
 
-  void skipLogin(){
-
-  }
+  void skipLogin(){}
 
 
   void setUser()async{

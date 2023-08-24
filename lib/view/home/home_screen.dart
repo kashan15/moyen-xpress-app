@@ -668,7 +668,7 @@ class HomeScreen extends GetView<HomeController> {
                                             color: homeBoxColor,
                                           )
                                       ));
-                                  await Future.delayed(const Duration(seconds: 2));
+                                  await Future.delayed(const Duration(seconds: 1));
                                   Get.back();
                                   Get.to(
                                       ProductDetails(
@@ -881,8 +881,8 @@ class HomeScreen extends GetView<HomeController> {
                             ),
                             itemCount: 4, // Number of containers
                             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: columnsCount,
-
+                              // crossAxisCount: columnsCount,
+                                crossAxisCount: 2,
                               // childAspectRatio: Get.height * 0.000835,
                                 childAspectRatio: Get.width*1.35 / Get.height*1.04,
                               // crossAxisSpacing: 25.0,
@@ -901,7 +901,7 @@ class HomeScreen extends GetView<HomeController> {
                                             color: homeBoxColor,
                                           )
                                       ));
-                                  await Future.delayed(const Duration(seconds: 2));
+                                  await Future.delayed(const Duration(seconds: 1));
                                   Get.back();
                                   Get.to(
                                       ProductDetails(
@@ -1180,7 +1180,8 @@ class HomeScreen extends GetView<HomeController> {
                             ),
                             itemCount: 4, // Number of containers
                             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: columnsCount,
+                              // crossAxisCount: columnsCount,
+                                crossAxisCount: 2,
 
                                // childAspectRatio: Get.height * 0.000835,
                                 childAspectRatio: Get.width*1.35 / Get.height*1.05,
@@ -1199,7 +1200,7 @@ class HomeScreen extends GetView<HomeController> {
                                            color: homeBoxColor,
                                          )
                                      ));
-                                 await Future.delayed(const Duration(seconds: 2));
+                                 await Future.delayed(const Duration(seconds: 1));
                                  Get.back();
                                  Get.to(
                                      ProductDetails(
@@ -1378,7 +1379,8 @@ class HomeScreen extends GetView<HomeController> {
                             ),
                             itemCount: 4, // Number of containers
                             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: columnsCount,
+                              // crossAxisCount: columnsCount,
+                                crossAxisCount: 2,
 
                                 //childAspectRatio: Get.height * 0.00087,
                                 childAspectRatio: Get.width*1.35 / Get.height*1.04,
@@ -1397,7 +1399,7 @@ class HomeScreen extends GetView<HomeController> {
                                             color: homeBoxColor,
                                           )
                                       ));
-                                  await Future.delayed(const Duration(seconds: 2));
+                                  await Future.delayed(const Duration(seconds: 1));
                                   Get.back();
                                   Get.to(
                                       ProductDetails(
@@ -1577,7 +1579,8 @@ class HomeScreen extends GetView<HomeController> {
                             ),
                             itemCount: 4, // Number of containers
                             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: columnsCount,
+                              // crossAxisCount: columnsCount,
+                                crossAxisCount: 2,
 
                                 //childAspectRatio: Get.height * 0.00087,
                                 childAspectRatio: Get.width*1.35 / Get.height*1.04,
@@ -1596,7 +1599,7 @@ class HomeScreen extends GetView<HomeController> {
                                            color: homeBoxColor,
                                          )
                                      ));
-                                 await Future.delayed(const Duration(seconds: 2));
+                                 await Future.delayed(const Duration(seconds: 1));
                                  Get.back();
                                  Get.to(
                                      ProductDetails(
@@ -1743,7 +1746,8 @@ class HomeScreen extends GetView<HomeController> {
                             ),
                             itemCount: 4, // Number of containers
                             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: columnsCount,
+                              // crossAxisCount: columnsCount,
+                                crossAxisCount: 2,
 
                                 //childAspectRatio: Get.height * 0.00087,
                                 childAspectRatio: Get.width*1.35 / Get.height*1.04,
@@ -1762,7 +1766,7 @@ class HomeScreen extends GetView<HomeController> {
                                            color: homeBoxColor,
                                          )
                                      ));
-                                 await Future.delayed(const Duration(seconds: 2));
+                                 await Future.delayed(const Duration(seconds: 1));
                                  Get.back();
                                  Get.to(
                                      ProductDetails(

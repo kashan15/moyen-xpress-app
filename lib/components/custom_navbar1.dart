@@ -12,7 +12,7 @@ import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'custom_appbar.dart';
 
 class MyPersistentBottomNavBar extends StatelessWidget{
-  const MyPersistentBottomNavBar({Key? key}) : super(key: key);
+   MyPersistentBottomNavBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -129,3 +129,15 @@ class BottomNavBar extends GetView<NavBarController> {
 
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+

@@ -4,6 +4,49 @@ import 'package:moyen_xpress_app/components/test_class.dart';
 
 import '../utils/color_utils.dart';
 import '../utils/text_styles.dart';
+
+/// Previous Login TextField
+// class CustomTextField extends StatelessWidget {
+//
+//   TextEditingController? textEditingController;
+//   Widget? suffixIcon;
+//   Widget? prefixIcon;
+//   String? Function(String?)? validation;
+//   String? title;
+//   TextInputType? inputType;
+//   final bool obscureText;
+//   InputBorder? inputBorder;
+//   CustomTextField({
+//     Key? key,
+//     this.textEditingController,
+//     this.suffixIcon,
+//     this.prefixIcon,
+//     this.title,
+//     this.validation,
+//     this.inputType,
+//     this.inputBorder,
+//     this.obscureText = false,
+//
+//   }) : super(key: key);
+//
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return TextFormField(
+//       validator:validation,
+//       controller: textEditingController,
+//       keyboardType: inputType,
+//       obscureText: obscureText,
+//       decoration: InputDecoration(
+//         border: inputBorder,
+//           prefixIcon:prefixIcon,
+//           suffixIcon: suffixIcon,
+//           hintText: title
+//       ),
+//     );
+//   }
+// }
+
 class CustomTextField extends StatelessWidget {
 
   TextEditingController? textEditingController;
@@ -36,7 +79,7 @@ class CustomTextField extends StatelessWidget {
       keyboardType: inputType,
       obscureText: obscureText,
       decoration: InputDecoration(
-        border: inputBorder,
+          border: InputBorder.none,
           prefixIcon:prefixIcon,
           suffixIcon: suffixIcon,
           hintText: title

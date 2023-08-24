@@ -231,7 +231,7 @@ class ShippingOrderScreen extends GetView<ShippingOrderController> {
                                                       color: homeBoxColor,
                                                     )
                                                 ));
-                                            await Future.delayed(const Duration(seconds: 2));
+                                            await Future.delayed(const Duration(seconds: 1));
                                             Get.back();
                                             Get.dialog(
                                                 CustomDialogSimple(

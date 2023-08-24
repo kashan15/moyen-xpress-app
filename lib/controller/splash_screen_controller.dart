@@ -1,5 +1,6 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get/get.dart';
+import 'package:moyen_xpress_app/components/custom_navbar1.dart';
 import 'package:moyen_xpress_app/utils/route_utils.dart';
 import 'package:moyen_xpress_app/view/onboarding/onboarding_screen_1.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -46,7 +47,7 @@ class SplashScreenController extends GetxController{
     // }else{
     //   Get.offAllNamed(kNavBar1);
     // }
-    Get.toNamed(kOnboardScreen1);
+    Get.toNamed(kNavBar1);
   }
 
 }

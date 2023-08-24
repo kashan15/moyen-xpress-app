@@ -1267,7 +1267,7 @@ class ProductDetails extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                SizedBox(height: _height * 0.025,),
+                SizedBox(height: _height * 0.0375,),
                 Padding(padding: EdgeInsets.symmetric(horizontal: _width * 0.04),
                   child: Row(
                     children: [
