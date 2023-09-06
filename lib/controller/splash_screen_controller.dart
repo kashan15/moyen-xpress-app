@@ -47,7 +47,7 @@ class SplashScreenController extends GetxController{
     // }else{
     //   Get.offAllNamed(kNavBar1);
     // }
-    Get.toNamed(kNavBar1);
+    Get.toNamed(kLoginScreen);
   }
 
 }

@@ -1,6 +1,12 @@
+import 'dart:developer';
+
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:moyen_xpress_app/components/text_widget.dart';
+import 'package:moyen_xpress_app/models/signup_model.dart';
+import 'package:moyen_xpress_app/network/signup_api.dart';
 import 'package:moyen_xpress_app/utils/font_utils.dart';
 import 'package:moyen_xpress_app/utils/route_utils.dart';
 
@@ -9,7 +15,7 @@ import '../models/signup_screen_model.dart';
 import '../services/provider.dart';
 import '../utils/color_utils.dart';
 class SignupScreenController extends GetxController{
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  GlobalKey<FormState> signupFormKey = GlobalKey<FormState>();
 
   TextEditingController userNameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
@@ -18,32 +24,102 @@ class SignupScreenController extends GetxController{
   TextEditingController confirmPasswordController = TextEditingController();
   RxString  confirmPasswordError = ''.obs;
   RxString  signupError = ''.obs;
-  RxBool isLoading = false.obs;
+
   ApiProvider apiProvider = ApiProvider();
 
+  SignupModel signupModel = SignupModel();
+  RxBool isLoading = false.obs;
 
-  void signup()async {
-    if(passwordController.text == confirmPasswordController.text){
-      isLoading.value = true;
-      clearVariables();
-      SignupScreenModel model = SignupScreenModel(
-          name: userNameController.text,
-          email: emailController.text,
-          password: passwordController.text
-      );
-      var result =  await apiProvider.signupApi(model);
-      isLoading.value = false;
-      print("result : ${result}");
-      if(result['result'] == false){
-        signupError.value = result['message'];
-      }else if(result['result'] == true){
-        clearForm();
-        successDialog();
+  // void signup()async {
+  //   if(passwordController.text == confirmPasswordController.text){
+  //     isLoading.value = true;
+  //     clearVariables();
+  //     SignupScreenModel model = SignupScreenModel(
+  //         name: userNameController.text,
+  //         email: emailController.text,
+  //         password: passwordController.text
+  //     );
+  //     var result =  await apiProvider.signupApi(model);
+  //     isLoading.value = false;
+  //     print("result : ${result}");
+  //     if(result['result'] == false){
+  //       signupError.value = result['message'];
+  //     }else if(result['result'] == true){
+  //       clearForm();
+  //       successDialog();
+  //     }
+  //   }else{
+  //     confirmPasswordError.value = 'Confirm Password Not Match';
+  //   }
+  // }
+
+  createAccount() {
+    if (signupFormKey.currentState!.validate()) {
+      if(userNameController.text.isNotEmpty && emailController.text.isNotEmpty && passwordController.text.isNotEmpty){
+        isLoading.value = true;
+        getSignupResponse();
+      } else {
+        if (kDebugMode) {
+          print("registration documents false");
+        }
+        Get.snackbar(
+            "Registration Failed!", "Please upload verification documents",
+            snackPosition: SnackPosition.BOTTOM);
       }
-    }else{
-      confirmPasswordError.value = 'Confirm Password Not Match';
+    } else {
+      if (kDebugMode) {
+        print("registration validation false");
+      }
     }
   }
+
+  getSignupResponse(){
+    SignupAPI.getSignupResponse(
+        name: userNameController.text,
+        email: emailController.text,
+        password: passwordController.text
+    ).then((value) {
+
+      signupModel = value;
+
+      if(signupModel.result == true){
+        isLoading.value = false;
+
+        Get.snackbar(
+            "Registered!", signupModel.message ?? "Registration completed successfully",
+            snackPosition: SnackPosition.BOTTOM);
+
+        Get.toNamed(kLoginScreen);
+
+        if (kDebugMode) {
+          log("loginButtonResponse ${signupModel.toJson()} ");
+        }
+      }
+
+      // if login is not true show snackbar with message
+      else if (signupModel.result == false) {
+        Get.snackbar(
+            "Registration Failed!", signupModel.message.toString(),
+            snackPosition: SnackPosition.BOTTOM);
+      }
+
+      //no login response
+      else {
+        Get.snackbar("Registration Failed!", "Something Went Wrong",
+            snackPosition: SnackPosition.BOTTOM);
+      }
+
+      //remove loader
+      isLoading.value = false;
+    });
+    if (kDebugMode) {
+      print("xyyzz");
+    }
+  }
+
+
+
+
 
   clearForm(){
     userNameController.clear();
