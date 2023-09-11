@@ -12,12 +12,12 @@ class SignupModel{
     this.result,
     this.message,
     this.userId
-});
+  });
 
   factory SignupModel.fromJson(Map<String, dynamic> json) => SignupModel(
-    result: json["result"],
-    message: json["message"],
-    userId: json["id"]
+      result: json["result"],
+      message: json["message"],
+      userId: json["id"]
   );
 
   Map<String, dynamic> toJson() => {

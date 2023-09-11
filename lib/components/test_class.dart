@@ -72,6 +72,23 @@ Widget tab(String text) {
   );
 }
 
+Widget loader() {
+  return SizedBox(
+    height: Get.height,
+    width: Get.width,
+    child: BackdropFilter(
+      filter: ImageFilter.blur(sigmaX: 0.0, sigmaY: 0),
+      child: Container(
+        color: Colors.black.withOpacity(0.1),
+        child: const Center(child: CircularProgressIndicator(
+          color: Colors.white,
+        )
+        ),
+      ),
+    ),
+  );
+}
+
 Widget customTabBar(
     {required List<Widget> tabs,
       ValueChanged? onTap,
@@ -351,19 +368,6 @@ customDialog({
       ));
 }
 
-Widget loader() {
-  return SizedBox(
-    height: Get.height,
-    width: Get.width,
-    child: BackdropFilter(
-      filter: ImageFilter.blur(sigmaX: 0.0, sigmaY: 0),
-      child: Container(
-        color: Colors.black.withOpacity(0.1),
-        child: const Center(child: CircularProgressIndicator()),
-      ),
-    ),
-  );
-}
 class MyBehavior extends ScrollBehavior {
   @override
   Widget buildOverscrollIndicator(

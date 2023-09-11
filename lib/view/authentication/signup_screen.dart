@@ -56,7 +56,7 @@ class SignupScreen extends GetView<SignupScreenController> {
                         style: TextStyle(fontSize: 12)),
                     const SizedBox(height: 10),
                     Form(
-                        key: controller.formKey,
+                        key: controller.signupFormKey,
                         child: Column(
                           children: [
                             Container(
@@ -122,8 +122,8 @@ class SignupScreen extends GetView<SignupScreenController> {
                                 children: [
                                   GestureDetector(
                                     onTap: () async {
-                                      if(controller.formKey.currentState!.validate()){
-                                        controller.signup();
+                                      if(controller.signupFormKey.currentState!.validate()){
+                                        // controller.signup();
                                       }
                                     },
                                     child: Container(

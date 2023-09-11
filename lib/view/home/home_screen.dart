@@ -196,6 +196,8 @@ class HomeScreen extends GetView<HomeController> {
     double _height = MediaQuery.of(context).size.height;
     double _width = MediaQuery.of(context).size.width;
 
+    final controllerAL = Get.find<HomeController>();
+
     int columnsCount = MediaQuery.of(context).size.width < 600 ? 2 : 1;
 
     final pages = List.generate(
@@ -649,6 +651,7 @@ class HomeScreen extends GetView<HomeController> {
                                 horizontal: _width * 0.06,
                                 vertical: _height * 0.02
                             ),
+                            //itemCount: controllerAL.productsDataList.length,
                             itemCount: 4, // Number of containers
                             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                               // crossAxisCount: columnsCount,

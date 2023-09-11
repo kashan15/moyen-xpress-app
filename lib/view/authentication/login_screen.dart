@@ -68,13 +68,13 @@ class LoginScreen extends GetView<LoginScreenController> {
                         style: TextStyle(fontSize: 12)),
                     const SizedBox(height: 10),
                     Form(
-                        key:controller.formKey,
+                        key:controller.loginFormKey,
                         child: Obx(()=> Column(
                           children: [
                             Container(
                                 margin: const EdgeInsets.symmetric(horizontal: 40),
                                 child: CustomTextField(
-                                    textEditingController: controller.email,
+                                    textEditingController: controller.emailController,
                                     validation: Validations.emailValidation,
                                     prefixIcon:Container(
                                       height: 2,
@@ -90,7 +90,7 @@ class LoginScreen extends GetView<LoginScreenController> {
                                 child:CustomTextField(
                                   validation:Validations.passwordValidation,
                                   inputType: TextInputType.visiblePassword,
-                                  textEditingController: controller.password,
+                                  textEditingController: controller.passwordController,
                                   obscureText: !controller.isPasswordVisible.value,
                                   suffixIcon: controller.getVisibleIcon(),
                                   prefixIcon:

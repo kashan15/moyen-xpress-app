@@ -197,7 +197,8 @@ class EditAccountScreen extends GetView<EditAccountController> {
                               ]
                           ),
                           child: CustomTextField1(
-                            hintText: 'John Smith',
+                            // hintText: 'John Smith',
+                            hintText: controller.profileDataModel.value.name ?? 'Nothing',
                             hintFontSize: _height * 0.015,
                             fontSize: _height * 0.0175,
                             fontFamily: poppinsMedium,
@@ -246,7 +247,8 @@ class EditAccountScreen extends GetView<EditAccountController> {
                                     offset: Offset(0, 0))
                               ]),
                           child: CustomTextField1(
-                            hintText: 'johnsmith@gmail.com',
+                            // hintText: 'johnsmith@gmail.com',
+                            hintText: controller.profileDataModel.value.email ?? 'Nothing',
                             hintFontSize: _height * 0.015,
                             fontSize: _height * 0.0175,
                             fontFamily: poppinsMedium,
@@ -317,7 +319,8 @@ class EditAccountScreen extends GetView<EditAccountController> {
                         child: Align(
                           alignment: Alignment.topLeft,
                           child: TextWidget(
-                            textTitle: 'Phone',
+                            // textTitle: 'Phone',
+                            textTitle: controller.profileDataModel.value.phone ?? 'Nothing',
                             fontFamily: poppinsMedium,
                             color: Colors.black,
                             fontSize: _height * 0.015,
@@ -367,7 +370,8 @@ class EditAccountScreen extends GetView<EditAccountController> {
                         child: Align(
                           alignment: Alignment.topLeft,
                           child: TextWidget(
-                            textTitle: 'Address',
+                            // textTitle: 'Address',
+                            textTitle: controller.profileDataModel.value.address ?? 'Nothing',
                             fontFamily: poppinsMedium,
                             color: Colors.black,
                             fontSize: _height * 0.015,
@@ -409,39 +413,48 @@ class EditAccountScreen extends GetView<EditAccountController> {
                           )),
                       SizedBox(height: _height * 0.02,),
                       const Spacer(),
-                      CustomButton(
-                        isSelected: false,
-                        margin: EdgeInsets.symmetric(horizontal: _width * 0.06),
-                        padding:
-                            EdgeInsets.symmetric(
-                                vertical: _height * 0.02
-                            ),
-                        onTap: ()async{
-                          Get.dialog(
-                              const Center(
-                                  child: CircularProgressIndicator(
-                                    color: homeBoxColor,
-                                  )
-                              ));
 
-                          // Simulate a delay (e.g., 2 seconds)
-                          await Future.delayed(const Duration(seconds: 2));
-                          // Close the progress indicator
-                          Get.back();
-                          Get.dialog(
-                              CustomDialogSimple(
-                                title: 'Done',
-                                description: 'profile changes has been saved',
-                                okTap: true,
-                              )
-                          );
-                        },
-                        title: 'Save',
-                        fontFamily: poppinsMedium,
-                        fontSize: _height * 0.0175,
-                        textColor: Colors.white,
-                        borderRadius: _width * 0.025,
-                        color: homeBoxColor,
+                      Obx(
+                        () => controller.isProfileLoading.value ?
+                            const CircularProgressIndicator(
+                              color: homeBoxColor,
+                            ):
+                            CustomButton(
+                          isSelected: false,
+                          margin: EdgeInsets.symmetric(horizontal: _width * 0.06),
+                          padding:
+                              EdgeInsets.symmetric(
+                                  vertical: _height * 0.02
+                              ),
+                          onTap: ()async{
+                            // Get.dialog(
+                            //     const Center(
+                            //         child: CircularProgressIndicator(
+                            //           color: homeBoxColor,
+                            //         )
+                            //     ));
+                            //
+                            // // Simulate a delay (e.g., 2 seconds)
+                            // await Future.delayed(const Duration(seconds: 2));
+                            // // Close the progress indicator
+                            // Get.back();
+                            // Get.dialog(
+                            //     CustomDialogSimple(
+                            //       title: 'Done',
+                            //       description: 'profile changes has been saved',
+                            //       okTap: true,
+                            //     )
+                            // );
+
+                            controller.getProfileResponse();
+                          },
+                          title: 'Save',
+                          fontFamily: poppinsMedium,
+                          fontSize: _height * 0.0175,
+                          textColor: Colors.white,
+                          borderRadius: _width * 0.025,
+                          color: homeBoxColor,
+                        ),
                       ),
                       SizedBox(
                         height: _height * 0.05,

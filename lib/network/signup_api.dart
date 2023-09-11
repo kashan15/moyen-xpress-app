@@ -11,10 +11,10 @@ import '../utils/storage_utils.dart';
 
 class SignupAPI{
   static Future<SignupModel> getSignupResponse({
-  required String name,
+    required String name,
     required String email,
     required String password
-}) async {
+  }) async {
     dynamic returnVal;
 
     if(kDebugMode){

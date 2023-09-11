@@ -20,3 +20,6 @@ const String selectLanguageSUtil =  'SelectLanguage';
 const String updateSUtil =  'Update';
 const String noDataSUtil =  'noDataS';
 
+const String alertSUtil ="Alert!";
+const String wentWrongSUtil ="Something Went Wrong";
+

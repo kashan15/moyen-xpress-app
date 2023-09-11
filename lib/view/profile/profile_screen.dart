@@ -1,5 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:moyen_xpress_app/components/custom_grid_button.dart';
 import 'package:moyen_xpress_app/components/new_custom_dialogue.dart';
 import 'package:moyen_xpress_app/components/text_widget.dart';
@@ -14,6 +16,8 @@ import 'package:moyen_xpress_app/view/authentication/login_screen.dart';
 
 import '../../components/custom_dialog.dart';
 import '../../components/custom_richtext.dart';
+import '../../models/profile_model.dart';
+import '../../network/profile_api.dart';
 import '../../utils/font_utils.dart';
 
 
@@ -305,11 +309,12 @@ import '../../utils/font_utils.dart';
 class ProfileScreen extends StatelessWidget {
    ProfileScreen({Key? key}) : super(key: key);
 
-
   LoginScreenController instance1 = LoginScreenController();
+
    final ProfileController controller = Get.put(ProfileController());
 
   bool willPop = true;
+
   int selectOption = 0;
 
   List itemList = [
@@ -334,6 +339,7 @@ class ProfileScreen extends StatelessWidget {
       'name': logout.tr
     },
   ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -417,14 +423,16 @@ class ProfileScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               TextWidget(
-                                textTitle: 'John Smith',
+                                // textTitle: 'John Smith',
+                                textTitle: controller.profileDataModel.value.name ?? 'Nothing',
                                 fontFamily: poppinsMedium,
                                 fontSize: _height * 0.02,
                                 color: homeBoxColor,
                               ),
                               SizedBox(height: _height * 0.0,),
                               TextWidget(
-                                textTitle: 'johnsmith@gmail.com',
+                                // textTitle: 'johnsmith@gmail.com',
+                                textTitle: controller.profileDataModel.value.email ?? 'Nothing here',
                                 fontFamily: poppinsRegular,
                                 fontSize: _height * 0.015,
                               )
@@ -433,35 +441,47 @@ class ProfileScreen extends StatelessWidget {
                         ],
                       ),
                       SizedBox(height: _height * 0.025,),
-                      CustomButton(
-                        isSelected: false,
-                        margin: EdgeInsets.symmetric(
-                            horizontal: _width * 0.02
-                        ),
-                        padding: EdgeInsets.symmetric(
-                            vertical: _height * 0.015
-                        ),
-                        onTap: ()async{
-                          Get.dialog(
-                              const Center(
-                                  child: CircularProgressIndicator(
-                                    color: homeBoxColor,
-                                  )
-                              ));
 
-                          // Simulate a delay (e.g., 2 seconds)
-                          await Future.delayed(const Duration(seconds: 2));
-                          // Close the progress indicator
-                          Get.back();
-                          Get.toNamed(kEditAccount);
-                        },
-                        title: editAccount.tr,
-                        fontFamily: poppinsMedium,
-                        fontSize: _height * 0.0175,
-                        textColor: Colors.white,
-                        borderRadius: _width * 0.015,
-                        color: homeBoxColor,
-                      )
+
+                      Obx(
+                            () => controller.isProfileLoading.value ?
+                        const CircularProgressIndicator(
+                          color: homeBoxColor,
+                        ):
+                            CustomButton(
+                              isSelected: false,
+                              margin: EdgeInsets.symmetric(
+                                  horizontal: _width * 0.02
+                              ),
+                              padding: EdgeInsets.symmetric(
+                                  vertical: _height * 0.015
+                              ),
+                              onTap: ()async{
+                                // Get.dialog(
+                                //     const Center(
+                                //         child: CircularProgressIndicator(
+                                //           color: homeBoxColor,
+                                //         )
+                                //     ));
+                                //
+                                // // Simulate a delay (e.g., 2 seconds)
+                                // await Future.delayed(const Duration(seconds: 2));
+                                // // Close the progress indicator
+                                // Get.back();
+                                // Get.toNamed(kEditAccount);
+
+                                controller.getProfileResponse();
+                                await Get.toNamed(kEditAccount);
+                              },
+                              title: editAccount.tr,
+                              fontFamily: poppinsMedium,
+                              fontSize: _height * 0.0175,
+                              textColor: Colors.white,
+                              borderRadius: _width * 0.015,
+                              color: homeBoxColor,
+                            ),
+                      ),
+
                     ],
                   ),
                 ),

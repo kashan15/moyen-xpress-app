@@ -53,24 +53,66 @@ class SignupScreenController extends GetxController{
   //   }
   // }
 
+  // createAccount() {
+  //   if (signupFormKey.currentState!.validate()) {
+  //     if(userNameController.text.isNotEmpty && emailController.text.isNotEmpty && passwordController.text.isNotEmpty){
+  //       isLoading.value = true;
+  //       getSignupResponse();
+  //     } else {
+  //       if (kDebugMode) {
+  //         print("registration documents false");
+  //       }
+  //       Get.snackbar(
+  //           "Registration Failed!", "Please upload verification documents",
+  //           snackPosition: SnackPosition.BOTTOM);
+  //     }
+  //   } else {
+  //     if (kDebugMode) {
+  //       print("registration validation false");
+  //     }
+  //   }
+  // }
+
   createAccount() {
-    if (signupFormKey.currentState!.validate()) {
-      if(userNameController.text.isNotEmpty && emailController.text.isNotEmpty && passwordController.text.isNotEmpty){
-        isLoading.value = true;
-        getSignupResponse();
-      } else {
-        if (kDebugMode) {
-          print("registration documents false");
-        }
-        Get.snackbar(
-            "Registration Failed!", "Please upload verification documents",
-            snackPosition: SnackPosition.BOTTOM);
-      }
-    } else {
-      if (kDebugMode) {
-        print("registration validation false");
-      }
+    if(userNameController.text.isEmpty){
+      showErrorMessage(
+          'Please',
+          'Enter your name first'
+      );
+    } else if(emailController.text.isEmpty){
+      showErrorMessage(
+          'Please',
+          'Enter your email first'
+      );
+    } else if(passwordController.text.isEmpty){
+      showErrorMessage(
+          'Please',
+          'Enter your password first'
+      );
+    } else if(confirmPasswordController.text.isEmpty){
+      showErrorMessage(
+          'Please',
+          'Confirmed your password'
+      );
     }
+    else if(passwordController.text != confirmPasswordController.text){
+      showErrorMessage(
+          'Please',
+          'Password & confirm password does not match'
+      );
+    }
+
+    else if(userNameController.text.isNotEmpty && emailController.text.isNotEmpty && passwordController.text.isNotEmpty){
+      isLoading.value = true;
+      // Get.dialog(
+      //     const Center(
+      //         child: CircularProgressIndicator(
+      //           color: Colors.white,
+      //         )
+      //     ));
+      getSignupResponse();
+    }
+
   }
 
   getSignupResponse(){
@@ -85,9 +127,14 @@ class SignupScreenController extends GetxController{
       if(signupModel.result == true){
         isLoading.value = false;
 
-        Get.snackbar(
-            "Registered!", signupModel.message ?? "Registration completed successfully",
-            snackPosition: SnackPosition.BOTTOM);
+        // Get.snackbar(
+        //     "Registered!", signupModel.message ?? "Registration completed successfully",
+        //     snackPosition: SnackPosition.BOTTOM);
+
+        showErrorMessage(
+            'Registered!', signupModel.message ??
+            'Registration completed successfully'
+        );
 
         Get.toNamed(kLoginScreen);
 
@@ -98,8 +145,9 @@ class SignupScreenController extends GetxController{
 
       // if login is not true show snackbar with message
       else if (signupModel.result == false) {
+        isLoading.value = false;
         Get.snackbar(
-            "Registration Failed!", signupModel.message.toString(),
+            "Registration has failed Failed!", signupModel.message.toString(),
             snackPosition: SnackPosition.BOTTOM);
       }
 
@@ -117,7 +165,28 @@ class SignupScreenController extends GetxController{
     }
   }
 
+  showErrorMessage(String title, String message){
+    Get.snackbar(
+        '',
+        '',
+        colorText: Colors.white,
+        backgroundColor: Colors.white,
+        titleText: TextWidget(
+          textTitle: title,
+          fontFamily: poppinsSemiBold,
+          fontSize: Get.height * 0.02,
+          color: Colors.black,
+        ),
+        messageText: TextWidget(
+          textTitle: message,
+          fontFamily: poppinsMedium,
+          fontSize: Get.height * 0.015,
+          color: Colors.black,
+        ),
+        snackPosition: SnackPosition.BOTTOM
 
+    );
+  }
 
 
 
