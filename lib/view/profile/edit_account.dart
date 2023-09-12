@@ -17,7 +17,7 @@ import '../../components/custom_textfield1.dart';
 import '../../controller/edit_account_controller.dart';
 import '../../utils/font_utils.dart';
 
-class EditAccountScreen extends GetView<EditAccountController> {
+class EditAccountScreen extends GetView<ProfileController> {
   EditAccountScreen({
     super.key,
   });
@@ -25,7 +25,8 @@ class EditAccountScreen extends GetView<EditAccountController> {
   bool willPop = true;
 
 
-  final EditAccountController imagePickerController = EditAccountController();
+  // final EditAccountController imagePickerController = EditAccountController();
+  final ProfileController imagePickerController = ProfileController();
 
   @override
   Widget build(BuildContext context) {
@@ -261,105 +262,60 @@ class EditAccountScreen extends GetView<EditAccountController> {
                               print(value);
                             },
                           )),
-                      SizedBox(
-                        height: _height * 0.015,
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: _width * 0.05),
-                        child: Align(
-                          alignment: Alignment.topLeft,
-                          child: TextWidget(
-                            textTitle: 'Gender',
-                            fontFamily: poppinsMedium,
-                            color: Colors.black,
-                            fontSize: _height * 0.015,
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: _height * 0.005,
-                      ),
-                      Container(
-                          height: _height * 0.06,
-                          width: _width * 1,
-                          margin:
-                              EdgeInsets.symmetric(horizontal: _width * 0.05),
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius:
-                                  BorderRadius.circular(_width * 0.02),
-                              boxShadow: [
-                                BoxShadow(
-                                    color: Colors.grey.withOpacity(0.2),
-                                    blurRadius: 2,
-                                    spreadRadius: 2,
-                                    offset: Offset(0, 0))
-                              ]),
-                          child: CustomTextField1(
-                            hintText: 'Female',
-                            hintFontSize: _height * 0.015,
-                            fontSize: _height * 0.0175,
-                            fontFamily: poppinsMedium,
-                            // suffixIcon: Image.asset(ImageUtils.searchIcon),
-                            contentPadding: EdgeInsets.symmetric(
-                                vertical: _height * 0.0175,
-                                horizontal: _width * 0.025),
-                            controller: controller.genderController,
-                            onChanged: (value) {
-                              print(value);
-                            },
-                          )),
-                      SizedBox(
-                        height: _height * 0.015,
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: _width * 0.05),
-                        child: Align(
-                          alignment: Alignment.topLeft,
-                          child: TextWidget(
-                            // textTitle: 'Phone',
-                            textTitle: controller.profileDataModel.value.phone ?? 'Nothing',
-                            fontFamily: poppinsMedium,
-                            color: Colors.black,
-                            fontSize: _height * 0.015,
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: _height * 0.005,
-                      ),
-                      Container(
-                          height: _height * 0.06,
-                          width: _width * 1,
-                          margin:
-                              EdgeInsets.symmetric(horizontal: _width * 0.05),
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius:
-                                  BorderRadius.circular(_width * 0.02),
-                              boxShadow: [
-                                BoxShadow(
-                                    color: Colors.grey.withOpacity(0.2),
-                                    blurRadius: 2,
-                                    spreadRadius: 2,
-                                    offset: Offset(0, 0))
-                              ]),
-                          child: CustomTextField1(
-                            hintText: '1234567989',
-                            hintFontSize: _height * 0.015,
-                            fontSize: _height * 0.0175,
-                            fontFamily: poppinsMedium,
-                            // suffixIcon: Image.asset(ImageUtils.searchIcon),
-                            contentPadding: EdgeInsets.symmetric(
-                                vertical: _height * 0.0175,
-                                horizontal: _width * 0.025),
-                            controller: controller.phoneController,
-                            onChanged: (value) {
-                              print(value);
-                            },
-                          )),
+
+                      /// Gender
+                      // SizedBox(
+                      //   height: _height * 0.015,
+                      // ),
+                      // Padding(
+                      //   padding:
+                      //       EdgeInsets.symmetric(horizontal: _width * 0.05),
+                      //   child: Align(
+                      //     alignment: Alignment.topLeft,
+                      //     child: TextWidget(
+                      //       textTitle: 'Gender',
+                      //       fontFamily: poppinsMedium,
+                      //       color: Colors.black,
+                      //       fontSize: _height * 0.015,
+                      //     ),
+                      //   ),
+                      // ),
+                      // SizedBox(
+                      //   height: _height * 0.005,
+                      // ),
+                      // Container(
+                      //     height: _height * 0.06,
+                      //     width: _width * 1,
+                      //     margin:
+                      //         EdgeInsets.symmetric(horizontal: _width * 0.05),
+                      //     decoration: BoxDecoration(
+                      //         color: Colors.white,
+                      //         borderRadius:
+                      //             BorderRadius.circular(_width * 0.02),
+                      //         boxShadow: [
+                      //           BoxShadow(
+                      //               color: Colors.grey.withOpacity(0.2),
+                      //               blurRadius: 2,
+                      //               spreadRadius: 2,
+                      //               offset: Offset(0, 0))
+                      //         ]),
+                      //     child: CustomTextField1(
+                      //       hintText: 'Female',
+                      //       hintFontSize: _height * 0.015,
+                      //       fontSize: _height * 0.0175,
+                      //       fontFamily: poppinsMedium,
+                      //       // suffixIcon: Image.asset(ImageUtils.searchIcon),
+                      //       contentPadding: EdgeInsets.symmetric(
+                      //           vertical: _height * 0.0175,
+                      //           horizontal: _width * 0.025),
+                      //       controller: controller.genderController,
+                      //       onChanged: (value) {
+                      //         print(value);
+                      //       },
+                      //     )),
+                      // SizedBox(
+                      //   height: _height * 0.015,
+                      // ),
 
                       SizedBox(
                         height: _height * 0.015,
@@ -370,8 +326,7 @@ class EditAccountScreen extends GetView<EditAccountController> {
                         child: Align(
                           alignment: Alignment.topLeft,
                           child: TextWidget(
-                            // textTitle: 'Address',
-                            textTitle: controller.profileDataModel.value.address ?? 'Nothing',
+                            textTitle: 'Old Password',
                             fontFamily: poppinsMedium,
                             color: Colors.black,
                             fontSize: _height * 0.015,
@@ -398,7 +353,159 @@ class EditAccountScreen extends GetView<EditAccountController> {
                                     offset: Offset(0, 0))
                               ]),
                           child: CustomTextField1(
-                            hintText: 'Times Square, New York City, USA',
+                            hintText: 'abc123',
+                            hintFontSize: _height * 0.015,
+                            fontSize: _height * 0.0175,
+                            fontFamily: poppinsMedium,
+                            // suffixIcon: Image.asset(ImageUtils.searchIcon),
+                            contentPadding: EdgeInsets.symmetric(
+                                vertical: _height * 0.0175,
+                                horizontal: _width * 0.025),
+                            controller: controller.genderController,
+                            onChanged: (value) {
+                              print(value);
+                            },
+                          )),
+                      SizedBox(
+                        height: _height * 0.015,
+                      ),
+
+                      Padding(
+                        padding:
+                        EdgeInsets.symmetric(horizontal: _width * 0.05),
+                        child: Align(
+                          alignment: Alignment.topLeft,
+                          child: TextWidget(
+                            textTitle: 'New Password',
+                            fontFamily: poppinsMedium,
+                            color: Colors.black,
+                            fontSize: _height * 0.015,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: _height * 0.005,
+                      ),
+                      Container(
+                          height: _height * 0.06,
+                          width: _width * 1,
+                          margin:
+                          EdgeInsets.symmetric(horizontal: _width * 0.05),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius:
+                              BorderRadius.circular(_width * 0.02),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Colors.grey.withOpacity(0.2),
+                                    blurRadius: 2,
+                                    spreadRadius: 2,
+                                    offset: Offset(0, 0))
+                              ]),
+                          child: CustomTextField1(
+                            hintText: '',
+                            hintFontSize: _height * 0.015,
+                            fontSize: _height * 0.0175,
+                            fontFamily: poppinsMedium,
+                            // suffixIcon: Image.asset(ImageUtils.searchIcon),
+                            contentPadding: EdgeInsets.symmetric(
+                                vertical: _height * 0.0175,
+                                horizontal: _width * 0.025),
+                            controller: controller.genderController,
+                            onChanged: (value) {
+                              print(value);
+                            },
+                          )),
+                      SizedBox(
+                        height: _height * 0.015,
+                      ),
+
+                      Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: _width * 0.05),
+                        child: Align(
+                          alignment: Alignment.topLeft,
+                          child: TextWidget(
+                             textTitle: 'Phone',
+                            fontFamily: poppinsMedium,
+                            color: Colors.black,
+                            fontSize: _height * 0.015,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: _height * 0.005,
+                      ),
+                      Container(
+                          height: _height * 0.06,
+                          width: _width * 1,
+                          margin:
+                              EdgeInsets.symmetric(horizontal: _width * 0.05),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius:
+                                  BorderRadius.circular(_width * 0.02),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Colors.grey.withOpacity(0.2),
+                                    blurRadius: 2,
+                                    spreadRadius: 2,
+                                    offset: Offset(0, 0))
+                              ]),
+                          child: CustomTextField1(
+                            // hintText: '1234567989',
+                            hintText: controller.profileDataModel.value.phone ?? '123456789',
+                            hintFontSize: _height * 0.015,
+                            fontSize: _height * 0.0175,
+                            fontFamily: poppinsMedium,
+                            // suffixIcon: Image.asset(ImageUtils.searchIcon),
+                            contentPadding: EdgeInsets.symmetric(
+                                vertical: _height * 0.0175,
+                                horizontal: _width * 0.025),
+                            controller: controller.phoneController,
+                            onChanged: (value) {
+                              print(value);
+                            },
+                          )),
+
+                      SizedBox(
+                        height: _height * 0.015,
+                      ),
+                      Padding(
+                        padding:
+                        EdgeInsets.symmetric(horizontal: _width * 0.05),
+                        child: Align(
+                          alignment: Alignment.topLeft,
+                          child: TextWidget(
+                            textTitle: 'Address',
+                            fontFamily: poppinsMedium,
+                            color: Colors.black,
+                            fontSize: _height * 0.015,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: _height * 0.005,
+                      ),
+                      Container(
+                          height: _height * 0.06,
+                          width: _width * 1,
+                          margin:
+                          EdgeInsets.symmetric(horizontal: _width * 0.05),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius:
+                              BorderRadius.circular(_width * 0.02),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Colors.grey.withOpacity(0.2),
+                                    blurRadius: 2,
+                                    spreadRadius: 2,
+                                    offset: Offset(0, 0))
+                              ]),
+                          child: CustomTextField1(
+                            // hintText: 'Times Square, New York City, USA',
+                            hintText: controller.profileDataModel.value.address ?? 'Nothing',
                             hintFontSize: _height * 0.015,
                             fontSize: _height * 0.0175,
                             fontFamily: poppinsMedium,
@@ -414,6 +521,7 @@ class EditAccountScreen extends GetView<EditAccountController> {
                       SizedBox(height: _height * 0.02,),
                       const Spacer(),
 
+                      /// Obx
                       Obx(
                         () => controller.isProfileLoading.value ?
                             const CircularProgressIndicator(
@@ -426,27 +534,8 @@ class EditAccountScreen extends GetView<EditAccountController> {
                               EdgeInsets.symmetric(
                                   vertical: _height * 0.02
                               ),
-                          onTap: ()async{
-                            // Get.dialog(
-                            //     const Center(
-                            //         child: CircularProgressIndicator(
-                            //           color: homeBoxColor,
-                            //         )
-                            //     ));
-                            //
-                            // // Simulate a delay (e.g., 2 seconds)
-                            // await Future.delayed(const Duration(seconds: 2));
-                            // // Close the progress indicator
-                            // Get.back();
-                            // Get.dialog(
-                            //     CustomDialogSimple(
-                            //       title: 'Done',
-                            //       description: 'profile changes has been saved',
-                            //       okTap: true,
-                            //     )
-                            // );
-
-                            controller.getProfileResponse();
+                          onTap: (){
+                            controller.updateProfile();
                           },
                           title: 'Save',
                           fontFamily: poppinsMedium,
@@ -456,6 +545,43 @@ class EditAccountScreen extends GetView<EditAccountController> {
                           color: homeBoxColor,
                         ),
                       ),
+
+                      // CustomButton(
+                      //   isSelected: false,
+                      //   margin: EdgeInsets.symmetric(horizontal: _width * 0.06),
+                      //   padding:
+                      //   EdgeInsets.symmetric(
+                      //       vertical: _height * 0.02
+                      //   ),
+                      //   onTap: ()async{
+                      //     // Get.dialog(
+                      //     //     const Center(
+                      //     //         child: CircularProgressIndicator(
+                      //     //           color: homeBoxColor,
+                      //     //         )
+                      //     //     ));
+                      //     //
+                      //     // // Simulate a delay (e.g., 2 seconds)
+                      //     // await Future.delayed(const Duration(seconds: 2));
+                      //     // // Close the progress indicator
+                      //     // Get.back();
+                      //     // Get.dialog(
+                      //     //     CustomDialogSimple(
+                      //     //       title: 'Done',
+                      //     //       description: 'profile changes has been saved',
+                      //     //       okTap: true,
+                      //     //     )
+                      //     // );
+                      //
+                      //     controller.updateProfile();
+                      //   },
+                      //   title: 'Save',
+                      //   fontFamily: poppinsMedium,
+                      //   fontSize: _height * 0.0175,
+                      //   textColor: Colors.white,
+                      //   borderRadius: _width * 0.025,
+                      //   color: homeBoxColor,
+                      // ),
                       SizedBox(
                         height: _height * 0.05,
                       ),

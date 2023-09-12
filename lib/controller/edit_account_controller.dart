@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
@@ -23,6 +24,7 @@ class EditAccountController extends GetxController
   Rx<ProfileDataModel> profileDataModel = ProfileDataModel().obs;
   RxBool isProfileLoading = false.obs;
 
+
   TabController? tabController;
   bool tap1 = false;
   bool tap2 = false;
@@ -47,32 +49,6 @@ class EditAccountController extends GetxController
     }
   }
 
-  getProfileResponse() {
-    isProfileLoading.value = true;
-    ProfileApi.getProfileResponse().then((value) {
-      if (value.result == true) {
-        profileModel = value;
-
-        profileDataModel.value = profileModel.data!;
-        isProfileLoading.value = false;
-
-      }
-
-      // if profile is not true show snackbar with message
-      else if (value.result == false) {
-        Get.snackbar(alertSUtil.tr, wentWrongSUtil.tr,
-            snackPosition: SnackPosition.BOTTOM);
-        isProfileLoading.value = false;
-      }
-
-      //no profile response
-      else {
-        Get.snackbar(alertSUtil.tr, wentWrongSUtil.tr,
-            snackPosition: SnackPosition.BOTTOM);
-        isProfileLoading.value = false;
-      }
-    });
-  }
 
 }
 

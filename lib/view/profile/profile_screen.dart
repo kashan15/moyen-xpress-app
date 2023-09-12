@@ -443,43 +443,77 @@ class ProfileScreen extends StatelessWidget {
                       SizedBox(height: _height * 0.025,),
 
 
-                      Obx(
-                            () => controller.isProfileLoading.value ?
-                        const CircularProgressIndicator(
-                          color: homeBoxColor,
-                        ):
-                            CustomButton(
-                              isSelected: false,
-                              margin: EdgeInsets.symmetric(
-                                  horizontal: _width * 0.02
-                              ),
-                              padding: EdgeInsets.symmetric(
-                                  vertical: _height * 0.015
-                              ),
-                              onTap: ()async{
-                                // Get.dialog(
-                                //     const Center(
-                                //         child: CircularProgressIndicator(
-                                //           color: homeBoxColor,
-                                //         )
-                                //     ));
-                                //
-                                // // Simulate a delay (e.g., 2 seconds)
-                                // await Future.delayed(const Duration(seconds: 2));
-                                // // Close the progress indicator
-                                // Get.back();
-                                // Get.toNamed(kEditAccount);
+                      /// Obx
+                      // Obx(
+                      //       () => controller.isProfileLoading.value ?
+                      //   const CircularProgressIndicator(
+                      //     color: homeBoxColor,
+                      //   ):
+                      //       CustomButton(
+                      //         isSelected: false,
+                      //         margin: EdgeInsets.symmetric(
+                      //             horizontal: _width * 0.02
+                      //         ),
+                      //         padding: EdgeInsets.symmetric(
+                      //             vertical: _height * 0.015
+                      //         ),
+                      //         onTap: ()async{
+                      //           Get.dialog(
+                      //               const Center(
+                      //                   child: CircularProgressIndicator(
+                      //                     color: homeBoxColor,
+                      //                   )
+                      //               ));
+                      //
+                      //           // Simulate a delay (e.g., 2 seconds)
+                      //           await Future.delayed(const Duration(seconds: 2));
+                      //           // Close the progress indicator
+                      //           Get.back();
+                      //           Get.toNamed(kEditAccount);
+                      //
+                      //           // controller.getProfileResponse();
+                      //           // await Get.toNamed(kEditAccount);
+                      //         },
+                      //         title: editAccount.tr,
+                      //         fontFamily: poppinsMedium,
+                      //         fontSize: _height * 0.0175,
+                      //         textColor: Colors.white,
+                      //         borderRadius: _width * 0.015,
+                      //         color: homeBoxColor,
+                      //       ),
+                      // ),
 
-                                controller.getProfileResponse();
-                                await Get.toNamed(kEditAccount);
-                              },
-                              title: editAccount.tr,
-                              fontFamily: poppinsMedium,
-                              fontSize: _height * 0.0175,
-                              textColor: Colors.white,
-                              borderRadius: _width * 0.015,
-                              color: homeBoxColor,
-                            ),
+                      CustomButton(
+                        isSelected: false,
+                        margin: EdgeInsets.symmetric(
+                            horizontal: _width * 0.02
+                        ),
+                        padding: EdgeInsets.symmetric(
+                            vertical: _height * 0.015
+                        ),
+                        onTap: ()async{
+                          // Get.dialog(
+                          //     const Center(
+                          //         child: CircularProgressIndicator(
+                          //           color: homeBoxColor,
+                          //         )
+                          //     ));
+                          //
+                          // // Simulate a delay (e.g., 2 seconds)
+                          // await Future.delayed(const Duration(seconds: 2));
+                          // // Close the progress indicator
+                          // Get.back();
+                          Get.toNamed(kEditAccount);
+
+                          // controller.getProfileResponse();
+                          // await Get.toNamed(kEditAccount);
+                        },
+                        title: editAccount.tr,
+                        fontFamily: poppinsMedium,
+                        fontSize: _height * 0.0175,
+                        textColor: Colors.white,
+                        borderRadius: _width * 0.015,
+                        color: homeBoxColor,
                       ),
 
                     ],

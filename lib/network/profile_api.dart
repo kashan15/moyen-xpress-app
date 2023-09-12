@@ -62,9 +62,9 @@ class ProfileApi {
     request.headers.addAll(headers);
 
     request.fields["name"] = model.name ?? "";
-    request.fields["email"] = model.email ?? "";
     request.fields["phone"] = model.phone ?? "";
     request.fields["address"] = model.address ?? "";
+    request.fields["image"] = model.image ?? "";
 
 
 

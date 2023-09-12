@@ -38,14 +38,14 @@ class ProfileDataModel {
     this.name,
     this.email,
     this.phone,
-    this.profile_Pic,
+    this.image,
     this.address
   });
 
   String? name;
   String? email;
   String? phone;
-  String? profile_Pic;
+  String? image;
   String? address;
 
   factory ProfileDataModel.fromJson(Map<String, dynamic> json) =>
@@ -53,7 +53,7 @@ class ProfileDataModel {
         name: json["name"],
         email: json["email"],
         phone: json["phone"],
-        profile_Pic: json["profile_pic"],
+        image: json["image"],
         address: json["address"],
       );
 
@@ -61,7 +61,7 @@ class ProfileDataModel {
     "name": name,
     "email": email,
     "phone": phone,
-    "profile_pic": profile_Pic,
+    "image": image,
     "address": address
   };
 }
