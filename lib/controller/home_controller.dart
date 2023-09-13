@@ -31,8 +31,8 @@ class HomeController extends GetxController
   late TabController tabController;
 
   DataModel dataModel = DataModel();
-  // RxList<Data> productsDataList = <Data>[].obs;
-  RxList<DataModel> productsDataList = <DataModel>[].obs;
+  RxList<Data> productsDataList = <Data>[].obs;
+  //RxList<DataModel> productsDataList = <DataModel>[].obs;
 
   List<HomeScreen> itemsList = [
     HomeScreen(
@@ -179,7 +179,7 @@ class HomeController extends GetxController
     tabController = TabController(vsync: this, length: myTabs.length);
     tabController.index = 1;
 
-   // getProductDetails();
+   getProductDetails();
 
     tabController.addListener(() {
       _handleTabSelection();
@@ -209,7 +209,7 @@ class HomeController extends GetxController
 
   getProductDetails() async{
     isLoading.value = true;
-    await HomeProductsApi.getHomeProductsResponse().then((value) {
+    await HomeProductsApi.getHomeProductsResponse(4,'flash_deals').then((value) {
       if(value.result == true){
         dataModel = value;
 

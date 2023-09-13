@@ -40,7 +40,7 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField1 extends StatelessWidget {
-  // final String labelText;
+  String? labelText;
    String? hintText;
   double? hintFontSize;
   final Widget? suffixIcon;
@@ -59,7 +59,7 @@ class CustomTextField1 extends StatelessWidget {
 
 
   CustomTextField1({
-    // required this.labelText,
+    this.labelText,
     this.hintText,
     this.hintFontSize,
     this.fontSize,
@@ -87,6 +87,7 @@ class CustomTextField1 extends StatelessWidget {
       obscureText: obscureText,
       autofocus: false,
       decoration: InputDecoration(
+        labelText: labelText,
         border: InputBorder.none,
         isDense: true,
         hintText: hintText,

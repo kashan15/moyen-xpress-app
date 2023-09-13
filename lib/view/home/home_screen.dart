@@ -651,8 +651,8 @@ class HomeScreen extends GetView<HomeController> {
                                 horizontal: _width * 0.06,
                                 vertical: _height * 0.02
                             ),
-                            //itemCount: controllerAL.productsDataList.length,
-                            itemCount: 4, // Number of containers
+                            itemCount: controllerAL.productsDataList.length,
+                            //itemCount: 4, // Number of containers
                             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                               // crossAxisCount: columnsCount,
                                 crossAxisCount: 2,
@@ -731,12 +731,12 @@ class HomeScreen extends GetView<HomeController> {
                                           width: double.infinity,
                                           margin: EdgeInsets.symmetric(horizontal: _width * 0.018),
                                           alignment: Alignment.center,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                             color: gridColor,
                                             image:  DecorationImage(image:
                                             AssetImage(
-                                               controller.itemsList[index].image1
-                                              //ImageUtils.dealItem
+                                               //controller.itemsList[index].image1
+                                              ImageUtils.dealItem
                                             ),
                                             fit: BoxFit.contain,
                                             )
@@ -745,7 +745,8 @@ class HomeScreen extends GetView<HomeController> {
                                         SizedBox(height: _height * 0.01,),
                                         TextWidget1(
                                           //textTitle: 'Microwave Oven',
-                                          textTitle: controller.itemsList[index].name,
+                                          // textTitle: controller.itemsList[index].name,
+                                          textTitle: controllerAL.productsDataList[index].name,
                                           style: CustomTheme.productName,
                                           maxLines: 1,
                                           overFlow: TextOverflow.ellipsis,

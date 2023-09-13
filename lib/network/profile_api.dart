@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/foundation.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
+import 'package:moyen_xpress_app/controller/profile_screen_controller.dart';
 
 import '../models/profile_model.dart';
 import '../utils/network_utils.dart';
@@ -47,7 +48,9 @@ class ProfileApi {
     }
   }
 
+
   static updateProfileDataModel(ProfileDataModel model) async {
+    ProfileController profileController = ProfileController();
     const url = '$baseUrl$apiVersion$updateProfileEndPoint';
     // try {
     final getStorage = GetStorage();
@@ -59,12 +62,16 @@ class ProfileApi {
     };
     var request = http.MultipartRequest('POST', Uri.parse(url));
 
+
+
     request.headers.addAll(headers);
 
     request.fields["name"] = model.name ?? "";
+    request.fields["old_password"] =  profileController.oldPasswordController.text;
+    request.fields["new_password"] = profileController.newPasswordController.text;
     request.fields["phone"] = model.phone ?? "";
     request.fields["address"] = model.address ?? "";
-    request.fields["image"] = model.image ?? "";
+    // request.fields["image"] = model.profile_pic ?? "";
 
 
 

@@ -2,6 +2,8 @@
 //
 //     final profileModel = profileModelFromJson(jsonString);
 
+// ignore_for_file: non_constant_identifier_names
+
 import 'dart:convert';
 
 ProfileModel profileModelFromJson(String str) =>
@@ -38,14 +40,14 @@ class ProfileDataModel {
     this.name,
     this.email,
     this.phone,
-    this.image,
+    this.profile_pic,
     this.address
   });
 
   String? name;
   String? email;
   String? phone;
-  String? image;
+  String? profile_pic;
   String? address;
 
   factory ProfileDataModel.fromJson(Map<String, dynamic> json) =>
@@ -53,7 +55,7 @@ class ProfileDataModel {
         name: json["name"],
         email: json["email"],
         phone: json["phone"],
-        image: json["image"],
+        profile_pic: json["profile_pic"],
         address: json["address"],
       );
 
@@ -61,7 +63,7 @@ class ProfileDataModel {
     "name": name,
     "email": email,
     "phone": phone,
-    "image": image,
+    "profile_pic": profile_pic,
     "address": address
   };
 }

@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../components/custom_dialog.dart';
 import '../models/profile_model.dart';
 import '../network/profile_api.dart';
+import '../utils/color_utils.dart';
 import '../utils/lang_string_util.dart';
 import '../utils/route_utils.dart';
 
@@ -21,6 +23,8 @@ class ProfileController extends GetxController
   /// Edit Account Screen Controllers
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
+  TextEditingController oldPasswordController = TextEditingController();
+  TextEditingController newPasswordController = TextEditingController();
   TextEditingController genderController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
   TextEditingController addressController = TextEditingController();
@@ -94,6 +98,12 @@ class ProfileController extends GetxController
 
     await ProfileApi.updateProfileDataModel(model);
     isProfileLoading.value = false;
+    Get.dialog(
+        CustomDialogSimple(
+            title: 'Done',
+            description: 'profile saved successfully',
+            okTap: true)
+    );
   }
 
   /// Edit Account Screen Functions

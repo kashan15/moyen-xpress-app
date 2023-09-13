@@ -33,9 +33,9 @@ class Data{
     this.name,
     this.tags
   });
-  int? id;
-  String? name;
-  String? tags;
+  dynamic id;
+  dynamic name;
+  dynamic tags;
 
   factory Data.fromJson(Map<String, dynamic>? json) => Data(
       id: json?["id"],
@@ -44,7 +44,7 @@ class Data{
 
   );
 
-  Map<String, dynamic> toJson() => {
+   Map<String, dynamic> toJson() => {
     "id": id,
     "name": name,
     "tags": tags

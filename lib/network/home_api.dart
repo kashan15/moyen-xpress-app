@@ -10,9 +10,9 @@ import 'package:http/http.dart' as http;
 import '../models/data_model.dart';
 
 class HomeProductsApi{
-  static Future<DataModel> getHomeProductsResponse() async{
+  static Future<DataModel> getHomeProductsResponse(int limit, String categoryKey) async{
 
-    const url = '$baseUrl$apiVersion$homePageEndPoint';
+    var url = '$baseUrl$apiVersion$homePageEndPoint?limit=$limit&category_key=$categoryKey';
 
     DataModel dataModel = DataModel();
 
@@ -33,6 +33,7 @@ class HomeProductsApi{
         var result = jsonDecode(response.body);
 
         dataModel = DataModel.fromJson(result);
+        print(result);
 
         if (kDebugMode) {
           print("assignedOrdersModel ${dataModel.toJson().toString()}");

@@ -199,6 +199,7 @@ class EditAccountScreen extends GetView<ProfileController> {
                           ),
                           child: CustomTextField1(
                             // hintText: 'John Smith',
+                            // hintText: controller.profileDataModel.value.name ?? 'Nothing',
                             hintText: controller.profileDataModel.value.name ?? 'Nothing',
                             hintFontSize: _height * 0.015,
                             fontSize: _height * 0.0175,
@@ -353,7 +354,9 @@ class EditAccountScreen extends GetView<ProfileController> {
                                     offset: Offset(0, 0))
                               ]),
                           child: CustomTextField1(
-                            hintText: 'abc123',
+                            hintText: controller.oldPasswordController.text.isEmpty ?
+                                "123456":
+                                controller.oldPasswordController.text,
                             hintFontSize: _height * 0.015,
                             fontSize: _height * 0.0175,
                             fontFamily: poppinsMedium,
@@ -361,7 +364,7 @@ class EditAccountScreen extends GetView<ProfileController> {
                             contentPadding: EdgeInsets.symmetric(
                                 vertical: _height * 0.0175,
                                 horizontal: _width * 0.025),
-                            controller: controller.genderController,
+                            controller: controller.oldPasswordController,
                             onChanged: (value) {
                               print(value);
                             },
@@ -403,7 +406,9 @@ class EditAccountScreen extends GetView<ProfileController> {
                                     offset: Offset(0, 0))
                               ]),
                           child: CustomTextField1(
-                            hintText: '',
+                            hintText: controller.newPasswordController.text.isEmpty ?
+                            "":
+                            controller.newPasswordController.text,
                             hintFontSize: _height * 0.015,
                             fontSize: _height * 0.0175,
                             fontFamily: poppinsMedium,
@@ -411,7 +416,7 @@ class EditAccountScreen extends GetView<ProfileController> {
                             contentPadding: EdgeInsets.symmetric(
                                 vertical: _height * 0.0175,
                                 horizontal: _width * 0.025),
-                            controller: controller.genderController,
+                            controller: controller.newPasswordController,
                             onChanged: (value) {
                               print(value);
                             },
@@ -505,7 +510,7 @@ class EditAccountScreen extends GetView<ProfileController> {
                               ]),
                           child: CustomTextField1(
                             // hintText: 'Times Square, New York City, USA',
-                            hintText: controller.profileDataModel.value.address ?? 'Nothing',
+                            hintText: controller.profileDataModel.value.address ?? 'Empty',
                             hintFontSize: _height * 0.015,
                             fontSize: _height * 0.0175,
                             fontFamily: poppinsMedium,
