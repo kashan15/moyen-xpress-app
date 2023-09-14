@@ -28,17 +28,24 @@ class HomeProductsApi{
     try {
       // isDataLoading(true);
       http.Response response = await http.get(Uri.parse(url), headers: headers);
+
       if (response.statusCode == 200) {
         ///data successfully
-        var result = jsonDecode(response.body);
+        // var result = jsonDecode(response.body);
+        // dataModel = DataModel.fromJson(result);
+        // print(result);
 
-        dataModel = DataModel.fromJson(result);
-        print(result);
+        final Map<String, dynamic> responseJson = json.decode(response.body);
+        final DataModel dataModel = DataModel.fromJson(responseJson);
+        print(dataModel);
+        print('PRODUCTS DATA: ${responseJson}');
 
-        if (kDebugMode) {
-          print("assignedOrdersModel ${dataModel.toJson().toString()}");
-          log('assignedOrdersApi: success');
-        }
+
+
+        // if (kDebugMode) {
+        //   print("assignedOrdersModel ${dataModel.toJson().toString()}");
+        //   log('assignedOrdersApi: success');
+        // }
       } else {}
     } catch (e,stacktrace) {
       if (kDebugMode) {
