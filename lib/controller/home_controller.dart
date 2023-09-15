@@ -1,3 +1,6 @@
+import 'dart:developer';
+import 'dart:ffi';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,6 +9,7 @@ import 'package:moyen_xpress_app/utils/image_utils.dart';
 import 'package:moyen_xpress_app/view/home/home_screen.dart';
 
 
+import '../components/custom_dialog.dart';
 import '../components/test_class.dart';
 import '../models/data_model.dart';
 
@@ -23,6 +27,7 @@ class HomeController extends GetxController
   bool homeTap = false;
 
   RxBool isLoading = false.obs;
+  bool isLoading1 = false;
 
   late Rx<String> tabTitleText = ''.obs;
 
@@ -31,10 +36,16 @@ class HomeController extends GetxController
   late TabController tabController;
 
   DataModel dataModel = DataModel();
-  RxList<Data> productsDataList = <Data>[].obs;
+  RxList<DataModel> productsDataList = <DataModel>[].obs;
   //RxList<DataModel> productsDataList = <DataModel>[].obs;
-   List<Data> productDataList1 = [];
+   List<DataModel> productDataList1 = [];
  // List<DataModel> productDataList1 = [];
+
+  HomeProductsApi homeProductsApi = HomeProductsApi();
+  List<Data> getDataList = <Data>[];
+  RxList<Data> openGetDataList = <Data>[].obs;
+
+  RxList<Data> myDataList = <Data>[].obs;
 
 
 
@@ -184,6 +195,7 @@ class HomeController extends GetxController
     tabController.index = 1;
 
     getProductDetails();
+    //myEvents();
 
     tabController.addListener(() {
       _handleTabSelection();
@@ -211,25 +223,30 @@ class HomeController extends GetxController
 
   final scrollController = PageController();
 
+
   getProductDetails() async{
     isLoading.value = true;
-    await HomeProductsApi.getHomeProductsResponse(4,'daily_deals').then((value) {
+     await HomeProductsApi.getHomeProductsResponse(4,'daily_deals').then((value) {
       if(value.result == true){
         dataModel = value;
+        // getDataList = dataModel.homeData!;
+        // openGetDataList.addAll(getDataList);
+        //
+        // print(openGetDataList);
 
-        // productsDataList.value = dataModel.data!;
-        productsDataList.value = [];
-
+        myDataList.value = dataModel.homeData!;
+        openGetDataList.addAll(myDataList);
 
         // if profile is not true show snackBar with message
         if (value.result == false) {
-          Get.snackbar("Alert!", "Something Went Wrong",
+          Get.snackbar("Alert!", "Something Went Wrong?????????",
               snackPosition: SnackPosition.BOTTOM);
           isLoading.value = false;
         }
+
         //no profile response
         else {
-          Get.snackbar("Alert!", "Something Went Wrong",
+          Get.snackbar("Alert!", "no profile response",
               snackPosition: SnackPosition.BOTTOM);
           isLoading.value = false;
         }
@@ -238,5 +255,25 @@ class HomeController extends GetxController
     });
   }
 
+  // List<DataModel> dataList = [];
+  // var gettingEvents = GetMyEvents();
+  // myEvents() async{
+  //   isLoading1 = true;
+  //   dataList = [];
+  //   var dataModel = DataModel();
+  //   var response = await gettingEvents.getMyEventsDetails(dataModel, 4, 'daily_deals');
+  //   if(response is List<DataModel>){
+  //     dataList = response;
+  //     isLoading1 = false;
+  //   }
+  //   else{
+  //     Get.dialog(
+  //         CustomDialogSimple(
+  //             title: 'Error',
+  //             description: 'error here plz check that',
+  //             okTap: true)
+  //     );
+  //   }
+  // }
 
 }

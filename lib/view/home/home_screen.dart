@@ -644,8 +644,8 @@ class HomeScreen extends GetView<HomeController> {
 
                   SizedBox(height: _height * 0.01,),
 
-                  controller.productDataList1.isNotEmpty ?
-                  // controller.productsDataList.value.isNotEmpty ?
+                 // controller.getDataList.isNotEmpty ?
+                  //controller.productsDataList.value.isNotEmpty ?
                   GridView.builder(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
@@ -653,7 +653,7 @@ class HomeScreen extends GetView<HomeController> {
                         horizontal: _width * 0.06,
                         vertical: _height * 0.02
                     ),
-                    itemCount: controller.productsDataList.length,
+                    itemCount: controller.myDataList.length,
                    // itemCount: 4, // Number of containers
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       // crossAxisCount: columnsCount,
@@ -752,7 +752,7 @@ class HomeScreen extends GetView<HomeController> {
                                   // textTitle: controller.itemsList[index].name,
                                   // textTitle: controllerAL.productsDataList[index].name,
                                   // textTitle: data.name,
-                                  textTitle: controller.productDataList1.map((e) => e.name!),
+                                  textTitle: controller.myDataList[index].name,
                                   style: CustomTheme.productName,
                                   maxLines: 1,
                                   overFlow: TextOverflow.ellipsis,
@@ -855,7 +855,7 @@ class HomeScreen extends GetView<HomeController> {
                         ),
                       );
                     },
-                  ) :
+                  ),
                       const Center(
                         child: Text(
                           "No Data Here",

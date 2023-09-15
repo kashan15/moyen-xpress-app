@@ -10,7 +10,9 @@ import 'package:http/http.dart' as http;
 import '../models/data_model.dart';
 
 class HomeProductsApi{
-  static Future<DataModel> getHomeProductsResponse(int limit, String categoryKey) async{
+
+  List<DataModel> dataList = [];
+   static Future<DataModel> getHomeProductsResponse(int limit, String categoryKey) async{
 
     var url = '$baseUrl$apiVersion$homePageEndPoint?limit=$limit&category_key=$categoryKey';
 
@@ -25,36 +27,97 @@ class HomeProductsApi{
       'Authorization': 'Bearer $token',
     };
 
-    try {
-      // isDataLoading(true);
-      http.Response response = await http.get(Uri.parse(url), headers: headers);
+    // try {
+    //   // isDataLoading(true);
+    //   http.Response response = await http.get(Uri.parse(url), headers: headers);
+    //
+    //   if (response.statusCode == 200) {
+    //     ///data successfully
+    //     // var result = jsonDecode(response.body);
+    //     // dataModel = DataModel.fromJson(result);
+    //     // print(result);
+    //
+    //     // final Map<String, dynamic> responseJson = json.decode(response.body);
+    //     final responseJson = json.decode(response.body) as Map<String, dynamic>;
+    //     final DataModel dataModel = DataModel.fromJson(responseJson);
+    //     //final result = DataModel.fromJson(responseJson);
+    //     return dataModel;
+    //   }
+    //   else{
+    //     throw Exception('Failed to load data');
+    //   }
+    //
+    // } catch (e,stacktrace) {
+    //   if (kDebugMode) {
+    //     log('assignedOrdersApi: Error while getting data is $e \n $stacktrace');
+    //   }
+    // }
+    // finally {
+    //   // isDataLoading(false);
+    //   // ignore: control_flow_in_finally
+    //   return dataModel;
+    // }
 
-      if (response.statusCode == 200) {
-        ///data successfully
-        // var result = jsonDecode(response.body);
-        // dataModel = DataModel.fromJson(result);
-        // print(result);
+     try{
+       http.Response response = await http.get(Uri.parse(url), headers: headers);
 
-        final Map<String, dynamic> responseJson = json.decode(response.body);
-        final DataModel dataModel = DataModel.fromJson(responseJson);
-        print(dataModel);
-        print('PRODUCTS DATA: ${responseJson}');
+       if (response.statusCode == 200) {
+         ///data successfully
+         // var result = jsonDecode(response.body);
+         // dataModel = DataModel.fromJson(result);
+         // print(result);
 
-
-
-        // if (kDebugMode) {
-        //   print("assignedOrdersModel ${dataModel.toJson().toString()}");
-        //   log('assignedOrdersApi: success');
-        // }
-      } else {}
-    } catch (e,stacktrace) {
-      if (kDebugMode) {
-        log('assignedOrdersApi: Error while getting data is $e \n $stacktrace');
-      }
-    } finally {
-      // isDataLoading(false);
-      return dataModel;
-    }
-
+         // final Map<String, dynamic> responseJson = json.decode(response.body);
+         final responseJson = json.decode(response.body) as Map<String, dynamic>;
+         final DataModel dataModel = DataModel.fromJson(responseJson);
+         //final result = DataModel.fromJson(responseJson);
+         return dataModel;
+       }
+       else{
+         throw Exception('Failed to load data');
+       }
+     }
+     catch(e){
+       print(e);
+     }
+     return dataModel;
   }
 }
+
+
+// class GetMyEvents{
+//
+//   List<DataModel> dataList = [];
+//
+//   Future getMyEventsDetails(DataModel dataModel, int limit, String categoryKey) async{
+//
+//     var url = '$baseUrl$apiVersion$homePageEndPoint?limit=$limit&category_key=$categoryKey';
+//
+//     //DataModel dataModel = DataModel();
+//
+//     final getStorage = GetStorage();
+//     final token = getStorage.read(authToken);
+//     if (kDebugMode) print("url $url");
+//     var headers = {
+//       'Content-Type': 'application/json',
+//       'Accept': 'application/json',
+//       'Authorization': 'Bearer $token',
+//     };
+//
+//     try{
+//       http.Response response = await http.get(Uri.parse(url), headers: headers);
+//       if(response.statusCode == 200){
+//
+//         final responseJson = json.decode(response.body);
+//         dataList = [];
+//         dataList.add(DataModel.fromJson(responseJson));
+//         return dataList;
+//       }
+//
+//
+//     } catch(e){
+//       print(e);
+//     }
+//   }
+//
+// }
