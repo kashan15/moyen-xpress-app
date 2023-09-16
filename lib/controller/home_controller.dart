@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 import 'dart:ffi';
 
@@ -7,11 +8,13 @@ import 'package:get/get.dart';
 import 'package:moyen_xpress_app/network/home_api.dart';
 import 'package:moyen_xpress_app/utils/image_utils.dart';
 import 'package:moyen_xpress_app/view/home/home_screen.dart';
+import 'package:http/http.dart' as http;
 
 
 import '../components/custom_dialog.dart';
 import '../components/test_class.dart';
 import '../models/data_model.dart';
+import '../models/open_sea_model.dart';
 
 class HomeController extends GetxController
     with GetSingleTickerProviderStateMixin
@@ -27,7 +30,9 @@ class HomeController extends GetxController
   bool homeTap = false;
 
   RxBool isLoading = false.obs;
-  bool isLoading1 = false;
+  OpenseaModel? openseaModel;
+
+  var isLoading1 = false.obs;
 
   late Rx<String> tabTitleText = ''.obs;
 
@@ -183,8 +188,32 @@ class HomeController extends GetxController
   final pageController = PageController();
   RxInt currentPage = 0.obs;
 
+  // @override
+  // void onInit() {
+  //   super.onInit();
+  //   height = Get.height;
+  //   width = Get.width;
+  //   blockHeight = height / 100;
+  //   blockWidth = width / 100;
+  //   tabTitleText.value = tabTitle[1];
+  //   tabController = TabController(vsync: this, length: myTabs.length);
+  //   tabController.index = 1;
+  //
+  //   //getProductDetails();
+  //   fetchData();
+  //   //myEvents();
+  //
+  //   tabController.addListener(() {
+  //     _handleTabSelection();
+  //   }
+  //   );
+  //   // pageController.addListener(() {
+  //   //   currentPage.value = pageController.page!.round();
+  //   // });
+  // }
+
   @override
-  void onInit() {
+  Future<void> onInit() async {
     super.onInit();
     height = Get.height;
     width = Get.width;
@@ -194,8 +223,7 @@ class HomeController extends GetxController
     tabController = TabController(vsync: this, length: myTabs.length);
     tabController.index = 1;
 
-    getProductDetails();
-    //myEvents();
+    fetchData();
 
     tabController.addListener(() {
       _handleTabSelection();
@@ -253,6 +281,26 @@ class HomeController extends GetxController
 
       }
     });
+  }
+
+  fetchData() async {
+    try {
+      isLoading1(true);
+      http.Response response = await http.get(Uri.tryParse(
+          'https://moyenxpress.com/api/appV1/home_page?limit=4 &category_key= daily_deals')!);
+      if (response.statusCode == 200) {
+        ///data successfully
+        var result = jsonDecode(response.body);
+
+        openseaModel = OpenseaModel.fromJson(result);
+      } else {
+        print('error fetching data');
+      }
+    } catch (e) {
+      print('Error while getting data is $e');
+    } finally {
+      isLoading1(false);
+    }
   }
 
   // List<DataModel> dataList = [];

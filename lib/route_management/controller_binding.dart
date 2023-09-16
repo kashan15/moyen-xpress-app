@@ -13,6 +13,7 @@ import 'package:moyen_xpress_app/controller/my_orders_controller.dart';
 import 'package:moyen_xpress_app/controller/navbar_controller.dart';
 import 'package:moyen_xpress_app/controller/notification_controller.dart';
 import 'package:moyen_xpress_app/controller/onboard_screen_controller.dart';
+import 'package:moyen_xpress_app/controller/open_sea_controller.dart';
 
 import 'package:moyen_xpress_app/controller/payment_method_controller.dart';
 
@@ -81,5 +82,6 @@ class ControllerBinding extends Bindings {
     Get.lazyPut(() => TechnicianSearchController());
     Get.lazyPut(() => OnboardScreenController());
     Get.lazyPut(() => ContactUsScreenController());
+    Get.lazyPut(() => OpenseaController());
   }
 }

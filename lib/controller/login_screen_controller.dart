@@ -126,6 +126,7 @@ class LoginScreenController extends GetxController{
         setRememberMe();
 
         Get.offAllNamed(kNavBar1);
+        //Get.offAllNamed(kOpenSea);
         if (kDebugMode) log("loginButtonResponse ${loginModel.toJson()} ");
       }
 

@@ -60,3 +60,4 @@ const String kDeactivateAccountScreen = "/DEACTIVATE_ACCOUNT";
 const String kNotificationSettingScreen = "/NOTIFICATION_SETTING";
 const String kMyNotificationScreen = "/MY_NOTIFICATION";
 const String kBankAccountDetailsScreen = "/BANK_ACCOUNT_DETAILS";
+const String kOpenSea = "/OPEN_SEA";

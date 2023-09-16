@@ -1,5 +1,6 @@
 
 import 'package:get/get.dart';
+import 'package:get/get_connect/sockets/src/socket_notifier.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:moyen_xpress_app/view/about/about_screen.dart';
@@ -29,6 +30,7 @@ import '../view/notification/notification_screen.dart';
 import '../view/onboard initial screen/initial_screen.dart';
 import '../view/onboarding/onboarding_screen_2.dart';
 import '../view/onboarding/onboarding_screen_3.dart';
+import '../view/open_sea_class.dart';
 import '../view/orders/my_order_details.dart';
 import '../view/orders/my_orders.dart';
 import '../view/orders/quote order/quote_order_details.dart';
@@ -285,6 +287,11 @@ class RouteManagement {
       GetPage(
         name: kNavBar1,
         page: () => const BottomNavBar(),
+        binding: ControllerBinding(),
+      ),
+      GetPage(
+        name: kOpenSea,
+        page: () =>  OpenSea(),
         binding: ControllerBinding(),
       ),
 ];
