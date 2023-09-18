@@ -327,81 +327,9 @@ class ShowMoreScreen extends GetView<ShowMoreController> {
 }
 
 class ShowMoreScreen2 extends GetView<ShowMoreController> {
-  final String? name;
-  final String image1;
-  final String? image;
   ShowMoreScreen2({super.key,
-    required this.image1,
-    this.name,
-    this.image
+
   });
-
-  dynamic pages = [];
-  dynamic pagesVertical = [];
-
-  List itemList = [
-    {
-      "name": "Microwave Oven",
-      "image": ImageUtils.dealItem
-    },
-    {
-      "name": "Microwave Oven",
-      "image": ImageUtils.dealItem
-    },
-    {
-      "name": "Microwave Oven",
-      "image": ImageUtils.dealItem
-    },{
-      "name": "Microwave Oven",
-      "image": ImageUtils.dealItem
-    },{
-      "name": "Microwave Oven",
-      "image": ImageUtils.dealItem
-    },{
-      "name": "Microwave Oven",
-      "image": ImageUtils.dealItem
-    },{
-      "name": "Microwave Oven",
-      "image": ImageUtils.dealItem
-    },{
-      "name": "Microwave Oven",
-      "image": ImageUtils.dealItem
-    },{
-      "name": "Microwave Oven",
-      "image": ImageUtils.dealItem
-    },{
-      "name": "Microwave Oven",
-      "image": ImageUtils.dealItem
-    },{
-      "name": "Microwave Oven",
-      "image": ImageUtils.dealItem
-    },{
-      "name": "Microwave Oven",
-      "image": ImageUtils.dealItem
-    },
-  ];
-
-  // List allProducts = [
-  //   {
-  //     "image": ImageUtils.products1,
-  //     "name": "Bicycle"
-  //   },
-  //   {
-  //     "image": ImageUtils.products2,
-  //     "name": "Sneakers"
-  //   },
-  //   {
-  //     "image": ImageUtils.products3,
-  //     "name": "Swim Goggle"
-  //   },
-  //   {
-  //     "image": ImageUtils.products4,
-  //     "name": "Fishing Net"
-  //   },
-  // ];
-
-
-
 
   bool shouldPop = true;
 
@@ -423,191 +351,202 @@ class ShowMoreScreen2 extends GetView<ShowMoreController> {
           top: false,
           bottom: false,
           child: Scaffold(
-            body: SingleChildScrollView(
-              child: GridView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                padding: EdgeInsets.symmetric(
-                    horizontal: _width * 0.06,
-                    vertical: _height * 0.06
-                ),
-                itemCount: itemList.length, // Number of containers
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: columnsCount,
+            body: Obx(
+              () =>  SingleChildScrollView(
+                child: controller.isLoading1.value ?
+                const Center(
+                  child: CircularProgressIndicator(
+                    color: homeBoxColor,
+                  ),
+                ) :
+                GridView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  padding: EdgeInsets.symmetric(
+                      horizontal: _width * 0.06,
+                      vertical: _height * 0.06
+                  ),
+                  itemCount: controller.openseaModel?.homeData?.dailyDeals?.length ?? 0, // Number of containers
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: columnsCount,
 
-                    //childAspectRatio: _height * 0.00087,
-                    childAspectRatio: Get.width*1.35 / Get.height*1.04,
-                    crossAxisSpacing: Get.width * 0.06,
-                    mainAxisSpacing: Get.height * 0.025
-                ),
-                itemBuilder: (BuildContext context, int index) {
-                  // Build each container
-                  return  GestureDetector(
-                    onTap: (){
+                      //childAspectRatio: _height * 0.00087,
+                      childAspectRatio: Get.width*1.35 / Get.height*1.04,
+                      crossAxisSpacing: Get.width * 0.06,
+                      mainAxisSpacing: Get.height * 0.025
+                  ),
+                  itemBuilder: (BuildContext context, int index) {
+                    // Build each container
+                    return  GestureDetector(
+                      onTap: (){
 
-                    },
-                    child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: _width * 0.0225, vertical: _height * 0.0125),
-                        decoration: BoxDecoration(
-                          color: gridColor,
-                          borderRadius: BorderRadius.circular(_width * 0.025),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              blurRadius: 3,
-                              //spreadRadius: 5,
-                              offset: Offset(0, 5), // Shadow position
-                            ),],
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Container(
-                              margin: EdgeInsets.only(right: _width * 0.285),
-                              padding: EdgeInsets.symmetric(horizontal: _width * 0.005, vertical: _height * 0.004),
-                              decoration: BoxDecoration(
-                                  color: homeBoxColor,
-                                  borderRadius: BorderRadius.circular(_width * 0.0105),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.grey.withOpacity(0.5),
-                                      blurRadius: 3,
-                                      //spreadRadius: 5,
-                                      offset: Offset(0, 3), // Shadow position
-                                    ),]
-                              ),
-                              child: Center(
-                                child: TextWidget(
-                                  textTitle: '25%',
-                                  fontFamily: montserratSemiBold,
-                                  fontSize: 12.0,
-                                  color: Colors.white,
+                      },
+                      child: Container(
+                          padding: EdgeInsets.symmetric(horizontal: _width * 0.0225, vertical: _height * 0.0125),
+                          decoration: BoxDecoration(
+                            color: gridColor,
+                            borderRadius: BorderRadius.circular(_width * 0.025),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                blurRadius: 3,
+                                //spreadRadius: 5,
+                                offset: Offset(0, 5), // Shadow position
+                              ),],
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(right: _width * 0.285),
+                                padding: EdgeInsets.symmetric(horizontal: _width * 0.005, vertical: _height * 0.004),
+                                decoration: BoxDecoration(
+                                    color: homeBoxColor,
+                                    borderRadius: BorderRadius.circular(_width * 0.0105),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.withOpacity(0.5),
+                                        blurRadius: 3,
+                                        //spreadRadius: 5,
+                                        offset: Offset(0, 3), // Shadow position
+                                      ),]
                                 ),
-                              ),
-                            ),
-                            SizedBox(height: _height * 0.02,),
-                            Container(
-                              height: _height * 0.115,
-                              width: double.infinity,
-                              margin: EdgeInsets.symmetric(horizontal: _width * 0.018),
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                  color: gridColor,
-                                  image:  DecorationImage(image:
-                                  AssetImage(
-                                      itemList[index]['image']
-                                    //ImageUtils.dealItem
+                                child: Center(
+                                  child: TextWidget(
+                                    textTitle: '25%',
+                                    fontFamily: montserratSemiBold,
+                                    fontSize: 12.0,
+                                    color: Colors.white,
                                   ),
-                                    fit: BoxFit.contain,
-                                  )
-                              ),
-                            ),
-                            SizedBox(height: _height * 0.01,),
-                            TextWidget1(
-                              //textTitle: 'Microwave Oven',
-                              textTitle: itemList[index]['name'],
-                              style: CustomTheme.productName,
-                              maxLines: 1,
-                              overFlow: TextOverflow.ellipsis,
-                            ),
-                            SizedBox(height: _height * 0.004,),
-                            TextWidget1(
-                              textTitle: '\$75.00',
-                              style: CustomTheme.productPrice,
-                            ),
-                            SizedBox(height: _height * 0.0025,),
-                            RatingWidget(
-                              initialRating: 4.5,
-                            ),
-                            SizedBox(height: _height * 0.006,),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                CustomGridButton(
-                                  onTap: (){
-                                    Get.dialog(
-                                        CustomDialogSimple(
-                                            title: 'Added To Cart',
-                                            description: 'your item has been added to cart',
-                                            okTap: true)
-                                    );
-                                  },
-                                  title: 'Add to cart',
                                 ),
-                                GestureDetector(
-                                  onTap: (){},
-                                  child: Container(
-                                    padding: EdgeInsets.symmetric(horizontal: _width * 0.025, vertical: _height * 0.005),
-                                    decoration: BoxDecoration(
-                                        color: homeBoxColor.withOpacity(0.5),
-                                        borderRadius: BorderRadius.circular(_width * 0.01)
+                              ),
+                              SizedBox(height: _height * 0.02,),
+                              Container(
+                                height: _height * 0.115,
+                                width: double.infinity,
+                                margin: EdgeInsets.symmetric(horizontal: _width * 0.018),
+                                alignment: Alignment.center,
+                                decoration: const BoxDecoration(
+                                    color: gridColor,
+                                    image:  DecorationImage(image:
+                                    AssetImage(
+                                        // itemList[index]['image']
+                                        ImageUtils.dealItem
+                                      //ImageUtils.dealItem
                                     ),
-                                    child: LikeButton(
-                                      size: Get.height * 0.015,
-                                      // circleColor: CircleColor(
-                                      //     start: Colors.white, end: Colors.yellowAccent
-                                      // ),
-                                      circleColor:
-                                      const CircleColor(
-                                          start: Colors.redAccent,
-                                          end: Colors.yellowAccent),
-                                      bubblesColor: const BubblesColor(
-                                        dotPrimaryColor: Colors.redAccent,
-                                        dotSecondaryColor: Colors.red,
+                                      fit: BoxFit.contain,
+                                    )
+                                ),
+                              ),
+                              SizedBox(height: _height * 0.01,),
+                              TextWidget1(
+                                //textTitle: 'Microwave Oven',
+                                // textTitle: itemList[index]['name'],
+                                textTitle: controller.openseaModel?.homeData!.dailyDeals?[index].name ??
+                                    'no name',
+                                style: CustomTheme.productName,
+                                maxLines: 1,
+                                overFlow: TextOverflow.ellipsis,
+                              ),
+                              SizedBox(height: _height * 0.004,),
+                              TextWidget1(
+                                textTitle: '\$75.00',
+                                style: CustomTheme.productPrice,
+                              ),
+                              SizedBox(height: _height * 0.0025,),
+                              RatingWidget(
+                                initialRating: 4.5,
+                              ),
+                              SizedBox(height: _height * 0.006,),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  CustomGridButton(
+                                    onTap: (){
+                                      Get.dialog(
+                                          CustomDialogSimple(
+                                              title: 'Added To Cart',
+                                              description: 'your item has been added to cart',
+                                              okTap: true)
+                                      );
+                                    },
+                                    title: 'Add to cart',
+                                  ),
+                                  GestureDetector(
+                                    onTap: (){},
+                                    child: Container(
+                                      padding: EdgeInsets.symmetric(horizontal: _width * 0.025, vertical: _height * 0.005),
+                                      decoration: BoxDecoration(
+                                          color: homeBoxColor.withOpacity(0.5),
+                                          borderRadius: BorderRadius.circular(_width * 0.01)
                                       ),
-                                      likeBuilder: (isTapped){
-                                        return Icon(
-                                          isTapped ?
-                                          Icons.favorite : Icons.favorite_border,
-                                          color: isTapped ? Colors.red : Colors.white,
-                                          size: Get.height * 0.015,
-                                        );
-                                      },
+                                      child: LikeButton(
+                                        size: Get.height * 0.015,
+                                        // circleColor: CircleColor(
+                                        //     start: Colors.white, end: Colors.yellowAccent
+                                        // ),
+                                        circleColor:
+                                        const CircleColor(
+                                            start: Colors.redAccent,
+                                            end: Colors.yellowAccent),
+                                        bubblesColor: const BubblesColor(
+                                          dotPrimaryColor: Colors.redAccent,
+                                          dotSecondaryColor: Colors.red,
+                                        ),
+                                        likeBuilder: (isTapped){
+                                          return Icon(
+                                            isTapped ?
+                                            Icons.favorite : Icons.favorite_border,
+                                            color: isTapped ? Colors.red : Colors.white,
+                                            size: Get.height * 0.015,
+                                          );
+                                        },
+                                      ),
                                     ),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ],
-                        )
+                                  )
+                                ],
+                              ),
+                            ],
+                          )
 
-                      // Column(
-                      //   children:[
-                      //     Row(
-                      //     crossAxisAlignment: CrossAxisAlignment.start,
-                      //     children: [
-                      //       SizedBox(width: _width * 0.02,),
-                      //       TextWidget(
-                      //         textTitle: 'Learning Lessons',
-                      //         color: ColorUtils.white,
-                      //         fontFamily: FontUtils.montserratSemiBold,
-                      //         fontSize: 1.5.t,
-                      //       ),
-                      //     ],
-                      //   ),
-                      //     SizedBox(height: _height * 0.018,),
-                      //     Row(
-                      //       //crossAxisAlignment: CrossAxisAlignment.end,
-                      //       mainAxisAlignment: MainAxisAlignment.end,
-                      //       children: [
-                      //         CircleAvatar(
-                      //           backgroundColor: Colors.white,
-                      //           radius: _height * 0.0275,
-                      //           // backgroundImage: AssetImage(
-                      //           //     ImageUtils.homeIcon1,
-                      //           // ),
-                      //           child: Image.asset(ImageUtils.homeIcon2, height: _height * 0.035,),
-                      //         ),
-                      //         SizedBox(width: _width * 0.020,),
-                      //       ],
-                      //     ),
-                      //
-                      // ]),
+                        // Column(
+                        //   children:[
+                        //     Row(
+                        //     crossAxisAlignment: CrossAxisAlignment.start,
+                        //     children: [
+                        //       SizedBox(width: _width * 0.02,),
+                        //       TextWidget(
+                        //         textTitle: 'Learning Lessons',
+                        //         color: ColorUtils.white,
+                        //         fontFamily: FontUtils.montserratSemiBold,
+                        //         fontSize: 1.5.t,
+                        //       ),
+                        //     ],
+                        //   ),
+                        //     SizedBox(height: _height * 0.018,),
+                        //     Row(
+                        //       //crossAxisAlignment: CrossAxisAlignment.end,
+                        //       mainAxisAlignment: MainAxisAlignment.end,
+                        //       children: [
+                        //         CircleAvatar(
+                        //           backgroundColor: Colors.white,
+                        //           radius: _height * 0.0275,
+                        //           // backgroundImage: AssetImage(
+                        //           //     ImageUtils.homeIcon1,
+                        //           // ),
+                        //           child: Image.asset(ImageUtils.homeIcon2, height: _height * 0.035,),
+                        //         ),
+                        //         SizedBox(width: _width * 0.020,),
+                        //       ],
+                        //     ),
+                        //
+                        // ]),
 
-                    ),
-                  );
-                },
+                      ),
+                    );
+                  },
+                ),
               ),
             ),
           ),

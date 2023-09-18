@@ -1,58 +1,58 @@
 import 'package:flutter/material.dart';
 
+
+/// First API Running
 // class OpenseaModel {
+//   bool? result;
+//   String? message;
+//   List<Assets>? homeData;
+//   // List<Assets2>? homeData2;
+//   // List<Assets3>? homeData3;
+//
 //   OpenseaModel({
 //     this.result,
 //     this.message,
-//     this.assets,
+//     this.homeData
 //   });
 //
-//   bool? result;
-//   String? message;
-//   List<Assets>? assets;
+//   factory OpenseaModel.fromJson(Map<String, dynamic> json) {
+//     // var productDataJson = json['data']['flash_deals'] as List<dynamic>;
+//     var productDataJson = json['data']['daily_deals']as List<dynamic>;
+//     List<Assets> productData = productDataJson.map((dealJson) => Assets.fromJson(dealJson)).toList();
 //
-//   OpenseaModel.fromJson(Map<String, dynamic> json) {
-//     assets = List.from(json['assets']).map((e) => Assets.fromJson(e)).toList();
-//   }
-//
-//   Map<String, dynamic> toJson() {
-//     final _data = <String, dynamic>{};
-//     _data['assets'] = assets!.map((e) => e.toJson()).toList();
-//     return _data;
+//     return OpenseaModel(
+//       result: json['result'],
+//       message: json['message'],
+//       homeData: productData,
+//     );
 //   }
 // }
 //
 // class Assets {
-//   Assets({
-//    this.id,
-//     this.name,
-//     this.tags
-//   });
-//
 //   int? id;
 //   String? name;
 //   String? tags;
 //
-//   Assets.fromJson(Map<String, dynamic> json) {
-//     id = json['id'];
-//     name = json['name'];
-//     tags = json['tags'];
+//   Assets({
+//     this.id,
+//     this.name,
+//     this.tags,
+//   });
 //
-//   }
-//
-//   Map<String, dynamic> toJson() {
-//     final _data = <String, dynamic>{};
-//     _data['id'] = id;
-//     _data['name'] = name;
-//     _data['tags'] = tags;
-//     return _data;
+//   factory Assets.fromJson(Map<String, dynamic> json) {
+//     return Assets(
+//         id: json['id'],
+//         name: json['name'],
+//         tags: json['tags']
+//     );
 //   }
 // }
+
 
 class OpenseaModel {
   bool? result;
   String? message;
-  List<Assets>? homeData;
+  ApiData? homeData;
 
   OpenseaModel({
     this.result,
@@ -61,34 +61,144 @@ class OpenseaModel {
   });
 
   factory OpenseaModel.fromJson(Map<String, dynamic> json) {
-    // var productDataJson = json['data']['flash_deals'] as List<dynamic>;
-    var productDataJson = json['data']['daily_deals']as List<dynamic>;
-    List<Assets> productData = productDataJson.map((dealJson) => Assets.fromJson(dealJson)).toList();
+    // var productDataJson = json['data'] as List<dynamic>;
+    // List<ApiData> productData = productDataJson.map((dealJson) => ApiData.fromJson(dealJson)).toList();
 
     return OpenseaModel(
-      result: json['result'],
-      message: json['message'],
-      homeData: productData,
+      result: json['result'] ?? false,
+      message: json['message'] ?? "",
+      homeData:  ApiData.fromJson(json['data'] ?? {}),
+      //homeData:  productDataJson.map((dealJson) => ApiData.fromJson(dealJson)).toList();
+      //homeData: productData,
     );
   }
 }
 
-class Assets {
-  int? id;
-  String? name;
-  String? tags;
+class ApiData{
+   List<FlashDeals>? flashDeals;
+   List<DailyDeals>? dailyDeals;
+   List<NewArrivals>? newArrivals;
+   List<TopSellers>? topSellers;
+   List<TopBrands>? topBrands;
 
-  Assets({
+  ApiData({
+    this.flashDeals,
+    this.dailyDeals,
+    this.newArrivals,
+    this.topSellers,
+    this.topBrands
+});
+
+   factory ApiData.fromJson(Map<String, dynamic> json) {
+     return ApiData(
+       flashDeals: (json['flash_deals'] as List<dynamic> ?? []).map((item) => FlashDeals.fromJson(item)).toList(),
+       dailyDeals: (json['daily_deals'] as List<dynamic> ?? []).map((item) => DailyDeals.fromJson(item)).toList(),
+       newArrivals: (json['new_arrivals'] as List<dynamic> ?? []).map((item) => NewArrivals.fromJson(item)).toList(),
+       topSellers: (json['top_sellers'] as List<dynamic> ?? []).map((item) => TopSellers.fromJson(item)).toList(),
+       topBrands: (json['top_brands'] as List<dynamic> ?? []).map((item) => TopBrands.fromJson(item)).toList(),
+
+     );
+   }
+
+}
+
+
+class FlashDeals {
+  int? id;
+  // String? name;
+  // String? tags;
+
+  FlashDeals({
     this.id,
-    this.name,
-    this.tags,
+    // this.name,
+    // this.tags,
   });
 
-  factory Assets.fromJson(Map<String, dynamic> json) {
-    return Assets(
+  factory FlashDeals.fromJson(Map<String, dynamic> json) {
+    return FlashDeals(
+        id: json['id'],
+        // name: json['name'],
+        // tags: json['tags']
+    );
+  }
+}
+
+class DailyDeals {
+  int? id;
+  String? name;
+  // String? tags;
+
+  DailyDeals({
+    this.id,
+    this.name,
+    // this.tags,
+  });
+
+  factory DailyDeals.fromJson(Map<String, dynamic> json) {
+    return DailyDeals(
         id: json['id'],
         name: json['name'],
-        tags: json['tags']
+        // tags: json['tags']
+    );
+  }
+}
+
+class NewArrivals {
+  int? id;
+  String? name;
+  // String? tags;
+
+  NewArrivals({
+    this.id,
+    this.name,
+    // this.tags,
+  });
+
+  factory NewArrivals.fromJson(Map<String, dynamic> json) {
+    return NewArrivals(
+        id: json['id'],
+        name: json['name'],
+        // tags: json['tags']
+    );
+  }
+}
+
+class TopSellers {
+  int? id;
+  String? name;
+  // String? tags;
+
+  TopSellers({
+    this.id,
+    this.name,
+    // this.tags,
+  });
+
+  factory TopSellers.fromJson(Map<String, dynamic> json) {
+    return TopSellers(
+      id: json['id'],
+      name: json['name'],
+      // tags: json['tags']
+    );
+  }
+}
+
+class TopBrands {
+  int? id;
+  String? name;
+  // String? tags;
+
+  TopBrands({
+    this.id,
+    this.name,
+    // this.tags,
+  });
+
+  factory TopBrands.fromJson(Map<String, dynamic> json) {
+    return TopBrands(
+      id: json['id'],
+      name: json['name'],
+      // tags: json['tags']
     );
   }
 }

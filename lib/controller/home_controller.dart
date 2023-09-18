@@ -287,7 +287,8 @@ class HomeController extends GetxController
     try {
       isLoading1(true);
       http.Response response = await http.get(Uri.tryParse(
-          'https://moyenxpress.com/api/appV1/home_page?limit=4 &category_key= daily_deals')!);
+          // 'https://moyenxpress.com/api/appV1/home_page?limit=4 &category_key= daily_deals')!);
+          'https://moyenxpress.com/api/appV1/home_page?limit=4')!);
       if (response.statusCode == 200) {
         ///data successfully
         var result = jsonDecode(response.body);
@@ -302,6 +303,28 @@ class HomeController extends GetxController
       isLoading1(false);
     }
   }
+
+  // fetchAllDataDailyDeals() async {
+  //   try {
+  //     isLoading1(true);
+  //     http.Response response = await http.get(Uri.tryParse(
+  //       // 'https://moyenxpress.com/api/appV1/home_page?limit=4 &category_key= daily_deals')!);
+  //         'https://moyenxpress.com/api/appV1/home_page?category_key= daily_deals')!);
+  //     if (response.statusCode == 200) {
+  //       ///data successfully
+  //       var result = jsonDecode(response.body);
+  //
+  //       openseaModel = OpenseaModel.fromJson(result);
+  //     } else {
+  //       print('error fetching data');
+  //     }
+  //   } catch (e) {
+  //     print('Error while getting data is $e');
+  //   } finally {
+  //     isLoading1(false);
+  //
+  //   }
+  // }
 
   // List<DataModel> dataList = [];
   // var gettingEvents = GetMyEvents();

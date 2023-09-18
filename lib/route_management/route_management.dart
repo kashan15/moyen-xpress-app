@@ -251,7 +251,7 @@ class RouteManagement {
       ),
       GetPage(
         name: kShowMoreScreen2,
-        page: () => ShowMoreScreen2(image1: ''),
+        page: () => ShowMoreScreen2(),
         binding: ControllerBinding(),
       ),
       GetPage(
@@ -289,10 +289,11 @@ class RouteManagement {
         page: () => const BottomNavBar(),
         binding: ControllerBinding(),
       ),
-      GetPage(
-        name: kOpenSea,
-        page: () =>  OpenSea(),
-        binding: ControllerBinding(),
-      ),
+
+      // GetPage(
+      //   name: kOpenSea,
+      //   page: () =>  OpenSea(),
+      //   binding: ControllerBinding(),
+      // ),
 ];
 }}

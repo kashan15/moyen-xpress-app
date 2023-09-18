@@ -649,6 +649,11 @@ class HomeScreen extends GetView<HomeController> {
                       //controller.productsDataList.value.isNotEmpty ?
 
                        controller.isLoading1.value ?
+                       const Center(
+                         child: CircularProgressIndicator(
+                           color: homeBoxColor,
+                         ),
+                       ) :
                             GridView.builder(
                           shrinkWrap: true,
                           physics: const NeverScrollableScrollPhysics(),
@@ -656,9 +661,9 @@ class HomeScreen extends GetView<HomeController> {
                               horizontal: _width * 0.06,
                               vertical: _height * 0.02
                           ),
-                          // itemCount: controller.myDataList.length,
-                            itemCount: controller.openseaModel?.homeData?.length ?? 0,
-                         // itemCount: 4, // Number of containers
+                         // itemCount: controller.myDataList.length,
+                            //itemCount: controller.openseaModel?.homeData?.flashDeals?.length ?? 0,
+                         itemCount: 4, // Number of containers
                           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                             // crossAxisCount: columnsCount,
                               crossAxisCount: 2,
@@ -753,21 +758,18 @@ class HomeScreen extends GetView<HomeController> {
                                       SizedBox(height: _height * 0.01,),
                                       TextWidget1(
                                         //textTitle: 'Microwave Oven',
-                                        // textTitle: controller.itemsList[index].name,
-                                        // textTitle: controllerAL.productsDataList[index].name,
-                                        // textTitle: data.name,
-                                        // textTitle: controller.myDataList[index].name,
-                                        textTitle: controller.openseaModel?.homeData![index].name ??
-                                            'no name',
+                                        textTitle: controller.itemsList[index].name,
+                                        // textTitle: controller.openseaModel?.homeData!.flashDeals?[index].name ??
+                                        //     'no name',
                                         style: CustomTheme.productName,
                                         maxLines: 1,
                                         overFlow: TextOverflow.ellipsis,
                                       ),
                                       SizedBox(height: _height * 0.004,),
                                       TextWidget1(
-                                        // textTitle: '\$75.00',
-                                        textTitle: controller.openseaModel?.homeData![index].id ??
-                                            'no name',
+                                        textTitle: '\$75.00',
+                                        // textTitle: controller.openseaModel?.homeData![index].id ??
+                                        //     'no name',
                                         style: CustomTheme.productPrice,
                                       ),
                                       SizedBox(height: _height * 0.0025,),
@@ -863,23 +865,9 @@ class HomeScreen extends GetView<HomeController> {
                               ),
                             );
                           },
-                        ) :
-                        const Center(
-                          child: CircularProgressIndicator(
-                            color: homeBoxColor,
-                          ),
                         ),
 
 
-                          // const Center(
-                          //   child: Text(
-                          //     "No Data Here",
-                          //     style: TextStyle(
-                          //       color: Colors.black,
-                          //       fontSize: 20
-                          //     ),
-                          //   ),
-                          // ),
 
                       SizedBox(height: _height * 0.015,),
                       Row(
@@ -907,6 +895,12 @@ class HomeScreen extends GetView<HomeController> {
                             ),
                           ]),
 
+                      controller.isLoading1.value ?
+                      const Center(
+                        child: CircularProgressIndicator(
+                          color: homeBoxColor,
+                        ),
+                      ) :
                       GridView.builder(
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
@@ -914,7 +908,8 @@ class HomeScreen extends GetView<HomeController> {
                             horizontal: _width * 0.06,
                             vertical: _height * 0.02
                         ),
-                        itemCount: 4, // Number of containers
+                        // itemCount: 4,
+                        itemCount: controller.openseaModel?.homeData!.dailyDeals?.length ?? 0,
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           // crossAxisCount: columnsCount,
                             crossAxisCount: 2,
@@ -1002,8 +997,12 @@ class HomeScreen extends GetView<HomeController> {
                                     ),
                                     SizedBox(height: _height * 0.01,),
                                     TextWidget1(
-                                      textTitle: controller.dailyDealsList[index].name,
+                                      // textTitle: controller.dailyDealsList[index].name,
+                                      textTitle: controller.openseaModel?.homeData!.dailyDeals?[index].name ??
+                                          'no name',
                                       style: CustomTheme.productName,
+                                      maxLines: 1,
+                                      overFlow: TextOverflow.ellipsis,
                                     ),
                                     SizedBox(height: _height * 0.002,),
                                     TextWidget1(
@@ -1111,6 +1110,7 @@ class HomeScreen extends GetView<HomeController> {
                           );
                         },
                       ),
+
                       SizedBox(height: _height * 0.015,),
                       Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -1214,7 +1214,7 @@ class HomeScreen extends GetView<HomeController> {
                             horizontal: _width * 0.06,
                             vertical: _height * 0.02
                         ),
-                        itemCount: 4, // Number of containers
+                        itemCount: controller.openseaModel?.homeData!.newArrivals?.length ?? 0, // Number of containers
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           // crossAxisCount: columnsCount,
                             crossAxisCount: 2,
@@ -1278,7 +1278,9 @@ class HomeScreen extends GetView<HomeController> {
                                     ),
                                     SizedBox(height: _height * 0.01,),
                                     TextWidget1(
-                                      textTitle: controller.newArrivalsList[index].name,
+                                      // textTitle: controller.newArrivalsList[index].name,
+                                      textTitle: controller.openseaModel?.homeData!.newArrivals?[index].name ??
+                                          'no name',
                                       style: CustomTheme.productName,
                                     ),
                                     SizedBox(height: _height * 0.002,),
@@ -1613,7 +1615,7 @@ class HomeScreen extends GetView<HomeController> {
                             horizontal: _width * 0.06,
                             vertical: _height * 0.02
                         ),
-                        itemCount: 4, // Number of containers
+                        itemCount: controller.openseaModel?.homeData!.topSellers?.length ?? 0, // Number of containers
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           // crossAxisCount: columnsCount,
                             crossAxisCount: 2,
@@ -1676,7 +1678,9 @@ class HomeScreen extends GetView<HomeController> {
                                   ),
                                   SizedBox(height: _height * 0.015,),
                                   TextWidget1(
-                                    textTitle: controller.topSellersList[index].name,
+                                    // textTitle: controller.topSellersList[index].name,
+                                    textTitle: controller.openseaModel?.homeData!.topSellers?[index].name ??
+                                        'no name',
                                     style: CustomTheme.topProductsName,
                                   ),
                                   SizedBox(height: _height * 0.0025,),
@@ -1780,7 +1784,7 @@ class HomeScreen extends GetView<HomeController> {
                             horizontal: _width * 0.06,
                             vertical: _height * 0.02
                         ),
-                        itemCount: 4, // Number of containers
+                        itemCount: controller.openseaModel?.homeData!.topBrands?.length ?? 0, // Number of containers
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           // crossAxisCount: columnsCount,
                             crossAxisCount: 2,
@@ -1843,7 +1847,9 @@ class HomeScreen extends GetView<HomeController> {
                                   ),
                                   SizedBox(height: _height * 0.015,),
                                   TextWidget1(
-                                    textTitle: controller.topBrandsList[index].name,
+                                    // textTitle: controller.topBrandsList[index].name,
+                                    textTitle: controller.openseaModel?.homeData!.topBrands?[index].name ??
+                                        'no name',
                                     style: CustomTheme.topProductsName,
                                   ),
                                   SizedBox(height: _height * 0.0025,),
