@@ -15,6 +15,7 @@ import '../components/custom_dialog.dart';
 import '../components/test_class.dart';
 import '../models/data_model.dart';
 import '../models/open_sea_model.dart';
+import '../models/show_more_sellers_model.dart';
 
 class HomeController extends GetxController
     with GetSingleTickerProviderStateMixin
@@ -252,6 +253,8 @@ class HomeController extends GetxController
   final scrollController = PageController();
 
 
+
+
   getProductDetails() async{
     isLoading.value = true;
      await HomeProductsApi.getHomeProductsResponse(4,'daily_deals').then((value) {
@@ -303,6 +306,8 @@ class HomeController extends GetxController
       isLoading1(false);
     }
   }
+
+
 
   // fetchAllDataDailyDeals() async {
   //   try {

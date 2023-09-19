@@ -59,6 +59,7 @@ dependencies:
   introduction_screen: ^3.0.1
   data_table_2:
   like_button: any
+  cached_network_image:
 
 
 dev_dependencies:

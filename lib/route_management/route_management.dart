@@ -266,7 +266,7 @@ class RouteManagement {
       ),
       GetPage(
         name: kShowMoreScreen5,
-        page: () => ShowMoreScreen5(image1: ''),
+        page: () => ShowMoreScreen5(),
         binding: ControllerBinding(),
       ),
       GetPage(

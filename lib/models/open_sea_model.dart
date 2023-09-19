@@ -127,11 +127,14 @@ class DailyDeals {
   int? id;
   String? name;
   // String? tags;
+  String? thumbnailImg;
 
   DailyDeals({
     this.id,
     this.name,
     // this.tags,
+    this.thumbnailImg
+
   });
 
   factory DailyDeals.fromJson(Map<String, dynamic> json) {
@@ -139,6 +142,7 @@ class DailyDeals {
         id: json['id'],
         name: json['name'],
         // tags: json['tags']
+        thumbnailImg: json['thumbnail_img']
     );
   }
 }

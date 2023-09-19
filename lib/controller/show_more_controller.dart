@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:moyen_xpress_app/models/show_more_products_model.dart';
+import 'package:moyen_xpress_app/models/show_more_sellers_model.dart';
 import 'package:moyen_xpress_app/view/home/home_screen.dart';
 import 'package:moyen_xpress_app/view/home/show_more.dart';
 
@@ -20,6 +22,7 @@ class ShowMoreController extends GetxController
   Future<void> onInit() async {
     super.onInit();
     fetchAllDataDailyDeals();
+    fetchAllDataTopSellers();
 
   }
 
@@ -44,18 +47,43 @@ class ShowMoreController extends GetxController
 
   var isLoading1 = false.obs;
   OpenseaModel? openseaModel;
+  ShowMoreProductsModel? showMoreProductsModel;
+  ShowMoreSellersModel? showMoreSellersModel;
 
   fetchAllDataDailyDeals() async {
     try {
       isLoading1(true);
       http.Response response = await http.get(Uri.tryParse(
         // 'https://moyenxpress.com/api/appV1/home_page?limit=4 &category_key= daily_deals')!);
-          'https://moyenxpress.com/api/appV1/home_page?category_key= daily_deals')!);
+          'https://moyenxpress.com/api/appV1/home_page')!);
       if (response.statusCode == 200) {
         ///data successfully
         var result = jsonDecode(response.body);
 
-        openseaModel = OpenseaModel.fromJson(result);
+        // openseaModel = OpenseaModel.fromJson(result);
+        showMoreProductsModel = ShowMoreProductsModel.fromJson(result);
+      } else {
+        print('error fetching data');
+      }
+    } catch (e) {
+      print('Error while getting data is $e');
+    } finally {
+      isLoading1(false);
+
+    }
+  }
+
+  fetchAllDataTopSellers() async {
+    try {
+      isLoading1(true);
+      http.Response response = await http.get(Uri.tryParse(
+        // 'https://moyenxpress.com/api/appV1/home_page?limit=4 &category_key= daily_deals')!);
+          'https://moyenxpress.com/api/appV1/home_page')!);
+      if (response.statusCode == 200) {
+        ///data successfully
+        var result = jsonDecode(response.body);
+
+        showMoreSellersModel = ShowMoreSellersModel.fromJson(result);
       } else {
         print('error fetching data');
       }

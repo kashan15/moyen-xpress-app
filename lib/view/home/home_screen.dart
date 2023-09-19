@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -936,7 +937,9 @@ class HomeScreen extends GetView<HomeController> {
                               Get.to(
                                   ProductDetails(
                                       check1: 0,
-                                      imageIndex: controller.dailyDealsList[index])
+                                      // imageIndex: controller.dailyDealsList[index]
+                                    // imageIndex: controller.openseaModel?.homeData?.dailyDeals[index] ?? 0,
+                                  )
                               );
                             },
                             child: Container(
@@ -985,15 +988,24 @@ class HomeScreen extends GetView<HomeController> {
                                       width: double.infinity,
                                       margin: EdgeInsets.symmetric(horizontal: _width * 0.018),
                                       alignment: Alignment.center,
-                                      decoration: const BoxDecoration(
-                                          color: gridColor,
-                                          image: DecorationImage(image: AssetImage(
-                                            //controller.dailyDealsList[index].image1
-                                              ImageUtils.dealItem
-                                          ),
-                                            fit: BoxFit.contain,
-                                          )
+                                      // decoration: const BoxDecoration(
+                                      //     color: gridColor,
+                                      //     image: DecorationImage(image: AssetImage(
+                                      //       //controller.dailyDealsList[index].image1
+                                      //         ImageUtils.dealItem
+                                      //     ),
+                                      //       fit: BoxFit.contain,
+                                      //     )
+                                      // ),
+                                      child:  CachedNetworkImage(
+                                        imageUrl: controller.openseaModel?.homeData!.dailyDeals?[index].thumbnailImg ??
+                                            '',
+                                        placeholder: (context, imageUrl) => Image.asset(ImageUtils.placeholderGrey),
+                                        // errorWidget: (context, url, error) => new Image.asset(ImageUtils.error),
+                                        fit: BoxFit.cover,
                                       ),
+
+
                                     ),
                                     SizedBox(height: _height * 0.01,),
                                     TextWidget1(

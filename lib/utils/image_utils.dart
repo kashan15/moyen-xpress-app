@@ -53,6 +53,10 @@ class ImageUtils{
   static const String storeIconBlack = 'assets/icons/storeIcon.png';
   static const String technicianIcon1 = 'assets/icons/technicianIcon.png';
   static const String arrowForwardCircular = 'assets/icons/arrow.png';
+  static const String placeholder = 'assets/icons/placeholder.png';
+  static const String placeholderWhite = 'assets/icons/placeholder2.png';
+  static const String placeholderGrey = 'assets/icons/placeholder3.png';
+  static const String placeholderImage = 'assets/icons/placeholderImage.png';
 
 
   /// Images
